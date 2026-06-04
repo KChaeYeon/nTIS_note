@@ -31,7 +31,11 @@
 
 | 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
 |------|------|------|----------|----------|
+| 2022 | Zhang et al. | *Frontiers in Human Neuroscience* | **작업 기억 향상.** 우측 전두-두정 네트워크 TI 자극 → 2-back 과제 정확도 향상, 세타 oscillation 증가. 건강인 대상. | [DOI](https://doi.org/10.3389/fnhum.2022.918470) · [요약](2022_Zhang_WorkingMemory_Frontiers.md) |
 | 2023 | Violante et al. | *Nature Neuroscience* | **인간 해마 TI 자극 최초 실증.** 비침습적으로 해마 선택 자극, 기억·인지 기능 변조 확인. 인간 뇌 임상 적용 가능성을 연 landmark study. | [DOI](https://doi.org/10.1038/s41593-023-01456-8) · [요약](2023_Violante_Hippocampus_NatureNeuro.md) |
+| 2025 | Yang et al. | *Movement Disorders* | **파킨슨병 GPi 자극.** 우측 GPi 타겟 TI 자극 → UPDRS-III 감소, 서동증·진전 완화. 경증 PD 환자 12명, 단일 세션. | [DOI](https://doi.org/10.1002/mds.29967) · [요약](2025_Yang_GlobusPallidus_MovDisord.md) |
+| 2025 | Lamoš et al. | *Movement Disorders* | **파킨슨병 STN 베타 억제.** TI 자극으로 STN LFP 고베타 파워 감소 — 침습적 DBS와 유사 효과. DBS 이식 환자 sEEG 직접 검증. | [DOI](https://doi.org/10.1002/mds.30134) · [요약](2025_Lamos_STN_MovDisord.md) |
+| 2025 | (저자 확인 중) | *Brain Stimulation* | **뇌전증 해마 IED·HFO 억제.** MTLE 환자 13명, sEEG 기록. TI 자극 후 간질 바이오마커 유의미한 감소 + carry-over effect 확인. | [DOI](https://doi.org/10.1016/j.brs.2025.11.008) · [요약](2025_Epilepsy_Hippocampus_BrainStim.md) |
 | 2026 | Vassiliadis et al. | *Nature Biomedical Engineering* | **인간 심부 뇌 조절 Perspective.** 해마·선조체 등 심부 구조 tTIS 적용 현황 종합. 전산모델→동물→인간 번역 경로 논의. 비침습 심부 뇌자극의 인과관계 연구 도구로서의 가능성 제시. | [DOI](https://doi.org/10.1038/s41551-026-01665-z) · [요약](2026_Vassiliadis_Perspective_NatureBME.md) |
 
 ---
@@ -61,4 +65,4 @@
 
 ---
 
-*Last updated: 2026-06-04*
+*Last updated: 2026-06-04 | 총 11편 (Foundational 1 · Computational 2 · Human 6 · n-phase 1 · Reviews 2)*
