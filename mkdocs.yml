@@ -1,0 +1,67 @@
+site_name: nTIS Research Notebook
+site_url: https://KChaeYeon.github.io/nTIS_note
+repo_url: https://github.com/KChaeYeon/nTIS_note
+repo_name: KChaeYeon/nTIS_note
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - tables
+  - attr_list
+  - md_in_html
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Theory:
+    - Overview: 01_theory/index.md
+    - Basic Principles: 01_theory/01_basic_principles.md
+    - Electric Field Model: 01_theory/02_electric_field.md
+    - n-Phase Extension: 01_theory/03_nphase_extension.md
+  - Papers:
+    - Overview: 02_papers/index.md
+  - Research Gaps:
+    - Gap Analysis: 03_gaps/gap_analysis.md
+  - Proposal:
+    - Research Proposal: 04_proposal/research_proposal.md
+  - Experiments:
+    - Overview: 05_Exp/index.md
+  - Meetings:
+    - Overview: 06_Meeting/index.md
