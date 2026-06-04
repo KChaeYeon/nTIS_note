@@ -925,6 +925,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#key-figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Figures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       Limitations
@@ -966,30 +975,87 @@
 <strong>분류:</strong> Computational Modeling / Biophysics</p>
 <hr />
 <h2 id="research-question">Research Question</h2>
-<p>TI stimulation에서 신경세포가 어떤 메커니즘으로 반응하는가? envelope 주파수·자극 강도·위치에 따라 반응 패턴이 어떻게 달라지는가?</p>
+<p>TI stimulation에서 신경세포가 어떤 메커니즘으로 반응하는가? Envelope 주파수·자극 강도·위치에 따라 반응 패턴이 어떻게 달라지는가?</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>Hodgkin-Huxley 기반 신경세포 모델</li>
-<li>축삭(axon) 모델로 TI 전기장 내 반응 시뮬레이션</li>
-<li>자극 강도, 전극으로부터의 거리(y), envelope 주파수 변화에 따른 반응 분류</li>
+<li>Hodgkin-Huxley 기반 신경세포 모델 (축삭 중심)</li>
+<li>TI 전기장 내에서 축삭 위치(y) 변화에 따른 반응 시뮬레이션</li>
+<li>파라미터 스윕: 자극 강도, 위치(y), envelope 주파수(<span class="arithmatex">\(\Delta f\)</span>)</li>
+<li>반응 분류 알고리즘 적용</li>
 </ul>
 <h2 id="key-results">Key Results</h2>
+<p>신경 반응은 위치에 따라 3가지 클래스로 분류:</p>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>반응 유형</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(y = 0.0\,\text{mm}\)</span> (자극 중심)</td>
+<td><strong>Phasic</strong></td>
+<td>자극 on/off 시 일시적 burst 발생</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y = 1.7\,\text{mm}\)</span></td>
+<td><strong>Tonic</strong></td>
+<td>지속적 규칙적 활동전위 발생</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y = 3.5\,\text{mm}\)</span></td>
+<td><strong>Conduction block</strong></td>
+<td>활동전위 전파 차단</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>신경 반응은 위치에 따라 3가지 클래스로 분류:</li>
-<li><strong>Phasic</strong>: 자극 on/off 시 일시적 반응 (y = 0.0 mm, 자극 중심)</li>
-<li><strong>Tonic</strong>: 지속적 활성화 (y = 1.7 mm)</li>
-<li><strong>Conduction block</strong>: 활동전위 전파 차단 (y = 3.5 mm)</li>
-<li>고주파 carrier는 표면 신경을 활성화하지 않음 (TI의 핵심 원리 확인)</li>
-<li>Envelope 주파수 증가 → 자극 효율 감소 경향</li>
+<li>고주파 carrier는 표면 신경을 활성화하지 않음 (TI 핵심 원리 수치 확인)</li>
+<li>Envelope 주파수(<span class="arithmatex">\(\Delta f\)</span>) 증가 → 자극 효율 감소 경향</li>
+<li>자극 강도 증가 → Conduction block 영역 확장</li>
 </ul>
+<h2 id="key-figures">Key Figures</h2>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fig. 1</strong></td>
+<td>시뮬레이션 설정 개요. 축삭 모델과 TI 전기장 배치. 두 전류쌍의 합성 파형 및 envelope 추출 방법 도식화.</td>
+</tr>
+<tr>
+<td><strong>Fig. 2</strong></td>
+<td>위치별 반응 클래스 지도. y축(거리)–자극 강도 2D 파라미터 공간에서 Phasic·Tonic·Block 영역 색상 구분.</td>
+</tr>
+<tr>
+<td><strong>Fig. 3</strong></td>
+<td>각 반응 클래스의 시간 파형. Phasic(burst), Tonic(연속 스파이크), Block(스파이크 없음) 전압 트레이스.</td>
+</tr>
+<tr>
+<td><strong>Fig. 4</strong></td>
+<td>Envelope 주파수(<span class="arithmatex">\(\Delta f\)</span>) 변화에 따른 반응 변화. <span class="arithmatex">\(\Delta f\)</span> 증가 시 Tonic 영역 감소, 역치 전류 증가.</td>
+</tr>
+<tr>
+<td><strong>Fig. 5</strong></td>
+<td>고주파 carrier 단독 자극 vs. TI 자극 비교. 동일 강도에서 carrier 단독은 반응 없음 — 선택성 기전 확인.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="limitations">Limitations</h2>
 <ul>
 <li>단순화된 축삭 모델 — 실제 3D 뇌 구조 및 세포 다양성 미반영</li>
 <li>단일 신경세포 수준 분석 — 네트워크 수준 효과 미포함</li>
+<li>조직 이방성, 용량성 특성 미포함</li>
 </ul>
 <h2 id="relevance-to-ntis">Relevance to nTIS</h2>
 <blockquote>
-<p>n-phase 확장 시 간섭 패턴이 복잡해지므로, 이 논문의 반응 분류 프레임워크가 nTIS 효과 예측의 기준점이 됨. Tonic vs. Phasic 반응 제어가 nTIS 설계 목표 중 하나가 될 수 있음.</p>
+<p>n-phase 확장 시 간섭 패턴이 복잡해지므로, 이 논문의 반응 분류 프레임워크(Phasic / Tonic / Block)가 nTIS 효과 예측의 기준점이 됨. 특히 <strong>Tonic 반응 영역의 공간적 확장/축소가 초점성 지표</strong>로 활용 가능.</p>
 </blockquote>
 <hr />
 <p><em>Last updated: 2026-06-04</em></p>

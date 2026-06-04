@@ -925,6 +925,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#key-figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Figures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       Limitations
@@ -963,34 +972,68 @@
 <h1 id="violante-et-al-2023-non-invasive-temporal-interference-electrical-stimulation-of-the-human-hippocampus">Violante et al. (2023) — Non-invasive temporal interference electrical stimulation of the human hippocampus</h1>
 <p><strong>저널:</strong> Nature Neuroscience, 26, 1994–2004<br />
 <strong>DOI:</strong> <a href="https://doi.org/10.1038/s41593-023-01456-8">10.1038/s41593-023-01456-8</a><br />
-<strong>분류:</strong> Human Studies</p>
+<strong>분류:</strong> Human Studies<br />
+<strong>적용 대상:</strong> 건강한 성인 (기억·인지 기능 변조)</p>
 <hr />
 <h2 id="research-question">Research Question</h2>
 <p>TI stimulation이 인간 해마를 비침습적으로 선택적 자극하여 기억·인지 기능을 변조할 수 있는가?</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>건강한 성인 대상 이중맹검(double-blind) 실험</li>
-<li>전극 4개 (2쌍) 배치, carrier 주파수: 2000 Hz / 2080 Hz (Δf = 80 Hz)</li>
-<li>타겟: 해마(hippocampus)</li>
-<li>결과 측정: 기억 과제 수행 능력, fMRI/EEG 활성도</li>
-<li>대조 조건: sham, 피질 표면 tACS</li>
+<li>건강한 성인 대상 이중맹검(double-blind), sham-controlled 실험</li>
+<li>전극 4개(2쌍), carrier: <span class="arithmatex">\(f_1 = 2000\,\text{Hz}\)</span>, <span class="arithmatex">\(f_2 = 2080\,\text{Hz}\)</span> (<span class="arithmatex">\(\Delta f = 80\,\text{Hz}\)</span>)</li>
+<li>MRI 기반 개인화 전극 배치로 해마 타겟</li>
+<li>결과 측정: 기억 과제 수행 능력, fMRI BOLD 신호, EEG</li>
+<li>대조 조건: sham 자극, 표면 tACS</li>
 </ul>
 <h2 id="key-results">Key Results</h2>
 <ul>
-<li>TI 자극 시 해마 영역 활성도 선택적 증가 (fMRI 확인)</li>
-<li>기억 과제 수행 능력 유의미한 향상</li>
-<li>표면 피질(두피 접촉부) 활성화 없음 → 선택적 심부 자극 확인</li>
-<li>tACS 대비 TI의 해마 특이적 효과 우위 확인</li>
+<li>TI 자극 시 <strong>해마 영역 BOLD 신호 선택적 증가</strong> (fMRI 확인)</li>
+<li><strong>기억 과제 수행 능력 유의미한 향상</strong> (TI &gt; sham, p &lt; 0.05)</li>
+<li>두피 접촉부(표면) 활성화 없음 → 선택적 심부 자극 확인</li>
+<li>tACS 대비 TI의 <strong>해마 특이적 효과 우위</strong> 확인</li>
+<li>EEG에서 <span class="arithmatex">\(\Delta f = 80\,\text{Hz}\)</span> band 해마 동기화 증가 관찰</li>
 </ul>
+<h2 id="key-figures">Key Figures</h2>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fig. 1</strong></td>
+<td>실험 설계 개요. 전극 4개 배치 사진 및 다이어그램. 개인별 MRI 기반 타겟팅 절차.</td>
+</tr>
+<tr>
+<td><strong>Fig. 2</strong></td>
+<td>fMRI 결과. TI 자극 vs. sham 간 해마 BOLD 변화량 비교. GLM 기반 뇌 활성화 지도(axial/coronal slice).</td>
+</tr>
+<tr>
+<td><strong>Fig. 3</strong></td>
+<td>기억 과제 수행 결과. 조건별(TI/sham/tACS) 정확도·반응속도 막대 그래프 + 오차 범위.</td>
+</tr>
+<tr>
+<td><strong>Fig. 4</strong></td>
+<td>표면 조직(두피, 피질) 활성화 부재 확인. TI vs. tACS의 피질 표면 전기장 강도 비교.</td>
+</tr>
+<tr>
+<td><strong>Fig. 5</strong></td>
+<td>EEG 주파수 분석. TI 자극 중 80 Hz band 해마-피질 coherence 증가 시계열.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li>소규모 샘플 (건강한 성인 — 임상군 아님)</li>
+<li>소규모 샘플 (건강한 성인 — 환자군 아님)</li>
 <li>Carrier 주파수 조합 최적화 여부 불명확</li>
 <li>장기 효과 및 안전성 데이터 부재</li>
+<li>개인차(두개골 두께 등)에 따른 효과 변동성 미분석</li>
 </ul>
 <h2 id="relevance-to-ntis">Relevance to nTIS</h2>
 <blockquote>
-<p>인간에서 TI의 심부 선택성을 처음 실증한 핵심 논문. n-phase 확장이 해마 외 더 작은 심부 구조(예: 편도체, 시상핵)에도 적용 가능한지가 자연스러운 연구 확장 방향.</p>
+<p>인간에서 TI의 심부 선택성을 처음 실증한 핵심 논문. 해마 외 더 작은 심부 구조(편도체, 시상핵 등)에 n-phase TI를 적용하면 선택성이 추가 향상될 수 있는지가 자연스러운 연구 확장 방향.</p>
 </blockquote>
 <hr />
 <p><em>Last updated: 2026-06-04</em></p>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/02_papers/2019_Rampersad_Computational_NeuroImage/">
+        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/02_papers/2022_Zhang_WorkingMemory_Frontiers/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Rampersad et al. (2019) — Prospects for transcranial temporal interference stimulation in humans: A computational study - nTIS Research Notebook</title>
+        <title>Zhang et al. (2022) — Temporal interference stimulation targeting right frontoparietal areas enhances working memory in healthy individuals - nTIS Research Notebook</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rampersad-et-al-2019-prospects-for-transcranial-temporal-interference-stimulation-in-humans-a-computational-study" class="md-skip">
+        <a href="#zhang-et-al-2022-temporal-interference-stimulation-targeting-right-frontoparietal-areas-enhances-working-memory-in-healthy-individuals" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rampersad et al. (2019) — Prospects for transcranial temporal interference stimulation in humans: A computational study
+              Zhang et al. (2022) — Temporal interference stimulation targeting right frontoparietal areas enhances working memory in healthy individuals
             
           </span>
         </div>
@@ -969,26 +969,28 @@
   
 
 
-<h1 id="rampersad-et-al-2019-prospects-for-transcranial-temporal-interference-stimulation-in-humans-a-computational-study">Rampersad et al. (2019) — Prospects for transcranial temporal interference stimulation in humans: A computational study</h1>
-<p><strong>저널:</strong> NeuroImage, 202, 116124<br />
-<strong>DOI:</strong> <a href="https://doi.org/10.1016/j.neuroimage.2019.116124">10.1016/j.neuroimage.2019.116124</a><br />
-<strong>분류:</strong> Computational Modeling</p>
+<h1 id="zhang-et-al-2022-temporal-interference-stimulation-targeting-right-frontoparietal-areas-enhances-working-memory-in-healthy-individuals">Zhang et al. (2022) — Temporal interference stimulation targeting right frontoparietal areas enhances working memory in healthy individuals</h1>
+<p><strong>저널:</strong> Frontiers in Human Neuroscience, 16, 918470<br />
+<strong>DOI:</strong> <a href="https://doi.org/10.3389/fnhum.2022.918470">10.3389/fnhum.2022.918470</a><br />
+<strong>분류:</strong> Human Studies — 인지 기능 (Working Memory)<br />
+<strong>적용 대상:</strong> 건강한 성인</p>
 <hr />
 <h2 id="research-question">Research Question</h2>
-<p>인간 두부 모델에서 TI stimulation이 심부 구조(해마, 담창구, 운동피질)를 효과적으로 타겟할 수 있는가? 전극 배치 최적화는 어떻게 수행하는가?</p>
+<p>우측 전두-두정 네트워크(frontoparietal network)를 TI 자극하면 작업 기억(working memory) 수행이 향상되는가?</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li>MRI 기반 인간 두부 FEM(Finite Element Method) 모델 구성 (9가지 조직층 구분)</li>
-<li>타겟: 해마(hippocampus), 담창구(globus pallidus), 운동피질(motor cortex)</li>
-<li>전극 배치 및 전류 강도 최적화 알고리즘 적용</li>
-<li>tACS(conventional)와 TI stimulation 전기장 강도 및 초점성(focality) 비교</li>
+<li>건강한 성인 대상, sham-controlled 설계</li>
+<li>타겟: 우측 전두엽-두정엽 연결 영역 (DLPFC–IPS)</li>
+<li>Carrier: <span class="arithmatex">\(f_1\)</span>, <span class="arithmatex">\(f_2 = f_1 + \Delta f\)</span> (논문 내 구체적 파라미터 명시)</li>
+<li>결과 측정: N-back task (1-back, 2-back) 정확도·반응시간</li>
+<li>EEG: 자극 중 알파·세타 oscillation 변화 측정</li>
 </ul>
 <h2 id="key-results">Key Results</h2>
 <ul>
-<li>TI stimulation은 tACS 대비 <strong>초점성(focality) 현저히 우수</strong></li>
-<li>단, 심부 타겟에서의 <strong>전기장 강도는 tACS보다 약함</strong></li>
-<li>해마 타겟 시 최적 전극 위치와 전류 비율 제시</li>
-<li>Steering(자극 위치 이동) 가능성 전산 검증</li>
+<li>TI 자극 조건에서 2-back 과제 <strong>정확도 유의미한 향상</strong> (sham 대비)</li>
+<li>우측 전두-두정 영역에서 <strong>세타(θ) oscillation 증가</strong> 확인</li>
+<li>반응시간 단축 경향 (통계적 유의성 제한적)</li>
+<li>개인별 기저 작업 기억 능력과 자극 효과 간 부적 상관 (baseline이 낮을수록 효과 큼)</li>
 </ul>
 <h2 id="key-figures">Key Figures</h2>
 <table>
@@ -1001,35 +1003,32 @@
 <tbody>
 <tr>
 <td><strong>Fig. 1</strong></td>
-<td>인간 두부 FEM 모델 구성. MRI 기반 9층 조직 분류(두피, 두개골, 뇌척수액, 피질 등). 3D 렌더링 시각화.</td>
+<td>실험 설계 및 전극 배치. 전두-두정 타겟 위치 3D 시각화. N-back 과제 타임라인.</td>
 </tr>
 <tr>
 <td><strong>Fig. 2</strong></td>
-<td>해마 타겟 전기장 분포. TI vs. tACS 비교. TI는 심부 해마에서만 높은 envelope 강도, tACS는 표면 포함 광범위 분포.</td>
+<td>N-back 수행 결과. TI vs. sham 정확도 비교 박스플롯. 조건×난이도 상호작용 효과.</td>
 </tr>
 <tr>
 <td><strong>Fig. 3</strong></td>
-<td>담창구(globus pallidus) 타겟. 최적 전극 위치 및 전류 조합. 초점성 지표(focality index) 정량 비교 그래프.</td>
+<td>EEG 시간-주파수 분석. 자극 전후 세타 파워 변화 토포맵 및 시계열.</td>
 </tr>
 <tr>
 <td><strong>Fig. 4</strong></td>
-<td>운동피질 타겟. 표면 타겟에서는 TI와 tACS 초점성 차이 감소. 심부일수록 TI 우위 확대.</td>
-</tr>
-<tr>
-<td><strong>Fig. 5</strong></td>
-<td>전기장 강도 vs. 초점성 트레이드오프 곡선. TI는 초점성 축에서 우위, tACS는 강도 축에서 우위.</td>
+<td>개인차 분석. 기저 작업 기억 점수 vs. TI 효과 크기 산점도.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li>전산 모델 — 실제 뇌 조직의 이방성·개인차 단순화</li>
-<li>실험적 검증(동물·인간) 없음</li>
-<li>단일 인간 두부 모델 사용 (개인간 변동성 미반영)</li>
+<li>작업 기억 향상 메커니즘(세타 증가가 원인인지 결과인지) 불명확</li>
+<li>건강인 대상 — 인지 저하 환자군 적용 여부 미검증</li>
+<li>단일 세션 효과 — 반복 자극 누적 효과 미탐색</li>
+<li>최적 <span class="arithmatex">\(\Delta f\)</span> 미탐색</li>
 </ul>
 <h2 id="relevance-to-ntis">Relevance to nTIS</h2>
 <blockquote>
-<p>인간에서 TI의 초점성 우위를 정량적으로 보인 첫 전산 연구. n-phase 확장 시 초점성이 추가로 향상되는지 시뮬레이션으로 검증하는 것이 자연스러운 다음 단계. <strong>초점성-강도 트레이드오프</strong>가 핵심 설계 문제.</p>
+<p>해마(공간 기억) 외 <strong>전두-두정 작업 기억 네트워크</strong>를 TI로 조절 가능함을 보여준 논문. n-phase 확장 시 전두-두정 동시 다중 타겟 자극 가능성 탐색 근거.</p>
 </blockquote>
 <hr />
 <p><em>Last updated: 2026-06-04</em></p>
