@@ -48,7 +48,25 @@
 
 ---
 
-### Category 5: Reviews — 종설
+### Category 5: Animal Studies — 설치류 (Rodent)
+
+| 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
+|------|------|------|------|----------|----------|
+| 2022 | Sieu et al. | *Frontiers in Neuroscience* | 뇌전증 생쥐 | **해마 IED·FR 억제.** 카이닌산 간질 모델. TI(130 Hz) → FR·IED 감소, 생리적 리플 보존. 인간 시신 스케일링 검증. | [DOI](https://doi.org/10.3389/fnins.2022.945221) · [요약](2022_Sieu_Epilepsy_Mouse_FrontiersNeuro.md) |
+| 2025 | (확인 중) | *Scientific Reports* | 쥐 (운동피질) | **Envelope 주파수별 피질 흥분성 비교.** α/β/γ TI 자극 → β(20 Hz) 최대 MEP 증가. c-Fos·GAD-65 면역조직화학으로 타겟 특이성 확인. | [DOI](https://doi.org/10.1038/s41598-025-01008-z) · [요약](2025_Rat_MotorCortex_SciRep.md) |
+
+---
+
+### Category 6: Animal Studies — 비인간 영장류 (NHP)
+
+| 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
+|------|------|------|------|----------|----------|
+| 2024 | Liu et al. | *NeuroImage* | 히말라야원숭이 (마취) | **심부 전기장 직접 계측.** SEEG로 TI 전기장 실측 → FEM 시뮬레이션 검증(r>0.85). 안전 전류 내 신경 조절 역치 도달 확인. | [DOI](https://doi.org/10.1016/j.neuroimage.2024.120581) · [요약](2024_Liu_NHP_NeuroImage.md) |
+| 2024 | Vieira et al. | *Nature Communications* | 히말라야원숭이 (각성) | **스파이크 타이밍 변조.** 각성 원숭이 피질 단일 신경세포 기록. Firing rate 아닌 spike timing이 Δf에 phase-lock → TI 작용 메커니즘 규명. | [DOI](https://doi.org/10.1038/s41467-024-48962-2) · [요약](2024_Vieira_NHP_NatComm.md) |
+
+---
+
+### Category 7: Reviews — 종설
 
 | 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
 |------|------|------|----------|----------|
@@ -65,4 +83,4 @@
 
 ---
 
-*Last updated: 2026-06-04 | 총 11편 (Foundational 1 · Computational 2 · Human 6 · n-phase 1 · Reviews 2)*
+*Last updated: 2026-06-04 | 총 15편 (Foundational 1 · Computational 2 · Human 6 · n-phase 1 · Rodent 2 · NHP 2 · Reviews 2)*
