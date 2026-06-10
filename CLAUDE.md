@@ -8,10 +8,11 @@
 
 ## Research Stage
 
-A → B → C 순서로 진행:
-- **A. Theory**: 원리, 수식, 전기장 모델 정리 (현재)
-- **B. Research Gaps**: 선행연구 체계적 정리 → 미해결 문제 목록
-- **C. Proposal**: 구체적 연구 질문, 방법론, 기여점
+A → B → C → D 순서로 진행:
+- **A. Theory**: 원리, 수식, 전기장 모델 정리 ✅
+- **B. Research Gaps**: 선행연구 체계적 정리 → 미해결 문제 목록 ✅
+- **C. Proposal**: 연구 주제 선정 → 연구 질문·방법론 확정 (진행 중)
+- **D. Execution**: 실험 설계·수행·논문 작성
 
 ## Site & Repo
 
@@ -57,9 +58,16 @@ docs/
 
 ## Registered Skills
 
-| Trigger | Use when |
-|---------|----------|
-| "논문 요약해줘" | 02_papers/에 새 논문 요약 파일 추가 |
-| "갭 추가해줘" | 03_gaps/gap_analysis.md에 새 갭 항목 추가 |
-| "회의록 작성" | 06_Meeting/에 YYYYMMDD_*.md 파일 생성 |
-| "실험 기록" | 05_Exp/에 YYYYMMDD_*.md 파일 생성 |
+Skills directory: `/mnt/d/00_Project/.claude/skills/academic-research-skills/`
+
+| Trigger | Skill | Use when |
+|---------|-------|----------|
+| "연구 주제 잡기", "주제 선정", "어떤 연구를 해야" | `research-topic-selection` | 지도교수 페르소나 — FINES 다기준 평가 → 04_proposal/ 문서화 |
+| "research X", "literature review", "systematic review" | `deep-research` | 문헌 조사, PRISMA 리뷰, 갭 팩트체크 |
+| "write a paper", "논문 작성" | `academic-paper` | 초안 작성, LaTeX 포맷 |
+| "논문 리뷰해줘" | `academic-paper-reviewer` | 제출 전 peer review 시뮬레이션 |
+| "처음부터 논문 써줘", "full pipeline" | `academic-pipeline` | 10단계 end-to-end 파이프라인 |
+| "논문 요약해줘" | *(inline)* | 02_papers/에 새 논문 요약 파일 추가 |
+| "갭 추가해줘" | *(inline)* | 03_gaps/gap_analysis.md에 새 갭 항목 추가 |
+| "회의록 작성" | *(inline)* | 06_Meeting/에 YYYYMMDD_*.md 파일 생성 |
+| "실험 기록" | *(inline)* | 05_Exp/에 YYYYMMDD_*.md 파일 생성 |
