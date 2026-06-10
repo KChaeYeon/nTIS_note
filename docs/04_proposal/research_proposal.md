@@ -1,17 +1,104 @@
 # Research Proposal
 
-## Research Question
-
-*(Gap analysis 완료 후 작성)*
-
-## Background & Motivation
-
-## Hypothesis
-
-## Methods
-
-## Expected Contribution
+> **상태:** 문헌 조사 기반 주제 압축 완료 (2026-06-10) — 경부 미주신경 nTIS 최우선 확정 전 팀 확인 필요
 
 ---
 
-*Last updated: 2026-06-04*
+## 연구 방향 후보
+
+2026-06-09 세션에서 도출된 주요 방향. 우선순위 결정 후 아래 중 1–2개를 구체화.
+
+---
+
+### 후보 1. 폐쇄형 TIS × 수면 서파 위상 잠금 ⭐⭐⭐
+
+**연구 질문 초안:**
+> 실시간 EEG 기반 수면 서파(SO) 상승 위상(up-state)에 동기화된 시상-해마 TIS가
+> 개방형(open-loop) TIS 및 샴 자극 대비 수면 중 기억 고착을 향상시키는가?
+
+**배경:**
+- SO up-state에서 청각 자극 시 기억 향상 확인 (Helfrich 2018, *Nat Commun*)
+- 시상 TIS가 방추파 향상 확인 (Spindle TIS 2026, medRxiv)
+- SO 위상 잠금 TIS: **전무**
+
+**방법 초안:**
+- 피험자: 건강 성인 → 이후 MCI 환자 확장
+- EEG: 실시간 서파 위상 추정 (Hilbert transform 또는 FIR 필터 기반)
+- TIS: up-state 진입 시 시상(Δf=12 Hz) + 해마(Δf=5 Hz) 자극 트리거
+- 결과: 방추파 밀도, 서파-방추파 coupling, 단어 쌍 기억 검사
+
+**관련 갭:** G-S4, G-C3, G-S5  
+**연구자 강점:** EEG 실시간 신호처리, 수면 진동 분석, 실험 설계
+
+---
+
+### 후보 2. TIS 반응 예측 모델 (EEG + MRI + ML) ⭐⭐⭐
+
+**연구 질문 초안:**
+> 베이스라인 EEG 스펙트럼, 두개골 두께, 개인화 전기장 강도를 특징으로
+> ML 회귀 모델이 TIS 자극 효과 크기를 유의미하게 예측할 수 있는가?
+
+**배경:**
+- TIS non-responder 비율 높음 (30–50% 추정), 예측 인자 전무 (G-T5)
+- 개인 간 해부 변동: 표준 몽타주 사용 시 초점성 최대 4.4 cm 오차 (Lanzone 2025)
+- ML 기반 TIS 최적화: RL focality 2025 (초점성만), 반응 예측은 없음
+
+**방법 초안:**
+- 특징: 베이스라인 EEG(알파/세타 파워, IAF), T1-MRI(두개골 두께), FEM 기반 전기장 강도
+- 레이블: 자극 후 행동/EEG 변화량 (effect size)
+- 모델: Random Forest, XGBoost, 또는 간단한 MLP
+- 검증: LOOCV 또는 k-fold
+
+**관련 갭:** G-T5, G-T6  
+**연구자 강점:** MRI 분석, ML/DL (PyTorch, scikit-learn), EEG 특징 추출
+
+---
+
+### 후보 3. 경부 TIS vs. taVNS 자율신경 비교 ⭐⭐
+
+**연구 질문 초안:**
+> 경부 미주신경을 표적으로 한 TIS가 귀 분지 자극(taVNS)과 비교하여
+> HRV 및 혈중 염증 마커에서 동등하거나 우월한 자율신경 조절 효과를 보이는가?
+
+**배경:**
+- taVNS: 귀 이갑개 표면 자극 → 미주신경 귀 분지만 활성화
+- TIS: 경부 미주신경 본체를 비침습으로 직접 표적화 가능
+- 경부 TIS 자율신경 연구: **전무** (G-A1)
+- 연구자 강점: ECG/HRV 신호처리
+
+**방법 초안:**
+- 교차 설계: 경부 TIS vs. taVNS vs. 샴 (washout 포함)
+- 결과: HRV(LF/HF, RMSSD), 혈중 TNF·IL-6 (선택적)
+- EEG/ECG 동시 기록으로 중추·말초 동시 모니터링
+
+**관련 갭:** G-A1  
+**연구자 강점:** ECG/HRV 분석, 생체신호 처리
+
+---
+
+### 후보 4. STN + GPi 동시 nTIS for 파킨슨병 ⭐⭐
+
+**연구 질문 초안:**
+> n-phase TIS로 STN(Δf=130 Hz)과 GPi(Δf=20 Hz)를 동시 표적화하면
+> 단독 STN 또는 GPi TIS 대비 PD 운동 증상 개선이 추가되는가?
+
+**배경:**
+- 침습 STN+GPi 동시 DBS: 단독 표적보다 보행·자세 추가 개선 (Agrawal 2025)
+- TIS: STN(Lamoš 2025), GPi(Yang 2025) 각각 단독 검증됨
+- 두 표적 동시 nTIS: **전무** (G-P1, G-N1)
+
+**관련 갭:** G-P1, G-P3, G-N1  
+**선행 필요:** nTIS 전기장 모델링 (STN+GPi 동시 envelope 분리 가능성 계산)
+
+---
+
+## 최종 선택 기준 (다음 세션에서 결정)
+
+- [ ] 실험실 보유 장비 (TIS 자극기 기종, EEG 채널 수, fMRI 접근성)
+- [ ] 지도교수 연구 관심사와 매핑 여부
+- [ ] 피험자 모집 가능성 (건강인 vs. 임상군)
+- [ ] 목표 저널 수준 (단편 연구 vs. 학위논문 규모)
+
+---
+
+*Last updated: 2026-06-09*
