@@ -56,6 +56,16 @@ docs/
 - `index.md` Progress Tracker는 단계 변경 시 업데이트
 - git push 전 확인 요청
 
+## MCP 서버
+
+| 서버 | 상태 | 용도 |
+|------|------|------|
+| `notebooklm` | ✅ 등록됨 (인증 필요) | Google NotebookLM 연동 — 노트북에 질문, 소스 추가, 오디오 개요 생성 |
+
+> **최초 인증 필요:** 터미널에서 `! npx notebooklm-mcp@latest setup_auth` 실행 → Chrome이 열리면 Google 계정 로그인 → 이후 자동 유지
+
+---
+
 ## 하네스: nTIS Research
 
 **목표:** 1~1.5년 내 박사 졸업 논문 + IEEE TBME/JNE/Brain Stimulation 급 저널 제출
