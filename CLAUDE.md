@@ -56,6 +56,21 @@ docs/
 - `index.md` Progress Tracker는 단계 변경 시 업데이트
 - git push 전 확인 요청
 
+## 하네스: nTIS Research
+
+**목표:** 1~1.5년 내 박사 졸업 논문 + IEEE TBME/JNE/Brain Stimulation 급 저널 제출
+
+**트리거:** nTIS 연구 관련 작업(주제 선정, 문헌조사, 실험 설계, 논문 작성) 요청 시 `.claude/skills/nTIS-research/SKILL.md` (오케스트레이터) 스킬을 사용하라. 단순 질문은 직접 응답 가능.
+
+**에이전트:** `.claude/agents/` — literature-scout, research-designer, paper-writer
+
+**변경 이력:**
+| 날짜 | 변경 내용 | 대상 | 사유 |
+|------|----------|------|------|
+| 2026-06-10 | 초기 하네스 구성 | 전체 | nTIS 연구 주제 선정 세션 시작 |
+
+---
+
 ## Registered Skills
 
 Skills directory: `/mnt/d/00_Project/.claude/skills/academic-research-skills/`
