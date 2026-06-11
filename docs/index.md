@@ -32,6 +32,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 ## Quick Links
 
 - [Basic Principles](01_theory/01_basic_principles.md)
+- [TIS 완전 설명서](01_theory/04_tis_complete_guide.md)
+- [경골신경 TIS 가이드 (FEM·Rat)](01_theory/05_tibial_nerve_TIS.md)
+- [**경골신경 현존 지식 완전 종합**](01_theory/06_tibial_nerve_complete_knowledge.md) ← 최신
 - [Paper List](02_papers/index.md)
 - [Research Gaps](03_gaps/gap_analysis.md)
 - [Proposal (Round 1)](04_proposal/research_proposal.md)
