@@ -20,9 +20,12 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 
 | Stage | Status | Notes |
 |-------|--------|-------|
-| A. Theory | 🔄 In progress | |
-| B. Research Gaps | ⏳ Pending | |
-| C. Proposal | ⏳ Pending | |
+| A. Theory | ✅ Done | 기본 원리·전기장 모델·n-phase 수식 정리 완료 |
+| B. Research Gaps | ✅ Done | 5분류 갭 분석 완료 (Knowledge/Methodological/Evidence/Contradictory/Application) |
+| C. Proposal | 🔄 In progress | FINES 평가 완료, 10개 후보 도출 — 지도교수 확인 후 최종 1~2개 선택 |
+| D. Execution | ⏳ Pending | 주제 확정 + IACUC/IRB 후 착수 |
+
+> **다음 할 일:** 지도교수와 최우선 후보 확인 → ① Phrenic TIS→Glymphatic (FINES 4.85, Student A ICG 시너지) vs. ② 경골신경 OAB (안정적 임팩트) → ICG 프로토콜 공유 및 cystometry 장비 여부 확인 → IACUC 신청
 
 ---
 
@@ -31,4 +34,5 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 - [Basic Principles](01_theory/01_basic_principles.md)
 - [Paper List](02_papers/index.md)
 - [Research Gaps](03_gaps/gap_analysis.md)
-- [Proposal](04_proposal/research_proposal.md)
+- [Proposal (Round 1)](04_proposal/research_proposal.md)
+- [Proposal (Round 2 — Phrenic/Tibial/Glymphatic)](04_proposal/proposal_phrenic_tibial_glymphatic.md)
