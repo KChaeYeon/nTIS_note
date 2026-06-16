@@ -1,2 +1,2 @@
-mkdocs-material==9.5.27
-pymdown-extensions==10.8.1
+mkdocs-material>=9.5.27
+pymdown-extensions>=10.11
