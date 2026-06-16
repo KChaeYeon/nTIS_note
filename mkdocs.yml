@@ -51,13 +51,12 @@ nav:
   - Home: index.md
   - Theory:
     - Overview: 01_theory/index.md
-    - Basic Principles: 01_theory/01_basic_principles.md
-    - Electric Field Model: 01_theory/02_electric_field.md
-    - n-Phase Extension: 01_theory/03_nphase_extension.md
-    - TIS Complete Guide: 01_theory/04_tis_complete_guide.md
-    - Tibial Nerve TIS: 01_theory/05_tibial_nerve_TIS.md
-    - Tibial Nerve Knowledge: 01_theory/06_tibial_nerve_complete_knowledge.md
-    - TIS Physics & FEM: 01_theory/07_TIS_physics_FEM.md
+    - 1. TIS 기초 원리: 01_theory/01_basic_principles.md
+    - 2. 전기장 모델 & FEM: 01_theory/02_electric_field.md
+    - 3. n-Phase 확장: 01_theory/03_nphase_extension.md
+    - 4. TIS 물리 & FEM 심층: 01_theory/07_TIS_physics_FEM.md
+    - 5. 경골신경 TIS 연구: 01_theory/05_tibial_nerve_TIS.md
+    - 6. 경골신경 지식 백과: 01_theory/06_tibial_nerve_complete_knowledge.md
   - Papers:
     - Overview: 02_papers/index.md
   - Research Gaps:
