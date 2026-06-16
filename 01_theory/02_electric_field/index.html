@@ -25,7 +25,7 @@
     
     
       
-        <title>Electric Field Model - nTIS Research Notebook</title>
+        <title>2. 전기장 모델 & FEM - nTIS Research Notebook</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#electric-field-model" class="md-skip">
+        <a href="#fem" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Electric Field Model
+              2. 전기장 모델 & FEM
             
           </span>
         </div>
@@ -531,7 +531,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Principles
+    1. TIS 기초 원리
   
 
     
@@ -568,7 +568,7 @@
   <span class="md-ellipsis">
     
   
-    Electric Field Model
+    2. 전기장 모델 & FEM
   
 
     
@@ -586,7 +586,7 @@
   <span class="md-ellipsis">
     
   
-    Electric Field Model
+    2. 전기장 모델 & FEM
   
 
     
@@ -612,10 +612,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-maxwells-equations-in-tissue" class="md-nav__link">
+  <a href="#1-maxwell-quasi-static" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Maxwell's Equations in Tissue
+        1. Maxwell 방정식 → Quasi-Static 단순화
       
     </span>
   </a>
@@ -623,10 +623,127 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-superposition" class="md-nav__link">
+  <a href="#2-linear-superposition-fem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Superposition
+        2. 선형 중첩 (Linear Superposition) — FEM 효율화의 핵심
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 선형 중첩 (Linear Superposition) — FEM 효율화의 핵심">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기준 전극과 단독 해석
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. TI 포락선 수식 도출
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. TI 포락선 수식 도출">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        두 채널의 독립 전기장
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        합성 전기장과 포락선
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. FEM 구성 요소
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. FEM 구성 요소">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지배방정식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        경계조건
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전류 정규화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 전기장 중첩 (Superposition)
       
     </span>
   </a>
@@ -634,10 +751,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-envelope-calculation" class="md-nav__link">
+  <a href="#6-peak-ratio-pr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Envelope Calculation
+        6. Peak Ratio (PR) — 집중도 지표 개요
       
     </span>
   </a>
@@ -645,10 +762,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-numerical-methods" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Numerical Methods
+        7. 수치 해석 소프트웨어
       
     </span>
   </a>
@@ -678,91 +795,7 @@
   <span class="md-ellipsis">
     
   
-    n-Phase Extension
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_tis_complete_guide/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TIS Complete Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05_tibial_nerve_TIS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tibial Nerve TIS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_tibial_nerve_complete_knowledge/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tibial Nerve Knowledge
+    3. n-Phase 확장
   
 
     
@@ -790,7 +823,63 @@
   <span class="md-ellipsis">
     
   
-    TIS Physics & FEM
+    4. TIS 물리 & FEM 심층
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_tibial_nerve_TIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 경골신경 TIS 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_tibial_nerve_complete_knowledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 경골신경 지식 백과
   
 
     
@@ -1273,10 +1362,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-maxwells-equations-in-tissue" class="md-nav__link">
+  <a href="#1-maxwell-quasi-static" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Maxwell's Equations in Tissue
+        1. Maxwell 방정식 → Quasi-Static 단순화
       
     </span>
   </a>
@@ -1284,10 +1373,127 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-superposition" class="md-nav__link">
+  <a href="#2-linear-superposition-fem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Superposition
+        2. 선형 중첩 (Linear Superposition) — FEM 효율화의 핵심
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 선형 중첩 (Linear Superposition) — FEM 효율화의 핵심">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기준 전극과 단독 해석
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. TI 포락선 수식 도출
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. TI 포락선 수식 도출">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        두 채널의 독립 전기장
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        합성 전기장과 포락선
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. FEM 구성 요소
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. FEM 구성 요소">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지배방정식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        경계조건
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전류 정규화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 전기장 중첩 (Superposition)
       
     </span>
   </a>
@@ -1295,10 +1501,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-envelope-calculation" class="md-nav__link">
+  <a href="#6-peak-ratio-pr" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Envelope Calculation
+        6. Peak Ratio (PR) — 집중도 지표 개요
       
     </span>
   </a>
@@ -1306,10 +1512,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-numerical-methods" class="md-nav__link">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Numerical Methods
+        7. 수치 해석 소프트웨어
       
     </span>
   </a>
@@ -1336,27 +1542,183 @@
   
 
 
-<h1 id="electric-field-model">Electric Field Model</h1>
-<h2 id="1-maxwells-equations-in-tissue">1. Maxwell's Equations in Tissue</h2>
-<p>생물학적 조직 내 준정적(quasi-static) 조건에서:</p>
-<div class="arithmatex">\[\nabla \cdot (\sigma \nabla \phi) = 0\]</div>
-<p>여기서 <span class="arithmatex">\(\sigma\)</span>는 전도도 텐서, <span class="arithmatex">\(\phi\)</span>는 전기 포텐셜.</p>
-<p>전기장: <span class="arithmatex">\(\mathbf{E} = -\nabla \phi\)</span></p>
-<h2 id="2-superposition">2. Superposition</h2>
-<p>TI stimulation에서 두 주파수 성분의 전기장은 선형 중첩:</p>
-<div class="arithmatex">\[\mathbf{E}_{total}(\mathbf{r}, t) = \mathbf{E}_1(\mathbf{r})\cos(2\pi f_1 t) + \mathbf{E}_2(\mathbf{r})\cos(2\pi f_2 t + \phi_0)\]</div>
-<h2 id="3-envelope-calculation">3. Envelope Calculation</h2>
-<p>진폭 envelope (벡터 형태):</p>
-<div class="arithmatex">\[E_{env}(\mathbf{r}) = \left| |\mathbf{E}_1(\mathbf{r})| - |\mathbf{E}_2(\mathbf{r})| \right|
-\text{ to } |\mathbf{E}_1(\mathbf{r})| + |\mathbf{E}_2(\mathbf{r})|\]</div>
-<p>최대 envelope은 <span class="arithmatex">\(\mathbf{E}_1 \parallel \mathbf{E}_2\)</span> 조건에서 달성된다.</p>
-<h2 id="4-numerical-methods">4. Numerical Methods</h2>
-<ul>
-<li>FEM (Finite Element Method): SimNIBS, ROAST</li>
-<li>구형 도체 모델 (해석적 해)</li>
-</ul>
+<h1 id="fem">전기장 모델 &amp; FEM 방법론</h1>
+<blockquote>
+<p>TIS 시뮬레이션의 수학적 토대: Maxwell → Quasi-Static → FEM → 선형중첩 → TI 포락선</p>
+</blockquote>
 <hr />
-<p><em>Last updated: 2026-06-04</em></p>
+<h2 id="1-maxwell-quasi-static">1. Maxwell 방정식 → Quasi-Static 단순화</h2>
+<p>생물학적 조직 내 준정적(quasi-static) 조건에서:</p>
+<div class="arithmatex">\[\nabla \cdot (\sigma \nabla V) = 0\]</div>
+<p>여기서 <span class="arithmatex">\(\sigma\)</span>는 전도도 텐서(S/m), <span class="arithmatex">\(V\)</span>는 전위(V).</p>
+<p>전기장: <span class="arithmatex">\(\mathbf{E} = -\nabla V\)</span></p>
+<p><strong>왜 Quasi-Static인가?</strong></p>
+<p>TI 자극 주파수는 수 kHz 수준. 이 범위에서 피부 기준:</p>
+<table>
+<thead>
+<tr>
+<th>항</th>
+<th>값</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전도 전류 <span class="arithmatex">\(\sigma\)</span></td>
+<td>0.170 S/m</td>
+<td>주된 전류</td>
+</tr>
+<tr>
+<td>변위 전류 <span class="arithmatex">\(\omega\varepsilon\)</span></td>
+<td>0.00011</td>
+<td>1,545배 작음</td>
+</tr>
+</tbody>
+</table>
+<p>→ 변위 전류 무시 가능 → <span class="arithmatex">\(\nabla \cdot (\sigma \nabla V) = 0\)</span> 만 풀면 됨.</p>
+<hr />
+<h2 id="2-linear-superposition-fem">2. 선형 중첩 (Linear Superposition) — FEM 효율화의 핵심</h2>
+<h3 id="_1">기준 전극과 단독 해석</h3>
+<p>24개 전극이 있는 경우 모든 조합을 각각 FEM으로 계산하면 수백 회가 필요하다.</p>
+<p><strong>해결책</strong>: 기준 전극(Reference Electrode, <span class="arithmatex">\(V = 0\)</span> V 고정)을 정하고, 각 전극에서 <strong>단독으로</strong> FEM을 24회만 실행한다.</p>
+<div class="arithmatex">\[\mathbf{E}_{A\text{-Ref}},\quad \mathbf{E}_{B\text{-Ref}},\quad \ldots \quad (24\text{회})\]</div>
+<p>임의의 A→B 경로 전기장은 뺄셈으로 복원:</p>
+<div class="arithmatex">\[\mathbf{E}_{A\to B} = \mathbf{E}_{A\text{-Ref}} - \mathbf{E}_{B\text{-Ref}}\]</div>
+<p><strong>왜 성립하는가?</strong> FEM은 선형 시스템(<span class="arithmatex">\([K]\{V\} = \{f\}\)</span>)이므로, 동일한 경계 조건(기준전극 <span class="arithmatex">\(V=0\)</span>)을 공유한 두 해를 빼면 기준점의 기여가 정확히 소거된다.</p>
+<blockquote>
+<p><strong>결론</strong>: 24회 FEM → <span class="arithmatex">\(\binom{24}{4} = 10{,}626\)</span>가지 이상의 4전극 조합 모두 계산 가능</p>
+</blockquote>
+<hr />
+<h2 id="3-ti">3. TI 포락선 수식 도출</h2>
+<h3 id="_2">두 채널의 독립 전기장</h3>
+<ul>
+<li>채널 1 (경로 A→B, 반송파 <span class="arithmatex">\(f_1\)</span>): <span class="arithmatex">\(\mathbf{E}_1 = \mathbf{E}_{A\text{-Ref}} - \mathbf{E}_{B\text{-Ref}}\)</span></li>
+<li>채널 2 (경로 C→D, 반송파 <span class="arithmatex">\(f_2\)</span>): <span class="arithmatex">\(\mathbf{E}_2 = \mathbf{E}_{C\text{-Ref}} - \mathbf{E}_{D\text{-Ref}}\)</span></li>
+</ul>
+<h3 id="_3">합성 전기장과 포락선</h3>
+<p>두 고주파 전기장의 시간 합성:</p>
+<div class="arithmatex">\[|\mathbf{E}_\text{total}(t)| = |\mathbf{E}_1 \cos(2\pi f_1 t) + \mathbf{E}_2 \cos(2\pi f_2 t)|\]</div>
+<p>포락선의 최대·최솟값:</p>
+<div class="arithmatex">\[E_{\max} = |\mathbf{E}_1 + \mathbf{E}_2|, \qquad E_{\min} = \bigl||\mathbf{E}_1| - |\mathbf{E}_2|\bigr|\]</div>
+<p><strong>TI 자극 포락선</strong> (저주파 성분의 진폭):</p>
+<div class="arithmatex">\[\boxed{E_{\text{TI}}(\mathbf{r}) = E_{\max} - E_{\min} = \bigl||\mathbf{E}_1 + \mathbf{E}_2| - |\mathbf{E}_1 - \mathbf{E}_2|\bigr|}\]</div>
+<table>
+<thead>
+<tr>
+<th>조건</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathbf{E}_1 = \mathbf{E}_2\)</span></td>
+<td>$E_\text{TI} = 2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{E}_1 \gg \mathbf{E}_2\)</span></td>
+<td>$E_\text{TI} \approx 2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{E}_1 \perp \mathbf{E}_2\)</span></td>
+<td><span class="arithmatex">\(E_\text{TI} = 0\)</span> (자극 없음)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-fem">4. FEM 구성 요소</h2>
+<h3 id="_4">지배방정식</h3>
+<div class="arithmatex">\[\nabla \cdot (\sigma \nabla V) = 0\]</div>
+<p>FEM은 이를 이산화하여 대형 선형 시스템 <span class="arithmatex">\([K]\{V\} = \{f\}\)</span>로 변환·풀이한다.</p>
+<h3 id="_5">경계조건</h3>
+<table>
+<thead>
+<tr>
+<th>경계</th>
+<th>조건</th>
+<th>유형</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>능동 전극</td>
+<td><span class="arithmatex">\(V = 1\,\text{V}\)</span></td>
+<td>Dirichlet</td>
+</tr>
+<tr>
+<td>기준 전극</td>
+<td><span class="arithmatex">\(V = 0\,\text{V}\)</span></td>
+<td>Dirichlet</td>
+</tr>
+<tr>
+<td>모델 외부 경계</td>
+<td>법선 전류 = 0 (<span class="arithmatex">\(\mathbf{J}\cdot\hat{n}=0\)</span>)</td>
+<td>Neumann</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">전류 정규화</h3>
+<p>FEM 해는 1 V 인가 시의 전위 분포를 준다. 실제 주입 전류 1 mA로 정규화:</p>
+<div class="arithmatex">\[\mathbf{E}_\text{normalized} = \frac{\mathbf{E}_{1\,\text{V}}}{I_\text{computed}} \times 1\,\text{mA}\]</div>
+<hr />
+<h2 id="5-superposition">5. 전기장 중첩 (Superposition)</h2>
+<p>TI stimulation에서 두 주파수 성분의 전기장은 선형 중첩:</p>
+<div class="arithmatex">\[\mathbf{E}_\text{total}(\mathbf{r}, t) = \mathbf{E}_1(\mathbf{r})\cos(2\pi f_1 t) + \mathbf{E}_2(\mathbf{r})\cos(2\pi f_2 t + \phi_0)\]</div>
+<p>최대 envelope은 <span class="arithmatex">\(\mathbf{E}_1 \parallel \mathbf{E}_2\)</span> 조건에서 달성된다.</p>
+<hr />
+<h2 id="6-peak-ratio-pr">6. Peak Ratio (PR) — 집중도 지표 개요</h2>
+<div class="arithmatex">\[\text{PR} = \frac{E_\text{target}}{E_\text{total}}\]</div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>정의</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(E_\text{target}\)</span></td>
+<td>목표 신경 영역 내 체적 평균 TI 전기장 (V/m)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E_\text{total}\)</span></td>
+<td>전체 모델 내 체적 평균 TI 전기장 (V/m)</td>
+</tr>
+</tbody>
+</table>
+<p>PR이 클수록 표적 신경에 에너지가 집중된 것.</p>
+<blockquote>
+<p>모식도·최적화 단계·PR 한계: <a href="../07_TIS_physics_FEM/">TIS 물리 &amp; FEM 심층</a></p>
+</blockquote>
+<hr />
+<h2 id="7">7. 수치 해석 소프트웨어</h2>
+<table>
+<thead>
+<tr>
+<th>소프트웨어</th>
+<th>특징</th>
+<th>주 사용처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sim4Life</strong></td>
+<td>TIS 특화, Ohmic QS 솔버 내장, ViZOO 가상 모델 연계</td>
+<td>연구용 상업 S/W</td>
+</tr>
+<tr>
+<td><strong>COMSOL</strong></td>
+<td>범용 FEM, Electric Currents 모듈, 팀 보유</td>
+<td>전극 최적화·Rat 모델</td>
+</tr>
+<tr>
+<td>SimNIBS</td>
+<td>뇌 TIS 특화 오픈소스</td>
+<td>tES/TMS 연구</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Last updated: 2026-06-16</em></p>
 
 
 
