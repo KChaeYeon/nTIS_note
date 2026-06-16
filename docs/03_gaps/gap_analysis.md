@@ -84,19 +84,34 @@
 
 ---
 
-## 연구 주제 후보 — 우선순위
+## 연구 주제 — 결정 현황 (2026-06-16 업데이트)
 
 > 연구자 배경: ECG·RSP 신호처리 / MRI·CT 영상 / ML·DL (PyTorch)  
 > 실험 인프라: TIS 자극기, ECG/HRV, Rat 동물실험 (**EEG 없음**)  
 > 팀 진행 중: 설하신경 nTIS FEM + LED 팬텀 검증 + 논문 작성
 
+### ✅ 최종 결정 주제
+
+**경골신경 TIS in vivo — Rat 과민성 방광(OAB) 조절** (2026-06-16 결정)
+
+| 항목 | 내용 |
+|------|------|
+| **표적 신경** | 경골신경 (tibial nerve) |
+| **동물 모델** | Rat OAB (acetic acid 방광 주입) |
+| **핵심 갭 해결** | G-TN1 (in vivo 전무), G-TN2 (vs. PTNS 비교 전무), G-A2 (Kim 2023 FEM 생체 검증) |
+| **즉시 실행 조건** | TIS 자극기 ✅, Rat 인프라 ✅, cystometry 장비 확인 필요 |
+| **목표 저널** | Brain Stimulation, Journal of Neural Engineering, Neurourology and Urodynamics |
+| **관련 이론 파일** | [05_tibial_nerve_TIS.md](../01_theory/05_tibial_nerve_TIS.md), [06_tibial_nerve_complete_knowledge.md](../01_theory/06_tibial_nerve_complete_knowledge.md) |
+
+### 후보 목록 (비교 참고용)
+
 | 우선순위 | 주제 | 관련 갭 | 실현 가능성 | 비고 |
 |---------|------|---------|-----------|------|
-| ⭐⭐⭐ | **경부 미주신경 비침습 nTIS** (rat HRV + 인체 taVNS 비교) | G-A1, G-A5 | 높 (ECG/HRV + Rat) | **최우선 추천** |
-| ⭐⭐ | 말초신경 n-phase TIS 선택성 (rat 좌골신경) | G-A5 | 높 (Rat) | EMG 장비 확인 필요 |
-| ⭐⭐ | 경골신경 TIS in vivo (rat 방광 조절) | G-A2 | 중 (Rat, cystometry 필요) | 방광압 측정 장비 필요 |
-| ⭐ | SO 위상 잠금 폐쇄형 TIS × 수면 기억 | G-S4, G-C3 | 낮 (**EEG 필요**) | 장비 미보유 |
-| ⭐ | TIS 반응 예측 모델 (EEG + ML) | G-T5, G-T6 | 낮 (**EEG 필요**) | 장비 미보유 |
+| ✅ **결정** | **경골신경 TIS in vivo (rat 방광 조절)** | G-TN1, G-TN2, G-A2 | 높 (Rat, cystometry 확인 필요) | **2026-06-16 최종 결정** |
+| — | 경부 미주신경 비침습 nTIS (rat HRV) | G-A1, G-A5 | 높 (ECG/HRV + Rat) | 차순위 |
+| — | 비침습 Phrenic TIS → Glymphatic (Rat ICG) | G-PH1, G-GL1 | 높 (Rat + ICG) | 고위험고보상 |
+| — | 말초신경 n-phase TIS 선택성 (rat 좌골신경) | G-A5 | 높 (Rat) | Track B (3-phase 하드웨어 필요) |
+| — | SO 위상 잠금 폐쇄형 TIS × 수면 기억 | G-S4, G-C3 | 낮 (**EEG 필요**) | 장비 미보유 |
 
 ---
 
@@ -172,13 +187,13 @@
 | G-PH3 | 3-phase TIS의 좌/우 phrenic nerve **독립** 제어 가능성 미탐색 | ★★★★★ |
 | G-PH4 | C3/C4 SCI rat에서 경부 비침습 phrenic TIS 만성 호흡 회복 검증 전무 | ★★★★ |
 
-### G-TN: 경골신경(Tibial Nerve) TIS
+### G-TN: 경골신경(Tibial Nerve) TIS ← ✅ **주 연구 표적 (2026-06-16 결정)**
 
-| ID | Gap 내용 | 중요도 |
-|----|---------|-------|
-| G-TN1 | 경골신경 TIS in vivo 전무 (Kim 2023 FEM만 존재, G-A2와 동일) | ★★★★★ |
-| G-TN2 | TIS vs. 침습 PTNS 직접 비교 임상/동물 연구 전무 | ★★★★★ |
-| G-TN3 | n-phase TIS tibial nerve vs. 인접 신경 선택성 검증 전무 | ★★★★ |
+| ID | Gap 내용 | 중요도 | 연구 계획 |
+|----|---------|-------|---------|
+| G-TN1 | 경골신경 TIS in vivo 전무 (Kim 2023 FEM만 존재, G-A2와 동일) | ★★★★★ | **본 연구에서 해결** |
+| G-TN2 | TIS vs. 침습 PTNS 직접 비교 임상/동물 연구 전무 | ★★★★★ | **본 연구에서 해결** |
+| G-TN3 | n-phase TIS tibial nerve vs. 인접 신경 선택성 검증 전무 | ★★★★ | 후속 연구 (3-phase 하드웨어 완성 후) |
 
 ### G-GL: Glymphatic System × 신경 자극
 
@@ -213,4 +228,4 @@
 
 ---
 
-*Last updated: 2026-06-11*
+*Last updated: 2026-06-16 — 경골신경 TIS 최종 결정, G-TN 주 연구 표적 지정*

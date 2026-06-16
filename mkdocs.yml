@@ -55,6 +55,10 @@ nav:
     - Basic Principles: 01_theory/01_basic_principles.md
     - Electric Field Model: 01_theory/02_electric_field.md
     - n-Phase Extension: 01_theory/03_nphase_extension.md
+    - TIS Complete Guide: 01_theory/04_tis_complete_guide.md
+    - Tibial Nerve TIS: 01_theory/05_tibial_nerve_TIS.md
+    - Tibial Nerve Knowledge: 01_theory/06_tibial_nerve_complete_knowledge.md
+    - TIS Physics & FEM: 01_theory/07_TIS_physics_FEM.md
   - Papers:
     - Overview: 02_papers/index.md
   - Research Gaps:
