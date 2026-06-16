@@ -2,122 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/01_basic_principles/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/02_electric_field/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/03_nphase_extension/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/04_tis_complete_guide/</loc>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/05_tibial_nerve_TIS/</loc>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/06_tibial_nerve_complete_knowledge/</loc>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/07_TIS_physics_FEM/</loc>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/01_theory/MRI_based_TI_simulation_method/</loc>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2017_Grossman_TI_Cell/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2019_Rampersad_Computational_NeuroImage/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2019_Zhu_MultiPoint_IEEEAccess/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2020_Mirzakhalili_Biophysics_CellSystems/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2022_Sieu_Epilepsy_Mouse_FrontiersNeuro/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2022_Zhang_WorkingMemory_Frontiers/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2023_Violante_Hippocampus_NatureNeuro/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2023_Xu_Multipair_bioRxiv/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2024_Acerbo_SinglePulse_bioRxiv/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2024_Liu_NHP_NeuroImage/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2024_Vieira_NHP_NatComm/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2025_Botzanowski_Multipolar_BioelectronicMed/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2025_Epilepsy_Hippocampus_BrainStim/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2025_Lamos_STN_MovDisord/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2025_Rat_MotorCortex_SciRep/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2025_Yang_GlobusPallidus_MovDisord/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2026_Vassiliadis_Perspective_NatureBME/</loc>
-         <lastmod>2026-06-10</lastmod>
-    </url>
-    <url>
-         <loc>https://KChaeYeon.github.io/nTIS_note/02_papers/2026_Xu_Multipair_CellSystems/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/03_gaps/gap_analysis/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
+    </url>
+    <url>
+         <loc>https://KChaeYeon.github.io/nTIS_note/04_proposal/proposal_phrenic_tibial_glymphatic/</loc>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/04_proposal/research_proposal/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/05_Exp/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/06_Meeting/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/06_Meeting/20260609_ResearchDirections/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
     <url>
          <loc>https://KChaeYeon.github.io/nTIS_note/06_Meeting/20260610_LiteratureSurvey/</loc>
-         <lastmod>2026-06-10</lastmod>
+         <lastmod>2026-06-16</lastmod>
     </url>
 </urlset>
