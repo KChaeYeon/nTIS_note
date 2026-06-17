@@ -80,6 +80,46 @@
 
 ---
 
+### Category 8: Tibial Nerve Stimulation & OAB *(핵심 연구 주제 선행연구)*
+
+> 경골신경 자극의 OAB 치료 적용 — 기전 리뷰, 동물 모델, 임상 연구, 첨단 기술. **G-TN1·G-TN2 갭의 직접 선행 영역.**
+
+#### 8A. 기전 리뷰 (Mechanism Reviews)
+
+| 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
+|------|------|------|----------|----------|
+| 2022 | Al-Danakh et al. | *Parkinson's Disease* (Hindawi) | **PTNS 기전·분류·관리 종합 리뷰.** L4–S3 경골신경 → 천수 척수 억제 → 방광 과활동 감소. Aβ 섬유 선택적 활성화, 3단계 신경 경로 모델 정립. | [DOI](https://doi.org/10.1155/2022/2700227) · [요약](2022_AlDanakh_PTNS_Mechanism_Review.md) |
+| 2026 | Karanikolas et al. | *Current Urology Reports* | **TNS 최신 현황 리뷰 (2026).** PTNS·TTNS·iTNS 비교, 반응률 60–80%, SNM 비열등 효능, 파라미터 표준화 과제 정리. | [DOI](https://doi.org/10.1007/s11934-026-01338-z) · [요약](2026_Karanikolas_TNS_Review_CurrUrolRep.md) |
+| 2026 | Shang et al. | *Translational Andrology and Urology* | **TNS 자극 파라미터 문헌 고찰.** 10 Hz 동물 최적, 14–20 Hz 임상 표준(FDA). PW=200 µs, sub-motor 강도 권고. | [DOI](https://doi.org/10.21037/tau-2025-aw-774) · [요약](2026_Shang_TNS_Parameters_Review_TAU.md) |
+
+#### 8B. 동물 모델 (Animal Studies — Rat)
+
+| 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
+|------|------|------|------|----------|----------|
+| 2016 | Choudhary et al. | *Int. Journal of Urology* | Rat (urethane 마취, OAB) | **방광 구심성 신경 활동 직접 측정.** Acetic acid OAB 모델에서 TNS 30분 → 구심성 활동 억제 + 방광 용적 회복. 5 Hz, PW 200 µs. | [DOI](https://doi.org/10.1111/iju.13033) · [요약](2016_Choudhary_AfferentNerve_Rat_IJU.md) |
+| 2020 | Park et al. | *Scientific Reports* | Rat (각성, unanesthetized) | **자극 후 지속 억제 효과(carry-over).** 10 Hz TNS 30분 → 자극 종료 후 ~20–30분 방광 억제 유지. 50 Hz는 반대 반응(흥분). 임상 주 1회 프로토콜 생리적 근거. | [DOI](https://doi.org/10.1038/s41598-020-76987-2) · [요약](2020_Park_PostStimInhibition_Rat_SciRep.md) |
+| 2023 | (저자 확인 중) | *Int. Neurourology J.* | Rat (마취, detrusor overactivity) | **다부위 TENS 비교 pilot.** 복부·귀·경골신경(kHz 범위) 자극 비교. kHz 경골신경 자극의 방광 억제 효과 확인. TIS 캐리어 주파수 근거. | [DOI](https://doi.org/10.5213/inj.2346144.072) · [요약](2023_TENS_MultiSite_Rat_INJ.md) |
+
+#### 8C. 임상 연구 (Clinical Studies)
+
+| 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
+|------|------|------|------|----------|----------|
+| 2020 | Bycroft et al. | *Toxins* (MDPI) | OAB 환자 (RCT NMA) | **3차 치료 네트워크 메타분석.** BoNT-A > SNM > PTNS 효능 순위. PTNS 안전 프로파일 최우수. TIS 임상 목표치 제공. | [DOI](https://doi.org/10.3390/toxins12020128) · [요약](2020_Bycroft_NetworkMeta_PTNS_SNM_Toxins.md) |
+| 2023 | (저자 확인 중) | *Frontiers in Neuroscience* | OAB 반응군 18명 | **fNIRS 뇌 활동 측정.** TTNS 중 전전두피질 활성화 확인 → 중추 조절 메커니즘 직접 증거. | [DOI](https://doi.org/10.3389/fnins.2023.1115433) · [요약](2023_Li_fNIRS_Brain_Frontiers.md) |
+| 2024 | Wöllner et al. | *Neurourology and Urodynamics* | 건강인 자원자 | **fMRI 뇌 연결성.** TTNS 급성 자극 → 감각운동피질·도엽·대상회 활성화. 중추 작용 기전 공간 정밀 규명. | [DOI](https://doi.org/10.1002/nau.25293) · [요약](2024_Wollner_fMRI_Brain_NUD.md) |
+| 2024 | (저자 확인 중) | *Basic and Clinical Neuroscience* | OAB 환자 44명 RCT | **PTNS vs. TTNS 직접 비교 RCT.** 두 방법 모두 효능 동등 (p>0.05). TTNS = PTNS, 비침습화 추세 지지. | [DOI](https://doi.org/10.32598/bcn.2023.4896.1) · [요약](2024_PTNS_vs_TTNS_RCT.md) |
+| 2024 | (저자 확인 중) | *Scientific Reports* | 여성 OAB 40명 RCT | **TTNS + 미라베그론 병용 우수.** 병용군 > 단독 약물군 (OABSS, QoL, p<0.05). 상가 효과 시사. | [DOI](https://doi.org/10.1038/s41598-024-78492-2) · [요약](2024_TTNS_Mirabegron_Combination_SciRep.md) |
+| 2024 | (저자 확인 중) | *Urology* | refractory UUI 137명 | **eCoin® iTNS 2년 pivotal.** ≥50% UUI 감소 78% (96주). 91.3% 추가 약물 불필요. 장기 내구성 확인. | [DOI](https://doi.org/10.1016/j.urology.2024.S0090429524006307) · [요약](2024_eCoin_2yr_iTNS_Urology.md) |
+| 2026 | Muñoz et al. | *Neurourology and Urodynamics* | 건강인 20명 | **TTNS의 자율신경(HRV) 효과.** 부교감 지표(RMSSD) 증가 경향. ECG/HRV를 TIS 실험 부가 지표로 활용 근거. | [DOI](https://doi.org/10.1002/nau.70245) · [요약](2026_Munoz_ANS_TTNS_NUD.md) |
+
+#### 8D. 첨단 기술 (Advanced Technology)
+
+| 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
+|------|------|------|----------|----------|
+| 2025 | (저자 확인 중) | *Nature Communications* | **ECAP 피드백 폐쇄형 TNS.** 경골신경 ECAP 실시간 측정 → 자동 파라미터 조절 → 방광 정밀 제어. 이식형. 폐쇄형 TIS의 미래 기술 방향. | [DOI](https://doi.org/10.1038/s41467-025-59436-4) · [요약](2025_ClosedLoop_ECAP_TNS_NatComm.md) |
+
+---
+
 ## 논문 추가 방법
 
 새 논문 추가 시:
@@ -88,4 +128,4 @@
 
 ---
 
-*Last updated: 2026-06-04 | 총 19편 (Foundational 1 · Computational 2 · Human 6 · Rodent 2 · NHP 2 · Reviews 2 · n-phase 4)*
+*Last updated: 2026-06-17 | 총 29편 (Foundational 1 · Computational 2 · Human 6 · Rodent 2 · NHP 2 · Reviews 2 · n-phase 4 · **TN-OAB 10**)*
