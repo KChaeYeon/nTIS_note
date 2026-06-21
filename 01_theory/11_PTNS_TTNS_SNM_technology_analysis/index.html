@@ -1,0 +1,1991 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/01_theory/11_PTNS_TTNS_SNM_technology_analysis/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>STEP 3: SNM / PTNS / TTNS 기존 기술 분석 - nTIS Research Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-3-snm-ptns-ttns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="nTIS Research Notebook" class="md-header__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            nTIS Research Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STEP 3: SNM / PTNS / TTNS 기존 기술 분석
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_papers/" class="md-tabs__link">
+          
+  
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03_gaps/gap_analysis/" class="md-tabs__link">
+          
+  
+  
+  Research Gaps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_proposal/research_proposal/" class="md-tabs__link">
+          
+  
+  
+  Proposal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05_Exp/" class="md-tabs__link">
+          
+  
+  
+  Experiments
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06_Meeting/" class="md-tabs__link">
+          
+  
+  
+  Meetings
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="nTIS Research Notebook" class="md-nav__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    nTIS Research Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_basic_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. TIS 기초 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 전기장 모델 & FEM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_nphase_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. n-Phase 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_TIS_physics_FEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. TIS 물리 & FEM 심층
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_tibial_nerve_TIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 경골신경 TIS 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_tibial_nerve_complete_knowledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 경골신경 지식 백과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_EM_physics_TIS_study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. EM 물리 학습 가이드 (고등학생용)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Gaps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Gaps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gaps/gap_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gap Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proposal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_proposal/research_proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experiments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Exp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meetings
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meetings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-snm-sacral-neuromodulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SNM (Sacral Neuromodulation) — 천수 신경 조절
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. SNM (Sacral Neuromodulation) — 천수 신경 조절">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 하나?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ptnsttns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTNS/TTNS와 무엇이 다른가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        임상 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNM 한계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ptns-percutaneous-tibial-nerve-stimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PTNS (Percutaneous Tibial Nerve Stimulation) — 경피 경골신경 자극
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. PTNS (Percutaneous Tibial Nerve Stimulation) — 경피 경골신경 자극">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        어떻게 하나?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        작용 기전 — 3단계 모델
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ptns-3-rct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTNS 핵심 임상 근거 (3대 RCT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ptns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTNS 한계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ttns-transcutaneous-tibial-nerve-stimulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. TTNS (Transcutaneous Tibial Nerve Stimulation) — 경피부 경골신경 자극
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. TTNS (Transcutaneous Tibial Nerve Stimulation) — 경피부 경골신경 자극">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ptns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PTNS와의 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ttns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTNS 핵심 임상 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ttns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TTNS 한계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 세 기술 종합 비교
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 논문 근거 요약
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 공통 한계 → TIS의 필요성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 요약 &amp; 지식 맵
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자기평가 문항
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="step-3-snm-ptns-ttns">STEP 3: SNM / PTNS / TTNS 기존 기술 분석</h1>
+<h2 id="_1">학습 목표</h2>
+<p>OAB 신경조절 치료 3가지의 기전·임상 근거·한계를 선행논문 기반으로 분석하고,<br />
+TIS 연구의 필요성을 도출한다.</p>
+<hr />
+<h2 id="_2">전체 그림</h2>
+<div class="highlight"><pre><span></span><code>OAB 3차 치료 신경조절 3형제
+
+SNM  ── 허리 수술 → S3 신경근 직접 자극           (이식형, 침습 최강)
+PTNS ── 발목 바늘 → 경골신경 → S2-S4 억제        (반침습, FDA 승인)
+TTNS ── 발목 전극 → 경골신경 → S2-S4 억제        (비침습, 자가 사용)
+
+                ↓ 공통 한계 ↓
+    침습 or 자극 깊이 부족 or 수술 비용·합병증
+
+                ↓ 해결책 ↓
+    TIS: 비침습 + 깊은 표적화 + 선택성
+</code></pre></div>
+<hr />
+<h2 id="1-snm-sacral-neuromodulation">1. SNM (Sacral Neuromodulation) — 천수 신경 조절</h2>
+<h3 id="_3">어떻게 하나?</h3>
+<div class="highlight"><pre><span></span><code>수술로 척수 S3 신경근 옆에 전극 이식
+
+     허리 (S3 레벨)
+          │
+    ┌─────┴──────┐
+    │   전극 이식 │ ← 척추 옆 천공(Foramen)으로 삽입
+    └─────┬──────┘
+          │
+    피하에 배터리 삽입 (엉덩이 위쪽)
+    (InterStim, Medtronic — FDA 승인 1997)
+          │
+    지속적 전기 자극
+    → S3 신경 → 방광·요도·골반저 조절
+
+수술 2단계:
+  Step 1: 시험 자극 (1~2주) → 효과 50% 이상 개선 확인
+  Step 2: 영구 이식 (전신마취)
+</code></pre></div>
+<h3 id="ptnsttns">PTNS/TTNS와 무엇이 다른가?</h3>
+<div class="highlight"><pre><span></span><code>PTNS/TTNS: 경골신경 → 척수 S2-S4 간접 억제 (구심성 경로 이용)
+SNM:       S3 신경근 직접 지속 자극 (원심성 + 구심성 동시)
+
+→ SNM이 신경에 더 직접적 → 효과 더 강함
+→ 대신 수술 필요
+</code></pre></div>
+<h3 id="_4">임상 근거</h3>
+<p><strong>네트워크 메타분석</strong> <em>(Bycroft et al. 2020, Toxins)</em></p>
+<p>3가지 OAB 3차 치료 RCT 종합 비교:</p>
+<table>
+<thead>
+<tr>
+<th>치료</th>
+<th>효능 순위</th>
+<th>부작용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BoNT-A (보툭스)</strong></td>
+<td>1위 (최강)</td>
+<td>요폐 20~30%</td>
+</tr>
+<tr>
+<td><strong>SNM</strong></td>
+<td>2위</td>
+<td>수술 합병증</td>
+</tr>
+<tr>
+<td><strong>PTNS</strong></td>
+<td>3위</td>
+<td><strong>최소 (안전성 1위)</strong></td>
+</tr>
+<tr>
+<td>Sham</td>
+<td>최하</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>핵심 insight (Bycroft 2020):
+  AUA 가이드라인 → 3치료 모두 3차 치료 동등 권고
+  효능 최강 = BoNT-A (요폐 부작용)
+  안전성 최강 = PTNS
+  → TIS가 PTNS 안전성 + 더 나은 효능 → 판도 바꿀 가능성
+</code></pre></div>
+<p><strong>SNM 장기 결과:</strong>
+- 5년 추적 (Siegel 2000): 요실금 완전 소실 47%, 50% 이상 개선 72%
+- 적응증 확대: OAB → 비폐색성 요저류 → 변실금 (FDA 확대)</p>
+<h3 id="snm">SNM 한계</h3>
+<div class="highlight"><pre><span></span><code>한계 1: 수술 필요
+  전신마취, 입원, 감염·이식 실패 위험
+
+한계 2: 비용
+  장비 비용 ~3만 달러 (미국 기준)
+  한국 보험 적용 제한적
+
+한계 3: 배터리 교체
+  5~7년마다 재수술
+
+한계 4: MRI 제한
+  구형 기기 MRI 촬영 불가
+  (최신 MRI-conditional 기기 일부 가능)
+
+한계 5: 장기 실패율
+  ~20~40% 장기 효과 소실
+</code></pre></div>
+<hr />
+<h2 id="2-ptns-percutaneous-tibial-nerve-stimulation">2. PTNS (Percutaneous Tibial Nerve Stimulation) — 경피 경골신경 자극</h2>
+<h3 id="_5">어떻게 하나?</h3>
+<div class="highlight"><pre><span></span><code>장비: Urgent PC (Cogentix Medical) — FDA 승인 2000년
+
+     발목 안쪽
+        │
+   ┌────┴────┐
+   │  바늘   │ ← 34 gauge 침 (얇은 바늘)
+   │  삽입   │   내과(내측 복숭아뼈)에서 5 cm 위
+   └────┬────┘
+        │
+   경골신경 근처 (~3~5 mm)
+        │
+   전기 자극 전달
+   (20 Hz, 200 μs, 0.5~9 mA)
+        │
+   30분 치료
+
+치료 일정: 주 1회 × 12주 → 유지 치료 (월 1회)
+</code></pre></div>
+<h3 id="3">작용 기전 — 3단계 모델</h3>
+<p><em>(Al-Danakh et al. 2022, Parkinson's Disease)</em></p>
+<div class="highlight"><pre><span></span><code>1단계 (말초 → 척수):
+  경골신경 Aβ 구심성 섬유 자극
+       ↓
+  척수 S2-S4 후각 도달
+       ↓
+  방광 구심성 신호 억제 (Gate control 유사)
+
+2단계 (척수):
+  GABAergic interneuron 활성화
+  (GABA = 억제성 신경전달물질)
+       ↓
+  배뇨 척수 반사 회로 억제
+       ↓
+  Detrusor Overactivity 감소
+
+3단계 (중추):
+  억제 신호 상행 → PMC → 대뇌 피질
+       ↓
+  방광 과민성 하향 조절
+
+신경섬유 선택성:
+  10~20 Hz → Aβ 섬유 우선 활성화 → 무통 억제
+  &gt;50 Hz   → C섬유 활성화 위험 → 역효과 가능
+</code></pre></div>
+<h3 id="ptns-3-rct">PTNS 핵심 임상 근거 (3대 RCT)</h3>
+<p><strong>① SUmiT Trial</strong> <em>(Peters et al. 2010, J Urol)</em> — FDA 승인 근거</p>
+<div class="highlight"><pre><span></span><code>설계: PTNS vs Sham (n=220, 12주)
+
+결과:
+  치료 반응률: PTNS 54.5% vs Sham 20.9% (p&lt;0.001)
+  빈뇨 감소: -2.4회/day
+  절박뇨 개선: 유의미
+
+→ PTNS 효과가 위약 대비 명확히 입증된 핵심 RCT
+→ FDA 3차 치료 승인 근거
+</code></pre></div>
+<p><strong>② OrBIT Trial</strong> <em>(Finazzi-Agrò et al. 2010)</em></p>
+<div class="highlight"><pre><span></span><code>설계: PTNS vs 항무스카린제(Tolterodine) 비교
+
+결과:
+  12주 후 반응률: 두 군 간 차이 없음 (동등)
+  부작용: PTNS가 훨씬 적음
+
+→ 신경조절이 약물의 유효한 대안
+→ 부작용 면에서 PTNS 우위
+</code></pre></div>
+<p><strong>③ STEP Study</strong> <em>(MacDiarmid et al. 2010)</em></p>
+<div class="highlight"><pre><span></span><code>설계: 12주 치료 완료 후 3년 장기 추적
+
+결과:
+  월 1회 유지 치료 시 효과 유지율: 77%
+  유지 치료 중단 시 효과 소실
+
+→ 장기 유지 치료의 필요성 + 가능성 동시 확인
+</code></pre></div>
+<p><strong>임상 반응률 범위:</strong> 60~71% (복수 연구 종합, Al-Danakh 2022)</p>
+<h3 id="ptns">PTNS 한계</h3>
+<div class="highlight"><pre><span></span><code>한계 1: 침습성
+  바늘 삽입 → 감염·출혈·통증
+  항응고제 복용 환자 사용 불가
+
+한계 2: 병원 의존성
+  주 1회 × 12주 = 12번 병원 방문
+  유지 치료: 평생 월 1회 내원
+
+한계 3: 반응률 한계
+  ~45%는 효과 없음
+
+한계 4: 파라미터 비표준화
+  최적 주파수·전류 연구마다 달라 불명확
+  (Al-Danakh 2022 한계점으로 명시)
+</code></pre></div>
+<hr />
+<h2 id="3-ttns-transcutaneous-tibial-nerve-stimulation">3. TTNS (Transcutaneous Tibial Nerve Stimulation) — 경피부 경골신경 자극</h2>
+<h3 id="ptns_1">PTNS와의 차이</h3>
+<div class="highlight"><pre><span></span><code>PTNS: 바늘 → 피부 뚫고 신경 바로 옆 자극
+TTNS: 피부 표면 전극 → 피부/지방 통과 → 신경 간접 자극
+
+발목 안쪽
+┌─────────────────────┐
+│  [전극A]   [전극B]  │ ← 피부 표면 패드 부착
+│  ~~~~~~~~~~~~~~~~~~~│ ← 피부층 통과
+│  ~지방층~~~~~~~~~~~~│ ← 지방층 통과 (전류 손실)
+│  ▶ 경골신경         │ ← 일부 전류 도달
+└─────────────────────┘
+
+장점: 바늘 없음 → 자가 사용 가능, 가정 치료 가능
+단점: 전류 손실 → 자극 깊이·선택성 한계
+</code></pre></div>
+<h3 id="ttns">TTNS 핵심 임상 근거</h3>
+<p><strong>① PTNS vs TTNS 직접 비교 RCT</strong> <em>(2024, Basic and Clinical Neuroscience)</em></p>
+<div class="highlight"><pre><span></span><code>설계: OAB 환자 44명, 주 3회 × 4주
+  PTNS군 (n=22) vs TTNS군 (n=22)
+
+결과:
+  두 군 모두 OABSS, I-QOL 유의미 개선 (p&lt;0.05)
+  군 간 차이: p&gt;0.05 → 동등
+
+핵심: PTNS = TTNS 효과 동등
+→ 침습적 바늘 없이 동일 효과 달성 가능
+→ 비침습화 추세의 직접 근거
+</code></pre></div>
+<p><strong>② TTNS + Mirabegron 병용</strong> <em>(2024, Scientific Reports, n=40)</em></p>
+<div class="highlight"><pre><span></span><code>설계:
+  그룹 A: TTNS + Mirabegron 50 mg/일 (병용)
+  그룹 B: Mirabegron 50 mg/일 (단독)
+  기간: 주 2회 × 3개월
+
+결과:
+  병용군 &gt; 단독군 (OAB-q bother, QoL 모두 유의미 우수, p&lt;0.05)
+  추가 부작용 없음
+
+이유: 기전이 다른 두 치료의 상가(additive) 효과
+  TTNS → 중추 신경 회로 억제 (S2-S4 GABA)
+  Mirabegron → 방광 근육 β3 수용체 이완
+  → 서로 다른 경로를 동시 타겟
+
+→ TIS + 약물 병용 연구 설계의 근거 논문
+</code></pre></div>
+<p><strong>③ TTNS 자율신경계 효과</strong> <em>(Muñoz et al. 2026, Neurourology and Urodynamics)</em></p>
+<div class="highlight"><pre><span></span><code>설계: 건강인 20명, TTNS 10분, HRV 측정
+  (기저 → 자극 → 회복 3단계)
+
+결과:
+  자극 중 부교감 지표 증가:
+    RMSSD ↑ (부교감 활성)
+    pNN50 ↑ (부교감 활성)
+  자극 후 회복기: 원상 복귀
+
+의미:
+  TTNS는 방광 반사 억제만이 아니라
+  자율신경계 전반을 조절
+  → OAB의 자율신경 불균형 교정 가능성
+
+우리 연구 적용:
+  연구팀 보유 ECG/HRV 장비 →
+  Rat TIS 실험에 ECG 동시 기록 추가 가능
+  → 방광 효과 + 자율신경 효과 동시 측정
+  → 논문 contribution 확장
+</code></pre></div>
+<p><strong>④ 최적 파라미터 메타분석</strong> <em>(13개 RCT, n=972)</em></p>
+<div class="highlight"><pre><span></span><code>결론:
+  주파수: 10 Hz &gt; 20 Hz (더 효과적)
+  펄스폭: 200 μs (표준)
+  → Al-Danakh 2022의 Aβ 섬유 선택 기전과 일치
+     (10~20 Hz → Aβ 우선 활성화)
+</code></pre></div>
+<h3 id="ttns_1">TTNS 한계</h3>
+<div class="highlight"><pre><span></span><code>한계 1: 자극 깊이 한계
+  피부/지방층 통과 → 전류 손실
+  신경 도달 전류량 불확실 → 재현성 낮음
+
+한계 2: 선택성 부족
+  표면 전극 → 주변 근육·피부 동시 자극
+  → 불쾌감, 근육 수축
+
+한계 3: FDA 미승인
+  PTNS 2000년 승인, TTNS는 미승인
+  (대규모 표준화 RCT 부족)
+
+한계 4: 파라미터 비표준화
+  연구마다 주파수·전류·전극 위치 달라
+  직접 비교·메타분석 어려움
+</code></pre></div>
+<hr />
+<h2 id="4">4. 세 기술 종합 비교</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SNM</th>
+<th>PTNS</th>
+<th>TTNS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>침습도</td>
+<td>높음 (수술)</td>
+<td>중간 (바늘)</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>자극 위치</td>
+<td>S3 신경근 (직접)</td>
+<td>경골신경 (간접)</td>
+<td>경골신경 (간접)</td>
+</tr>
+<tr>
+<td>효능 (NMA)</td>
+<td>높음 (2위)</td>
+<td>중간 (3위)</td>
+<td>중간~</td>
+</tr>
+<tr>
+<td>지속성</td>
+<td>지속 자극</td>
+<td>월 1회 유지 필요</td>
+<td>월 1회 유지 필요</td>
+</tr>
+<tr>
+<td>자가 사용</td>
+<td>가능 (리모컨)</td>
+<td>불가</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>비용</td>
+<td>매우 높음</td>
+<td>중간</td>
+<td>낮음</td>
+</tr>
+<tr>
+<td>부작용</td>
+<td>높음 (수술)</td>
+<td>낮음</td>
+<td>최소</td>
+</tr>
+<tr>
+<td>FDA 승인</td>
+<td>✅ 1997</td>
+<td>✅ 2000</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>자율신경 효과</td>
+<td>있음</td>
+<td>간접적</td>
+<td>✅ 확인 (2026)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. 논문 근거 요약</h2>
+<table>
+<thead>
+<tr>
+<th>논문</th>
+<th>설계</th>
+<th>핵심 결과</th>
+<th>우리 연구 연관성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bycroft 2020 (NMA)</td>
+<td>NMA</td>
+<td>BoNT-A &gt; SNM &gt; PTNS (효능) / PTNS 안전 1위</td>
+<td>TIS 임상 위치 설정 근거</td>
+</tr>
+<tr>
+<td>Peters 2010 (SUmiT)</td>
+<td>RCT n=220</td>
+<td>PTNS 54.5% vs Sham 20.9%</td>
+<td>PTNS 대조군 설계 근거</td>
+</tr>
+<tr>
+<td>Finazzi-Agrò 2010 (OrBIT)</td>
+<td>RCT</td>
+<td>PTNS = Tolterodine</td>
+<td>신경조절이 약물 대안 근거</td>
+</tr>
+<tr>
+<td>MacDiarmid 2010 (STEP)</td>
+<td>3년 추적</td>
+<td>유지율 77%</td>
+<td>장기 효과 기전</td>
+</tr>
+<tr>
+<td>Al-Danakh 2022</td>
+<td>리뷰</td>
+<td>Aβ→S2-S4→GABA 3단계 기전</td>
+<td>TIS 경골신경 자극 기전 동일 적용</td>
+</tr>
+<tr>
+<td>2024 PTNS vs TTNS</td>
+<td>RCT n=44</td>
+<td>PTNS = TTNS (동등)</td>
+<td>비침습화 추세 근거</td>
+</tr>
+<tr>
+<td>2024 TTNS+Mirabegron</td>
+<td>RCT n=40</td>
+<td>병용 &gt; 단독</td>
+<td>TIS + 약물 병용 연구 설계 근거</td>
+</tr>
+<tr>
+<td>Muñoz 2026</td>
+<td>탐색 n=20</td>
+<td>TTNS → 부교감 ↑ (HRV)</td>
+<td>ECG/HRV로 TIS 자율신경 측정 근거</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-tis">6. 공통 한계 → TIS의 필요성</h2>
+<div class="highlight"><pre><span></span><code>SNM  한계: 수술 + 비용 + 합병증
+PTNS 한계: 침습 (바늘) + 병원 의존
+TTNS 한계: 자극 깊이 부족 + 선택성 낮음 + FDA 미승인
+
+↓ 공통 미충족 수요 (Unmet Need) ↓
+
+  ✅ 비침습 (바늘·수술 없이)
+  ✅ 깊은 경골신경 표적화
+  ✅ 선택적 자극 (주변 조직 최소화)
+  ✅ 자가 사용 가능
+  ✅ PTNS/TTNS 이상 효능
+
+↓ TIS의 이론적 해결책 ↓
+
+  피부 전극 4개
+       ↓
+  고주파 2쌍 (2 kHz + 2.02 kHz) 동시 인가
+       ↓
+  피부: 고주파 → 불쾌감 없음 (안전)
+       ↓
+  경골신경 위치: 두 주파수 간섭 → 20 Hz envelope 생성
+       ↓
+  비침습 + 깊이 + 선택성 동시 달성
+  → PTNS 동등 이상 효과 이론적 가능
+</code></pre></div>
+<hr />
+<h2 id="_6">개념 요약 &amp; 지식 맵</h2>
+<div class="highlight"><pre><span></span><code>OAB 신경조절 기술 발전 흐름
+
+SNM (1997) ──── 수술·이식 → 효과 강 / 침습·비용 문제
+    │
+PTNS (2000) ─── 바늘·외래 → 안전 / 병원 의존 문제
+    │
+TTNS (진행 중) ─ 전극·가정 → 비침습 / 깊이·선택성 문제
+    │
+TIS (우리 연구) ─ 간섭 집속 → 비침습 + 깊이 + 선택성
+
+공통 신경 경로:
+  경골신경(L4-S3) → 척수 S2-S4
+  → GABAergic 억제 → 방광 부교감 차단 → OAB 개선
+
+TIS 차별화 포인트:
+  고주파 피부 통과 + 심부에서 저주파 envelope 생성
+  = 표면 안전성 + 심부 효과 동시 달성
+</code></pre></div>
+<hr />
+<h2 id="_7">자기평가 문항</h2>
+<ol>
+<li>SNM의 자극 위치가 PTNS/TTNS와 다른 점은? 왜 더 강한 효과를 내나?</li>
+<li>SUmiT Trial의 핵심 결과는? PTNS FDA 승인에서 이 연구의 의의는?</li>
+<li>PTNS와 TTNS 효과가 동등하다면 임상적으로 어떤 의미인가? (2024 RCT 기반)</li>
+<li>Bycroft 2020 NMA에서 3치료 효능·안전성 순위는? TIS가 이 구도에서 노려야 할 위치는?</li>
+<li>TTNS가 자율신경계에 영향을 준다는 근거는? 우리 실험에 어떻게 적용하나?</li>
+<li>세 기술의 공통 한계와 TIS가 이론적으로 극복하는 방식을 설명하라.</li>
+</ol>
+<hr />
+<p><em>작성: 2026-06-21 | 커리큘럼 STEP 3/13 | 다음: STEP 4 — Temporal Interference Stimulation (TIS) 원리</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.sections", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
