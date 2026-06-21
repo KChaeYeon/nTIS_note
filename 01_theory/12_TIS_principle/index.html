@@ -1,0 +1,2347 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/01_theory/12_TIS_principle/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>STEP 4: Temporal Interference Stimulation (TIS) 원리 - nTIS Research Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-4-temporal-interference-stimulation-tis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="nTIS Research Notebook" class="md-header__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            nTIS Research Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STEP 4: Temporal Interference Stimulation (TIS) 원리
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_papers/" class="md-tabs__link">
+          
+  
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03_gaps/gap_analysis/" class="md-tabs__link">
+          
+  
+  
+  Research Gaps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_proposal/research_proposal/" class="md-tabs__link">
+          
+  
+  
+  Proposal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05_Exp/" class="md-tabs__link">
+          
+  
+  
+  Experiments
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06_Meeting/" class="md-tabs__link">
+          
+  
+  
+  Meetings
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="nTIS Research Notebook" class="md-nav__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    nTIS Research Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_basic_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. TIS 기초 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 전기장 모델 & FEM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_nphase_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. n-Phase 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_TIS_physics_FEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. TIS 물리 & FEM 심층
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_tibial_nerve_TIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 경골신경 TIS 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_tibial_nerve_complete_knowledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 경골신경 지식 백과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_EM_physics_TIS_study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. EM 물리 학습 가이드 (고등학생용)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Gaps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Gaps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gaps/gap_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gap Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proposal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_proposal/research_proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experiments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Exp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meetings
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meetings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. TIS 탄생 배경
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. TIS 탄생 배경">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 기존 방법은 실패했는가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grossman-et-al-2017-cell-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grossman et al. 2017 (Cell) — TIS 제안
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-beat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 물리적 직관: 맥놀이(Beat) 현상
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 물리적 직관: 맥놀이(Beat) 현상">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        소리로 먼저 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 수학적 표현
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 수학적 표현">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-1d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 1D 스칼라 경우 (기초)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-e_1-neq-e_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 \(E_1 \neq E_2\)인 일반적 경우
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 3D 벡터 전기장 (실제 조직에서)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-elliptical-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 전기장 벡터의 타원 궤적 (Elliptical Trajectory)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. AM_max 계산 — 어느 방향으로 가장 강하게 자극되는가?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. AM_max 계산 — 어느 방향으로 가장 강하게 자극되는가?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-am-single-directed-am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 단일 방향 AM (Single-directed AM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 AM_max — 최대 자극 방향 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-anti-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 안티페이즈(Anti-phase) 전극 구성 원리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 안티페이즈(Anti-phase) 전극 구성 원리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 개념: 왜 안티페이즈가 필요한가?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comsol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. COMSOL 시뮬레이션 워크플로우
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. COMSOL 시뮬레이션 워크플로우">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artifact-20250910" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        경계 Artifact 문제 및 해결 (김대용, 2025.09–10)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-2-phase-tis-vs-3-phase-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 2-phase TIS vs 3-phase TIS 비교
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 2-phase TIS vs 3-phase TIS 비교">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-2-phase-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 2-phase TIS (기본형)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-3-phase-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 3-phase TIS (팀 핵심 연구)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-steering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 자극 조향 (Steering)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 자극 조향 (Steering)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        진폭 비율 조절로 표적 이동
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-comsol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 팀 COMSOL 시뮬레이션 결과 요약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 팀 COMSOL 시뮬레이션 결과 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-hypoglossal-nerve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 설하신경(Hypoglossal Nerve) 모델 — 검증 케이스
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-260420" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 전극 최적화 결과 (김대용 팀 260420)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-khz-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 신경이 왜 kHz는 무시하고 envelope에만 반응하는가?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 개념 요약
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-tis-oab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. 지식 맵: TIS가 OAB 치료에 연결되는 방식
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. 연구자 노트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. 핵심 논문 목록
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. 자기평가 문항
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="step-4-temporal-interference-stimulation-tis">STEP 4: Temporal Interference Stimulation (TIS) 원리</h1>
+<h2 id="_1">학습 목표</h2>
+<p>TIS의 물리적 원리를 파동 간섭 → 전기장 수식 → COMSOL 시뮬레이션 워크플로우까지 연속된 흐름으로 이해하고,<br />
+2-phase TIS와 3-phase TIS의 차이를 AM_max 계산 관점에서 설명할 수 있다.</p>
+<hr />
+<h2 id="_2">전체 그림</h2>
+<div class="highlight"><pre><span></span><code>[문제: 깊은 신경을 비침습적으로 자극할 수 없다]
+         ↓
+  두 개의 고주파 전류(f1, f2)를 피부 전극으로 인가
+         ↓
+  조직 내부에서 두 전기장이 중첩(superposition)
+         ↓
+  공간적으로 겹치는 영역에서만 &quot;맥놀이(beat)&quot; 발생
+         ↓
+  저주파 envelope(f_beat = |f1 - f2|)이 신경 발화 유도
+         ↓
+[피부·표면 조직: kHz 고주파 → 자극 없음]
+[내부 표적 지점: 저주파 envelope → 신경 발화]
+
+핵심 통찰: &quot;자극은 envelope이 한다. kHz 자체는 통과할 뿐.&quot;
+</code></pre></div>
+<hr />
+<h2 id="1-tis">1. TIS 탄생 배경</h2>
+<h3 id="_3">왜 기존 방법은 실패했는가?</h3>
+<div class="highlight"><pre><span></span><code>기존 경두개 전기자극(tDCS/tACS)의 딜레마:
+
+  피부 전극 ──────────────────────── 두피/두개골
+       │  전류가 표면을 따라 흐름     │
+       │  내부는 낮은 전류밀도       │
+       └─────────────── 표적(내부) ──┘
+                           ↑
+               여기까지 충분한 세기로 도달하려면
+               표면에서 너무 강해져 통증·화상 유발
+
+물리적 이유:
+  - 두개골 conductivity ≈ 0.01 S/m (근육의 1/40)
+  - 대부분의 전류가 두개골을 우회하여 표면 경로 이동
+  - 내부 전류밀도 ∝ 1/r² (거리 제곱에 반비례 감소)
+</code></pre></div>
+<h3 id="grossman-et-al-2017-cell-tis">Grossman et al. 2017 (Cell) — TIS 제안</h3>
+<ul>
+<li><strong>논문</strong>: Noninvasive Deep Brain Stimulation via Temporally Interfering Electric Fields</li>
+<li><strong>핵심 아이디어</strong>: 주파수가 <em>조금</em> 다른 두 kHz 전류를 따로 인가
+  → 표면에서는 고주파만 존재 (신경 자극 없음)
+  → 내부 표적에서 두 전기장이 중첩 → 저주파 envelope 생성 → 신경 발화</li>
+<li><strong>동물 실험 결과</strong>: 마취된 마우스에서 운동피질·해마 선택적 자극 확인</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Grossman 2017 실험 구성:
+
+  ┌─────────────────────────────────────┐
+  │           마우스 두뇌               │
+  │                                     │
+  │   전극쌍 1 ──f1=2000Hz──┐          │
+  │                          ├→ 표적 ←─┤
+  │   전극쌍 2 ──f2=2001Hz──┘          │
+  │                                     │
+  │   결과: 표적에서 1Hz 자극 envelope  │
+  │         발에서 움직임 관찰          │
+  └─────────────────────────────────────┘
+
+참조: Grossman N et al., Cell 2017; 169(6):1029–1041
+</code></pre></div>
+<hr />
+<h2 id="2-beat">2. 물리적 직관: 맥놀이(Beat) 현상</h2>
+<h3 id="_4">소리로 먼저 이해하기</h3>
+<p>피아노에서 라(A) 음을 440Hz와 442Hz로 동시에 치면:
+→ "웅~웅~" 하는 2Hz의 떨림(맥놀이) 들림
+→ 두 음파의 주파수 차이 = 맥놀이 주파수</p>
+<p>TIS는 이와 동일한 원리를 전기장에 적용한 것.</p>
+<div class="highlight"><pre><span></span><code>맥놀이 시각화:
+
+  파동 1 (f1=2000Hz):   ∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿
+  파동 2 (f2=2002Hz):   ∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿
+
+  중첩 결과:
+                         ╭──╮        ╭──╮
+  ∿∿∿∿╭∿∿∿∿∿∿∿╮∿∿∿∿╭∿∿∿∿∿∿∿╮∿∿∿∿
+       ╰─────╯        ╰─────╯
+
+  ↑                    ↑
+  진폭 최소             진폭 최대
+  (소상: destructive)   (보강: constructive)
+
+  맥놀이 주파수 = |2002 - 2000| = 2Hz
+  고주파 carrier = (2002 + 2000)/2 = 2001Hz
+</code></pre></div>
+<hr />
+<h2 id="3">3. 수학적 표현</h2>
+<h3 id="31-1d">3.1 1D 스칼라 경우 (기초)</h3>
+<p>두 전기장 성분이 같은 방향으로 중첩될 때:</p>
+<div class="arithmatex">\[E(t) = E_1 \cos(\omega_1 t) + E_2 \cos(\omega_2 t)\]</div>
+<p>여기서 <span class="arithmatex">\(\omega_1 = 2\pi f_1\)</span>, <span class="arithmatex">\(\omega_2 = 2\pi f_2\)</span></p>
+<p><strong><span class="arithmatex">\(E_1 = E_2 = E_0\)</span>인 특수한 경우</strong> (두 쌍의 진폭이 같을 때):</p>
+<p>적화공식(sum-to-product) 적용:</p>
+<div class="arithmatex">\[E(t) = 2E_0 \cos\!\left(\frac{\omega_1 - \omega_2}{2}t\right)\cos\!\left(\frac{\omega_1 + \omega_2}{2}t\right)\]</div>
+<div class="arithmatex">\[= \underbrace{2E_0 \cos(\pi\Delta f \cdot t)}_{\text{느린 envelope}}\underbrace{\cos(2\pi \bar{f} \cdot t)}_{\text{빠른 carrier}}\]</div>
+<table>
+<thead>
+<tr>
+<th>항</th>
+<th>의미</th>
+<th>주파수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\cos(2\pi\bar{f}t)\)</span></td>
+<td>고주파 carrier</td>
+<td><span class="arithmatex">\(\bar{f} = (f_1+f_2)/2\)</span> ≈ 수kHz</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(2E_0\cos(\pi\Delta f \cdot t)\)</span></td>
+<td>저주파 envelope</td>
+<td>$\Delta f =</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Envelope 진폭</strong> = <span class="arithmatex">\(|2E_0 \cos(\pi\Delta f \cdot t)|\)</span><br />
+→ 주기: <span class="arithmatex">\(1/\Delta f\)</span> 초 (맥놀이 1회 = 신경 1회 자극)</p>
+<blockquote>
+<p><strong>팀 실험 파라미터 (하이퍼틱스, 2026):</strong><br />
+f1 = 5000Hz, f2 = 5002Hz → <span class="arithmatex">\(\Delta f\)</span> = <strong>2Hz</strong> beat, carrier ≈ 5001Hz<br />
+진폭: 1.6mA/채널 → 쥐 운동피질에서 spike firing rate 증가 확인</p>
+</blockquote>
+<h3 id="32-e_1-neq-e_2">3.2 <span class="arithmatex">\(E_1 \neq E_2\)</span>인 일반적 경우</h3>
+<p>진폭이 다를 때 envelope은 완전히 0까지 내려가지 않음:</p>
+<div class="arithmatex">\[E_{env}(t) = \sqrt{(E_1 + E_2)^2\cos^2(\pi\Delta f \cdot t) + (E_1 - E_2)^2\sin^2(\pi\Delta f \cdot t)}\]</div>
+<ul>
+<li><strong>최대 envelope 진폭</strong> = <span class="arithmatex">\(E_1 + E_2\)</span> (보강 간섭 시)</li>
+<li><strong>최소 envelope 진폭</strong> = <span class="arithmatex">\(|E_1 - E_2|\)</span> (소상 간섭 시)</li>
+<li><strong>AM 깊이</strong> = <span class="arithmatex">\(2\min(E_1, E_2)\)</span> (진폭 변조의 크기)</li>
+</ul>
+<h3 id="33-3d">3.3 3D 벡터 전기장 (실제 조직에서)</h3>
+<p>실제 조직에서 전기장은 3차원 벡터:</p>
+<div class="arithmatex">\[\vec{E}(t) = \vec{E}_1\cos(\omega_1 t + \phi_1) + \vec{E}_2\cos(\omega_2 t + \phi_2)\]</div>
+<p>여기서 <span class="arithmatex">\(\vec{E}_1\)</span>, <span class="arithmatex">\(\vec{E}_2\)</span>는 각각 전극 쌍 1, 2가 만드는 공간 전기장 벡터.</p>
+<p><strong>핵심</strong>: 공간의 각 점에서 <span class="arithmatex">\(\vec{E}(t)\)</span>는 시간에 따라 <strong>타원 궤적</strong>을 그린다.</p>
+<hr />
+<h2 id="4-elliptical-trajectory">4. 전기장 벡터의 타원 궤적 (Elliptical Trajectory)</h2>
+<div class="highlight"><pre><span></span><code>공간의 한 점에서 전기장 벡터 끝이 그리는 궤적:
+
+     E_y
+      ↑
+      │    ╭────────╮
+      │   ╱  타원   ╲
+      │  │     ●     │  ← 전기장 벡터 E(t)가
+      │  │           │     회전하며 타원을 그림
+      │   ╲         ╱
+      │    ╰────────╯
+      └──────────────→ E_x
+
+  - 장반경(semi-major axis) a: 가장 강한 자극 방향
+  - 단반경(semi-minor axis) b: 수직 방향 자극
+  - b = 0이면 선형(linear) → 특정 방향만 자극
+  - a = b이면 원형(circular)
+
+2-phase TIS: 타원이 한 평면 내에 제한됨
+3-phase TIS: 타원이 3D 공간에서 임의 방향 가능
+</code></pre></div>
+<p><strong>Phasor 표현</strong>으로 타원 기술:</p>
+<p>COMSOL에서 export하는 복소수 phasor <span class="arithmatex">\(\tilde{E}\)</span>를 이용:</p>
+<div class="arithmatex">\[\vec{E}_1 = \text{Re}[\tilde{\vec{E}}_1 e^{j\omega_1 t}], \quad \vec{E}_2 = \text{Re}[\tilde{\vec{E}}_2 e^{j\omega_2 t}]\]</div>
+<p>타원의 두 축은 행렬 <span class="arithmatex">\([\tilde{\vec{E}}_1, \tilde{\vec{E}}_2]\)</span>의 <strong>특이값(singular value)</strong>으로 결정됨.</p>
+<hr />
+<h2 id="5-am_max">5. AM_max 계산 — 어느 방향으로 가장 강하게 자극되는가?</h2>
+<h3 id="51-am-single-directed-am">5.1 단일 방향 AM (Single-directed AM)</h3>
+<p>특정 방향 단위벡터 <span class="arithmatex">\(\hat{n}\)</span>으로의 전기장 성분:</p>
+<div class="arithmatex">\[E_{\hat{n}}(t) = \vec{E}(t) \cdot \hat{n} = E_{1n}\cos(\omega_1 t) + E_{2n}\cos(\omega_2 t)\]</div>
+<p>이 방향으로의 AM 진폭 = 위 1D 공식 적용.</p>
+<div class="highlight"><pre><span></span><code>COMSOL에서 2-phase 단일 방향 시뮬레이션 (김대용 팀, 2025):
+
+  x방향 AM:  E_x(t) = Ex1·cos(ω1t) + Ex2·cos(ω2t) → AM_x
+  y방향 AM:  E_y(t) = Ey1·cos(ω1t) + Ey2·cos(ω2t) → AM_y
+
+  → 그림: 타원 투영으로 보이는 AM 분포 맵
+</code></pre></div>
+<h3 id="52-am_max">5.2 AM_max — 최대 자극 방향 탐색</h3>
+<p><strong>문제</strong>: 어느 방향 <span class="arithmatex">\(\hat{n}^*\)</span>이 AM을 최대화하는가?</p>
+<div class="arithmatex">\[AM_{max} = \max_{\|\hat{n}\|=1} AM(\hat{n})\]</div>
+<p>이것이 팀 연구의 핵심 계산 문제.</p>
+<p><strong>해석적 풀이 (송솔웅, 2026 — Lagrange 승수법)</strong>:</p>
+<p>타원 궤적의 각 점 <span class="arithmatex">\(P(t)\)</span>를 단위 구(unit sphere)에 투영:</p>
+<p><strong>제약 조건</strong>:
+1. <span class="arithmatex">\(\|\hat{n}\| = 1\)</span> (단위벡터)
+2. <span class="arithmatex">\(\hat{n}\)</span>이 타원 궤적의 특정 점과 접촉 (최대 투영 조건)</p>
+<p><strong>Lagrangian</strong> 구성:</p>
+<div class="arithmatex">\[\mathcal{L}(\hat{n}, \lambda_1, \lambda_2) = (\vec{E}(t) \cdot \hat{n}) - \lambda_1(\|\hat{n}\|^2 - 1) - \lambda_2 \cdot g(\hat{n})\]</div>
+<p><strong>Stationarity 조건</strong> (<span class="arithmatex">\(\nabla_{\hat{n}}\mathcal{L} = 0\)</span>)에서:</p>
+<div class="arithmatex">\[AM_{max} = \sigma_1\]</div>
+<p>여기서 <span class="arithmatex">\(\sigma_1\)</span>은 <strong>타원 field tensor의 최대 특이값(largest singular value)</strong>.</p>
+<div class="highlight"><pre><span></span><code>AM_max 계산 요약:
+
+  입력: 각 점에서 E_phasor_f1 = (Ex1, Ey1, Ez1) (complex)
+                  E_phasor_f2 = (Ex2, Ey2, Ez2) (complex)
+
+  행렬 구성: M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)] ∈ ℝ³ˣ⁴
+
+  SVD 분해: M = UΣVᵀ
+
+  AM_max = 2 × σ₁  (최대 특이값 × 2, 피크-투-피크)
+
+  최적 방향: û* = u₁ (U의 첫 번째 열)
+</code></pre></div>
+<blockquote>
+<p><strong>왜 인수 2인가?</strong><br />
+타원의 최대 투영 = 장반경 <span class="arithmatex">\(a\)</span>, 피크-투-피크 진폭 = <span class="arithmatex">\(2a = 2\sigma_1\)</span></p>
+</blockquote>
+<hr />
+<h2 id="6-anti-phase">6. 안티페이즈(Anti-phase) 전극 구성 원리</h2>
+<h3 id="_5">기본 개념: 왜 안티페이즈가 필요한가?</h3>
+<div class="highlight"><pre><span></span><code>❌ 안티페이즈 없는 경우 (단순 2전극):
+
+  (+)전극 ──────────────── (-)GND
+       │  전류가 표면 경로  │
+       │  (전극 바로 밑)   │
+       │  집중됨           │
+       └───────────────────┘
+
+  문제: 전극 근처 과도한 전류 밀도 → 통증, 화상
+
+✅ 안티페이즈 적용 (2전극 쌍):
+
+  전극쌍 1:  (+f1)──────────(- f1)  ← f1 고주파, 안티페이즈
+  전극쌍 2:  (+f2)──────────(- f2)  ← f2 고주파, 안티페이즈
+
+  각 쌍의 전류 합 = 0 → 외부 유출 없음
+  내부 교차 영역에서만 envelope 생성
+</code></pre></div>
+<p><strong>수학적 설명</strong>:</p>
+<div class="highlight"><pre><span></span><code>표면 근처 임의 점 P에서:
+
+  E₁ = +A·cos(ω₁t)   (전극1에서 오는 성분)
+  E₁&#39; = -A·cos(ω₁t)  (안티페이즈 전극에서 오는 성분, 반대 위상)
+
+  합 = A·cos(ω₁t) + (-A·cos(ω₁t)) = 0  ← 표면 전류 소거
+
+  단, 교차 영역 내부에서는:
+  E₁(at target) ≠ -E₁&#39;(at target)  ← 경로 차이로 소거 불완전
+  → 유효 자극 생성
+</code></pre></div>
+<p><strong>팀 COMSOL 관찰 (김대용, 2025.10)</strong>:</p>
+<div class="highlight"><pre><span></span><code>GND 설정에 따른 차이:
+
+  Cross-talk 유발 구성:
+  ┌─────────────────────┐
+  │  (+f1)   (GND)      │  ← GND 공유 시
+  │          ↑           │    다른 주파수 전류가 GND 통해
+  │  (+f2) ──┘          │    혼선(cross-talk) 발생
+  └─────────────────────┘
+
+  Anti-phase 구성 (권장):
+  ┌─────────────────────┐
+  │  (+f1)   (-f1)      │  ← 각 쌍 독립 회로
+  │                     │    GND 없이 차동 구동
+  │  (+f2)   (-f2)      │    → cross-talk 방지
+  └─────────────────────┘
+</code></pre></div>
+<p><strong>실험 파라미터 (Kwak et al., Brain Stimulation, 2023)</strong>:
+- f1 = 2000Hz (pair 1: 0.95mA), f2 = 2002Hz (pair 2: 1.05mA)
+- Beat frequency = 2Hz, 진폭 비대칭 → steering 효과
+- 타겟: 마우스 선조체(striatum)</p>
+<hr />
+<h2 id="7-comsol">7. COMSOL 시뮬레이션 워크플로우</h2>
+<p>팀이 실제 사용하는 파이프라인 (송솔웅 + 김대용, 2025–2026):</p>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────────────────────┐
+│                  TIS COMSOL 파이프라인                    │
+│                                                          │
+│  STEP 1: 조직 모델 구축                                   │
+│  ─────────────────────                                   │
+│  MRI/CT 영상                                             │
+│    → 세그멘테이션 (피부, 지방, 근육, 신경, 뼈)           │
+│    → STL/mesh 생성                                       │
+│    → COMSOL import                                       │
+│                                                          │
+│  팀 활용 데이터:                                         │
+│  - IT&#39;IS MIDA (115 구조체, 설하신경 포함)                │
+│  - Z-anatomy (신경계 전체, atlas 기반)                   │
+│  - IT&#39;IS Jeduk v4.0 (전신 인체 모델, COMSOL 미지원)      │
+│                                                          │
+│  STEP 2: 물질 속성 설정                                  │
+│  ──────────────────────                                  │
+│  각 조직에 전기 전도도(σ) 및 유전율(ε) 할당:             │
+│                                                          │
+│    피부: σ ≈ 0.4–1.0 S/m                                │
+│    지방: σ ≈ 0.04 S/m                                   │
+│    근육: σ ≈ 0.2–0.4 S/m (이방성 고려)                  │
+│    신경: σ ≈ 0.1–0.3 S/m                                │
+│    뼈:   σ ≈ 0.02 S/m                                   │
+│    혈액: σ ≈ 0.7 S/m                                    │
+│                                                          │
+│  STEP 3: 주파수 도메인 해석                               │
+│  ──────────────────────────                              │
+│  Physics: AC/DC → Electric Currents                      │
+│  Study: Frequency Domain (f1 따로, f2 따로 — 2번 계산)  │
+│                                                          │
+│  지배 방정식 (Laplace):                                  │
+│  ∇ · (σ∇V) = 0  (quasi-static 근사)                    │
+│                                                          │
+│  경계 조건:                                              │
+│  - 전극: 전류밀도 J 인가 (Current source 권장)           │
+│  - 외부 경계: 절연(insulation, n·J=0)                   │
+│                                                          │
+│  ※ Current source vs Voltage source:                    │
+│  Current source → 전류 일정, 전극 임피던스 변화에 강건   │
+│  (팀은 Current source 사용)                              │
+│                                                          │
+│  STEP 4: 전기장 데이터 export                            │
+│  ─────────────────────────                               │
+│  각 주파수(f1, f2)별 복소 phasor export:                 │
+│    txt 파일: x, y, z 좌표 + Ex, Ey, Ez (복소수)         │
+│    → 파일 1: E_phasor_f1.txt                            │
+│    → 파일 2: E_phasor_f2.txt                            │
+│                                                          │
+│  STEP 5: MATLAB에서 AM_max 계산                          │
+│  ─────────────────────────────                           │
+│  스크립트: nTIS_3D_260331.m (송솔웅)                     │
+│                                                          │
+│    for each point:                                       │
+│      M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)]            │
+│      [U,S,V] = svd(M)                                   │
+│      AM_max = 2 * S(1,1)                                │
+│      n_optimal = U(:,1)                                  │
+│                                                          │
+│  시각화:                                                 │
+│  - Scatter plot (3D 분포)                               │
+│  - Slice (단면도)                                        │
+│  - Isosurface (등값면)                                   │
+│                                                          │
+│  STEP 6: COMSOL 재import 및 시각화                       │
+│  ──────────────────────────────────                      │
+│  Global Definitions → Interpolation 함수 생성            │
+│  AM_max 값을 공간 함수로 load                            │
+│  → 조직 모델 위에 겹쳐서 시각화                          │
+└──────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="artifact-20250910">경계 Artifact 문제 및 해결 (김대용, 2025.09–10)</h3>
+<div class="highlight"><pre><span></span><code>문제:
+  전극 표면 근처에서 AM_max 계산 시 비현실적 큰 값 출현
+
+  원인: Case-based AM 계산에서 경계 조건 불연속
+
+        Ground truth    Result (artifact)
+        ──────────      ─────────────────
+        |          |    |    ████        |
+        |   균일   |    |   ██  ████    |  ← 경계에서
+        |   분포   |    |               |     튀는 값
+        |__________|    |_______________|
+
+해결책: Binary Mask via Boundary
+
+  1. 조직 경계면 추출
+  2. 전극 표면 근방 영역 mask 처리 (제외)
+  3. AM 계산 결과에 mask 적용
+
+  → 경계 artifact 제거 후 ground truth와 일치
+</code></pre></div>
+<hr />
+<h2 id="8-2-phase-tis-vs-3-phase-tis">8. 2-phase TIS vs 3-phase TIS 비교</h2>
+<h3 id="81-2-phase-tis">8.1 2-phase TIS (기본형)</h3>
+<div class="highlight"><pre><span></span><code>전극 구성:
+
+  (+f1) ──────── (-f1)    ← 전극쌍 1 (x방향)
+
+  (+f2) ──────── (-f2)    ← 전극쌍 2 (y방향)
+
+Phasor 관점:
+
+  허수축
+    ↑
+    │    ● E₂
+    │   /
+    │  /
+    │ /    ← 타원이 x-y 평면 내에만 있음
+    │/
+    ●────────→ 실수축
+   E₁
+
+자극 형태:
+  - 타원이 2D 평면(자극 평면) 내에 제한
+  - Steering: 두 쌍의 진폭 비율 조절 → 좌/우 이동
+  - 제한: 상/하(깊이 방향) 조절 자유도 없음
+</code></pre></div>
+<p><strong>COMSOL 결과 (2-phase, 팀 시뮬레이션)</strong>:
+- 중심 영역: 타원 궤적이 선형에 가까움 (steering 가능)
+- 전극 근처: 타원이 크게 찌그러짐</p>
+<h3 id="82-3-phase-tis">8.2 3-phase TIS (팀 핵심 연구)</h3>
+<div class="highlight"><pre><span></span><code>전극 구성 (120° 위상 분리):
+
+  전극 a:  I·cos(ωt + 0°)
+  전극 b:  I·cos(ωt + 120°)
+  전극 c:  I·cos(ωt + 240°)
+
+  합: Ia + Ib + Ic = I[cos(0) + cos(120°) + cos(240°)] = 0
+                     → Kirchhoff 전류법칙 자동 만족
+
+3-phase의 Phasor 표현:
+
+  허수축
+    ↑   ● b (120°)
+    │  ╱
+    │ ╱
+    │╱
+  ──●──────────→ 실수축
+  a │╲
+    │ ╲
+    │  ╲● c (240°)
+
+대칭적 3-상 → 전기장 벡터가 3D 공간에서 타원 그림
+</code></pre></div>
+<p><strong>3-phase vs 2-phase 비교</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>2-phase TIS</th>
+<th>3-phase TIS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전극 수</td>
+<td>4개 (2쌍)</td>
+<td>3개</td>
+</tr>
+<tr>
+<td>자극 평면</td>
+<td>2D (평면적)</td>
+<td>3D (입체적)</td>
+</tr>
+<tr>
+<td>Steering 방향</td>
+<td>좌/우만</td>
+<td>상/하/좌/우/앞/뒤</td>
+</tr>
+<tr>
+<td>AM_max 계산</td>
+<td>상대적 단순</td>
+<td>SVD 필요</td>
+</tr>
+<tr>
+<td>타원 방향</td>
+<td>전극 배치 고정</td>
+<td>전류 비율로 조절</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>김대용 팀 COMSOL 결과 비교 (251014):
+
+  중심 영역 전기장 벡터 궤적:
+
+  2-phase:              3-phase:
+  ─────────             ─────────
+  E_y ↑                E_y ↑
+      │  ─              │   ╭──╮
+      │ ╱               │  ╱    ╲
+      │╱                │ │  ●  │
+      ●─────→ E_x       │  ╲    ╱
+                         │   ╰──╯
+                         └────────→ E_x
+  선형에 가까움           원형에 가까움
+  (한 방향 집중)          (모든 방향 균등)
+</code></pre></div>
+<hr />
+<h2 id="9-steering">9. 자극 조향 (Steering)</h2>
+<h3 id="_6">진폭 비율 조절로 표적 이동</h3>
+<div class="highlight"><pre><span></span><code>2-phase TIS 조향 원리:
+
+  I₁ = I₀ + ΔI (전극쌍 1의 진폭)
+  I₂ = I₀ - ΔI (전극쌍 2의 진폭)
+
+  ΔI = 0:        표적이 중앙
+  ΔI &gt; 0:        표적이 전극쌍 1 쪽으로 이동
+  ΔI &lt; 0:        표적이 전극쌍 2 쪽으로 이동
+
+시각화:
+
+  ΔI &lt; 0    ΔI = 0    ΔI &gt; 0
+  ┌──────┐  ┌──────┐  ┌──────┐
+  │  ●   │  │  ●   │  │  ●   │  ← 전극쌍 2
+  │ ●    │  │  ●   │  │   ●  │  ← 자극 표적
+  │●     │  │  ●   │  │    ● │  ← 이동!
+  │  ●   │  │  ●   │  │  ●   │  ← 전극쌍 1
+  └──────┘  └──────┘  └──────┘
+</code></pre></div>
+<p><strong>3-phase TIS 조향 (팀 연구, 하이퍼틱스 2026)</strong>:</p>
+<div class="highlight"><pre><span></span><code>3개 전류의 크기/위상 조합으로:
+
+  상하 조향:   ↑↓
+  좌우 조향:   ←→
+  사선 조향:   ↗↙
+
+  ← 전극 이동 없이 소프트웨어로 조향!
+
+응용 (경골신경 OAB 치료):
+  - 경골신경 단면 내에서 표적 섬유(방광지배) 선택적 활성화 가능
+  - 발목 전극 고정 → 전류 파라미터만 변경으로 최적 자극 탐색
+</code></pre></div>
+<hr />
+<h2 id="10-comsol">10. 팀 COMSOL 시뮬레이션 결과 요약</h2>
+<h3 id="101-hypoglossal-nerve">10.1 설하신경(Hypoglossal Nerve) 모델 — 검증 케이스</h3>
+<p>설하신경 표적 TIS 시뮬레이션은 경골신경 연구의 선행 검증 케이스.</p>
+<p><strong>전극 파라미터 (김대용 팀 260323)</strong>:
+- 전극 직경: 1mm (추정값)
+- 전극간 거리: 2cm (center-to-center, 정사각형 배치)
+- 주파수: f1 = 5kHz, f2 = 5.05kHz (beat = 50Hz) 또는 f1 = 6kHz, f2 = 6.05kHz
+- 전류: 남성 7.86±1.46mA, 여성 4.6±1.34mA</p>
+<p><strong>3-TIS AM_max 결과</strong>:</p>
+<div class="highlight"><pre><span></span><code>Configuration 1 (최대점):
+  AM_max = 2.401×10⁴ V/m
+  위치: (-0.1, -0.1, -0.0009544) m  ← 전극 근처 표면
+
+Configuration 2 (최대점):
+  AM_max = 1.610×10⁴ V/m
+  위치: (0.1, -0.1, 0.001089) m
+
+주의: 최대값은 전극 직근에서 나타남 → 내부 표적에서의 값은 이보다 낮음
+실제 신경에서의 유효 자극 역치: ~10–100 V/m (문헌 기반)
+</code></pre></div>
+<h3 id="102-260420">10.2 전극 최적화 결과 (김대용 팀 260420)</h3>
+<div class="highlight"><pre><span></span><code>최적화 전략:
+  후보 전극 위치: 17,290개 조합 탐색
+  목적함수: 신경(Nerve) AM_max 최대화
+  제약 조건: Off-target AM_max 최소화 (선택성)
+
+  초기 결과:
+    Nerve max: 1.04 V/m  vs  Off-target: 0.99 V/m
+    → 선택성 불량 (신경/비표적 ≈ 1.05)
+
+  Lead-field 기반 Pareto 최적화 후:
+    Nerve max: 3.35 V/m  vs  Off-target: 3.34 V/m
+    → 선택성 개선 필요 (추가 연구 진행 중)
+
+  방법: 4×9 전극 어레이 → Lead-field matrix → 다목적 최적화
+</code></pre></div>
+<hr />
+<h2 id="11-khz-envelope">11. 신경이 왜 kHz는 무시하고 envelope에만 반응하는가?</h2>
+<div class="highlight"><pre><span></span><code>신경 발화 필터링:
+
+  고주파(kHz) → 신경막 무반응:
+
+    신경막의 RC 시상수: τ = RC ≈ 1–10ms
+    kHz 신호 주기: T = 1/2000Hz = 0.5ms &lt;&lt; τ
+    → 막전위가 충분히 변하기 전에 역전 → 순 효과 없음
+
+  저주파(beat) → 신경막 반응:
+
+    Beat 주파수: 1–200Hz (신경 발화 범위)
+    Beat 주기: T = 1/2Hz = 500ms &gt;&gt; τ
+    → 막전위가 서서히 변화 → 역치 초과 → 발화
+
+물리적 비유:
+  배를 흔들려면 파도 주기가 배의 자연주기와 맞아야 함.
+  너무 빠른 잔물결(kHz)은 배(신경)를 흔들지 못함.
+  천천히 오는 너울(Hz)이 배를 흔든다.
+
+참조: Hutcheon B &amp; Yarom Y, Trends Neurosciences, 2000
+      (뉴런의 공명 주파수 및 내재 주파수 선호도)
+</code></pre></div>
+<hr />
+<h2 id="12">12. 개념 요약</h2>
+<div class="highlight"><pre><span></span><code>TIS 핵심 개념 트리:
+
+TIS
+├── 원리
+│   ├── 두 kHz 전류 → beat frequency → 신경 자극
+│   ├── 고주파: 신경막 통과, 자극 없음
+│   └── 저주파 envelope: 막전위 변화 → 발화
+│
+├── 수학
+│   ├── 1D: E(t) = E₁cos(ω₁t) + E₂cos(ω₂t)
+│   ├── Envelope = |2E₀cos(π·Δf·t)| (E₁=E₂일 때)
+│   └── 3D: 전기장 벡터 → 타원 궤적 → SVD로 AM_max
+│
+├── 전극 구성
+│   ├── 안티페이즈: 표면 전류 소거, 내부 간섭
+│   ├── 2-phase: 4전극, 2D 조향
+│   └── 3-phase: 3전극, 3D 조향, 자유도 향상
+│
+└── COMSOL 파이프라인
+    ├── 조직 모델 → 물질 속성 → frequency domain 해석
+    ├── phasor export (f1, f2 각각)
+    ├── MATLAB SVD → AM_max
+    └── COMSOL 재import → 시각화
+</code></pre></div>
+<hr />
+<h2 id="13-tis-oab">13. 지식 맵: TIS가 OAB 치료에 연결되는 방식</h2>
+<div class="highlight"><pre><span></span><code>[OAB 병태생리 — STEP 1]
+         ↓ 방광 과활성 = 신경조절 문제
+[경골신경 해부 — STEP 2]
+         ↓ S2-S4 천수 반사궁 억제 경로
+[PTNS/TTNS/SNM 한계 — STEP 3]
+         ↓ 비침습 + 깊은 표적화 필요
+[TIS 원리 — STEP 4]  ← 현재 위치
+         ↓ 비침습 심부 자극 가능
+[Multi-source TIS — STEP 5]
+         ↓ 전극 수 증가로 성능 향상
+[3-phase TIS — STEP 6]  ← 팀의 핵심 연구
+         ↓ 3D 조향 + 경골신경 표적
+[COMSOL 최적화 — STEP 7–8]
+         ↓ 최적 전극 배치·전류 파라미터
+[임상 중개 — STEP 10]
+</code></pre></div>
+<hr />
+<h2 id="14">14. 연구자 노트</h2>
+<blockquote>
+<p><strong>확립된 지식</strong> (논문에서 검증됨):
+- TIS로 마우스 운동피질·해마 선택적 자극 가능 (Grossman 2017, Cell)
+- kHz 고주파는 신경 자극 없이 조직 통과 (membrane time constant 원리)
+- Anti-phase 전극 구성이 표면 자극 최소화에 효과적 (하이퍼틱스 팀 확인)
+- 3-phase TIS의 3D 조향 수학적 원리 증명 (팀 내부 발표, 2025–2026)</p>
+<p><strong>아직 불확실한 것</strong> (연구 갭):
+- 경골신경에서 TIS envelope이 실제 신경 발화를 유도하는 최소 역치 (in vivo 미확인)
+- 3-phase TIS의 조향 정밀도가 경골신경 단면(직경 ~3–5mm)에서 충분한지
+- 피하 지방층 두께 개인차가 AM_max 분포에 미치는 영향
+- 만성 OAB 환자에서의 반복 자극 효과 및 안전성</p>
+<p><strong>팀 특이 사항</strong>:
+- 송솔웅의 Lagrange multiplier 기반 해석적 AM_max 풀이는 시뮬레이션 속도를 크게 향상
+- 김대용의 boundary mask 솔루션은 COMSOL 결과 신뢰도 향상에 핵심 기여
+- 전극 파라미터 (직경 1mm, 간격 2cm)는 추정값 — 경골신경 특화 최적화 필요</p>
+</blockquote>
+<hr />
+<h2 id="15">15. 핵심 논문 목록</h2>
+<table>
+<thead>
+<tr>
+<th>논문</th>
+<th>핵심 내용</th>
+<th>관련성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grossman N et al., Cell 2017</td>
+<td>TIS 개념 최초 제안, 마우스 DBS 실증</td>
+<td>TIS 원리 기반</td>
+</tr>
+<tr>
+<td>Hutcheon B &amp; Yarom Y, Trends Neurosci 2000</td>
+<td>뉴런 공명주파수, 내재 주파수 선호도</td>
+<td>kHz 무반응 근거</td>
+</tr>
+<tr>
+<td>Conta J et al., Sci Rep 2021</td>
+<td>인체 tTIS 개인차 전기장 분포</td>
+<td>인체 적용 가변성</td>
+</tr>
+<tr>
+<td>Kwak Y et al., Brain Stimulation 2023</td>
+<td>TIS로 선조체 도파민 조절</td>
+<td>말초 적용 전기화학</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="16">16. 자기평가 문항</h2>
+<p><strong>Level 1 (최소 이해)</strong>
+1. TIS에서 신경을 실제로 자극하는 것은 kHz 고주파인가, beat frequency인가? 이유는?
+2. f1 = 3000Hz, f2 = 3005Hz일 때 beat frequency는 얼마인가?</p>
+<p><strong>Level 2 (부분 이해)</strong>
+3. <span class="arithmatex">\(E_1 = E_2 = E_0\)</span>일 때 TIS envelope 공식을 유도하라. 어떤 삼각 공식을 사용하는가?
+4. 안티페이즈 전극 구성이 표면 자극을 줄이는 이유를 수학적으로 설명하라.</p>
+<p><strong>Level 3 (실용적 이해)</strong>
+5. COMSOL에서 2-phase TIS 시뮬레이션 시, 왜 f1과 f2를 따로 두 번 계산해야 하는가?
+6. AM_max와 단일 방향 AM의 차이를 설명하고, 언제 AM_max가 더 중요한가?</p>
+<p><strong>Level 4 (연구 준비 완료)</strong>
+7. 3-phase TIS에서 전류의 합이 0이 되는 이유를 phasor로 설명하라.
+8. SVD를 이용한 AM_max 계산에서 최대 특이값이 AM_max와 같은 이유를 증명하라.
+9. 경골신경 TIS 시뮬레이션 설계 시 어떤 전기적 물성값이 가장 중요하고, 그 불확실성을 어떻게 다룰 것인가?</p>
+<p><strong>Level 5 (전문가 수준)</strong>
+10. 팀 COMSOL 결과에서 전극 최적화 후에도 신경/비표적 선택성이 개선되지 않은 이유를 분석하고, 개선 전략을 제안하라.
+11. 경골신경 단면(직경 3–5mm) 내에서 3-phase TIS의 조향 분해능(resolution)을 추정하는 방법을 제안하라.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.sections", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
