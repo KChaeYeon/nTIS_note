@@ -1,0 +1,2031 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/01_theory/15_AM_max_amplitude_modulation/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해 - nTIS Research Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-6-tis-amplitude-modulation-am_max" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="nTIS Research Notebook" class="md-header__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            nTIS Research Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_papers/" class="md-tabs__link">
+          
+  
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03_gaps/gap_analysis/" class="md-tabs__link">
+          
+  
+  
+  Research Gaps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_proposal/research_proposal/" class="md-tabs__link">
+          
+  
+  
+  Proposal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05_Exp/" class="md-tabs__link">
+          
+  
+  
+  Experiments
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06_Meeting/" class="md-tabs__link">
+          
+  
+  
+  Meetings
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="nTIS Research Notebook" class="md-nav__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    nTIS Research Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_basic_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. TIS 기초 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 전기장 모델 & FEM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_nphase_extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. n-Phase 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_TIS_physics_FEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. TIS 물리 & FEM 심층
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_tibial_nerve_TIS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 경골신경 TIS 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_tibial_nerve_complete_knowledge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 경골신경 지식 백과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_EM_physics_TIS_study_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. EM 물리 학습 가이드 (고등학생용)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Gaps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Gaps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gaps/gap_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gap Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proposal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_proposal/research_proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiments
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experiments
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_Exp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meetings
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meetings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 전체 그림
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-grossman-2017-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Grossman 2017 FEM 시뮬레이션 파악
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Grossman 2017 FEM 시뮬레이션 파악">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        모델 구성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지배 방정식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FEM 해석 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 결과
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 왜 단방향 AM이 불충분한가
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 왜 단방향 AM이 불충분한가">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D 벡터 전기장
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단방향 AM의 한계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-1d-am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 1D AM 공식 복습 (단방향)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 최적화 문제 공식화
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 최적화 문제 공식화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직관적 분석
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2d-e1-e2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D 예시 (E⃗₁ ⊥ E⃗₂)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 타원 궤적 — 핵심 물리적 직관
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 타원 궤적 — 핵심 물리적 직관">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 타원이 생기나
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        타원과 AM_max의 관계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. SVD — 타원 장반경을 계산하는 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. SVD — 타원 장반경을 계산하는 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        행렬 구성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SVD 분해
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 SVD가 장반경을 주는가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matlab-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MATLAB 코드 (팀 실제 코드, 송솔웅 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 물리적 검증 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 물리적 검증 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-brute-force" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        방법 1: Brute-force 수치 탐색
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-comsol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        방법 2: COMSOL에서 시각적 검증
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. AM_max 정의 비교 — 두 가지 해석
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-grossman-fem-am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Grossman FEM의 전체 AM 계산 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 개념 요약
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 자기평가 문항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 핵심 논문
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="step-6-tis-amplitude-modulation-am_max">STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해</h1>
+<blockquote>
+<p>작성: 2026-06-24
+커리큘럼: 6/13단계
+참고: Grossman N et al., Cell 2017; 169(6):1029-1041 / 송솔웅 nTIS 전기장 계산 2026 / 김대용 COMSOL 2025-2026
+수식 표기: Unicode/ASCII (LaTeX 없음, CLI 직독 가능)</p>
+</blockquote>
+<hr />
+<h2 id="_1">학습 목표</h2>
+<p>TIS에서 단방향(x, y, z축) AM이 왜 불충분한지 이해하고,
+최대 진폭 축(AM_max 방향 n*)을 타원 궤적 직관 + SVD 수식으로 도출하며,
+Grossman 2017 FEM 방법론을 구체적으로 파악할 수 있다.</p>
+<hr />
+<h2 id="0">0. 전체 그림</h2>
+<div class="highlight"><pre><span></span><code>이미 아는 것:
+  f1, f2 두 채널 → 심부에서 beat envelope → 신경 자극
+  전기장 맵핑 → AM 분포 시각화
+
+아직 모른 것 (이번 STEP):
+  ┌──────────────────────────────────────────────────────┐
+  │  왜 x방향 AM, y방향 AM이 달라지는가?                  │
+  │  어느 방향이 가장 강한 AM을 주는가?                   │
+  │  그 &#39;최적 방향&#39;을 어떻게 수식으로 구하는가?           │
+  └──────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="1-grossman-2017-fem">1. Grossman 2017 FEM 시뮬레이션 파악</h2>
+<h3 id="_2">모델 구성</h3>
+<div class="highlight"><pre><span></span><code>4층 동심구(concentric sphere) 모델:
+
+  ┌─────────────────────────────────────────┐
+  │  두피 (scalp)    r=8.5mm  σ=0.465 S/m  │
+  │  ┌───────────────────────────────────┐  │
+  │  │  두개골 (skull) r=8.0mm σ=0.01   │  │
+  │  │  ┌─────────────────────────────┐ │  │
+  │  │  │  CSF          r=7.5mm σ=1.65│ │  │
+  │  │  │  ┌───────────────────────┐  │ │  │
+  │  │  │  │  뇌 (brain) r=7.0mm  │  │ │  │
+  │  │  │  │         σ=0.276 S/m   │  │ │  │
+  │  │  │  └───────────────────────┘  │ │  │
+  │  │  └─────────────────────────────┘ │  │
+  │  └───────────────────────────────────┘  │
+  └─────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="_3">지배 방정식</h3>
+<div class="highlight"><pre><span></span><code>Quasi-static 가정 (파장 150km &gt;&gt; 인체 0.3m):
+  → 자기장 영향 무시
+  → E = -∇V
+
+전하 보존 (Laplace):
+  ∇·(σ∇V) = 0
+
+경계 조건:
+  전극 A: +I 인가 (전류원)
+  전극 B: -I 인가 (return)
+  외부: 절연 n·J = 0
+</code></pre></div>
+<h3 id="fem">FEM 해석 순서</h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
+│  STEP 1: 조직 모델 + 물질 σ 할당                         │
+│  STEP 2: Frequency domain 해석 (두 번)                   │
+│     1st run: f1 → E⃗₁(r) phasor 계산·저장               │
+│     2nd run: f2 → E⃗₂(r) phasor 계산·저장               │
+│  STEP 3: 각 공간점 r에서 AM_max 계산                     │
+│  STEP 4: AM_max 분포 맵 시각화                           │
+│     → 표적 영역: AM_max 높음                             │
+│     → 비표적 영역: AM_max 낮음 (선택적 자극 확인)        │
+└─────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="_4">핵심 결과</h3>
+<div class="highlight"><pre><span></span><code>전통적 단일채널:         TIS (Grossman 2017):
+───────────────          ───────────────────
+두피  ████████ 강        두피  ░░░░░░░░ 약
+두개골 ▓▓▓▓▓▓ 중         두개골 ░░░░░░░░ 약
+뇌표면 ▓▓▓▓▓▓ 중         뇌표면 ░░░░░░░░ 약
+뇌심부 ░░░░░░ 약         뇌심부 ████████ 강  ← 표적!
+</code></pre></div>
+<hr />
+<h2 id="2-am">2. 왜 단방향 AM이 불충분한가</h2>
+<h3 id="3d">3D 벡터 전기장</h3>
+<p>실제 조직에서 각 공간점 P에 두 벡터가 존재:</p>
+<div class="highlight"><pre><span></span><code>전극쌍 1 (f1): E⃗₁ = (E₁x, E₁y, E₁z)  V/m
+전극쌍 2 (f2): E⃗₂ = (E₂x, E₂y, E₂z)  V/m
+
+      E⃗₂ ↗
+         ╱
+        ╱  ← 두 벡터 방향이 다를 수 있다
+       ╱
+      ●──────────→ E⃗₁
+      P
+</code></pre></div>
+<h3 id="am">단방향 AM의 한계</h3>
+<div class="highlight"><pre><span></span><code>x방향 측정: AM_x = f(E₁x, E₂x)  → y, z 정보 버림
+y방향 측정: AM_y = f(E₁y, E₂y)  → x, z 정보 버림
+
+실제 최대 AM 방향이 사선이라면:
+  AM_x &lt; AM_max   (과소 평가)
+  AM_y &lt; AM_max   (과소 평가)
+
+→ x, y 방향 AM만 보면 실제 자극 강도를 과소평가한다
+</code></pre></div>
+<hr />
+<h2 id="3-1d-am">3. 1D AM 공식 복습 (단방향)</h2>
+<p>방향 단위벡터 n̂이 주어졌을 때:</p>
+<div class="highlight"><pre><span></span><code>E_n(t) = E⃗(t)·n̂
+       = (E⃗₁·n̂)·cos(ω₁t) + (E⃗₂·n̂)·cos(ω₂t)
+       =  E₁n   ·cos(ω₁t) +  E₂n  ·cos(ω₂t)
+</code></pre></div>
+<p>E₁n ≥ E₂n &gt; 0 일 때 포락선:</p>
+<div class="highlight"><pre><span></span><code>최대 = E₁n + E₂n ───╮
+                     │  AM 깊이 = 2 × min(E₁n, E₂n) = 2E₂n
+최소 = E₁n - E₂n ───╯
+</code></pre></div>
+<p>n̂을 바꾸면 E₁n, E₂n이 바뀌고 AM도 달라진다.</p>
+<hr />
+<h2 id="4">4. 최적화 문제 공식화</h2>
+<div class="highlight"><pre><span></span><code>AM_max = max_{||n̂||=1}  2 × min(E⃗₁·n̂, E⃗₂·n̂)
+
+목표: 어느 방향 n̂*이 AM을 최대화하는가?
+</code></pre></div>
+<h3 id="_5">직관적 분석</h3>
+<div class="highlight"><pre><span></span><code>n̂ = E⃗₁ 방향  → E₁n 최대, E₂n 매우 작음 → min = 작음 → AM 작음
+n̂ = E⃗₂ 방향  → E₂n 최대, E₁n 매우 작음 → min = 작음 → AM 작음
+n̂ = 두 벡터 &quot;중간&quot; → 둘 다 적당히 큼 → min = 최대 → AM 최대!
+
+⭐ 최적 n̂*은 E₁n = E₂n이 되는 방향이다
+</code></pre></div>
+<h3 id="2d-e1-e2">2D 예시 (E⃗₁ ⊥ E⃗₂)</h3>
+<div class="highlight"><pre><span></span><code>      E⃗₂ ↑
+         │      n̂* (최적, 45도)
+         │     ╱
+         │    ╱
+         │   ╱ 45°
+         │  ╱
+         ● ──────────→ E⃗₁
+
+E⃗₁ 방향: AM = 2min(E₁, 0) = 0
+E⃗₂ 방향: AM = 2min(0, E₂) = 0
+45° 방향: AM = 2min(E₁/√2, E₂/√2) = 최대  ← 균등 기여
+</code></pre></div>
+<hr />
+<h2 id="5">5. 타원 궤적 — 핵심 물리적 직관</h2>
+<p>공간 점 P에서 E⃗(t) 벡터 끝점의 궤적:</p>
+<div class="highlight"><pre><span></span><code>     E_y
+      ↑
+      │   b (단반경)
+      │ ╭────────────╮
+      │╱      a       ╲
+      │   ←──────────→ │   a = 장반경 (semi-major axis)
+      │╲               ╱   b = 단반경 (semi-minor axis)
+      │ ╰────────────╯
+      └──────────────────→ E_x
+
+E⃗(t)가 carrier 주기(≈1/f̄)로 이 타원 위를 돈다
+envelope이 beat 주기(=1/Δf)로 타원 크기를 변조
+</code></pre></div>
+<h3 id="_6">왜 타원이 생기나</h3>
+<div class="highlight"><pre><span></span><code>ω₁ = ω̄ + Δω/2,  ω₂ = ω̄ - Δω/2  (Δω &lt;&lt; ω̄)
+
+E⃗(t) = E⃗₁·cos(ω₁t) + E⃗₂·cos(ω₂t)
+      = cos(ω̄t)·[(E⃗₁+E⃗₂)cos(Δωt/2)]   ← in-phase 성분
+      + sin(ω̄t)·[(E⃗₂-E⃗₁)sin(Δωt/2)]   ← quadrature 성분
+
+고정 slow-time τ = Δωt/2에서:
+  E⃗(t|τ) = A⃗(τ)·cos(ω̄t) + B⃗(τ)·sin(ω̄t)
+
+  A⃗(τ) = (E⃗₁+E⃗₂)cos(τ)  ← 타원 한 축 방향 × 진폭
+  B⃗(τ) = (E⃗₂-E⃗₁)sin(τ)  ← 타원 다른 축 방향 × 진폭
+
+→ A⃗cos + B⃗sin 형태 = 타원 ✓
+</code></pre></div>
+<h3 id="am_max">타원과 AM_max의 관계</h3>
+<div class="highlight"><pre><span></span><code>타원을 단위벡터 n̂ 방향으로 투영(projection):
+
+         n̂
+          ↑
+    ╭─────┼────╮
+   ╱      │     ╲
+  │   타원 │      │
+   ╲      │     ╱
+    ╰─────┼────╯
+          ↓ 투영(그림자)
+
+          ████████
+
+n̂ = 장반경 방향 → 투영 최대 = a
+n̂ = 단반경 방향 → 투영 최소 = b
+
+⭐ AM_max = 타원 장반경 a
+   최적 방향 n̂* = 장반경 방향
+</code></pre></div>
+<hr />
+<h2 id="6-svd">6. SVD — 타원 장반경을 계산하는 방법</h2>
+<h3 id="_7">행렬 구성</h3>
+<p>COMSOL에서 복소 phasor export 후:</p>
+<div class="highlight"><pre><span></span><code>Ẽ₁ = Re(Ẽ₁) + j·Im(Ẽ₁)  (f1 주파수 phasor)
+Ẽ₂ = Re(Ẽ₂) + j·Im(Ẽ₂)  (f2 주파수 phasor)
+
+M = [ Re(Ẽ₁x)  Im(Ẽ₁x)  Re(Ẽ₂x)  Im(Ẽ₂x) ]  ← 행: x성분
+    [ Re(Ẽ₁y)  Im(Ẽ₁y)  Re(Ẽ₂y)  Im(Ẽ₂y) ]  ← 행: y성분
+    [ Re(Ẽ₁z)  Im(Ẽ₁z)  Re(Ẽ₂z)  Im(Ẽ₂z) ]  ← 행: z성분
+
+M ∈ R^{3×4}
+</code></pre></div>
+<p>실수 phasor(위상 지연 없는 경우): Im = 0이므로 M → [E⃗₁, E⃗₂] ∈ R^{3×2}</p>
+<h3 id="svd">SVD 분해</h3>
+<div class="highlight"><pre><span></span><code>M = U Σ Vᵀ
+
+  U ∈ R^{3×3}: 공간 회전 (열 = 직교 방향들)
+  Σ ∈ R^{3×4}: 대각 (σ₁ ≥ σ₂ ≥ σ₃ ≥ 0)
+  V ∈ R^{4×4}: 입력 공간 회전
+
+특이값 의미:
+  σ₁ → 타원 장반경 a  (가장 강한 방향의 크기)
+  σ₂ → 타원 단반경 b  (두 번째 방향)
+
+AM_max  = 2 × σ₁       (피크-투-피크, σ₁이 0→peak이므로 ×2)
+최적 방향 n̂* = u₁       (U 행렬의 첫 번째 열)
+</code></pre></div>
+<h3 id="svd_1">왜 SVD가 장반경을 주는가</h3>
+<div class="highlight"><pre><span></span><code>M이 하는 일:
+  ℝ⁴의 단위구(unit sphere) → ℝ³의 타원체(ellipsoid)로 변환
+  단위 에너지 v (||v||=1) → Mv ∈ ℝ³ (타원 위의 점)
+
+||Mv||를 최대화하는 v = V의 첫 번째 열 v₁
+이때 ||Mv₁|| = σ₁ = 장반경
+
+물리적 해석:
+  E⃗₁, E⃗₂가 만드는 공간에서
+  단위 에너지로 만들 수 있는 가장 강한 전기장 벡터 크기 = σ₁
+</code></pre></div>
+<h3 id="matlab-2026">MATLAB 코드 (팀 실제 코드, 송솔웅 2026)</h3>
+<div class="highlight"><pre><span></span><code><span class="c">% 각 점에서 복소 phasor (COMSOL export 데이터)</span>
+<span class="n">E1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E1x</span><span class="p">;</span><span class="w"> </span><span class="n">E1y</span><span class="p">;</span><span class="w"> </span><span class="n">E1z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex, 3x1</span>
+<span class="n">E2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E2x</span><span class="p">;</span><span class="w"> </span><span class="n">E2y</span><span class="p">;</span><span class="w"> </span><span class="n">E2z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex, 3x1</span>
+
+<span class="c">% 행렬 구성</span>
+<span class="n">M</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">E1</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">E1</span><span class="p">),</span><span class="w"> </span><span class="nb">real</span><span class="p">(</span><span class="n">E2</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">E2</span><span class="p">)];</span><span class="w">  </span><span class="c">% 3x4 real</span>
+
+<span class="c">% SVD</span>
+<span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">svd</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;econ&#39;</span><span class="p">);</span>
+
+<span class="c">% AM_max</span>
+<span class="n">AM_max</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">n_opt</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span><span class="w">      </span><span class="c">% 최적 방향</span>
+</code></pre></div>
+<hr />
+<h2 id="7">7. 물리적 검증 방법</h2>
+<h3 id="1-brute-force">방법 1: Brute-force 수치 탐색</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">E1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>  <span class="c1"># 실수 phasor 예시</span>
+<span class="n">E2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+
+<span class="c1"># SVD 방법</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">E1</span><span class="p">,</span> <span class="n">E2</span><span class="p">])</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">AM_svd</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Brute-force (1000×1000 방향 탐색)</span>
+<span class="n">max_am</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">phi</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+                      <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
+                      <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)])</span>
+        <span class="n">am</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">E1</span><span class="nd">@n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">E2</span><span class="nd">@n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">am</span> <span class="o">&gt;</span> <span class="n">max_am</span><span class="p">:</span>
+            <span class="n">max_am</span> <span class="o">=</span> <span class="n">am</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SVD:         </span><span class="si">{</span><span class="n">AM_svd</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brute-force: </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">max_am</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="c1"># 두 값이 같으면 SVD 공식 검증 완료</span>
+</code></pre></div>
+<h3 id="2-comsol">방법 2: COMSOL에서 시각적 검증</h3>
+<div class="highlight"><pre><span></span><code>검증 절차:
+1. COMSOL에서 AM_max 맵 생성 (SVD 기반)
+2. 같은 점에서 AM_x, AM_y, AM_z 각각 계산
+3. 반드시: AM_max &gt;= AM_x, AM_y, AM_z 확인
+4. 신경 주행 방향(z축)과 AM_max 방향 비교
+   → 만약 AM_max 방향 ≠ z축: 신경 방향이 최적 아님을 의미
+
+평가 기준:
+  AM_z       → 보수적 (실제 신경 주행 방향)
+  AM_max     → 공정한 상한선 (어떤 신경 방향이든 최대 받을 수 있는 값)
+</code></pre></div>
+<hr />
+<h2 id="8-am_max">8. AM_max 정의 비교 — 두 가지 해석</h2>
+<div class="highlight"><pre><span></span><code>정의 A (Modulation Depth, 물리적 변조 깊이):
+  AM_A(n̂) = 2 × min(|E⃗₁·n̂|, |E⃗₂·n̂|)
+  특징: 두 소스의 &quot;약한 쪽&quot;이 결정
+  최적 조건: E₁n = E₂n (균등 기여)
+
+정의 B (Envelope Peak Amplitude, Grossman / 팀 MATLAB):
+  AM_B(n̂) = sqrt((E⃗₁·n̂)² + (E⃗₂·n̂)²)
+  특징: carrier 진폭의 RMS 기반
+  SVD와 직접 연결: AM_B_max = 2σ₁
+
+정의 A vs B:
+  E⃗₁ ∥ E⃗₂인 경우: 두 정의가 같은 방향을 최적으로 선택
+  E⃗₁ ⊥ E⃗₂인 경우: 최적 n̂*가 서로 달라짐
+
+팀 코드(MATLAB): 정의 B 사용 → SVD 적용 가능
+</code></pre></div>
+<hr />
+<h2 id="9-grossman-fem-am">9. Grossman FEM의 전체 AM 계산 파이프라인</h2>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────────────────────────┐
+│                  Grossman AM_max 파이프라인                    │
+│                                                              │
+│  COMSOL 해석 (f1) → Ẽ₁(r) = (Ẽ₁x, Ẽ₁y, Ẽ₁z) 복소 phasor   │
+│  COMSOL 해석 (f2) → Ẽ₂(r) = (Ẽ₂x, Ẽ₂y, Ẽ₂z) 복소 phasor   │
+│                                    ↓                         │
+│         각 공간점 r에서 반복:                                  │
+│           M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)]  (3×4)      │
+│           [U, S, V] = svd(M)                                 │
+│           AM_max(r) = 2 × S(1,1)                            │
+│           n̂*(r)     = U(:,1)                                │
+│                                    ↓                         │
+│         AM_max 3D 분포 맵 생성                                │
+│           → Slice 단면 시각화                                │
+│           → Isosurface (등값면) 시각화                       │
+│           → 신경 위치에서의 AM_max 추출                       │
+└──────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="10">10. 개념 요약</h2>
+<div class="highlight"><pre><span></span><code>AM_max 핵심 흐름:
+
+1D 단방향 AM
+  E_n(t) = E₁n·cos(ω₁t) + E₂n·cos(ω₂t)
+  AM = 2×min(E₁n, E₂n)
+         ↓ n̂ 방향에 따라 값이 달라진다
+
+3D 최적화 문제
+  max_{||n̂||=1} AM(n̂) = AM_max
+  최적 조건: E⃗₁·n̂ = E⃗₂·n̂ (균등 기여)
+         ↓
+타원 궤적 직관
+  E⃗(t)가 carrier 주기로 타원을 그린다
+  AM_max = 장반경 a
+  최적 방향 = 장반경 방향
+         ↓
+SVD로 계산
+  M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)]
+  SVD: σ₁ = 장반경
+  AM_max = 2σ₁,  n̂* = u₁
+</code></pre></div>
+<hr />
+<h2 id="11">11. 자기평가 문항</h2>
+<p><strong>Level 1</strong></p>
+<ol>
+<li>공간의 한 점에서 x방향 AM과 y방향 AM이 다른 이유는?</li>
+<li>AM(n̂) = 2min(E₁n, E₂n)에서 E₁n = 3 V/m, E₂n = 1 V/m일 때 AM은?</li>
+</ol>
+<p><strong>Level 2</strong></p>
+<ol>
+<li>최적 방향 n̂*에서 반드시 E₁n = E₂n이 되어야 하는 이유를 직관적으로 설명하라.</li>
+<li>E⃗₁과 E⃗₂가 평행(같은 방향)일 때 AM_max 방향은 어디인가?</li>
+</ol>
+<p><strong>Level 3</strong></p>
+<ol>
+<li>타원 궤적에서 장반경 방향으로 투영했을 때 AM이 최대인 이유를 기하학적으로 설명하라.</li>
+<li>실수 phasor(Im = 0)일 때 M 행렬이 3×2로 줄어드는 이유는?</li>
+</ol>
+<p><strong>Level 4</strong></p>
+<ol>
+<li>SVD에서 σ₁이 타원 장반경과 같은 수학적 이유를 ||Mv||의 최대화 관점에서 설명하라.</li>
+<li>정의 A(Modulation Depth)와 정의 B(Envelope Peak)의 차이가 n̂* 선택에 영향을 주는 예시를 들어라.</li>
+</ol>
+<p><strong>Level 5</strong></p>
+<ol>
+<li>E⃗₁ = (3, 0, 0), E⃗₂ = (0, 4, 0) V/m일 때 AM_max 및 n̂*를 직접 계산하라.</li>
+<li>경골신경(z축 주행)에 대해 AM_z와 AM_max 중 어느 것이 더 적절한 자극 평가 지표인가? 각 지표의 임상적 의미를 논하라.</li>
+</ol>
+<hr />
+<h2 id="12">12. 핵심 논문</h2>
+<table>
+<thead>
+<tr>
+<th>논문</th>
+<th>내용</th>
+<th>관련성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grossman N et al., Cell 2017</td>
+<td>TIS AM_max 개념 + FEM 증명 최초</td>
+<td>이번 STEP 핵심</td>
+</tr>
+<tr>
+<td>Dmochowski J et al., NeuroImage 2011</td>
+<td>다채널 tES 최적화 프레임워크</td>
+<td>Lead Field 기반 AM 최적화</td>
+</tr>
+<tr>
+<td>Rampersad S et al., Brain Stimulation 2019</td>
+<td>TIS 전기장 분포 실측 vs FEM 비교</td>
+<td>FEM 검증 방법론</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>다음 단계: STEP 7 — COMSOL 3-phase TIS 구현 및 AM_max 3D 맵 생성</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.sections", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
