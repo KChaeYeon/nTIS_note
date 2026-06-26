@@ -21,7 +21,7 @@
     
     
       
-        <title>STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해 - nTIS Research Notebook</title>
+        <title>STEP 6: TIS Amplitude Modulation과 AM_max — 완전 이해 - nTIS Research Notebook</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해
+              STEP 6: TIS Amplitude Modulation과 AM_max — 완전 이해
             
           </span>
         </div>
@@ -1185,7 +1185,7 @@
   <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        0. 전체 그림
+        0. 전체 학습 지도
       
     </span>
   </a>
@@ -1193,22 +1193,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-grossman-2017-fem" class="md-nav__link">
+  <a href="#1-quasi-electrostatic-fem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Grossman 2017 FEM 시뮬레이션 파악
+        1. Quasi-electrostatic FEM 기초
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Grossman 2017 FEM 시뮬레이션 파악">
+    <nav class="md-nav" aria-label="1. Quasi-electrostatic FEM 기초">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        모델 구성
+        1.1 왜 준정적 근사인가 — 정량적 확인
       
     </span>
   </a>
@@ -1216,10 +1216,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#12-grossman-2017" class="md-nav__link">
     <span class="md-ellipsis">
       
-        지배 방정식
+        1.2 Grossman 2017 모델 구성
       
     </span>
   </a>
@@ -1227,21 +1227,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fem" class="md-nav__link">
+  <a href="#13-fem-3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        FEM 해석 순서
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        핵심 결과
+        1.3 FEM 지배 방정식 — 기초 물리법칙 3개로 유도
       
     </span>
   </a>
@@ -1254,22 +1243,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-am" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 왜 단방향 AM이 불충분한가
+        2. 두 고주파 전기장의 시간 표현
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. 왜 단방향 AM이 불충분한가">
+    <nav class="md-nav" aria-label="2. 두 고주파 전기장의 시간 표현">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3d" class="md-nav__link">
+  <a href="#21" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3D 벡터 전기장
+        2.1 시간 도메인
       
     </span>
   </a>
@@ -1277,10 +1266,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#am" class="md-nav__link">
+  <a href="#22-f-1-hz" class="md-nav__link">
     <span class="md-ellipsis">
       
-        단방향 AM의 한계
+        2.2 Δf = 1 Hz의 역할
       
     </span>
   </a>
@@ -1293,33 +1282,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-1d-am" class="md-nav__link">
+  <a href="#3-n" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 1D AM 공식 복습 (단방향)
+        3. 뉴런 방향 n̂으로의 투영
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. 최적화 문제 공식화
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 최적화 문제 공식화">
+    <nav class="md-nav" aria-label="3. 뉴런 방향 n̂으로의 투영">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#31" class="md-nav__link">
     <span class="md-ellipsis">
       
-        직관적 분석
+        3.1 왜 투영이 필요한가
       
     </span>
   </a>
@@ -1327,10 +1305,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2d-e1-e2" class="md-nav__link">
+  <a href="#32-1d" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2D 예시 (E⃗₁ ⊥ E⃗₂)
+        3.2 투영 후 1D 신호
       
     </span>
   </a>
@@ -1343,27 +1321,349 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#4-1d-am-am-2minab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. 타원 궤적 — 핵심 물리적 직관
+        4. 1D AM 포락선 — AM = 2·min(|a|,|b|) 완전 유도
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. 타원 궤적 — 핵심 물리적 직관">
+    <nav class="md-nav" aria-label="4. 1D AM 포락선 — AM = 2·min(|a|,|b|) 완전 유도">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#41" class="md-nav__link">
     <span class="md-ellipsis">
       
-        왜 타원이 생기나
+        4.1 포락선 진폭 계산
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#42-am" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 AM 정의와 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 직관: 왜 "약한 쪽이 결정하는가"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-e_am-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. E_AM 정의 — 한 방향에서의 envelope 진폭
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-e_am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. E_AM_max — 최적화 문제 정의
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. E_AM_max — 최적화 문제 정의">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 정의
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 가정 (일반성 손실 없음)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 두 조건으로 나뉘는 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-case-1-e2-e1cos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Case 1: |E⃗₂| &lt; |E⃗₁|cosα
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Case 1: |E⃗₂| &lt; |E⃗₁|cosα">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 조건의 기하학적 의미
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-n-e2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 왜 n̂* = E⃗₂ 방향인가 — 증명
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 물리적 직관
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-case-2-e2-e1cos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Case 2: |E⃗₂| ≥ |E⃗₁|cosα — 삼각형 높이
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Case 2: |E⃗₂| ≥ |E⃗₁|cosα — 삼각형 높이">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 조건의 의미
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-a-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 등사영 조건 — 왜 a = b에서 최대인가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 최적 방향 n̂* 결정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 기하학적 해석 — 삼각형
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 삼각형 높이 h 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 물리적 직관
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 두 조건 비교 및 경계 연속성
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 두 조건 비교 및 경계 연속성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 비교표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 경계에서 두 수식이 연속임을 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 수치 예시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 수치 예시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-case-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시 A — Case 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-case-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시 B — Case 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시 C — 직교 케이스 손 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 타원 궤적 — 핵심 물리적 직관
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. 타원 궤적 — 핵심 물리적 직관">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#am_max" class="md-nav__link">
@@ -1376,25 +1676,36 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        왜 타원이 생기나
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-svd" class="md-nav__link">
+  <a href="#12-svd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. SVD — 타원 장반경을 계산하는 방법
+        12. SVD — 타원 장반경 계산
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. SVD — 타원 장반경을 계산하는 방법">
+    <nav class="md-nav" aria-label="12. SVD — 타원 장반경 계산">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         행렬 구성
@@ -1409,17 +1720,6 @@
     <span class="md-ellipsis">
       
         SVD 분해
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#svd_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        왜 SVD가 장반경을 주는가
       
     </span>
   </a>
@@ -1443,15 +1743,59 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
+  <a href="#13-am_max" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. 물리적 검증 방법
+        13. AM_max 정의 비교 — 두 가지 해석
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7. 물리적 검증 방법">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-grossman-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Grossman FEM 파이프라인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-steering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Steering 원리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-e_am_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. E_AM_max의 한계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. 물리적 검증 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. 물리적 검증 방법">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1482,10 +1826,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-am_max" class="md-nav__link">
+  <a href="#18" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. AM_max 정의 비교 — 두 가지 해석
+        18. 개념 요약
       
     </span>
   </a>
@@ -1493,10 +1837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-grossman-fem-am" class="md-nav__link">
+  <a href="#19" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Grossman FEM의 전체 AM 계산 파이프라인
+        19. 자기평가 문항
       
     </span>
   </a>
@@ -1504,32 +1848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
+  <a href="#20" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. 개념 요약
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. 자기평가 문항
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        12. 핵심 논문
+        20. 핵심 논문
       
     </span>
   </a>
@@ -1556,148 +1878,548 @@
   
 
 
-<h1 id="step-6-tis-amplitude-modulation-am_max">STEP 6: TIS Amplitude Modulation과 AM_max — 최대 진폭 축 완전 이해</h1>
+<h1 id="step-6-tis-amplitude-modulation-am_max">STEP 6: TIS Amplitude Modulation과 AM_max — 완전 이해</h1>
 <blockquote>
-<p>작성: 2026-06-24
+<p>작성: 2026-06-24 / 업데이트: 2026-06-26
 커리큘럼: 6/13단계
 참고: Grossman N et al., Cell 2017; 169(6):1029-1041 / 송솔웅 nTIS 전기장 계산 2026 / 김대용 COMSOL 2025-2026
 수식 표기: Unicode/ASCII (LaTeX 없음, CLI 직독 가능)</p>
 </blockquote>
 <hr />
 <h2 id="_1">학습 목표</h2>
-<p>TIS에서 단방향(x, y, z축) AM이 왜 불충분한지 이해하고,
-최대 진폭 축(AM_max 방향 n*)을 타원 궤적 직관 + SVD 수식으로 도출하며,
-Grossman 2017 FEM 방법론을 구체적으로 파악할 수 있다.</p>
+<ol>
+<li>Quasi-static FEM이 왜 성립하는지 정량적으로 이해한다</li>
+<li>∇·(σ∇φ) = 0 방정식을 기초 물리법칙 3개로 유도할 수 있다</li>
+<li>1D AM 포락선 공식 AM = 2·min(|a|,|b|)를 직접 증명할 수 있다</li>
+<li>E_AM_max piecewise 공식의 두 경우(조건)를 수식·기하·물리 세 관점에서 설명할 수 있다</li>
+<li>Case 2의 최적 방향이 삼각형 높이와 같음을 넓이 공식으로 유도할 수 있다</li>
+<li>SVD가 E_AM_max와 연결되는 이유를 설명할 수 있다</li>
+</ol>
 <hr />
-<h2 id="0">0. 전체 그림</h2>
-<div class="highlight"><pre><span></span><code>이미 아는 것:
-  f1, f2 두 채널 → 심부에서 beat envelope → 신경 자극
-  전기장 맵핑 → AM 분포 시각화
+<h2 id="0">0. 전체 학습 지도</h2>
+<div class="highlight"><pre><span></span><code>[기초층]
+  ① 왜 준정적 근사인가? (λ = 50 km &gt;&gt; 몸 크기)
+  ② FEM이 실제로 뭘 푸는가? (∇·(σ∇φ) = 0 유도)
 
-아직 모른 것 (이번 STEP):
-  ┌──────────────────────────────────────────────────────┐
-  │  왜 x방향 AM, y방향 AM이 달라지는가?                  │
-  │  어느 방향이 가장 강한 AM을 주는가?                   │
-  │  그 &#39;최적 방향&#39;을 어떻게 수식으로 구하는가?           │
-  └──────────────────────────────────────────────────────┘
+[중간층]
+  ③ 두 고주파 전기장 → 시간 표현
+  ④ 뉴런 방향 n̂으로 투영 → 1D 문제로 변환
+  ⑤ 1D AM 포락선 → AM = 2·min(|a|,|b|) 증명
+
+[핵심층]
+  ⑥ E_AM_max 최적화 문제 정의
+  ⑦ Case 1: 약한 field가 명확히 병목 → 2|E⃗₂|
+  ⑧ Case 2: 삼각형 높이 → 2|E⃗₁×E⃗₂|/|E⃗₁-E⃗₂|
+
+[계산층]
+  ⑨ 타원 궤적 직관
+  ⑩ SVD: AM_max = 2σ₁, n̂* = u₁
+  ⑪ 정의 A vs B 비교
+
+[응용층]
+  ⑫ FEM 파이프라인 + Steering + 한계
 </code></pre></div>
 <hr />
-<h2 id="1-grossman-2017-fem">1. Grossman 2017 FEM 시뮬레이션 파악</h2>
-<h3 id="_2">모델 구성</h3>
+<h2 id="1-quasi-electrostatic-fem">1. Quasi-electrostatic FEM 기초</h2>
+<h3 id="11">1.1 왜 준정적 근사인가 — 정량적 확인</h3>
+<p>TIS에서 사용하는 주파수는 kHz 대역이다. 이 주파수에서 생체조직 내부의 전자기파 파장을 계산하면:</p>
+<div class="highlight"><pre><span></span><code>λ = v / f
+
+v ≈ c/√ε_r ≈ 1×10⁸ m/s (생체조직 내)
+f = 2,000 Hz
+
+λ = 1×10⁸ / 2000 = 50,000 m = 50 km !!!
+
+사람 몸통 크기: ~0.5 m
+λ / 몸 = 50,000 / 0.5 = 100,000배
+</code></pre></div>
+<p>파장이 몸보다 10만 배 크다. 따라서 파동이 공간을 퍼져나가는 효과(propagation)는 전혀 없고, 전기장이 즉각적으로 준정적으로 분포한다.</p>
+<p><strong>Displacement current vs Ohmic current 비율:</strong></p>
+<div class="highlight"><pre><span></span><code>Maxwell 방정식에서 총 전류 = Ohmic + Displacement
+  |Displacement| / |Ohmic| = ωε / σ
+
+f = 2000 Hz,  ε ≈ 80ε₀ ≈ 7×10⁻¹⁰ F/m,  σ ≈ 0.2 S/m (뇌)
+
+비율 = (2π × 2000 × 7×10⁻¹⁰) / 0.2 ≈ 4.4×10⁻⁵
+
+→ Displacement current = Ohmic current의 0.004%  ← 완전 무시 가능
+</code></pre></div>
+<p>따라서 변위전류를 버리고, 단순히 "조직에서 전류 흐름" 문제로 취급해도 된다.</p>
+<h3 id="12-grossman-2017">1.2 Grossman 2017 모델 구성</h3>
 <div class="highlight"><pre><span></span><code>4층 동심구(concentric sphere) 모델:
 
   ┌─────────────────────────────────────────┐
-  │  두피 (scalp)    r=8.5mm  σ=0.465 S/m  │
+  │  두피 (scalp)    r=8.5 mm  σ=0.465 S/m │
   │  ┌───────────────────────────────────┐  │
-  │  │  두개골 (skull) r=8.0mm σ=0.01   │  │
-  │  │  ┌─────────────────────────────┐ │  │
-  │  │  │  CSF          r=7.5mm σ=1.65│ │  │
-  │  │  │  ┌───────────────────────┐  │ │  │
-  │  │  │  │  뇌 (brain) r=7.0mm  │  │ │  │
-  │  │  │  │         σ=0.276 S/m   │  │ │  │
-  │  │  │  └───────────────────────┘  │ │  │
-  │  │  └─────────────────────────────┘ │  │
+  │  │  두개골 (skull) r=8.0 mm σ=0.010  │  │
+  │  │  ┌─────────────────────────────┐  │  │
+  │  │  │  CSF          r=7.5 mm σ=1.65│  │  │
+  │  │  │  ┌───────────────────────┐  │  │  │
+  │  │  │  │  뇌 (brain) r=7.0 mm  │  │  │  │
+  │  │  │  │  σ=0.276 S/m          │  │  │  │
+  │  │  │  └───────────────────────┘  │  │  │
+  │  │  └─────────────────────────────┘  │  │
   │  └───────────────────────────────────┘  │
   └─────────────────────────────────────────┘
-</code></pre></div>
-<h3 id="_3">지배 방정식</h3>
-<div class="highlight"><pre><span></span><code>Quasi-static 가정 (파장 150km &gt;&gt; 인체 0.3m):
-  → 자기장 영향 무시
-  → E = -∇V
 
-전하 보존 (Laplace):
-  ∇·(σ∇V) = 0
+전극쌍 1 (f₁): 두피 위 2개 전극  →  E⃗₁(r⃗)
+전극쌍 2 (f₂): 두피 위 2개 전극  →  E⃗₂(r⃗)
+</code></pre></div>
+<p>조직별 전도도 차이가 핵심:
+- 두개골(σ=0.01)이 낮아 전류 흐름을 제한한다
+- CSF(σ=1.65)가 높아 전류가 표면으로 퍼지는 경로를 만든다
+- 이 때문에 단순 단일채널은 뇌 심부를 자극하기 어렵다</p>
+<h3 id="13-fem-3">1.3 FEM 지배 방정식 — 기초 물리법칙 3개로 유도</h3>
+<p><strong>법칙 1 — 전하 보존 (Current Continuity):</strong></p>
+<div class="highlight"><pre><span></span><code>어떤 작은 부피 dV에서 들어오는 전류 = 나가는 전류 (정상상태)
 
-경계 조건:
-  전극 A: +I 인가 (전류원)
-  전극 B: -I 인가 (return)
-  외부: 절연 n·J = 0
+미분 형태:  ∇·J⃗ = 0
+
+의미: 전하가 쌓이는 곳이 없다 → 한쪽에서 들어오면 반드시 나간다
 </code></pre></div>
-<h3 id="fem">FEM 해석 순서</h3>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
-│  STEP 1: 조직 모델 + 물질 σ 할당                         │
-│  STEP 2: Frequency domain 해석 (두 번)                   │
-│     1st run: f1 → E⃗₁(r) phasor 계산·저장               │
-│     2nd run: f2 → E⃗₂(r) phasor 계산·저장               │
-│  STEP 3: 각 공간점 r에서 AM_max 계산                     │
-│  STEP 4: AM_max 분포 맵 시각화                           │
-│     → 표적 영역: AM_max 높음                             │
-│     → 비표적 영역: AM_max 낮음 (선택적 자극 확인)        │
-└─────────────────────────────────────────────────────────┘
+<p><strong>법칙 2 — Ohm's Law:</strong></p>
+<div class="highlight"><pre><span></span><code>J⃗ = σ E⃗
+
+σ = electrical conductivity [S/m]
+  높을수록 같은 전기장에서 전류가 더 잘 흐름
+
+예:  CSF    σ=1.65  ← 전류 잘 흐름
+     두개골 σ=0.01  ← 전류 잘 안 흐름 (100배 차이)
 </code></pre></div>
-<h3 id="_4">핵심 결과</h3>
-<div class="highlight"><pre><span></span><code>전통적 단일채널:         TIS (Grossman 2017):
-───────────────          ───────────────────
-두피  ████████ 강        두피  ░░░░░░░░ 약
-두개골 ▓▓▓▓▓▓ 중         두개골 ░░░░░░░░ 약
-뇌표면 ▓▓▓▓▓▓ 중         뇌표면 ░░░░░░░░ 약
-뇌심부 ░░░░░░ 약         뇌심부 ████████ 강  ← 표적!
+<p><strong>법칙 3 — 전위와 전기장의 관계:</strong></p>
+<div class="highlight"><pre><span></span><code>E⃗ = -∇φ
+
+의미: 전기장은 전위의 공간 기울기
+     전위가 급격히 낮아지는 방향 = 전기장 방향
+</code></pre></div>
+<p><strong>세 법칙을 합치면:</strong></p>
+<div class="highlight"><pre><span></span><code>(3)을 (2)에:  J⃗ = σ(-∇φ) = -σ∇φ
+(1)에 대입:   ∇·(-σ∇φ) = 0
+
+∴  ∇·(σ∇φ) = 0  ← FEM solver가 푸는 지배 방정식
+
+σ 균일하면:  ∇²φ = 0  (Laplace 방정식)
+</code></pre></div>
+<p>FEM은 이 방정식을 수천~수만 개의 요소(element)로 나눈 mesh 위에서 연립 방정식으로 푼다.</p>
+<p><strong>결과 취득:</strong></p>
+<div class="highlight"><pre><span></span><code>∇·(σ∇φ) = 0  →  φ(r⃗) 획득
+E⃗ = -∇φ       →  E⃗(r⃗) 획득
+J⃗ = σE⃗        →  J⃗(r⃗) 획득
+
+전극쌍 1 (f₁) 독립 실행: E⃗₁(r⃗) 저장
+전극쌍 2 (f₂) 독립 실행: E⃗₂(r⃗) 저장
 </code></pre></div>
 <hr />
-<h2 id="2-am">2. 왜 단방향 AM이 불충분한가</h2>
-<h3 id="3d">3D 벡터 전기장</h3>
-<p>실제 조직에서 각 공간점 P에 두 벡터가 존재:</p>
-<div class="highlight"><pre><span></span><code>전극쌍 1 (f1): E⃗₁ = (E₁x, E₁y, E₁z)  V/m
-전극쌍 2 (f2): E⃗₂ = (E₂x, E₂y, E₂z)  V/m
+<h2 id="2">2. 두 고주파 전기장의 시간 표현</h2>
+<h3 id="21">2.1 시간 도메인</h3>
+<p>FEM은 정적 공간 분포를 계산한다. 실제 시간 신호는 다음과 같다:</p>
+<div class="highlight"><pre><span></span><code>전극쌍 1 (f₁ = 2000 Hz):
+  E⃗₁(r⃗, t) = E⃗₁(r⃗) · cos(2πf₁t)
 
-      E⃗₂ ↗
-         ╱
-        ╱  ← 두 벡터 방향이 다를 수 있다
-       ╱
-      ●──────────→ E⃗₁
-      P
+전극쌍 2 (f₂ = 2001 Hz):
+  E⃗₂(r⃗, t) = E⃗₂(r⃗) · cos(2πf₂t)
+
+합성 전기장:
+  E⃗_total(r⃗, t) = E⃗₁(r⃗)cos(2πf₁t) + E⃗₂(r⃗)cos(2πf₂t)
+
+중요: E⃗₁(r⃗)은 FEM이 계산하는 공간 분포 (정적 벡터장)
+      cos(2πf₁t)는 시간 변동 부분
+      → 공간과 시간이 분리됨
 </code></pre></div>
-<h3 id="am">단방향 AM의 한계</h3>
-<div class="highlight"><pre><span></span><code>x방향 측정: AM_x = f(E₁x, E₂x)  → y, z 정보 버림
-y방향 측정: AM_y = f(E₁y, E₂y)  → x, z 정보 버림
+<h3 id="22-f-1-hz">2.2 Δf = 1 Hz의 역할</h3>
+<div class="highlight"><pre><span></span><code>f₁ = 2000 Hz, f₂ = 2001 Hz → 각각 뉴런이 직접 따라가기 불가
+                               (뉴런 AP 범위: 수 Hz ~ 수백 Hz)
 
-실제 최대 AM 방향이 사선이라면:
-  AM_x &lt; AM_max   (과소 평가)
-  AM_y &lt; AM_max   (과소 평가)
+Δf = f₂ - f₁ = 1 Hz → 이 주파수로 진폭이 변조(AM)됨
+                    → 뉴런이 1 Hz 리듬으로 반응 가능!
 
-→ x, y 방향 AM만 보면 실제 자극 강도를 과소평가한다
+┌─────────────────────────────────────────────────────┐
+│  TIS의 핵심 트릭:                                    │
+│  깊은 조직에서 두 고주파 전기장이 만나면              │
+│  그 차이 주파수(Δf)로 진동하는 envelope가 생긴다.    │
+│  겉에서는 kHz 자극, 안에서는 Δf Hz로 뉴런이 반응.   │
+└─────────────────────────────────────────────────────┘
+
+핵심 결과:
+  전통적 단일채널:         TIS (Grossman 2017):
+  ───────────────          ───────────────────
+  두피  ████████ 강        두피  ░░░░░░░░ 약
+  두개골 ▓▓▓▓▓▓ 중         두개골 ░░░░░░░░ 약
+  뇌표면 ▓▓▓▓▓▓ 중         뇌표면 ░░░░░░░░ 약
+  뇌심부 ░░░░░░ 약         뇌심부 ████████ 강  ← 표적!
 </code></pre></div>
 <hr />
-<h2 id="3-1d-am">3. 1D AM 공식 복습 (단방향)</h2>
-<p>방향 단위벡터 n̂이 주어졌을 때:</p>
-<div class="highlight"><pre><span></span><code>E_n(t) = E⃗(t)·n̂
-       = (E⃗₁·n̂)·cos(ω₁t) + (E⃗₂·n̂)·cos(ω₂t)
-       =  E₁n   ·cos(ω₁t) +  E₂n  ·cos(ω₂t)
-</code></pre></div>
-<p>E₁n ≥ E₂n &gt; 0 일 때 포락선:</p>
-<div class="highlight"><pre><span></span><code>최대 = E₁n + E₂n ───╮
-                     │  AM 깊이 = 2 × min(E₁n, E₂n) = 2E₂n
-최소 = E₁n - E₂n ───╯
-</code></pre></div>
-<p>n̂을 바꾸면 E₁n, E₂n이 바뀌고 AM도 달라진다.</p>
-<hr />
-<h2 id="4">4. 최적화 문제 공식화</h2>
-<div class="highlight"><pre><span></span><code>AM_max = max_{||n̂||=1}  2 × min(E⃗₁·n̂, E⃗₂·n̂)
+<h2 id="3-n">3. 뉴런 방향 n̂으로의 투영</h2>
+<h3 id="31">3.1 왜 투영이 필요한가</h3>
+<div class="highlight"><pre><span></span><code>전기장 E⃗는 3D 벡터다.
 
-목표: 어느 방향 n̂*이 AM을 최대화하는가?
-</code></pre></div>
-<h3 id="_5">직관적 분석</h3>
-<div class="highlight"><pre><span></span><code>n̂ = E⃗₁ 방향  → E₁n 최대, E₂n 매우 작음 → min = 작음 → AM 작음
-n̂ = E⃗₂ 방향  → E₂n 최대, E₁n 매우 작음 → min = 작음 → AM 작음
-n̂ = 두 벡터 &quot;중간&quot; → 둘 다 적당히 큼 → min = 최대 → AM 최대!
+뉴런은 특정 방향으로 누워 있다:
+  → axon 주행 방향
+  ↓ cortical column 방향
+  ↗ 사선 방향 등
 
-⭐ 최적 n̂*은 E₁n = E₂n이 되는 방향이다
+뉴런의 막전위 변화는 전기장 방향이 뉴런과 일치할 때 최대.
+→ 실제 자극 강도 = E⃗ · n̂ (투영, dot product)
+   n̂ = 뉴런 방향 단위벡터
 </code></pre></div>
-<h3 id="2d-e1-e2">2D 예시 (E⃗₁ ⊥ E⃗₂)</h3>
-<div class="highlight"><pre><span></span><code>      E⃗₂ ↑
-         │      n̂* (최적, 45도)
-         │     ╱
-         │    ╱
-         │   ╱ 45°
-         │  ╱
-         ● ──────────→ E⃗₁
+<h3 id="32-1d">3.2 투영 후 1D 신호</h3>
+<div class="highlight"><pre><span></span><code>임의의 n̂ 방향에서 뉴런이 느끼는 신호:
 
-E⃗₁ 방향: AM = 2min(E₁, 0) = 0
-E⃗₂ 방향: AM = 2min(0, E₂) = 0
-45° 방향: AM = 2min(E₁/√2, E₂/√2) = 최대  ← 균등 기여
+E_n(t) = E⃗_total(r⃗,t) · n̂
+        = [E⃗₁(r⃗)cos(ω₁t) + E⃗₂(r⃗)cos(ω₂t)] · n̂
+        = (E⃗₁·n̂)cos(ω₁t) + (E⃗₂·n̂)cos(ω₂t)
+
+약칭:
+  a = E⃗₁(r⃗)·n̂  (실수, 음수 가능)
+  b = E⃗₂(r⃗)·n̂  (실수, 음수 가능)
+
+E_n(t) = a·cos(ω₁t) + b·cos(ω₂t)
+
+← 3D 벡터 문제가 두 코사인의 합 문제로 단순화됨!
 </code></pre></div>
 <hr />
-<h2 id="5">5. 타원 궤적 — 핵심 물리적 직관</h2>
+<h2 id="4-1d-am-am-2minab">4. 1D AM 포락선 — AM = 2·min(|a|,|b|) 완전 유도</h2>
+<h3 id="41">4.1 포락선 진폭 계산</h3>
+<div class="highlight"><pre><span></span><code>E_n(t) = a·cos(ω₁t) + b·cos(ω₂t)
+
+ω̄ = (ω₁+ω₂)/2 (평균 주파수),  Δω = ω₂-ω₁ (작은 값)
+
+합차 공식 적용 후 정리하면 포락선 진폭 A(t)는:
+
+A(t)² = (a+b)²cos²(Δω·t/2) + (a-b)²sin²(Δω·t/2)
+
+τ = Δω·t/2 (느리게 변하는 위상)라 하면:
+
+τ = 0   → A_max = |a+b|
+τ = π/2 → A_min = |a-b|
+
+(a &gt; b &gt; 0인 경우):
+  A_max = a+b
+  A_min = a-b
+</code></pre></div>
+<h3 id="42-am">4.2 AM 정의와 계산</h3>
+<div class="highlight"><pre><span></span><code>AM = A_max - A_min = (a+b) - (a-b) = 2b = 2·min(a,b)
+
+경우별:
+  a &gt; b &gt; 0:  AM = 2b
+  a = b &gt; 0:  AM = 2a = 2b  (완전 변조! A_min = 0)
+  a &gt; 0, b &lt; 0:  |b|로 환원 가능 (n̂ → -n̂ 뒤집으면)
+
+∴  AM(n̂) = 2·min(|E⃗₁·n̂|, |E⃗₂·n̂|)
+</code></pre></div>
+<h3 id="43">4.3 직관: 왜 "약한 쪽이 결정하는가"</h3>
+<div class="highlight"><pre><span></span><code>비유: 두 소방관이 줄을 당겼다 놓았다
+
+소방관 A (a = 8 V/m): 강하게 당김
+소방관 B (b = 3 V/m): 약하게 당김
+
+최강 순간 (동위상): A+B = 11 V/m
+최약 순간 (역위상): A-B = 5 V/m  ← 5 V/m가 남는다!
+
+진동 폭 = 11 - 5 = 6 = 2×3 = 2×b
+
+B(약한 쪽)가 최솟값을 5로 &quot;올려놓아서&quot;
+진동 폭이 2b로 제한됨.
+→ A를 아무리 키워도 AM = 2b로 고정!
+
+완전 변조 (a = b):
+  최강 = 2a,  최약 = 0
+  AM = 2a = 2b  → 완전 ON/OFF 스위칭!
+</code></pre></div>
+<hr />
+<h2 id="5-e_am-envelope">5. E_AM 정의 — 한 방향에서의 envelope 진폭</h2>
+<div class="highlight"><pre><span></span><code>특정 방향 n̂에서:
+
+  E_AM(n̂, r⃗) = 2·min(|E⃗₁(r⃗)·n̂|, |E⃗₂(r⃗)·n̂|)
+
+이것은 n̂을 어떻게 잡느냐에 따라 달라진다.
+
+n̂ = E⃗₁ 방향 → E⃗₁·n̂ 최대, E⃗₂·n̂ 매우 작음 → AM ≈ 0
+n̂ = E⃗₂ 방향 → E⃗₂·n̂ 최대, E⃗₁·n̂ 매우 작음 → AM ≈ 0
+n̂ = 중간 방향 → 둘 다 적당히 큼 → AM 최대 가능
+
+Grossman 논문 표현:
+  E_AM(n̂, r⃗) ∝ |(E⃗₁+E⃗₂)·n̂| · |(E⃗₁-E⃗₂)·n̂| 의 기하평균
+  (두 투영의 조화평균 형태)
+</code></pre></div>
+<hr />
+<h2 id="6-e_am_max">6. E_AM_max — 최적화 문제 정의</h2>
+<h3 id="61">6.1 정의</h3>
+<div class="highlight"><pre><span></span><code>E_AM_max(r⃗) = max over all unit n̂ of: 2·min(|E⃗₁·n̂|, |E⃗₂·n̂|)
+
+물음:
+  위치 r⃗에서 어떤 방향의 뉴런이 있다고 가정할 때
+  받을 수 있는 최대 envelope modulation amplitude는?
+
+이것은 min을 최대화하는 max-min 최적화 문제다.
+</code></pre></div>
+<h3 id="62">6.2 가정 (일반성 손실 없음)</h3>
+<div class="highlight"><pre><span></span><code>가정 1: |E⃗₁| ≥ |E⃗₂|  (채널 번호를 바꿔 항상 만족)
+가정 2: α = ∠(E⃗₁, E⃗₂) ∈ [0°, 90°)  (E⃗₂ 부호를 뒤집어 만족)
+</code></pre></div>
+<h3 id="63">6.3 두 조건으로 나뉘는 이유</h3>
+<div class="highlight"><pre><span></span><code>핵심 질문: n̂을 E⃗₂ 방향으로 잡는 것이 항상 최선인가?
+
+n̂ = E⃗₂/|E⃗₂| (E⃗₂ 방향)으로 고정하면:
+
+  |E⃗₂·n̂| = |E⃗₂|              ← E⃗₂의 그림자 = 최대!
+  |E⃗₁·n̂| = |E⃗₁|cosα          ← E⃗₁의 그림자
+
+두 그림자 비교:
+  |E⃗₁|cosα  vs  |E⃗₂|
+
+  Case 1: |E⃗₁|cosα &gt; |E⃗₂|
+    → E⃗₂ 방향에서도 E⃗₁ 그림자 &gt; E⃗₂ 그림자
+    → min = |E⃗₂|  (E⃗₂가 항상 병목)
+    → n̂ = E⃗₂ 방향이 최선!
+
+  Case 2: |E⃗₁|cosα ≤ |E⃗₂|
+    → E⃗₂ 방향에서 오히려 E⃗₁ 그림자 ≤ E⃗₂ 그림자
+    → min = |E⃗₁|cosα  (E⃗₁이 병목!)
+    → 더 좋은 방향이 반드시 존재한다
+
+경계: |E⃗₂| = |E⃗₁|cosα
+</code></pre></div>
+<hr />
+<h2 id="7-case-1-e2-e1cos">7. Case 1: |E⃗₂| &lt; |E⃗₁|cosα</h2>
+<h3 id="71">7.1 조건의 기하학적 의미</h3>
+<div class="highlight"><pre><span></span><code>|E⃗₁|cosα = E⃗₁을 E⃗₂ 방향으로 투영한 길이
+
+조건: |E⃗₂| &lt; |E⃗₁|cosα
+
+시각화:
+  E⃗₂ 방향 →
+  ─────────────────────────────────
+  ←─── E⃗₂ ───→
+  ←──────── |E⃗₁|cosα ──────────→
+            (E⃗₁의 그림자)
+
+E⃗₂가 E⃗₁ 그림자 안에 완전히 들어온다!
+어느 방향에서 보아도 E⃗₂가 항상 더 작다.
+</code></pre></div>
+<h3 id="72-n-e2">7.2 왜 n̂* = E⃗₂ 방향인가 — 증명</h3>
+<div class="highlight"><pre><span></span><code>n̂ = E⃗₂ 방향에서:
+  |E⃗₂·n̂| = |E⃗₂|           (E⃗₂는 최대)
+  |E⃗₁·n̂| = |E⃗₁|cosα       (항상 &gt; |E⃗₂|)
+  min = |E⃗₂|
+  AM = 2|E⃗₂|
+
+n̂을 E⃗₂ 방향에서 벗어나면:
+  |E⃗₂·n̂| = |E⃗₂|cos(δ) &lt; |E⃗₂|  (δ = 벗어난 각도)
+  min ≤ |E⃗₂|cos(δ) &lt; |E⃗₂|
+  AM &lt; 2|E⃗₂|
+
+∴ n̂* = E⃗₂ 방향,  E_AM_max = 2|E⃗₂|
+</code></pre></div>
+<h3 id="73">7.3 물리적 직관</h3>
+<div class="highlight"><pre><span></span><code>두 채널이 심하게 불균형:
+  강한 채널(E⃗₁)을 아무리 크게 해도
+  약한 채널(E⃗₂)이 병목이 되어 AM은 2|E⃗₂|로 고정.
+
+최선 전략:
+  E⃗₂ 전체를 살리는 방향(E⃗₂ 방향)으로 뉴런을 맞춘다.
+
+실험 설계 교훈:
+  경골신경 위치에서 두 채널이 심하게 불균형하면
+  약한 채널의 전류를 키우는 것이 핵심.
+  강한 채널을 키우는 것은 AM 증가에 기여하지 못한다.
+</code></pre></div>
+<hr />
+<h2 id="8-case-2-e2-e1cos">8. Case 2: |E⃗₂| ≥ |E⃗₁|cosα — 삼각형 높이</h2>
+<h3 id="81">8.1 조건의 의미</h3>
+<div class="highlight"><pre><span></span><code>|E⃗₂| ≥ |E⃗₁|cosα
+
+→ E⃗₂ 방향에서는 E⃗₁이 병목 (|E⃗₁|cosα ≤ |E⃗₂|)
+→ E⃗₁ 방향 근처에서는 E⃗₂가 병목 가능
+
+따라서:
+  E⃗₁ 방향 근처 n̂ → a 크고 b 작음 → E⃗₂ 병목
+  E⃗₂ 방향 근처 n̂ → b 크고 a 작음 → E⃗₁ 병목
+
+중간에 a = b가 되는 방향이 반드시 존재 → 그곳이 최적!
+</code></pre></div>
+<h3 id="82-a-b">8.2 등사영 조건 — 왜 a = b에서 최대인가</h3>
+<div class="highlight"><pre><span></span><code>min(a, b) 최대화 문제:
+
+  n̂을 움직일 때 a와 b 변화:
+
+  a &gt; b인 구간: AM = 2b
+    → n̂을 조금 움직여 b를 키우면 AM 증가
+    → a &gt; b를 유지하는 한 계속 개선 가능
+
+  a &lt; b인 구간: AM = 2a
+    → n̂을 조금 움직여 a를 키우면 AM 증가
+
+  ∴ 개선 불가한 점: a = b  (등사영 조건)
+
+최적 조건: |E⃗₁·n̂*| = |E⃗₂·n̂*|
+</code></pre></div>
+<h3 id="83-n">8.3 최적 방향 n̂* 결정</h3>
+<div class="highlight"><pre><span></span><code>등사영 조건:
+  E⃗₁·n̂* = E⃗₂·n̂*  (같은 부호로 정렬 후)
+
+변환:
+  (E⃗₁ - E⃗₂)·n̂* = 0
+
+∴ n̂* ⊥ (E⃗₁ - E⃗₂)
+
+★ 핵심: 최적 방향 n̂*는 두 전기장의 차이 벡터에 수직!
+</code></pre></div>
+<h3 id="84">8.4 기하학적 해석 — 삼각형</h3>
+<div class="highlight"><pre><span></span><code>세 점:
+  O = 원점 (0,0)
+  A = E⃗₁의 끝점
+  B = E⃗₂의 끝점
+
+  OA⃗ = E⃗₁,  OB⃗ = E⃗₂,  BA⃗ = E⃗₁ - E⃗₂
+
+       A (E⃗₁ 끝점)
+      /│
+     / │
+    /  │ h  ← 높이 (O에서 BA에 내린 수선의 발)
+   /   │
+  O────B (E⃗₂ 끝점)
+
+n̂* = BA에 수직인 방향 (= OA와 OB에 동일하게 h로 투영되는 방향)
+
+등사영 확인:
+  E⃗₁·n̂* = h  (O에서 A까지의 n̂* 방향 성분)
+  E⃗₂·n̂* = h  (O에서 B까지의 n̂* 방향 성분)
+
+∴  E_AM_max = 2h
+</code></pre></div>
+<h3 id="85-h">8.5 삼각형 높이 h 계산</h3>
+<p>삼각형 OAB의 넓이를 두 방법으로 계산한다:</p>
+<div class="highlight"><pre><span></span><code>방법 1 — 외적 (두 변 OA, OB가 만드는 넓이):
+  넓이 = (1/2)|E⃗₁ × E⃗₂|
+  (|E⃗₁×E⃗₂| = |E⃗₁||E⃗₂|sinα = 평행사변형 넓이)
+
+방법 2 — 밑변 × 높이 (밑변 = BA):
+  넓이 = (1/2) × |E⃗₁ - E⃗₂| × h
+
+같다고 놓으면:
+  (1/2)|E⃗₁ × E⃗₂| = (1/2)|E⃗₁ - E⃗₂| × h
+
+  h = |E⃗₁ × E⃗₂| / |E⃗₁ - E⃗₂|
+
+∴  E_AM_max = 2h = 2|E⃗₁ × E⃗₂| / |E⃗₁ - E⃗₂|
+</code></pre></div>
+<h3 id="86">8.6 물리적 직관</h3>
+<div class="highlight"><pre><span></span><code>Case 2에서 두 채널이 &quot;균형을 맞출 수 있는&quot; 상황이다.
+
+최적 방향에서:
+  두 채널이 같은 크기(h)로 기여한다
+  → 완전 변조에 가까운 상태
+  → AM 최대
+
+  &quot;두 소방관이 정확히 같은 힘으로 당겼다 놓는다&quot;
+  → 가장 효과적인 신경 자극 패턴
+
+전극 설계 목표:
+  표적 신경 위치에서 Case 2 조건 달성
+  + n̂*이 신경 주행 방향과 일치하도록 전극 배치
+</code></pre></div>
+<hr />
+<h2 id="9">9. 두 조건 비교 및 경계 연속성</h2>
+<h3 id="91">9.1 비교표</h3>
+<div class="highlight"><pre><span></span><code>┌──────────────┬──────────────────────────┬────────────────────────────────────┐
+│  항목         │  Case 1                  │  Case 2                            │
+├──────────────┼──────────────────────────┼────────────────────────────────────┤
+│  조건         │ |E⃗₂| &lt; |E⃗₁|cosα        │ |E⃗₂| ≥ |E⃗₁|cosα                  │
+│  물리         │ E⃗₂가 항상 병목           │ 균형 방향이 존재                    │
+│  최적 n̂*     │ E⃗₂ 방향                  │ E⃗₁-E⃗₂에 수직                      │
+│  E_AM_max    │ 2|E⃗₂|                    │ 2|E⃗₁×E⃗₂|/|E⃗₁-E⃗₂|               │
+│  기하 의미    │ E⃗₂ 크기의 두 배          │ 삼각형 OAB 높이의 두 배             │
+│  설계 교훈    │ 약한 채널이 결정함        │ 균형 방향 ↔ 신경 방향 정렬 필요    │
+└──────────────┴──────────────────────────┴────────────────────────────────────┘
+</code></pre></div>
+<h3 id="92">9.2 경계에서 두 수식이 연속임을 확인</h3>
+<div class="highlight"><pre><span></span><code>경계: |E⃗₂| = |E⃗₁|cosα
+
+Case 1: E_AM_max = 2|E⃗₂|
+
+Case 2 수식에 경계 조건 대입:
+  |E⃗₁ × E⃗₂| = |E⃗₁||E⃗₂|sinα
+
+  |E⃗₁ - E⃗₂|²  = |E⃗₁|² + |E⃗₂|² - 2|E⃗₁||E⃗₂|cosα
+  경계에서 |E⃗₂| = |E⃗₁|cosα이므로:
+                 = |E⃗₁|² + |E⃗₁|²cos²α - 2|E⃗₁|²cos²α
+                 = |E⃗₁|²sin²α
+  → |E⃗₁ - E⃗₂| = |E⃗₁|sinα
+
+  Case 2 수식:
+    2 × |E⃗₁||E⃗₂|sinα / |E⃗₁|sinα = 2|E⃗₂|  ✓
+
+두 수식은 경계에서 연속적으로 이어진다.
+</code></pre></div>
+<hr />
+<h2 id="10">10. 수치 예시</h2>
+<h3 id="a-case-1">예시 A — Case 1</h3>
+<div class="highlight"><pre><span></span><code>설정: |E⃗₁| = 10 V/m,  |E⃗₂| = 3 V/m,  α = 30°
+
+조건 확인:
+  |E⃗₁|cosα = 10 × 0.866 = 8.66 V/m
+  |E⃗₂| = 3 &lt; 8.66  → Case 1 ✓
+
+결과:
+  E_AM_max = 2 × 3 = 6 V/m
+  n̂* = E⃗₂ 방향
+
+해석:
+  강한 채널(E⃗₁)이 아무리 커도 AM = 6 V/m로 고정.
+  약한 채널(E⃗₂)을 키워야 한다.
+</code></pre></div>
+<h3 id="b-case-2">예시 B — Case 2</h3>
+<div class="highlight"><pre><span></span><code>설정: |E⃗₁| = 10 V/m,  |E⃗₂| = 8 V/m,  α = 60°
+
+조건 확인:
+  |E⃗₁|cosα = 10 × 0.5 = 5 V/m
+  |E⃗₂| = 8 ≥ 5  → Case 2 ✓
+
+계산:
+  |E⃗₁ × E⃗₂| = 10 × 8 × sin60° = 80 × 0.866 = 69.28 V²/m²
+
+  |E⃗₁ - E⃗₂|² = 100 + 64 - 2×10×8×0.5 = 164 - 80 = 84
+  |E⃗₁ - E⃗₂| = √84 = 9.17 V/m
+
+  h = 69.28 / 9.17 = 7.56 V/m
+
+  E_AM_max = 2 × 7.56 = 15.12 V/m
+
+비교: E⃗₂ 방향만 봤을 때:
+  |E⃗₁|cosα = 5 V/m  (이게 병목)
+  AM = 2 × 5 = 10 V/m  ← 최적이 아님!
+
+최적 n̂* 사용: AM = 15.12 V/m  (51% 개선!)
+</code></pre></div>
+<h3 id="c">예시 C — 직교 케이스 손 계산</h3>
+<div class="highlight"><pre><span></span><code>E⃗₁ = (3, 0, 0) V/m,  E⃗₂ = (0, 4, 0) V/m  (직교, α = 90°)
+
+조건 확인:
+  |E⃗₁|cosα = 3 × cos90° = 0
+  |E⃗₂| = 4 ≥ 0  → Case 2 ✓
+
+등사영 조건: 3cosφ = 4sinφ
+  tanφ* = 3/4 → φ* = arctan(3/4) = 36.87°
+
+n̂* = (cos36.87°, sin36.87°, 0) = (0.800, 0.600, 0)
+
+검증:
+  E⃗₁·n̂* = 3 × 0.800 = 2.400
+  E⃗₂·n̂* = 4 × 0.600 = 2.400  ← 정확히 같다! ✓
+
+E_AM_max = 2 × 2.400 = 4.800 V/m
+
+공식으로 확인:
+  |E⃗₁ × E⃗₂| = 3 × 4 × sin90° = 12
+  |E⃗₁ - E⃗₂| = √(9+16) = 5
+  E_AM_max = 2 × 12/5 = 4.800 V/m  ✓
+
+주목: n̂* = (0.8, 0.6) → E⃗₁(=3)을 향해 기울어짐
+      더 약한 쪽(E⃗₁)을 살리기 위해 강한 쪽(E⃗₂)에서 멀어짐
+</code></pre></div>
+<hr />
+<h2 id="11_1">11. 타원 궤적 — 핵심 물리적 직관</h2>
 <p>공간 점 P에서 E⃗(t) 벡터 끝점의 궤적:</p>
 <div class="highlight"><pre><span></span><code>     E_y
       ↑
@@ -1712,34 +2434,8 @@ E⃗₂ 방향: AM = 2min(0, E₂) = 0
 E⃗(t)가 carrier 주기(≈1/f̄)로 이 타원 위를 돈다
 envelope이 beat 주기(=1/Δf)로 타원 크기를 변조
 </code></pre></div>
-<h3 id="_6">왜 타원이 생기나</h3>
-<div class="highlight"><pre><span></span><code>ω₁ = ω̄ + Δω/2,  ω₂ = ω̄ - Δω/2  (Δω &lt;&lt; ω̄)
-
-E⃗(t) = E⃗₁·cos(ω₁t) + E⃗₂·cos(ω₂t)
-      = cos(ω̄t)·[(E⃗₁+E⃗₂)cos(Δωt/2)]   ← in-phase 성분
-      + sin(ω̄t)·[(E⃗₂-E⃗₁)sin(Δωt/2)]   ← quadrature 성분
-
-고정 slow-time τ = Δωt/2에서:
-  E⃗(t|τ) = A⃗(τ)·cos(ω̄t) + B⃗(τ)·sin(ω̄t)
-
-  A⃗(τ) = (E⃗₁+E⃗₂)cos(τ)  ← 타원 한 축 방향 × 진폭
-  B⃗(τ) = (E⃗₂-E⃗₁)sin(τ)  ← 타원 다른 축 방향 × 진폭
-
-→ A⃗cos + B⃗sin 형태 = 타원 ✓
-</code></pre></div>
 <h3 id="am_max">타원과 AM_max의 관계</h3>
-<div class="highlight"><pre><span></span><code>타원을 단위벡터 n̂ 방향으로 투영(projection):
-
-         n̂
-          ↑
-    ╭─────┼────╮
-   ╱      │     ╲
-  │   타원 │      │
-   ╲      │     ╱
-    ╰─────┼────╯
-          ↓ 투영(그림자)
-
-          ████████
+<div class="highlight"><pre><span></span><code>타원을 단위벡터 n̂ 방향으로 투영:
 
 n̂ = 장반경 방향 → 투영 최대 = a
 n̂ = 단반경 방향 → 투영 최소 = b
@@ -1747,50 +2443,48 @@ n̂ = 단반경 방향 → 투영 최소 = b
 ⭐ AM_max = 타원 장반경 a
    최적 방향 n̂* = 장반경 방향
 </code></pre></div>
-<hr />
-<h2 id="6-svd">6. SVD — 타원 장반경을 계산하는 방법</h2>
-<h3 id="_7">행렬 구성</h3>
-<p>COMSOL에서 복소 phasor export 후:</p>
-<div class="highlight"><pre><span></span><code>Ẽ₁ = Re(Ẽ₁) + j·Im(Ẽ₁)  (f1 주파수 phasor)
-Ẽ₂ = Re(Ẽ₂) + j·Im(Ẽ₂)  (f2 주파수 phasor)
+<h3 id="_2">왜 타원이 생기나</h3>
+<div class="highlight"><pre><span></span><code>고정 slow-time τ = Δω·t/2에서:
 
-M = [ Re(Ẽ₁x)  Im(Ẽ₁x)  Re(Ẽ₂x)  Im(Ẽ₂x) ]  ← 행: x성분
-    [ Re(Ẽ₁y)  Im(Ẽ₁y)  Re(Ẽ₂y)  Im(Ẽ₂y) ]  ← 행: y성분
-    [ Re(Ẽ₁z)  Im(Ẽ₁z)  Re(Ẽ₂z)  Im(Ẽ₂z) ]  ← 행: z성분
+  E⃗(t|τ) = A⃗(τ)·cos(ω̄t) + B⃗(τ)·sin(ω̄t)
+
+  A⃗(τ) = (E⃗₁+E⃗₂)cos(τ)  ← 타원 한 축
+  B⃗(τ) = (E⃗₂-E⃗₁)sin(τ)  ← 타원 다른 축
+
+→ A⃗cos + B⃗sin 형태 = 타원 ✓
+</code></pre></div>
+<hr />
+<h2 id="12-svd">12. SVD — 타원 장반경 계산</h2>
+<h3 id="_3">행렬 구성</h3>
+<p>COMSOL에서 복소 phasor export 후:</p>
+<div class="highlight"><pre><span></span><code>Ẽ₁ = Re(Ẽ₁) + j·Im(Ẽ₁)  (f₁ 주파수 phasor)
+Ẽ₂ = Re(Ẽ₂) + j·Im(Ẽ₂)  (f₂ 주파수 phasor)
+
+M = [ Re(Ẽ₁x)  Im(Ẽ₁x)  Re(Ẽ₂x)  Im(Ẽ₂x) ]  ← x성분
+    [ Re(Ẽ₁y)  Im(Ẽ₁y)  Re(Ẽ₂y)  Im(Ẽ₂y) ]  ← y성분
+    [ Re(Ẽ₁z)  Im(Ẽ₁z)  Re(Ẽ₂z)  Im(Ẽ₂z) ]  ← z성분
 
 M ∈ R^{3×4}
+
+실수 phasor(위상 지연 없는 경우): Im = 0 → M = [E⃗₁, E⃗₂] ∈ R^{3×2}
 </code></pre></div>
-<p>실수 phasor(위상 지연 없는 경우): Im = 0이므로 M → [E⃗₁, E⃗₂] ∈ R^{3×2}</p>
 <h3 id="svd">SVD 분해</h3>
 <div class="highlight"><pre><span></span><code>M = U Σ Vᵀ
 
-  U ∈ R^{3×3}: 공간 회전 (열 = 직교 방향들)
-  Σ ∈ R^{3×4}: 대각 (σ₁ ≥ σ₂ ≥ σ₃ ≥ 0)
-  V ∈ R^{4×4}: 입력 공간 회전
+  U ∈ R^{3×3}: 공간 방향 (열 = 직교 방향들)
+  Σ: 특이값 σ₁ ≥ σ₂ ≥ σ₃ ≥ 0
 
 특이값 의미:
   σ₁ → 타원 장반경 a  (가장 강한 방향의 크기)
-  σ₂ → 타원 단반경 b  (두 번째 방향)
+  σ₂ → 타원 단반경 b
 
-AM_max  = 2 × σ₁       (피크-투-피크, σ₁이 0→peak이므로 ×2)
-최적 방향 n̂* = u₁       (U 행렬의 첫 번째 열)
-</code></pre></div>
-<h3 id="svd_1">왜 SVD가 장반경을 주는가</h3>
-<div class="highlight"><pre><span></span><code>M이 하는 일:
-  ℝ⁴의 단위구(unit sphere) → ℝ³의 타원체(ellipsoid)로 변환
-  단위 에너지 v (||v||=1) → Mv ∈ ℝ³ (타원 위의 점)
-
-||Mv||를 최대화하는 v = V의 첫 번째 열 v₁
-이때 ||Mv₁|| = σ₁ = 장반경
-
-물리적 해석:
-  E⃗₁, E⃗₂가 만드는 공간에서
-  단위 에너지로 만들 수 있는 가장 강한 전기장 벡터 크기 = σ₁
+AM_max = 2 × σ₁
+n̂*    = u₁  (U 행렬의 첫 번째 열)
 </code></pre></div>
 <h3 id="matlab-2026">MATLAB 코드 (팀 실제 코드, 송솔웅 2026)</h3>
-<div class="highlight"><pre><span></span><code><span class="c">% 각 점에서 복소 phasor (COMSOL export 데이터)</span>
-<span class="n">E1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E1x</span><span class="p">;</span><span class="w"> </span><span class="n">E1y</span><span class="p">;</span><span class="w"> </span><span class="n">E1z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex, 3x1</span>
-<span class="n">E2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E2x</span><span class="p">;</span><span class="w"> </span><span class="n">E2y</span><span class="p">;</span><span class="w"> </span><span class="n">E2z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex, 3x1</span>
+<div class="highlight"><pre><span></span><code><span class="c">% 각 점에서 복소 phasor (COMSOL export)</span>
+<span class="n">E1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E1x</span><span class="p">;</span><span class="w"> </span><span class="n">E1y</span><span class="p">;</span><span class="w"> </span><span class="n">E1z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex 3x1</span>
+<span class="n">E2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">E2x</span><span class="p">;</span><span class="w"> </span><span class="n">E2y</span><span class="p">;</span><span class="w"> </span><span class="n">E2z</span><span class="p">];</span><span class="w">  </span><span class="c">% complex 3x1</span>
 
 <span class="c">% 행렬 구성</span>
 <span class="n">M</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">E1</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">E1</span><span class="p">),</span><span class="w"> </span><span class="nb">real</span><span class="p">(</span><span class="n">E2</span><span class="p">),</span><span class="w"> </span><span class="nb">imag</span><span class="p">(</span><span class="n">E2</span><span class="p">)];</span><span class="w">  </span><span class="c">% 3x4 real</span>
@@ -1799,15 +2493,98 @@ AM_max  = 2 × σ₁       (피크-투-피크, σ₁이 0→peak이므로 ×2)
 <span class="p">[</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">svd</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;econ&#39;</span><span class="p">);</span>
 
 <span class="c">% AM_max</span>
-<span class="n">AM_max</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">n_opt</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span><span class="w">      </span><span class="c">% 최적 방향</span>
+<span class="n">AM_max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">n_opt</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">U</span><span class="p">(:,</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c">% 최적 방향</span>
 </code></pre></div>
 <hr />
-<h2 id="7">7. 물리적 검증 방법</h2>
+<h2 id="13-am_max">13. AM_max 정의 비교 — 두 가지 해석</h2>
+<div class="highlight"><pre><span></span><code>정의 A (Modulation Depth, 물리적 변조 깊이):
+  AM_A(n̂) = 2 × min(|E⃗₁·n̂|, |E⃗₂·n̂|)
+  특징: &quot;약한 쪽&quot;이 AM을 결정
+  최적 조건: E₁n = E₂n (등사영)
+  E_AM_max 수식 (Case 1, 2): 이 정의 기반
+
+정의 B (Envelope Peak Amplitude, Grossman / 팀 MATLAB):
+  AM_B(n̂) = sqrt((E⃗₁·n̂)² + (E⃗₂·n̂)²)
+  특징: carrier 진폭의 RMS 기반
+  SVD와 직접 연결: AM_B_max = 2σ₁
+
+정의 A vs B 비교:
+  E⃗₁ ∥ E⃗₂: 두 정의가 같은 n̂*를 선택
+  E⃗₁ ⊥ E⃗₂ 예시 (E⃗₁=(3,0), E⃗₂=(0,4)):
+    Def A: n̂* = (0.8, 0.6),  AM = 4.80
+    Def B: n̂* = (0, 1, 0) = E⃗₂ 방향,  AM = 8.00  ← 다르다!
+
+팀 코드(MATLAB): 정의 B 사용 → SVD 적용 가능
+</code></pre></div>
+<hr />
+<h2 id="14-grossman-fem">14. Grossman FEM 파이프라인</h2>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────────────────────────┐
+│                  E_AM_max 계산 파이프라인                      │
+│                                                              │
+│  COMSOL (f₁) → Ẽ₁(r⃗) 복소 phasor (3D 벡터장)               │
+│  COMSOL (f₂) → Ẽ₂(r⃗) 복소 phasor (3D 벡터장)               │
+│                         ↓                                    │
+│  각 공간점 r⃗에서:                                            │
+│    ① |E⃗₁|, |E⃗₂|, cosα 계산                                 │
+│    ② 조건 확인: |E⃗₂| &lt; |E⃗₁|cosα?                           │
+│    ③-a  YES → E_AM_max = 2|E⃗₂|                             │
+│    ③-b  NO  → E_AM_max = 2|E⃗₁×E⃗₂|/|E⃗₁-E⃗₂|              │
+│    (또는 SVD: M=[Re Ẽ₁, Im Ẽ₁, Re Ẽ₂, Im Ẽ₂], AM=2σ₁)     │
+│                         ↓                                    │
+│  E_AM_max 3D 분포 맵 생성                                     │
+│    → Slice 단면 시각화                                        │
+│    → Isosurface (등값면) 시각화                               │
+│    → 신경 위치에서의 AM_max 추출                               │
+└──────────────────────────────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="15-steering">15. Steering 원리</h2>
+<div class="highlight"><pre><span></span><code>전극 위치 또는 전류 비율 변경:
+  → E⃗₁(r⃗), E⃗₂(r⃗) 공간 분포 변화
+  → 각 위치에서 |E⃗₁|, |E⃗₂|, α 모두 변화
+  → E_AM_max(r⃗) 분포 변화
+  → 최대값 위치가 이동 = Steering!
+
+Grossman 2017 발견:
+  전류 비율을 바꾸면(전극 이동 없이)
+  envelope peak가 두 전극쌍 사이를 이동한다.
+  → 전류 비율만으로 표적 위치 조절 가능!
+
+경골신경 TIS 적용:
+  전극 배치 목표:
+  1. 경골신경 위치에서 E_AM_max ≥ 자극 역치
+  2. n̂*이 신경 주행 방향과 ≤ 30° 오차
+  3. 주변 조직에서 E_AM_max &lt;&lt; 역치 (선택성)
+</code></pre></div>
+<hr />
+<h2 id="16-e_am_max">16. E_AM_max의 한계</h2>
+<div class="highlight"><pre><span></span><code>E_AM_max는 &quot;최적 방향 뉴런이 있다면&quot;의 이론적 상한이다.
+
+실제 자극은 항상 작거나 같다:
+
+  실제 AM = E_AM_max × cos(θ_mismatch)
+  θ_mismatch = n̂*와 실제 뉴런 방향의 각도
+
+추가 한계:
+  1. 세포 유형별 역치가 다름
+     (motor axon vs sensory axon vs C-fiber)
+  2. 조직 비등방성
+     (DTI 기반 백질 섬유 방향성이 E⃗ 분포에 영향)
+  3. 네트워크 효과
+     (단일 뉴런 모델만으로 설명 불가)
+  4. 환자별 해부학 차이
+
+Grossman 논문 명시:
+  &quot;모델이 뇌 파라미터, 세포 유형, 지역별 흥분성 차이를
+   완전히 반영하지 않는다&quot;
+</code></pre></div>
+<hr />
+<h2 id="17">17. 물리적 검증 방법</h2>
 <h3 id="1-brute-force">방법 1: Brute-force 수치 탐색</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">E1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>  <span class="c1"># 실수 phasor 예시</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
 <span class="n">E2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
 
 <span class="c1"># SVD 방법</span>
@@ -1822,116 +2599,94 @@ AM_max  = 2 × σ₁       (피크-투-피크, σ₁이 0→peak이므로 ×2)
         <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
                       <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span>
                       <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)])</span>
-        <span class="n">am</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">E1</span><span class="nd">@n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">E2</span><span class="nd">@n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">am</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">E1</span><span class="nd">@n</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">E2</span><span class="nd">@n</span><span class="p">))</span>  <span class="c1"># 정의 A</span>
         <span class="k">if</span> <span class="n">am</span> <span class="o">&gt;</span> <span class="n">max_am</span><span class="p">:</span>
             <span class="n">max_am</span> <span class="o">=</span> <span class="n">am</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SVD:         </span><span class="si">{</span><span class="n">AM_svd</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brute-force: </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">max_am</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
-<span class="c1"># 두 값이 같으면 SVD 공식 검증 완료</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SVD(정의B):    </span><span class="si">{</span><span class="n">AM_svd</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brute-force(A): </span><span class="si">{</span><span class="n">max_am</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> V/m&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-comsol">방법 2: COMSOL에서 시각적 검증</h3>
 <div class="highlight"><pre><span></span><code>검증 절차:
-1. COMSOL에서 AM_max 맵 생성 (SVD 기반)
+1. COMSOL에서 E_AM_max 맵 생성 (SVD 기반)
 2. 같은 점에서 AM_x, AM_y, AM_z 각각 계산
 3. 반드시: AM_max &gt;= AM_x, AM_y, AM_z 확인
-4. 신경 주행 방향(z축)과 AM_max 방향 비교
-   → 만약 AM_max 방향 ≠ z축: 신경 방향이 최적 아님을 의미
+4. 신경 주행 방향(예: z축)과 AM_max 방향 각도 비교
 
 평가 기준:
-  AM_z       → 보수적 (실제 신경 주행 방향)
-  AM_max     → 공정한 상한선 (어떤 신경 방향이든 최대 받을 수 있는 값)
+  AM_z     → 보수적 (실제 신경 주행 방향)
+  AM_max   → 이론적 상한선 (어떤 신경이든 최대 받을 수 있는 값)
 </code></pre></div>
 <hr />
-<h2 id="8-am_max">8. AM_max 정의 비교 — 두 가지 해석</h2>
-<div class="highlight"><pre><span></span><code>정의 A (Modulation Depth, 물리적 변조 깊이):
-  AM_A(n̂) = 2 × min(|E⃗₁·n̂|, |E⃗₂·n̂|)
-  특징: 두 소스의 &quot;약한 쪽&quot;이 결정
-  최적 조건: E₁n = E₂n (균등 기여)
+<h2 id="18">18. 개념 요약</h2>
+<div class="highlight"><pre><span></span><code>[FEM 기초]
+  ∇·(σ∇φ) = 0  ← ∇·J⃗=0 + J⃗=σE⃗ + E⃗=-∇φ 세 법칙 조합
+  준정적 가정: λ=50km &gt;&gt; 몸 크기, 변위전류 무시
+  → 두 전극쌍에 대해 각각 풀어 E⃗₁(r⃗), E⃗₂(r⃗) 획득
 
-정의 B (Envelope Peak Amplitude, Grossman / 팀 MATLAB):
-  AM_B(n̂) = sqrt((E⃗₁·n̂)² + (E⃗₂·n̂)²)
-  특징: carrier 진폭의 RMS 기반
-  SVD와 직접 연결: AM_B_max = 2σ₁
+[AM 포락선]
+  E_n(t) = (E⃗₁·n̂)cos(ω₁t) + (E⃗₂·n̂)cos(ω₂t)
+  AM(n̂) = 2·min(|E⃗₁·n̂|, |E⃗₂·n̂|)  ← 약한 쪽 투영의 두 배
 
-정의 A vs B:
-  E⃗₁ ∥ E⃗₂인 경우: 두 정의가 같은 방향을 최적으로 선택
-  E⃗₁ ⊥ E⃗₂인 경우: 최적 n̂*가 서로 달라짐
+[E_AM_max 최적화]
+  max over n̂ of AM(n̂)  ← max-min 문제
 
-팀 코드(MATLAB): 정의 B 사용 → SVD 적용 가능
+  Case 1: |E⃗₂| &lt; |E⃗₁|cosα
+    n̂* = E⃗₂ 방향,  E_AM_max = 2|E⃗₂|
+    (약한 field가 명확한 병목)
+
+  Case 2: |E⃗₂| ≥ |E⃗₁|cosα
+    n̂* ⊥ (E⃗₁-E⃗₂),  E_AM_max = 2|E⃗₁×E⃗₂|/|E⃗₁-E⃗₂|
+    (등사영 조건 → 삼각형 높이의 두 배)
+
+[계산]
+  타원 직관: AM_max = 장반경 a
+  SVD:       M=[Re Ẽ₁, Im Ẽ₁, Re Ẽ₂, Im Ẽ₂],  AM=2σ₁,  n̂*=u₁
+
+[핵심 직관]
+  &quot;두 채널의 투영을 같게 만드는 방향이 최적&quot;
+  &quot;한쪽이 너무 약하면 그 방향이 최선&quot;
+  &quot;균형이 가능하면 삼각형 높이 방향이 최선&quot;
 </code></pre></div>
 <hr />
-<h2 id="9-grossman-fem-am">9. Grossman FEM의 전체 AM 계산 파이프라인</h2>
-<div class="highlight"><pre><span></span><code>┌──────────────────────────────────────────────────────────────┐
-│                  Grossman AM_max 파이프라인                    │
-│                                                              │
-│  COMSOL 해석 (f1) → Ẽ₁(r) = (Ẽ₁x, Ẽ₁y, Ẽ₁z) 복소 phasor   │
-│  COMSOL 해석 (f2) → Ẽ₂(r) = (Ẽ₂x, Ẽ₂y, Ẽ₂z) 복소 phasor   │
-│                                    ↓                         │
-│         각 공간점 r에서 반복:                                  │
-│           M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)]  (3×4)      │
-│           [U, S, V] = svd(M)                                 │
-│           AM_max(r) = 2 × S(1,1)                            │
-│           n̂*(r)     = U(:,1)                                │
-│                                    ↓                         │
-│         AM_max 3D 분포 맵 생성                                │
-│           → Slice 단면 시각화                                │
-│           → Isosurface (등값면) 시각화                       │
-│           → 신경 위치에서의 AM_max 추출                       │
-└──────────────────────────────────────────────────────────────┘
-</code></pre></div>
-<hr />
-<h2 id="10">10. 개념 요약</h2>
-<div class="highlight"><pre><span></span><code>AM_max 핵심 흐름:
-
-1D 단방향 AM
-  E_n(t) = E₁n·cos(ω₁t) + E₂n·cos(ω₂t)
-  AM = 2×min(E₁n, E₂n)
-         ↓ n̂ 방향에 따라 값이 달라진다
-
-3D 최적화 문제
-  max_{||n̂||=1} AM(n̂) = AM_max
-  최적 조건: E⃗₁·n̂ = E⃗₂·n̂ (균등 기여)
-         ↓
-타원 궤적 직관
-  E⃗(t)가 carrier 주기로 타원을 그린다
-  AM_max = 장반경 a
-  최적 방향 = 장반경 방향
-         ↓
-SVD로 계산
-  M = [Re(Ẽ₁), Im(Ẽ₁), Re(Ẽ₂), Im(Ẽ₂)]
-  SVD: σ₁ = 장반경
-  AM_max = 2σ₁,  n̂* = u₁
-</code></pre></div>
-<hr />
-<h2 id="11">11. 자기평가 문항</h2>
+<h2 id="19">19. 자기평가 문항</h2>
 <p><strong>Level 1</strong></p>
 <ol>
 <li>공간의 한 점에서 x방향 AM과 y방향 AM이 다른 이유는?</li>
-<li>AM(n̂) = 2min(E₁n, E₂n)에서 E₁n = 3 V/m, E₂n = 1 V/m일 때 AM은?</li>
+<li>AM(n̂) = 2min(E₁n, E₂n)에서 E₁n = 3, E₂n = 1 V/m일 때 AM은?</li>
+<li>준정적 근사에서 변위전류를 무시할 수 있는 이유를 수치로 설명하라.</li>
 </ol>
 <p><strong>Level 2</strong></p>
 <ol>
 <li>최적 방향 n̂*에서 반드시 E₁n = E₂n이 되어야 하는 이유를 직관적으로 설명하라.</li>
-<li>E⃗₁과 E⃗₂가 평행(같은 방향)일 때 AM_max 방향은 어디인가?</li>
+<li>E⃗₁=(10,0), E⃗₂=(3,0), α=0°일 때 Case 1/2 중 어느 것인가? E_AM_max는?</li>
+<li>Case 2에서 왜 n̂*가 (E⃗₁-E⃗₂)에 수직인지를 등사영 조건으로 유도하라.</li>
 </ol>
 <p><strong>Level 3</strong></p>
 <ol>
-<li>타원 궤적에서 장반경 방향으로 투영했을 때 AM이 최대인 이유를 기하학적으로 설명하라.</li>
-<li>실수 phasor(Im = 0)일 때 M 행렬이 3×2로 줄어드는 이유는?</li>
+<li>
+<p>E⃗₁=(10,0), E⃗₂=(0,8) V/m일 때 (α=90°):
+   (a) Case 1 또는 Case 2 판정
+   (b) E_AM_max 계산 (공식과 수치 모두)
+   (c) n̂* 방향 각도 계산</p>
+</li>
+<li>
+<p>타원 궤적에서 장반경 방향으로 투영했을 때 AM이 최대인 이유를 기하학적으로 설명하라.</p>
+</li>
 </ol>
 <p><strong>Level 4</strong></p>
 <ol>
-<li>SVD에서 σ₁이 타원 장반경과 같은 수학적 이유를 ||Mv||의 최대화 관점에서 설명하라.</li>
-<li>정의 A(Modulation Depth)와 정의 B(Envelope Peak)의 차이가 n̂* 선택에 영향을 주는 예시를 들어라.</li>
+<li>Case 2의 E_AM_max = 2|E⃗₁×E⃗₂|/|E⃗₁-E⃗₂|가 삼각형 OAB의 높이의 두 배임을 넓이 공식으로 유도하라.</li>
+<li>Case 1과 Case 2의 경계(|E⃗₂|=|E⃗₁|cosα)에서 두 수식이 같은 값을 줌을 대수적으로 증명하라.</li>
 </ol>
 <p><strong>Level 5</strong></p>
 <ol>
-<li>E⃗₁ = (3, 0, 0), E⃗₂ = (0, 4, 0) V/m일 때 AM_max 및 n̂*를 직접 계산하라.</li>
-<li>경골신경(z축 주행)에 대해 AM_z와 AM_max 중 어느 것이 더 적절한 자극 평가 지표인가? 각 지표의 임상적 의미를 논하라.</li>
+<li>SVD에서 σ₁이 타원 장반경과 같은 수학적 이유를 ||Mv||의 최대화 관점에서 설명하라.</li>
+<li>정의 A와 정의 B가 서로 다른 n̂*를 주는 구체적 예시를 들고, 경골신경 TIS에서 어느 정의가 더 적절한지 논하라.</li>
+<li>경골신경(z축 주행)에 대해 E_AM_max와 AM_z 중 어느 것이 더 적절한 자극 평가 지표인가? 임상적 의미를 논하라.</li>
 </ol>
 <hr />
-<h2 id="12">12. 핵심 논문</h2>
+<h2 id="20">20. 핵심 논문</h2>
 <table>
 <thead>
 <tr>
@@ -1956,11 +2711,16 @@ SVD로 계산
 <td>TIS 전기장 분포 실측 vs FEM 비교</td>
 <td>FEM 검증 방법론</td>
 </tr>
+<tr>
+<td>Budde R et al., Brain Stimulation 2023</td>
+<td>TIS 자극 메커니즘 논쟁</td>
+<td>AM 기반 자극 가설 비판적 검토</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p>다음 단계: STEP 7 — COMSOL 3-phase TIS 구현 및 AM_max 3D 맵 생성</p>
+<p>다음 단계: STEP 7 — COMSOL 3-phase TIS 구현 및 E_AM_max 3D 맵 생성</p>
 </blockquote>
 
 
