@@ -273,48 +273,137 @@ Materials 트리 → 각 재료 옆에 ✓ 표시 확인
 
 ## 4. 경계조건 (Physics) 설정
 
-### 채널 1 설정
+### 핵심 원리
 
-#### 4-1. Terminal (전류 인가 전극)
-
-```
-Electric Currents (ec) 우클릭 → Terminal
-→ Boundary selection: E1+ 전극 경계 선택
-→ Terminal type: Current
-→ I0 = 1e-3  [A]  (= 1 mA)
-```
-
-#### 4-2. Ground (귀환 전극)
+2채널 TIS에서는 **Physics 트리에 4개 BC를 모두 정의**하되, **각 Study에서 해당 채널만 활성화**한다.
 
 ```
-Electric Currents (ec) 우클릭 → Ground
-→ Boundary selection: E1− 전극 경계 선택
+Physics 트리 (전체)          Study 1 (CH1)       Study 2 (CH2)
+├── Terminal 1 (E1+)  ──→    ✅ 활성화           ❌ 비활성화
+├── Ground 1   (E1-)  ──→    ✅ 활성화           ❌ 비활성화
+├── Terminal 2 (E2+)  ──→    ❌ 비활성화         ✅ 활성화
+└── Ground 2   (E2-)  ──→    ❌ 비활성화         ✅ 활성화
 ```
 
-### 채널 2 설정 (별도 Study에서)
+이 제어는 COMSOL의 **"Modify model configuration for study step"** 옵션으로 수행한다.
 
-채널 2는 **Study 2**를 추가하고 동일한 방법으로 설정한다.
+---
 
-```
-Electric Currents (ec) 우클릭 → Terminal (CH2용)
-→ Boundary: E2+ 선택
-→ I0 = 1e-3 [A]
+### 4-1. Physics 트리에 BC 4개 추가
 
-Electric Currents (ec) 우클릭 → Ground (CH2용)
-→ Boundary: E2− 선택
-```
+**Electric Currents (ec)** 우클릭 → 아래 4개 순서대로 추가:
 
-> **중요**: Study 1 = 채널 1 활성화, Study 2 = 채널 2 활성화  
-> 각 Study에서 어떤 Terminal/Ground가 활성화되는지 **Study별 물리 설정**에서 제어
-
-### 4-3. 외부 경계: Electric Insulation
-
-팬텀 외부 경계(전극 제외)는 전류가 흐르지 않도록 절연 처리:
+#### Terminal 1 — CH1 인가 전극
 
 ```
-Electric Insulation 1 (기본값으로 이미 적용됨)
-→ 전극 경계를 제외한 나머지 외부 경계에 자동 적용 확인
+Electric Currents → 우클릭 → Terminal
+  이름: Terminal 1
+  Boundary selection: E1+ 전극의 경계선 선택
+  Terminal type: Current
+  I₀ = 1e-3  [A]   (= 1 mA)
 ```
+
+#### Ground 1 — CH1 귀환 전극
+
+```
+Electric Currents → 우클릭 → Ground
+  이름: Ground 1
+  Boundary selection: E1− 전극의 경계선 선택
+```
+
+#### Terminal 2 — CH2 인가 전극
+
+```
+Electric Currents → 우클릭 → Terminal
+  이름: Terminal 2
+  Boundary selection: E2+ 전극의 경계선 선택
+  Terminal type: Current
+  I₀ = 1e-3  [A]
+```
+
+#### Ground 2 — CH2 귀환 전극
+
+```
+Electric Currents → 우클릭 → Ground
+  이름: Ground 2
+  Boundary selection: E2− 전극의 경계선 선택
+```
+
+완료 후 Physics 트리:
+
+```
+Electric Currents (ec)
+├── Current Conservation 1   (전체 도메인 — 자동)
+├── Electric Insulation 1    (외부 경계 — 자동)
+├── Initial Values 1
+├── Terminal 1               ← CH1 인가
+├── Ground 1                 ← CH1 귀환
+├── Terminal 2               ← CH2 인가
+└── Ground 2                 ← CH2 귀환
+```
+
+---
+
+### 4-2. Study 1에서 CH2 비활성화
+
+```
+Study 1 → Stationary 클릭
+→ Settings 창 하단 → "Study Extensions" 섹션 펼치기
+→ ☑ Modify model configuration for study step  체크
+```
+
+체크 후 나타나는 Physics feature 테이블에서:
+
+| Physics Feature | Study 1 설정 |
+|----------------|-------------|
+| Terminal 1 | (켜짐 — 기본값 유지) |
+| Ground 1 | (켜짐 — 기본값 유지) |
+| Terminal 2 | **Disable** 선택 |
+| Ground 2 | **Disable** 선택 |
+
+---
+
+### 4-3. Study 2 추가 및 CH1 비활성화
+
+```
+Home 탭 → Add Study → Stationary
+→ Study 2 생성됨
+
+Study 2 → Stationary 클릭
+→ Study Extensions → ☑ Modify model configuration for study step
+```
+
+| Physics Feature | Study 2 설정 |
+|----------------|-------------|
+| Terminal 1 | **Disable** |
+| Ground 1 | **Disable** |
+| Terminal 2 | (켜짐 — 기본값 유지) |
+| Ground 2 | (켜짐 — 기본값 유지) |
+
+---
+
+### 4-4. 외부 경계: Electric Insulation 확인
+
+팬텀 외부 경계(전극이 닿지 않는 변)는 전류가 빠져나가지 않아야 한다.
+
+```
+Electric Insulation 1 → Settings → Boundary selection 확인
+→ 팬텀 4개 변 중 전극 경계를 제외한 나머지가 포함되어 있는지 확인
+```
+
+> COMSOL 기본 BC가 Electric Insulation이므로, Terminal/Ground로 명시하지 않은 경계는 자동으로 절연 처리된다.
+
+---
+
+### 4-5. 검증 (계산 전 사전 확인)
+
+Study 1 Stationary 우클릭 → **Get Initial Value** 실행 (Compute 아님):
+
+| 결과 | 원인 |
+|------|------|
+| 에러 없이 통과 | BC 할당 정상 |
+| "No terminal" 에러 | Terminal 경계 미선택 |
+| "Conflicting BCs" | 같은 경계에 Terminal+Ground 중복 할당 |
 
 ---
 
