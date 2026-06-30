@@ -68,3 +68,5 @@ nav:
     - Overview: 05_Exp/index.md
   - Meetings:
     - Overview: 06_Meeting/index.md
+  - Simulation:
+    - COMSOL 사용법: 07_Simulation/COMSOL_simulation_guide.md
