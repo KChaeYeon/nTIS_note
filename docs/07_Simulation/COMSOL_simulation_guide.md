@@ -109,23 +109,23 @@ Geometry 1 우클릭 → Rectangle
 
 ### 2-3. 전극 원 추가 (4개)
 
-각 전극은 팬텀 경계 위에 위치하는 원형 영역이다.  
-채널 1 전극 쌍(E1+, E1−)과 채널 2 전극 쌍(E2+, E2−)으로 구성된다.
+각 전극은 팬텀 경계(좌/우 변) 위에 위치하는 원형 영역이다.  
+CH1은 왼쪽(상/하), CH2는 오른쪽(상/하)에 배치한다.
 
 ```
 Geometry 1 우클릭 → Circle
 ```
 
-전극 위치 (대각선 배치):
+전극 위치 (좌우 분리 배치):
 
 | 전극 | 역할 | 위치 (x, y) mm | 반지름 |
 |------|------|----------------|--------|
-| E1+ | CH1 Terminal | (-25, +21) | 2 mm |
-| E1− | CH1 Ground   | (+25, −21) | 2 mm |
-| E2+ | CH2 Terminal | (+25, +21) | 2 mm |
-| E2− | CH2 Ground   | (−25, −21) | 2 mm |
+| E1_top | CH1 0°   (인가) | (−25, +15) | 2 mm |
+| E1_bot | CH1 180° (귀환) | (−25, −15) | 2 mm |
+| E2_top | CH2 0°   (인가) | (+25, +15) | 2 mm |
+| E2_bot | CH2 180° (귀환) | (+25, −15) | 2 mm |
 
-> **Note**: 전극이 팬텀 경계에 걸쳐 있으면 Form Union 후 자동 분리됨
+> **Note**: 전극 원이 팬텀 경계에 걸쳐 있으면 Form Union 후 자동 분리됨
 
 ### 2-4. Form Union 적용
 
@@ -275,135 +275,147 @@ Materials 트리 → 각 재료 옆에 ✓ 표시 확인
 
 ### 핵심 원리
 
-2채널 TIS에서는 **Physics 트리에 4개 BC를 모두 정의**하되, **각 Study에서 해당 채널만 활성화**한다.
+| 구분 | 종류 | 선택 대상 | 전류 |
+|------|------|----------|------|
+| 0° 전극 (인가) | Terminal, Current | 전극 원 경계 (Boundary) | +1 mA |
+| 180° 전극 (귀환) | Terminal, Current | 전극 원 경계 (Boundary) | −1 mA |
+| Ground | Ground | 도메인 내부 Point 1개 | 0 (전압 기준만) |
 
-```
-Physics 트리 (전체)          Study 1 (CH1)       Study 2 (CH2)
-├── Terminal 1 (E1+)  ──→    ✅ 활성화           ❌ 비활성화
-├── Ground 1   (E1-)  ──→    ✅ 활성화           ❌ 비활성화
-├── Terminal 2 (E2+)  ──→    ❌ 비활성화         ✅ 활성화
-└── Ground 2   (E2-)  ──→    ❌ 비활성화         ✅ 활성화
-```
-
-이 제어는 COMSOL의 **"Modify model configuration for study step"** 옵션으로 수행한다.
+> **왜 180° 전극도 Terminal인가?**  
+> Ground를 전극 경계에 쓰면 "전압 고정 + 전류 귀환"이 뒤섞여 물리적으로 부정확하다.  
+> 올바른 설정: 양쪽 전극 모두 Terminal로 전류를 지정하고, V=0 기준은 내부 Point에만 고정.  
+> KCL 확인: (+1 mA) + (−1 mA) = 0 ✓
 
 ---
 
-### 4-1. Physics 트리에 BC 4개 추가
+### 4-1. Ground — 도메인 내부 Point 설정
 
-**Electric Currents (ec)** 우클릭 → 아래 4개 순서대로 추가:
-
-#### Terminal 1 — CH1 인가 전극
+Study 1, 2에서 공통으로 항상 활성화되는 전압 기준점이다.
 
 ```
-Electric Currents → 우클릭 → Terminal
-  이름: Terminal 1
-  Boundary selection: E1+ 전극의 경계선 선택
-  Terminal type: Current
-  I₀ = 1e-3  [A]   (= 1 mA)
+Electric Currents (ec) 우클릭 → Ground
+  Settings → Geometric Entity Level: Point  ← 반드시 "Point"로 변경
+  Selection: 사각형 내부 꼭짓점 또는 중심 근처 Point 선택
+             (예: 팬텀 중심 (0, 0) 또는 사각형 코너 꼭짓점)
 ```
 
-#### Ground 1 — CH1 귀환 전극
+> 이 Point로는 전류가 흐르지 않는다. V = 0 기준만 고정하는 게이지 조건이다.
+
+---
+
+### 4-2. Terminal 4개 추가
+
+**Electric Currents (ec)** 우클릭 → Terminal, 아래 4개 추가:
+
+#### Terminal 1 — CH1 0° (왼쪽 상단, +1 mA)
 
 ```
-Electric Currents → 우클릭 → Ground
-  이름: Ground 1
-  Boundary selection: E1− 전극의 경계선 선택
+Terminal type: Current
+Geometric Entity Level: Boundary
+Selection: E1_top 전극 원의 경계선 선택
+I₀ = 1e-3  [A]
 ```
 
-#### Terminal 2 — CH2 인가 전극
+#### Terminal 2 — CH1 180° (왼쪽 하단, −1 mA)
 
 ```
-Electric Currents → 우클릭 → Terminal
-  이름: Terminal 2
-  Boundary selection: E2+ 전극의 경계선 선택
-  Terminal type: Current
-  I₀ = 1e-3  [A]
+Terminal type: Current
+Geometric Entity Level: Boundary
+Selection: E1_bot 전극 원의 경계선 선택
+I₀ = -1e-3  [A]
 ```
 
-#### Ground 2 — CH2 귀환 전극
+#### Terminal 3 — CH2 0° (오른쪽 상단, +1 mA)
 
 ```
-Electric Currents → 우클릭 → Ground
-  이름: Ground 2
-  Boundary selection: E2− 전극의 경계선 선택
+Terminal type: Current
+Geometric Entity Level: Boundary
+Selection: E2_top 전극 원의 경계선 선택
+I₀ = 1e-3  [A]
+```
+
+#### Terminal 4 — CH2 180° (오른쪽 하단, −1 mA)
+
+```
+Terminal type: Current
+Geometric Entity Level: Boundary
+Selection: E2_bot 전극 원의 경계선 선택
+I₀ = -1e-3  [A]
 ```
 
 완료 후 Physics 트리:
 
 ```
 Electric Currents (ec)
-├── Current Conservation 1   (전체 도메인 — 자동)
+├── Current Conservation 1
 ├── Electric Insulation 1    (외부 경계 — 자동)
 ├── Initial Values 1
-├── Terminal 1               ← CH1 인가
-├── Ground 1                 ← CH1 귀환
-├── Terminal 2               ← CH2 인가
-└── Ground 2                 ← CH2 귀환
+├── Ground 1                 ← 내부 Point, V=0 기준 (항상 활성)
+├── Terminal 1               ← CH1 0°,   +1 mA
+├── Terminal 2               ← CH1 180°, −1 mA
+├── Terminal 3               ← CH2 0°,   +1 mA
+└── Terminal 4               ← CH2 180°, −1 mA
 ```
 
 ---
 
-### 4-2. Study 1에서 CH2 비활성화
+### 4-3. Study별 채널 활성화 제어
+
+#### Study 1 — CH1만 활성화
 
 ```
 Study 1 → Stationary 클릭
-→ Settings 창 하단 → "Study Extensions" 섹션 펼치기
-→ ☑ Modify model configuration for study step  체크
+→ Settings 하단 → Study Extensions
+→ ☑ Modify model configuration for study step
 ```
 
-체크 후 나타나는 Physics feature 테이블에서:
+| Physics Feature | Study 1 |
+|----------------|---------|
+| Ground 1 | ✅ (항상 켜짐) |
+| Terminal 1 (CH1 0°) | ✅ 활성화 |
+| Terminal 2 (CH1 180°) | ✅ 활성화 |
+| Terminal 3 (CH2 0°) | ❌ **Disable** |
+| Terminal 4 (CH2 180°) | ❌ **Disable** |
 
-| Physics Feature | Study 1 설정 |
-|----------------|-------------|
-| Terminal 1 | (켜짐 — 기본값 유지) |
-| Ground 1 | (켜짐 — 기본값 유지) |
-| Terminal 2 | **Disable** 선택 |
-| Ground 2 | **Disable** 선택 |
-
----
-
-### 4-3. Study 2 추가 및 CH1 비활성화
+#### Study 2 — CH2만 활성화
 
 ```
-Home 탭 → Add Study → Stationary
-→ Study 2 생성됨
+Home 탭 → Add Study → Stationary → Study 2 생성
 
 Study 2 → Stationary 클릭
 → Study Extensions → ☑ Modify model configuration for study step
 ```
 
-| Physics Feature | Study 2 설정 |
-|----------------|-------------|
-| Terminal 1 | **Disable** |
-| Ground 1 | **Disable** |
-| Terminal 2 | (켜짐 — 기본값 유지) |
-| Ground 2 | (켜짐 — 기본값 유지) |
+| Physics Feature | Study 2 |
+|----------------|---------|
+| Ground 1 | ✅ (항상 켜짐) |
+| Terminal 1 (CH1 0°) | ❌ **Disable** |
+| Terminal 2 (CH1 180°) | ❌ **Disable** |
+| Terminal 3 (CH2 0°) | ✅ 활성화 |
+| Terminal 4 (CH2 180°) | ✅ 활성화 |
 
 ---
 
 ### 4-4. 외부 경계: Electric Insulation 확인
 
-팬텀 외부 경계(전극이 닿지 않는 변)는 전류가 빠져나가지 않아야 한다.
-
 ```
-Electric Insulation 1 → Settings → Boundary selection 확인
-→ 팬텀 4개 변 중 전극 경계를 제외한 나머지가 포함되어 있는지 확인
+Electric Insulation 1 → Boundary selection 확인
+→ 팬텀 4개 변 중 전극 경계를 제외한 나머지 포함 여부 확인
 ```
 
-> COMSOL 기본 BC가 Electric Insulation이므로, Terminal/Ground로 명시하지 않은 경계는 자동으로 절연 처리된다.
+> COMSOL 기본 BC가 Electric Insulation이므로 Terminal로 지정하지 않은 경계는 자동 절연 처리된다.
 
 ---
 
-### 4-5. 검증 (계산 전 사전 확인)
+### 4-5. 검증 체크
 
-Study 1 Stationary 우클릭 → **Get Initial Value** 실행 (Compute 아님):
+Study 1 → Stationary 우클릭 → **Get Initial Value** (Compute 아님):
 
 | 결과 | 원인 |
 |------|------|
-| 에러 없이 통과 | BC 할당 정상 |
-| "No terminal" 에러 | Terminal 경계 미선택 |
-| "Conflicting BCs" | 같은 경계에 Terminal+Ground 중복 할당 |
+| 에러 없이 통과 | BC 정상 |
+| "Singular matrix" / "No constraints" | Ground Point 미설정 — V 기준점 없음 |
+| 전위 분포가 비대칭이 아님 | Terminal 부호 확인 (±1 mA) |
 
 ---
 
