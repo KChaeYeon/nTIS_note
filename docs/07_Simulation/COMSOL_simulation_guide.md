@@ -8,6 +8,7 @@
 ## 목차
 
 1. [새 모델 만들기](#1-새-모델-만들기)
+1.5. [Material 물성값 참고표](#material-물성값-참고표)
 2. [Geometry 생성](#2-geometry-생성)
 3. [Materials 설정](#3-materials-설정)
 4. [경계조건 (Physics) 설정](#4-경계조건-physics-설정)
@@ -143,26 +144,129 @@ Finalized geometry has N domains, M boundaries, and K vertices.
 
 ---
 
-## 3. Materials 설정
+## Material 물성값 참고표
 
-### 3-1. 팬텀 도메인 재료 추가
+### 수치 신뢰도 분류
+
+| 수치 | 상태 |
+|------|------|
+| σ_saline = 1.5 S/m | ✅ 확립된 측정값 |
+| σ_gray matter = 0.07 S/m (1 kHz) | ✅ Gabriel et al. 1996 측정값 |
+| σ_metal ≈ 10⁶ S/m | ✅ 재료공학 표준값 |
+| ε_r_saline = 80 | ✅ 확립된 측정값 |
+| ε_r_tissue (주파수별) | ⚠️ 연구마다 다름, Gabriel et al. 원문 확인 필요 |
+
+---
+
+### 생리식염수 σ = 1.5 S/m — 근거
+
+0.9% NaCl 용액의 전기전도는 **이온 이동**으로 발생한다.
+
+$$\sigma = \sum_i n_i q_i \mu_i$$
+
+- $n_i$: 이온 농도 (0.9% NaCl → 154 mmol/L)
+- $q_i$: 이온 전하
+- $\mu_i$: 이온 이동도
+
+**참고문헌 (확립된 측정값)**
+- Geddes & Baker (1967) *Medical & Biological Engineering* — 4전극 임피던스 측정
+- Horch & Dhillon (2004) *Neuroprosthetics: Theory and Practice*
+
+> ⚠️ 온도 의존: σ는 1°C 상승마다 약 2% 증가 → 체온 37°C에서 σ ≈ 1.7~1.8 S/m
+
+---
+
+### 생체조직 σ — 핵심 참고문헌
+
+**Gabriel et al. (1996)** 이 생체조직 전기적 특성의 표준 데이터베이스다.
+
+> Gabriel S, Lau RW, Gabriel C. (1996)  
+> *"The dielectric properties of biological tissues: II. Measurements in the frequency range 10 Hz to 20 GHz"*  
+> **Physics in Medicine & Biology, 41(11), 2251–2269**
+
+**1 kHz 기준 측정값:**
+
+| 조직 | σ (S/m) | ε_r |
+|------|---------|-----|
+| 회백질 (Gray matter) | 0.070 | 1.1 × 10⁷ |
+| 백질 (White matter) | 0.050 | 3.7 × 10⁶ |
+| 근육 (Muscle) | 0.363 | 1.7 × 10⁶ |
+| 뼈 (Cortical bone) | 0.020 | 2.0 × 10⁴ |
+| 피부 (Skin) | 0.00045 | 1.1 × 10⁶ |
+
+> ⚠️ **주의**: "σ_brain = 0.33 S/m" 는 일부 논문의 단순화 값이다.  
+> Grossman et al. 2017 *Cell*에서 0.33 S/m를 사용했으나, Gabriel et al. 기준 1 kHz 회백질은 0.07 S/m.  
+> 본인 시뮬레이션 주파수(1 kHz)에서의 값은 Gabriel et al. 원문에서 직접 확인할 것.
+
+**왜 σ가 주파수마다 다른가?** 생체조직은 분산 매질(dispersive medium)이다:
+
+- 낮은 주파수 (< 10 kHz): 세포막이 전류를 차단 → 세포 외액만 통과 → σ 낮음
+- 높은 주파수 (> 1 MHz): 세포막 용량성 임피던스 감소 → 세포 내부까지 통과 → σ 높음
+
+이를 기술하는 모델: **4-Cole-Cole model** (Gabriel et al. 1996)
+
+---
+
+### 금속 전극 σ ≈ 10⁶ S/m — 근거
+
+금속은 자유전자가 전하를 운반하므로 이온 기반 생체조직보다 σ가 수백만 배 높다.
+
+| 재료 | σ (S/m) | 의료기기 사용 여부 |
+|------|---------|----------------|
+| 백금 (Pt) | 9.43 × 10⁶ | ✅ 임플란트용 표준 |
+| 316L 스테인리스강 | 1.35 × 10⁶ | ✅ 수술 기구, 전극 |
+| 금 (Au) | 4.10 × 10⁷ | ✅ 마이크로전극 |
+
+> σ_전극 >> σ_조직 조건이 충족되면 전극 내부는 사실상 등전위체(equipotential body)에 가까움.  
+> 시뮬레이션에서 1×10⁶ S/m 로 설정해도 결과에 실질적 차이 없음.
+
+---
+
+### 생리식염수 ε_r = 80 — 근거
+
+물 분자는 영구 쌍극자(permanent dipole)를 가지고 있어 전기장에 정렬된다.
+
+$$\varepsilon_r \approx 78\text{–}80 \quad \text{(25°C, 순수 물 기준)}$$
+
+NaCl을 녹여도 ε_r은 크게 변하지 않음 → 생리식염수 ε_r ≈ 80 유지.
+
+> **Stationary study에서는 ε_r이 사용되지 않음.**  
+> 전류 보존 방정식: $\nabla \cdot (\sigma \nabla V) = 0$ → σ만 필요.  
+> ε_r은 Frequency Domain study에서만 영향을 줌.
+
+---
+
+## 3. Materials 설정 (COMSOL 조작)
+
+현재 모델에는 **2종류의 도메인**이 있다:
 
 ```
-Materials 우클릭 → Blank Material
+도메인 종류
+├── 팬텀 (Rectangle 내부)  → 생체조직 or 식염수
+└── 전극 원 4개 (Circle)   → 금속 전극
 ```
 
-팬텀(생리식염수 또는 단순 균질 도메인) 물성:
-
-| 물성 | 값 | 단위 |
-|------|-----|------|
-| Electrical conductivity (σ) | 1.5 | S/m |
-| Relative permittivity (ε_r) | 80 | - |
-
-> **Stationary study에서는 σ만 사용됨** (ε_r은 Frequency Domain에서만 영향)
+### 3-1. 팬텀 재료 추가
 
 ```
-Material → Geometric Entity Selection → Domain 선택 (팬텀 영역)
-→ Electric → σ 입력
+Materials 우클릭 → Blank Material → 이름: "Phantom"
+→ Geometric Entity Selection → Domain: Rectangle 내부 선택
+→ Material Contents → Electrical conductivity: 1.5  [S/m]
+```
+
+### 3-2. 전극 재료 추가
+
+```
+Materials 우클릭 → Blank Material → 이름: "Electrode"
+→ Domain: 전극 원 4개 선택 (Ctrl+클릭 다중 선택)
+→ Electrical conductivity: 1e6  [S/m]
+```
+
+### 3-3. 할당 확인
+
+```
+Materials 트리 → 각 재료 옆에 ✓ 표시 확인
+→ ✗ 또는 노란 경고 표시 = 미할당 도메인 있음
 ```
 
 ---
