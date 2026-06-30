@@ -421,18 +421,106 @@ Study 1 → Stationary 우클릭 → **Get Initial Value** (Compute 아님):
 
 ## 5. Mesh 설정
 
+### 비유: Mesh란 무엇인가
+
+Mesh는 연속적인 도메인을 수천 개의 작은 삼각형(2D) 또는 사면체(3D)로 나누는 작업이다.  
+FEM은 각 삼각형 내부에서 전기장을 선형 근사(linear interpolation)하여 풀기 때문에,  
+삼각형이 작을수록(= Mesh가 세밀할수록) 실제 해에 가까워진다.
+
 ```
-Mesh 1 → Physics-controlled mesh
-→ Element size: Normal (처음) → Fine (검증 후)
+거친 Mesh (Normal)          세밀한 Mesh (Fine)
+┌──────────────┐            ┌──────────────┐
+│ △  △  △  △ │            │△△△△△△△△△│
+│  △  △  △  │            │△△△△△△△△△│
+│ △  △  △  △ │            │△△△△△△△△△│
+└──────────────┘            └──────────────┘
+ 빠르지만 전극 근방 오차 큼    느리지만 정밀
+```
+
+전극 근방은 전위 경사(∇V)가 급격하므로 → **전극 주변만 세밀하게** 설정하는 것이 효율적이다.
+
+---
+
+### 5-1. Physics-controlled Mesh (기본 시작)
+
+```
+Mesh 1 클릭
+→ Settings → Sequence type: Physics-controlled mesh
+→ Element size: Normal
 → Build All
 ```
 
-완료 확인:
+완료 메시지 확인:
 ```
 Complete mesh consists of N domain elements and M boundary elements.
 ```
 
-> **Mesh convergence**: 나중에 Normal → Fine → Finer 순으로 결과 변화 확인 필요
+N이 수천~수만 개면 정상. 수백 개면 너무 거침.
+
+---
+
+### 5-2. 전극 근방 세밀화 (Free Triangular + Size)
+
+전극 경계에 더 작은 삼각형을 배치한다.
+
+```
+Mesh 1 우클릭 → Free Triangular
+→ Domain selection: 전체 도메인 선택 (기본값)
+
+Free Triangular 우클릭 → Size
+→ Geometric Entity Level: Boundary
+→ Selection: 전극 원 4개 경계 모두 선택 (Ctrl+클릭)
+→ Element size: Custom
+   → Maximum element size: 0.5  [mm]   (전극 원 반지름의 1/4)
+   → Minimum element size: 0.1  [mm]
+```
+
+나머지 팬텀 영역 크기:
+```
+Free Triangular → Size (별도 추가, Domain 전체)
+→ Maximum element size: 3  [mm]
+→ Build All
+```
+
+---
+
+### 5-3. Mesh 품질 확인
+
+```
+Mesh 1 → Statistics 탭 확인
+```
+
+| 항목 | 정상 범위 | 경고 |
+|------|----------|------|
+| Minimum element quality | > 0.1 | < 0.01 → 왜곡된 삼각형 존재 |
+| Average element quality | > 0.8 | < 0.5 → 전체적 품질 낮음 |
+| Number of elements | 5,000~50,000 | < 1,000 → 너무 거침 |
+
+시각 확인:
+```
+Mesh 1 → Graphics 창에서 마우스 휠로 전극 근방 확대
+→ 전극 경계 주변 삼각형이 팬텀 중심보다 촘촘한지 확인
+```
+
+---
+
+### 5-4. Mesh Convergence Test (계산 후 수행)
+
+Study 실행 후 Normal → Fine → Finer 순으로 바꾸며 결과를 비교한다.
+
+```
+Mesh 1 → Element size: Normal  → Compute → ec.normE 최대값 기록
+Mesh 1 → Element size: Fine    → Compute → ec.normE 최대값 기록
+Mesh 1 → Element size: Finer   → Compute → ec.normE 최대값 기록
+```
+
+| Element size | ec.normE 최대값 (예시) | 변화율 |
+|-------------|----------------------|--------|
+| Normal | 예: 120 V/m | — |
+| Fine | 예: 124 V/m | 3.3% |
+| Finer | 예: 124.5 V/m | 0.4% ✓ |
+
+변화율 < 1% 이면 수렴 확인 → 그 크기에서 결과 신뢰 가능.
 
 ---
 
