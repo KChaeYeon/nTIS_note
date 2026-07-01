@@ -526,51 +526,197 @@ Mesh 1 → Element size: Finer   → Compute → ec.normE 최대값 기록
 
 ## 6. Study 설정 및 실행
 
-### Study 1: 채널 1
+### 전체 흐름
 
 ```
-Study 1 → Stationary
-→ Compute (F8 또는 상단 버튼)
+Study 1 설정 확인 → Compute (CH1 전기장)
+Study 2 추가 → Extensions 설정 → Compute (CH2 전기장)
+→ STEP 8: withsol로 두 결과 합산 → AM Envelope
 ```
 
-### Study 2: 채널 2 추가
+---
+
+### 6-1. Study 1 Compute 전 체크리스트
+
+```
+Study 1 → Stationary 클릭 → Settings 창 확인
+```
+
+| 확인 항목 | 정상 상태 |
+|-----------|-----------|
+| Study Extensions | "Modify model configuration for study step" ☑ |
+| Terminal 1, 2 (CH1) | Enabled ✅ |
+| Terminal 3, 4 (CH2) | Disabled ❌ |
+| Ground 1 | Enabled ✅ |
+
+**사전 검증 (권장):**
+
+```
+Study 1 → Stationary 우클릭 → Get Initial Value
+→ 에러 없이 통과 = BC·Mesh 연결 정상
+```
+
+---
+
+### 6-2. Study 1 Compute 실행
+
+```
+Study 1 우클릭 → Compute  (또는 F8)
+```
+
+**Log 창 읽는 법** (Progress 하단 Log 탭):
+
+```
+Number of degrees of freedom solved for: 24,581   ← 정상
+Relative residual: 3.2e-14                         ← 수렴 지표
+Solution time: 0.8 s
+```
+
+| Log 메시지 | 의미 | 조치 |
+|-----------|------|------|
+| `Relative residual ~1e-10` | ✅ 정상 수렴 | 없음 |
+| `Singular matrix` | ❌ Ground 미설정 | STEP 4-1 재확인 |
+| `Reversed current flow` | ⚠️ 전류 부호 오류 | Terminal I₀ 부호 확인 |
+| `Out of memory` | ❌ RAM 부족 | Mesh → Normal로 낮춤 |
+
+---
+
+### 6-3. Study 2 추가
 
 ```
 Home 탭 → Add Study → Stationary
-→ Study 2가 생성됨
-→ 채널 2 경계조건이 활성화되도록 설정
-→ Compute
+→ Study 2 생성
 ```
+
+---
+
+### 6-4. Study 2 Extensions 설정 (CH2만 활성화)
+
+```
+Study 2 → Stationary → Settings
+→ Study Extensions → ☑ Modify model configuration for study step
+```
+
+| Physics Feature | Study 2 설정 |
+|----------------|-------------|
+| Ground 1 | ✅ Enabled |
+| Terminal 1 (CH1 0°, +1mA) | ❌ Disable |
+| Terminal 2 (CH1 180°, −1mA) | ❌ Disable |
+| Terminal 3 (CH2 0°, +1mA) | ✅ Enable |
+| Terminal 4 (CH2 180°, −1mA) | ✅ Enable |
+
+Disable 방법: 해당 Terminal 행 → Enabled 열 체크박스 해제
+
+---
+
+### 6-5. Study 2 Compute
+
+```
+Study 2 → Stationary 우클릭 → Compute (F8)
+```
+
+완료 후:
+```
+Results → Datasets
+├── Study 1/Solution 1 (sol1)   ← CH1 전기장
+└── Study 2/Solution 2 (sol2)   ← CH2 전기장
+```
+
+> **핵심**: sol1, sol2는 독립 저장됨 → `withsol('sol1', ...)` / `withsol('sol2', ...)` 로 각각 참조
 
 ---
 
 ## 7. 결과 후처리
 
-### 7-1. Electric Potential Map
+### 7-1. 자동 생성 Results 구조
 
 ```
-Results → 2D Plot Group → Surface
+Results
+├── Datasets
+│   ├── Study 1/Solution 1 (sol1)
+│   └── Study 2/Solution 2 (sol2)
+├── 2D Plot Group 1              ← Electric Potential (자동 생성)
+│   └── Surface 1 (V)
+└── Derived Values
+```
+
+---
+
+### 7-2. Electric Potential (V) 확인
+
+```
+Results → 2D Plot Group 1 → Surface 1
 → Expression: V  (또는 ec.V)
-→ Unit: V
+→ Dataset: Study 1/Solution 1
 ```
 
-### 7-2. Electric Field Map
+정상적인 CH1 전위 분포: 왼쪽 전극에 전위 기울기 집중 (좌우 비대칭).  
+분포가 균일하거나 완전 대칭 = Study Extensions 설정 오류.
+
+---
+
+### 7-3. Electric Field Magnitude |E| 추가
 
 ```
-Results → 2D Plot Group → Surface
+Results 우클릭 → 2D Plot Group → 이름: "CH1 Electric Field"
+2D Plot Group 우클릭 → Surface
 → Expression: ec.normE
 → Unit: V/m
+→ Dataset: Study 1/Solution 1
 ```
 
-전기장 벡터 방향 추가:
+**벡터 방향 Arrow 추가:**
 
 ```
-→ Arrow Surface 추가
-→ x-component: ec.Ex  
+2D Plot Group 우클릭 → Arrow Surface
+→ x-component: ec.Ex
 → y-component: ec.Ey
+→ Arrow type: Proportional
+→ Number of arrows: 30
 ```
 
-### 7-3. COMSOL 변수 참조표 (Electric Currents, ec)
+CH2 결과는 Dataset을 `Study 2/Solution 2` 로 바꿔 같은 방식으로 추가.
+
+---
+
+### 7-4. Line Graph — 중심선 정량 분석
+
+**Cut Line 2D 생성:**
+
+```
+Results → Datasets 우클릭 → Cut Line 2D
+→ Point 1: (−25, 0)   → Point 2: (+25, 0)
+→ Additional points: 500
+```
+
+**1D Plot Group:**
+
+```
+Results 우클릭 → 1D Plot Group
+→ Line Graph → Dataset: Cut Line 2D 1
+→ Expression: ec.normE   Unit: V/m
+```
+
+---
+
+### 7-5. Derived Values — KCL 검증
+
+```
+Results → Derived Values 우클릭 → Surface Integration
+→ Selection: E1_top 전극 경계
+→ Expression: ec.nJ   (법선 전류 밀도)
+→ Evaluate → Table 창 확인
+```
+
+| 확인 값 | 정상 여부 |
+|---------|---------|
+| E1_top: ≈ +1 mA | ✅ KCL 만족 |
+| E1_bot: ≈ −1 mA | ✅ KCL 만족 |
+| 합계 ≈ 0 | ✅ 전류 보존 |
+
+---
+
+### 7-6. COMSOL 변수 참조표 (Electric Currents, ec)
 
 | 변수 | 의미 | 단위 |
 |------|------|------|
@@ -581,6 +727,19 @@ Results → 2D Plot Group → Surface
 | `ec.Jx` | Current density x | A/m² |
 | `ec.Jy` | Current density y | A/m² |
 | `ec.normJ` | \|J\| (magnitude) | A/m² |
+| `ec.nJ` | Normal current density | A/m² |
+
+---
+
+### 7-7. 자주 쓰는 단축키
+
+| 작업 | 방법 |
+|------|------|
+| Plot 갱신 | F8 또는 상단 Plot 버튼 |
+| 색상 범위 수동 설정 | Surface → Range → Manual 체크 |
+| 컬러맵 변경 | Surface → Coloring and Style → Color table |
+| 특정 점 값 보기 | Graphics 클릭 → 하단 상태바 |
+| 이미지 내보내기 | File → Export → Image |
 
 ---
 
