@@ -2,3 +2,14 @@ site/
 __pycache__/
 .DS_Store
 *.pyc
+
+# COMSOL 원본 프로젝트/락 파일 및 대용량 raw export — 100MB+, GitHub 업로드 불가
+docs/07_Simulation/*.mph
+docs/07_Simulation/*.mph.lock
+docs/07_Simulation/*.avi
+docs/07_Simulation/*.gif
+docs/07_Simulation/20260626_TI_field_*.txt
+docs/07_Simulation/260626_*.txt
+
+# OMC 로컬 세션 상태
+.omc/
