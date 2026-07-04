@@ -56,6 +56,16 @@ docs/
 - `index.md` Progress Tracker는 단계 변경 시 업데이트
 - git push 전 확인 요청
 
+## 응답 워크플로우 (모든 세션 적용)
+
+모든 사실적 주장·수식·연구 방법론이 포함된 답변은 **3단계 프로세스**로 처리한다:
+
+1. **에이전트/스킬 선택 & 실행** — 요청 의도에 맞는 최적 에이전트 또는 스킬 활용
+2. **Gemini 검증** — `mcp__gemini__ask-gemini`로 사실성·논리성 크로스체크
+3. **최종 답변** — 검증 결과 반영 후 사용자에게 전달
+
+> 단순 조작(파일 작성, git 명령, 포맷 변환 등)은 검증 생략 가능.
+
 ## MCP 서버
 
 | 서버 | 상태 | 용도 |
@@ -81,18 +91,70 @@ docs/
 
 ---
 
-## Registered Skills
+## Agent & Skill Selection
 
-Skills directory: `/mnt/d/00_Project/.claude/skills/academic-research-skills/`
+키워드 매칭이 아닌 **질문의 의도와 맥락**을 파악해 가장 적합한 에이전트/스킬을 자동 선택한다.
+모든 응답은 관련 에이전트/스킬을 최대한 활용해 사실 기반의 풍성한 답변을 제공한다.
 
-| Trigger | Skill | Use when |
-|---------|-------|----------|
-| "연구 주제 잡기", "주제 선정", "어떤 연구를 해야" | `research-topic-selection` | 지도교수 페르소나 — FINES 다기준 평가 → 04_proposal/ 문서화 |
-| "research X", "literature review", "systematic review" | `deep-research` | 문헌 조사, PRISMA 리뷰, 갭 팩트체크 |
-| "write a paper", "논문 작성" | `academic-paper` | 초안 작성, LaTeX 포맷 |
-| "논문 리뷰해줘" | `academic-paper-reviewer` | 제출 전 peer review 시뮬레이션 |
-| "처음부터 논문 써줘", "full pipeline" | `academic-pipeline` | 10단계 end-to-end 파이프라인 |
-| "논문 요약해줘" | *(inline)* | 02_papers/에 새 논문 요약 파일 추가 |
-| "갭 추가해줘" | *(inline)* | 03_gaps/gap_analysis.md에 새 갭 항목 추가 |
-| "회의록 작성" | *(inline)* | 06_Meeting/에 YYYYMMDD_*.md 파일 생성 |
-| "실험 기록" | *(inline)* | 05_Exp/에 YYYYMMDD_*.md 파일 생성 |
+### 에이전트 (`.claude/agents/`)
+
+| 에이전트 | 활용 상황 |
+|---------|---------|
+| `literature-scout` | 선행 논문 검색·요약, 특정 논문 내용 파악, 연구 동향 파악, 논문 PDF 정리가 필요할 때 |
+| `research-designer` | 실험 프로토콜 설계, FEM 모델링, FINES 평가, 연구 주제·방법론 선정이 필요할 때 |
+| `paper-writer` | 논문 초안·섹션(Introduction~Discussion) 작성, 저널 포맷 적용이 필요할 때 |
+
+### nTIS 전용 스킬 (`.claude/skills/` — 이 프로젝트 로컬)
+
+| 스킬 | 활용 상황 |
+|------|---------|
+| `nTIS-research` | nTIS 연구 전반 오케스트레이션 (주제 선정→문헌→설계→집필 전 과정) |
+| `literature-search` | TIS/nTIS 논문 검색, PubMed/Semantic Scholar 조회, 갭 분석 |
+| `research-design` | 실험 프로토콜·FEM 모델링·FINES 평가·타임라인 설계 |
+| `paper-draft` | nTIS 논문 섹션 초안 작성, 저널 포맷(TBME/JNE) 적용 |
+
+### 상위 프로젝트 스킬 (`/mnt/d/00_Project/.claude/skills/academic-research-skills/`)
+
+| 스킬 | 활용 상황 |
+|------|---------|
+| `research-topic-selection` | 연구 주제 고민, FINES 다기준 평가, 연구 방향성 조언이 필요할 때 |
+| `deep-research` | 특정 주제의 깊은 문헌 조사, PRISMA 리뷰, 사실 확인이 필요할 때 |
+| `academic-paper` | 논문 초안 작성, 수정, LaTeX 포맷 작업이 필요할 때 |
+| `academic-paper-reviewer` | 제출 전 peer review 시뮬레이션이 필요할 때 |
+| `academic-pipeline` | 처음부터 끝까지 논문 작성 전 과정이 필요할 때 |
+
+### OMC 글로벌 스킬 (Skill 도구로 호출)
+
+| 스킬 | 활용 상황 |
+|------|---------|
+| `superpowers:brainstorming` | 새 기능·접근법·연구 방향 탐색 전 |
+| `superpowers:systematic-debugging` | 코드·분석 파이프라인 오류 추적 |
+| `superpowers:verification-before-completion` | 작업 완료 전 결과 검증 |
+| `oh-my-claudecode:deep-dive` | 요구사항 심층 인터뷰 + 인과 추적 |
+| `oh-my-claudecode:autoresearch` | 자동 심층 조사 |
+
+### MCP 도구 (검증·조사 보조)
+
+| 도구 | 활용 상황 |
+|------|---------|
+| `mcp__gemini__ask-gemini` | **모든 사실적 답변의 Gemini 검증** (필수) |
+| `mcp__gemini__brainstorm` | 연구 아이디어 브레인스토밍 |
+| `mcp__notebooklm__ask_question` | NotebookLM 노트북 질문 |
+| `mcp__plugin_context7_context7__query-docs` | 라이브러리·프레임워크 공식 문서 조회 |
+
+### 파일 작업 (Claude 직접 처리 + 에이전트 보조)
+
+| 작업 | 처리 방식 |
+|------|---------|
+| 논문 요약 파일 추가 | `02_papers/`에 파일 작성 (내용이 복잡하면 `literature-scout` 활용) |
+| 갭 항목 추가 | `03_gaps/gap_analysis.md` 수정 (갭 분석이 필요하면 `research-designer` 활용) |
+| 회의록 작성 | `06_Meeting/YYYYMMDD_*.md` 생성 |
+| 실험 기록 | `05_Exp/YYYYMMDD_*.md` 생성 |
+
+### 모든 질문 유형에 대한 처리 원칙
+
+- **연구 이론·개념 학습**: 수식·이론 배경 포함, `deep-research` 또는 `mcp__gemini__ask-gemini` 사실 검증 병행
+- **선행 논문 읽기·분석**: `literature-scout` 에이전트로 문헌 맥락 보강
+- **논문 작성 전 과정**: `deep-research` → `academic-paper` → `academic-paper-reviewer` 체이닝
+- **일상 궁금증·사실 확인**: `WebSearch` 또는 Context7 MCP로 최신 정보 기반 답변
+- **불확실한 내용**: 추측하지 않고 검색·문헌 근거를 명시
