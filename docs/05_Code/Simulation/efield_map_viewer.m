@@ -61,7 +61,7 @@ function efield_map_viewer()
 
     %% ---- Figure / Axes ----
     fig = uifigure('Name', 'E-field Map Viewer (Base_X50_Y50, single electrode)', ...
-        'Position', [100 80 950 820]);
+        'Position', [100 80 950 860]);
     ax = uiaxes(fig, 'Position', [60 260 700 540]);
     axis(ax, 'equal');
     xlim(ax, [-axLim, axLim]);
@@ -95,16 +95,16 @@ function efield_map_viewer()
             'Color', cmap(b, :), 'LineWidth', 0.8, 'AutoScale', 'off');
     end
 
-    %% ---- 컨트롤 ----
-    uilabel(fig, 'Position', [60 205 120 22], 'Text', '전극 선택:');
-    elecDropdown = uidropdown(fig, 'Position', [190 205 150 22], ...
+    %% ---- 컨트롤: 전극 선택은 그래프 바로 위쪽(축 밖)에 배치 ----
+    uilabel(fig, 'Position', [60 810 120 22], 'Text', '전극 선택:');
+    elecDropdown = uidropdown(fig, 'Position', [190 810 150 22], ...
         'Items', {'전극1', '전극2'}, 'Value', '전극1');
 
-    uilabel(fig, 'Position', [60 150 300 22], 'Text', '화살표 크기 배율:');
-    scaleSld = uislider(fig, 'Position', [90 115 700 3], 'Limits', [0.2 20], 'Value', 1);
+    uilabel(fig, 'Position', [60 205 300 22], 'Text', '화살표 크기 배율:');
+    scaleSld = uislider(fig, 'Position', [90 170 700 3], 'Limits', [0.2 20], 'Value', 1);
     scaleSld.MajorTicks = [];
     scaleSld.MinorTicks = [];
-    scaleLbl = uilabel(fig, 'Position', [90 80 700 22], 'FontSize', 13);
+    scaleLbl = uilabel(fig, 'Position', [90 135 700 22], 'FontSize', 13);
 
     elecDropdown.ValueChangedFcn = @(src, event) update_arrows(scaleSld.Value);
     scaleSld.ValueChangingFcn = @(src, event) update_arrows(event.Value);
