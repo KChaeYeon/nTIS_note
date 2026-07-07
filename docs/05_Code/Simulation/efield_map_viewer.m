@@ -95,17 +95,44 @@ function efield_map_viewer()
             'Color', cmap(b, :), 'LineWidth', 0.8, 'AutoScale', 'off');
     end
 
-    % 전극1 데이터로 초기 렌더 (드롭다운/슬라이더는 Task 4-5에서 추가)
-    Uall = E1(:, 1) * baseScaleLen;
-    Vall = E1(:, 2) * baseScaleLen;
-    for b = 1:nBins
-        if b < nBins
-            mask = Emag1 >= binEdges(b) & Emag1 < binEdges(b + 1);
-        else
-            mask = Emag1 >= binEdges(b) & Emag1 <= binEdges(b + 1);
+    %% ---- 컨트롤 ----
+    uilabel(fig, 'Position', [60 205 120 22], 'Text', '전극 선택:');
+    elecDropdown = uidropdown(fig, 'Position', [190 205 150 22], ...
+        'Items', {'전극1', '전극2'}, 'Value', '전극1');
+
+    elecDropdown.ValueChangedFcn = @(src, event) update_arrows();
+
+    update_arrows(1);  % 초기 렌더 (배율 1x, 전극1)
+
+    function update_arrows(scaleMult)
+        if nargin < 1 || isempty(scaleMult)
+            scaleMult = 1;
         end
-        set(qHandles(b), 'XData', coords(mask, 1), 'YData', coords(mask, 2), ...
-            'UData', Uall(mask), 'VData', Vall(mask));
+        if strcmp(elecDropdown.Value, '전극1')
+            Esel = E1;
+            Emag = Emag1;
+            set(elecH1, 'MarkerEdgeColor', 'r', 'LineWidth', 2.5);
+            set(elecH2, 'MarkerEdgeColor', 'k', 'LineWidth', 1);
+        else
+            Esel = E2;
+            Emag = Emag2;
+            set(elecH2, 'MarkerEdgeColor', 'r', 'LineWidth', 2.5);
+            set(elecH1, 'MarkerEdgeColor', 'k', 'LineWidth', 1);
+        end
+
+        scaleLen = baseScaleLen * scaleMult;
+        Uall = Esel(:, 1) * scaleLen;
+        Vall = Esel(:, 2) * scaleLen;
+
+        for b = 1:nBins
+            if b < nBins
+                mask = Emag >= binEdges(b) & Emag < binEdges(b + 1);
+            else
+                mask = Emag >= binEdges(b) & Emag <= binEdges(b + 1);
+            end
+            set(qHandles(b), 'XData', coords(mask, 1), 'YData', coords(mask, 2), ...
+                'UData', Uall(mask), 'VData', Vall(mask));
+        end
     end
 end
 
