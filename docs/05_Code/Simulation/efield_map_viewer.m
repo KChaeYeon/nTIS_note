@@ -144,11 +144,7 @@ function efield_map_viewer()
 
     %% ---- |E| 크기별 색상 quiver (nBins개 그룹) + AM용 scatter ----
     nBins = 20;
-    qHandles = gobjects(nBins, 1);
-    for b = 1:nBins
-        qHandles(b) = quiver(ax, NaN, NaN, NaN, NaN, 0, ...
-            'LineWidth', 0.8, 'AutoScale', 'off');
-    end
+    qHandles = gobjects(nBins, 1);   % render_quiver가 매번 delete 후 새로 생성한다
     amScatter = scatter(ax, NaN, NaN, 20, [0 0 0], 'filled');
     amScatter.Visible = 'off';
 
@@ -175,11 +171,11 @@ function efield_map_viewer()
     update_display(1);  % 초기 렌더 (단일전극 / 전극1 / 배율 1x)
 
     function render_quiver(coordsSel, Esel, Emag, maxVal, scaleMult)
-        % 매 호출마다 전체 bin을 먼저 비운 뒤 다시 채운다 — 이전 선택(전극/페어)의
-        % 화살표가 새 선택으로 완전히 대체되지 않고 남는 것을 방지한다.
-        for b = 1:nBins
-            set(qHandles(b), 'XData', [], 'YData', [], 'UData', [], 'VData', []);
-        end
+        % set()으로 재사용하는 대신, 기존 화살표 그래픽 객체를 완전히 삭제하고
+        % 매번 처음부터 다시 생성한다 — 이전 선택의 화살표가 남을 가능성을
+        % 구조적으로 없앤다(재사용 잔상 의심을 원천 차단).
+        delete(qHandles(isgraphics(qHandles)));
+        qHandles = gobjects(nBins, 1);
 
         % 화살표 색상은 axes의 현재 colormap에서 매번 새로 뽑는다 — 툴바 등으로
         % colormap을 바꾸면 화살표 색도 함께 바뀌도록 하기 위함.
@@ -199,8 +195,9 @@ function efield_map_viewer()
             else
                 mask = Emag >= binEdges(b) & Emag <= binEdges(b + 1);
             end
-            set(qHandles(b), 'XData', coordsSel(mask, 1), 'YData', coordsSel(mask, 2), ...
-                'UData', Uall(mask), 'VData', Vall(mask), 'Color', cmap(b, :));
+            qHandles(b) = quiver(ax, coordsSel(mask, 1), coordsSel(mask, 2), ...
+                Uall(mask), Vall(mask), 0, ...
+                'Color', cmap(b, :), 'LineWidth', 0.8, 'AutoScale', 'off');
         end
     end
 
@@ -240,9 +237,8 @@ function efield_map_viewer()
 
             case 'AM'
                 set(elecHandles, 'MarkerEdgeColor', 'r', 'LineWidth', 2.5);
-                for b = 1:nBins
-                    set(qHandles(b), 'XData', [], 'YData', [], 'UData', [], 'VData', []);
-                end
+                delete(qHandles(isgraphics(qHandles)));
+                qHandles = gobjects(nBins, 1);
                 clim(ax, [0, maxAM]);
                 cb.Label.String = 'AM envelope depth [V/m]';
                 amScatter.XData = coords_ch1(:, 1);
