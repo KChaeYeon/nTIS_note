@@ -84,6 +84,29 @@ function efield_map_viewer()
     elecH2 = plot(ax, elec2(1), elec2(2), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 10, 'LineWidth', 1);
     text(ax, elec1(1) + 1.5, elec1(2), '전극1');
     text(ax, elec2(1) + 1.5, elec2(2), '전극2');
+
+    %% ---- |E| 크기별 색상 quiver (nBins개 그룹, 색상은 고정 [0, maxEmag] 스케일) ----
+    nBins = 20;
+    cmap = parula(nBins);
+    binEdges = linspace(0, maxEmag, nBins + 1);
+    qHandles = gobjects(nBins, 1);
+    for b = 1:nBins
+        qHandles(b) = quiver(ax, NaN, NaN, NaN, NaN, 0, ...
+            'Color', cmap(b, :), 'LineWidth', 0.8, 'AutoScale', 'off');
+    end
+
+    % 전극1 데이터로 초기 렌더 (드롭다운/슬라이더는 Task 4-5에서 추가)
+    Uall = E1(:, 1) * baseScaleLen;
+    Vall = E1(:, 2) * baseScaleLen;
+    for b = 1:nBins
+        if b < nBins
+            mask = Emag1 >= binEdges(b) & Emag1 < binEdges(b + 1);
+        else
+            mask = Emag1 >= binEdges(b) & Emag1 <= binEdges(b + 1);
+        end
+        set(qHandles(b), 'XData', coords(mask, 1), 'YData', coords(mask, 2), ...
+            'UData', Uall(mask), 'VData', Vall(mask));
+    end
 end
 
 
