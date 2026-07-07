@@ -193,15 +193,26 @@ function efield_map_viewer()
         scaleLen = (3 / maxVal) * scaleMult;
         Uall = Esel(:, 1) * scaleLen;
         Vall = Esel(:, 2) * scaleLen;
+        fprintf('[DEBUG] render_quiver 시작: coordsSel %d개 노드, maxVal=%.6g, scaleMult=%.3f\n', ...
+            size(coordsSel, 1), maxVal, scaleMult);
+        totalPlotted = 0;
         for b = 1:nBins
             if b < nBins
                 mask = Emag >= binEdges(b) & Emag < binEdges(b + 1);
             else
                 mask = Emag >= binEdges(b) & Emag <= binEdges(b + 1);
             end
-            set(qHandles(b), 'XData', coordsSel(mask, 1), 'YData', coordsSel(mask, 2), ...
-                'UData', Uall(mask), 'VData', Vall(mask), 'Color', cmap(b, :));
+            try
+                set(qHandles(b), 'XData', coordsSel(mask, 1), 'YData', coordsSel(mask, 2), ...
+                    'UData', Uall(mask), 'VData', Vall(mask), 'Color', cmap(b, :));
+                totalPlotted = totalPlotted + sum(mask);
+            catch setErr
+                fprintf('[DEBUG] bin %d set() 실패! 노드 %d개 시도, 에러: %s\n', ...
+                    b, sum(mask), setErr.message);
+            end
         end
+        fprintf('[DEBUG] render_quiver 종료: 총 %d개 화살표 배치 (입력 노드 %d개와 일치해야 함)\n', ...
+            totalPlotted, size(coordsSel, 1));
     end
 
     function update_display(scaleMult)
