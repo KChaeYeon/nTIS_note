@@ -55,6 +55,35 @@ function efield_map_viewer()
     baseScaleLen = 3 / maxEmag;      % 배율 1x, |E|=maxEmag일 때 화살표 길이 = 3mm
 
     fprintf('노드 수 = %d, max|E| = %.6g V/m\n', size(coords, 1), maxEmag);
+
+    %% ---- 축 범위: phantom 최대 좌표 + 10mm 고정 ----
+    axLim = max(phantomX, phantomY) / 2 + 10;
+
+    %% ---- Figure / Axes ----
+    fig = uifigure('Name', 'E-field Map Viewer (Base_X50_Y50, single electrode)', ...
+        'Position', [100 80 950 820]);
+    ax = uiaxes(fig, 'Position', [60 260 700 540]);
+    axis(ax, 'equal');
+    xlim(ax, [-axLim, axLim]);
+    ylim(ax, [-axLim, axLim]);
+    hold(ax, 'on');
+    grid(ax, 'on');
+    xlabel(ax, 'x [mm]');
+    ylabel(ax, 'y [mm]');
+    colormap(ax, 'parula');
+    cb = colorbar(ax);
+    cb.Label.String = '|E| [V/m]';
+    clim(ax, [0, maxEmag]);
+
+    % 팬텀 경계(검정 실선 사각형)
+    rectangle(ax, 'Position', [-phantomX / 2, -phantomY / 2, phantomX, phantomY], ...
+        'EdgeColor', 'k', 'LineWidth', 1.5);
+
+    % 전극(검정 점, 선택된 쪽은 빨간 테두리로 강조 — 강조 로직은 Task 4에서 추가)
+    elecH1 = plot(ax, elec1(1), elec1(2), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 10, 'LineWidth', 1);
+    elecH2 = plot(ax, elec2(1), elec2(2), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 10, 'LineWidth', 1);
+    text(ax, elec1(1) + 1.5, elec1(2), '전극1');
+    text(ax, elec2(1) + 1.5, elec2(2), '전극2');
 end
 
 
