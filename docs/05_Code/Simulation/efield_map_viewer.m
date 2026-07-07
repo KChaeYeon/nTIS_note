@@ -100,13 +100,20 @@ function efield_map_viewer()
     elecDropdown = uidropdown(fig, 'Position', [190 205 150 22], ...
         'Items', {'전극1', '전극2'}, 'Value', '전극1');
 
-    elecDropdown.ValueChangedFcn = @(src, event) update_arrows();
+    uilabel(fig, 'Position', [60 150 300 22], 'Text', '화살표 크기 배율:');
+    scaleSld = uislider(fig, 'Position', [90 115 700 3], 'Limits', [0.2 20], 'Value', 1);
+    scaleSld.MajorTicks = [];
+    scaleSld.MinorTicks = [];
+    scaleLbl = uilabel(fig, 'Position', [90 80 700 22], 'FontSize', 13);
+
+    elecDropdown.ValueChangedFcn = @(src, event) update_arrows(scaleSld.Value);
+    scaleSld.ValueChangingFcn = @(src, event) update_arrows(event.Value);
 
     update_arrows(1);  % 초기 렌더 (배율 1x, 전극1)
 
     function update_arrows(scaleMult)
         if nargin < 1 || isempty(scaleMult)
-            scaleMult = 1;
+            scaleMult = scaleSld.Value;
         end
         if strcmp(elecDropdown.Value, '전극1')
             Esel = E1;
@@ -133,6 +140,7 @@ function efield_map_viewer()
             set(qHandles(b), 'XData', coords(mask, 1), 'YData', coords(mask, 2), ...
                 'UData', Uall(mask), 'VData', Vall(mask));
         end
+        scaleLbl.Text = sprintf('배율: %.2fx', scaleMult);
     end
 end
 
