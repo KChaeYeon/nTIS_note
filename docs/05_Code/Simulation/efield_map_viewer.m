@@ -144,11 +144,10 @@ function efield_map_viewer()
 
     %% ---- |E| 크기별 색상 quiver (nBins개 그룹) + AM용 scatter ----
     nBins = 20;
-    cmap = parula(nBins);
     qHandles = gobjects(nBins, 1);
     for b = 1:nBins
         qHandles(b) = quiver(ax, NaN, NaN, NaN, NaN, 0, ...
-            'Color', cmap(b, :), 'LineWidth', 0.8, 'AutoScale', 'off');
+            'LineWidth', 0.8, 'AutoScale', 'off');
     end
     amScatter = scatter(ax, NaN, NaN, 20, [0 0 0], 'filled');
     amScatter.Visible = 'off';
@@ -171,10 +170,23 @@ function efield_map_viewer()
     modeDropdown.ValueChangedFcn = @(src, event) on_mode_changed();
     targetDropdown.ValueChangedFcn = @(src, event) update_display(scaleSld.Value);
     scaleSld.ValueChangingFcn = @(src, event) update_display(event.Value);
+    addlistener(ax, 'Colormap', 'PostSet', @(o, e) update_display(scaleSld.Value));
 
     update_display(1);  % 초기 렌더 (단일전극 / 전극1 / 배율 1x)
 
     function render_quiver(coordsSel, Esel, Emag, maxVal, scaleMult)
+        % 매 호출마다 전체 bin을 먼저 비운 뒤 다시 채운다 — 이전 선택(전극/페어)의
+        % 화살표가 새 선택으로 완전히 대체되지 않고 남는 것을 방지한다.
+        for b = 1:nBins
+            set(qHandles(b), 'XData', [], 'YData', [], 'UData', [], 'VData', []);
+        end
+
+        % 화살표 색상은 axes의 현재 colormap에서 매번 새로 뽑는다 — 툴바 등으로
+        % colormap을 바꾸면 화살표 색도 함께 바뀌도록 하기 위함.
+        fullCmap = colormap(ax);
+        cmapIdx = round(linspace(1, size(fullCmap, 1), nBins));
+        cmap = fullCmap(cmapIdx, :);
+
         binEdges = linspace(0, maxVal, nBins + 1);
         clim(ax, [0, maxVal]);
         cb.Label.String = '|E| [V/m]';
@@ -188,7 +200,7 @@ function efield_map_viewer()
                 mask = Emag >= binEdges(b) & Emag <= binEdges(b + 1);
             end
             set(qHandles(b), 'XData', coordsSel(mask, 1), 'YData', coordsSel(mask, 2), ...
-                'UData', Uall(mask), 'VData', Vall(mask));
+                'UData', Uall(mask), 'VData', Vall(mask), 'Color', cmap(b, :));
         end
     end
 
