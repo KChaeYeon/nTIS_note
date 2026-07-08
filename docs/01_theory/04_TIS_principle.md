@@ -1,4 +1,4 @@
-# STEP 4: Temporal Interference Stimulation (TIS) 원리
+# Temporal Interference Stimulation (TIS) 원리
 
 ## 학습 목표
 

@@ -101,7 +101,7 @@
 | **핵심 갭 해결** | G-TN1 (in vivo 전무), G-TN2 (vs. PTNS 비교 전무), G-A2 (Kim 2023 FEM 생체 검증) |
 | **즉시 실행 조건** | TIS 자극기 ✅, Rat 인프라 ✅, cystometry 장비 확인 필요 |
 | **목표 저널** | Brain Stimulation, Journal of Neural Engineering, Neurourology and Urodynamics |
-| **관련 이론 파일** | [05_tibial_nerve_TIS.md](../01_theory/05_tibial_nerve_TIS.md), [06_tibial_nerve_complete_knowledge.md](../01_theory/06_tibial_nerve_complete_knowledge.md) |
+| **관련 이론 파일** | [10_tibial_TIS_simulation.md](../01_theory/10_tibial_TIS_simulation.md), [11_comprehensive_reference.md](../01_theory/11_comprehensive_reference.md) |
 
 ### 후보 목록 (비교 참고용)
 

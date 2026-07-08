@@ -1,4 +1,4 @@
-# STEP 5: Multi-source / Multi-channel TIS — 왜 3-phase가 필요한가
+# Multi-source / Multi-channel TIS — 왜 3-phase가 필요한가
 
 > 작성: 2026-06-23
 > 커리큘럼: 5/13단계

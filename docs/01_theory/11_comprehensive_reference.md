@@ -4,7 +4,7 @@
 >
 > 대상: 연구자 (비전공자 → 전문가 단계별 설명)
 >
-> 관련 파일: [TIS 원리](04_tis_complete_guide.md) | [경골신경 TIS 가이드](05_tibial_nerve_TIS.md)
+> 관련 파일: [TIS 원리](04_TIS_principle.md) | [경골신경 TIS 가이드](10_tibial_TIS_simulation.md)
 
 ---
 
@@ -467,7 +467,7 @@ SPN 억제 → 배뇨근 과활성 억제 → OAB 증상 개선
 
 ## PART VI. TIS — 말초신경 적용 현황 및 메커니즘 논쟁
 
-> 메커니즘 상세(막 시간 상수·RC 모델·Budde 실험 설계·Opancar 2025·전도 차단): [TIS 물리 & FEM — Part 5](07_TIS_physics_FEM.md)
+> 메커니즘 상세(막 시간 상수·RC 모델·Budde 실험 설계·Opancar 2025·전도 차단): [TIS 물리 & FEM — Part 5](05_EM_physics_FEM.md)
 
 ### 핵심 요약
 

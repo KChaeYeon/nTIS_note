@@ -1,4 +1,4 @@
-# STEP 6: TIS Amplitude Modulation과 AM_max — 완전 이해
+# TIS Amplitude Modulation과 AM_max — 완전 이해
 
 > 작성: 2026-06-24 / 업데이트: 2026-06-26
 > 커리큘럼: 6/13단계

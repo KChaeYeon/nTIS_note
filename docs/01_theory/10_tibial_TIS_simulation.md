@@ -2,7 +2,7 @@
 
 > 작성: 2026-06-11 | 대상: 비전공자 포함 — 단계별 설명 구조
 >
-> 관련 파일: [TIS 원리 기초](04_tis_complete_guide.md) | [연구 갭 분석](../03_gaps/gap_analysis.md) | [연구 제안서](../04_proposal/proposal_phrenic_tibial_glymphatic.md)
+> 관련 파일: [TIS 원리 기초](04_TIS_principle.md) | [연구 갭 분석](../03_gaps/gap_analysis.md) | [연구 제안서](../04_proposal/proposal_phrenic_tibial_glymphatic.md)
 
 ---
 
@@ -47,7 +47,7 @@
 
 ## 2. 경골신경 해부학 (요약)
 
-> 상세 해부학·신경섬유 구성·임상 자극 포인트: [경골신경 지식 백과 PART I](06_tibial_nerve_complete_knowledge.md)
+> 상세 해부학·신경섬유 구성·임상 자극 포인트: [경골신경 지식 백과 PART I](11_comprehensive_reference.md)
 
 **경골신경 경로 요약**: 좌골신경 → 슬와부 분기 → 하퇴 후방 심부 → 발목 내과(tarsal tunnel) → 족저신경 분지
 
@@ -224,7 +224,7 @@ Step 6: 목적 함수 최적화
 
 ## 6. 말초신경 TIS 메커니즘 논쟁 — Budde 2023
 
-> 상세 실험 설계·증거·Opancar 2025 재확인·RC 모델: [TIS 물리 & FEM — Part 5](07_TIS_physics_FEM.md)
+> 상세 실험 설계·증거·Opancar 2025 재확인·RC 모델: [TIS 물리 & FEM — Part 5](05_EM_physics_FEM.md)
 
 **핵심 발견 (Budde et al. 2023, JNE 20:026041)**: 말초신경(유수 Aβ)은 포락선(envelope)을 추출하지 않는다. 뉴런막 시간 상수가 0.1 ms로 매우 짧아 캐리어(1~5 kHz) 자체에 직접 반응한다.
 

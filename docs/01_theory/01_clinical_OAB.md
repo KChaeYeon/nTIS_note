@@ -1,4 +1,4 @@
-# STEP 1: OAB 병태생리학 (Overactive Bladder Pathophysiology)
+# OAB 병태생리학 (Overactive Bladder Pathophysiology)
 
 ## 학습 목표
 

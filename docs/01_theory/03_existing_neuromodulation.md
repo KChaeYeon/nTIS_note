@@ -1,4 +1,4 @@
-# STEP 3: SNM / PTNS / TTNS 기존 기술 분석
+# SNM / PTNS / TTNS 기존 기술 분석
 
 ## 학습 목표
 

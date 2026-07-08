@@ -10,6 +10,8 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - navigation.sections
+    - navigation.indexes
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -29,6 +31,7 @@ theme:
 
 plugins:
   - search
+  - awesome-pages
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -47,26 +50,6 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
-nav:
-  - Home: index.md
-  - Theory:
-    - Overview: 01_theory/index.md
-    - 1. TIS 기초 원리: 01_theory/01_basic_principles.md
-    - 2. 전기장 모델 & FEM: 01_theory/02_electric_field.md
-    - 3. n-Phase 확장: 01_theory/03_nphase_extension.md
-    - 4. TIS 물리 & FEM 심층: 01_theory/07_TIS_physics_FEM.md
-    - 5. 경골신경 TIS 연구: 01_theory/05_tibial_nerve_TIS.md
-    - 6. 경골신경 지식 백과: 01_theory/06_tibial_nerve_complete_knowledge.md
-    - 7. EM 물리 학습 가이드 (고등학생용): 01_theory/08_EM_physics_TIS_study_guide.md
-  - Papers:
-    - Overview: 02_papers/index.md
-  - Research Gaps:
-    - Gap Analysis: 03_gaps/gap_analysis.md
-  - Proposal:
-    - Research Proposal: 04_proposal/research_proposal.md
-  - Experiments:
-    - Overview: 05_Exp/index.md
-  - Meetings:
-    - Overview: 06_Meeting/index.md
-  - Simulation:
-    - COMSOL 사용법: 07_Simulation/COMSOL_simulation_guide.md
+# nav는 awesome-pages 플러그인이 폴더 구조 + 각 폴더의 .pages 파일로 자동 생성한다.
+# 새 논문/회의록/이론 문서를 추가하면 별도 설정 없이 자동으로 목차에 반영된다.
+# 최상위 순서/노출은 docs/.pages 에서 제어한다.
