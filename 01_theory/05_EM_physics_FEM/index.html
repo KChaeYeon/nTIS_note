@@ -1,0 +1,4878 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://KChaeYeon.github.io/nTIS_note/01_theory/05_EM_physics_FEM/">
+      
+      
+        <link rel="prev" href="../04_TIS_principle/">
+      
+      
+        <link rel="next" href="../06_nphase_multichannel/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>TIS 전기자극 완전 이해 — 전기공학·생체의학공학 입문 학습 가이드 - nTIS Research Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="nTIS Research Notebook" class="md-header__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            nTIS Research Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TIS 전기자극 완전 이해 — 전기공학·생체의학공학 입문 학습 가이드
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  nTIS Research Notebook
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Theory — 연구 배경
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_papers/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03_gaps/gap_analysis/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Research Gaps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_proposal/proposal_phrenic_tibial_glymphatic/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Proposal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05_Exp/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  05 Exp
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06_Meeting/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  06 Meeting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07_Simulation/AM_vector_variable_system/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Simulation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="nTIS Research Notebook" class="md-nav__button md-logo" aria-label="nTIS Research Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    nTIS Research Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KChaeYeon/nTIS_note" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KChaeYeon/nTIS_note
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nTIS Research Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory — 연구 배경
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory — 연구 배경
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_clinical_OAB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAB 병태생리학 (Overactive Bladder Pathophysiology)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_tibial_nerve/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경골신경 해부학 &amp; 자극 기전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_existing_neuromodulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SNM / PTNS / TTNS 기존 기술 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_TIS_principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temporal Interference Stimulation (TIS) 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIS 전기자극 완전 이해 — 전기공학·생체의학공학 입문 학습 가이드
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIS 전기자극 완전 이해 — 전기공학·생체의학공학 입문 학습 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 흐름 한눈에 보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-field-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1장. 전기장(Electric Field)과 자기장(Magnetic Field)의 차이
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1장. 전기장(Electric Field)과 자기장(Magnetic Field)의 차이">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-electric-field-mathbfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 전기장(Electric Field, \(\mathbf{E}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-magnetic-field-mathbfb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 자기장(Magnetic Field, \(\mathbf{B}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 두 장이 서로를 만드는 관계 — 전자기파
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 이 논문에서 자기장을 무시한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-electroquasistatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2장. Electroquasistatic 가정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2장. Electroquasistatic 가정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 맥스웰 방정식의 복잡함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 파장과 실험 공간 크기 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-2khz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 2kHz에서의 파장 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 가정 적용 전후의 방정식 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-mathbfe-nablaphi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 결론: \(\mathbf{E} = -\nabla\phi\)로 단순화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-phi-mathbfe-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3장. 전압(\(\phi\)), 전기장(\(\mathbf{E}\)), 전류(\(I\))의 관계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3장. 전압(\(\phi\)), 전기장(\(\mathbf{E}\)), 전류(\(I\))의 관계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 전압은 "높이", 전기장은 "경사도"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 전기장 계산 예시 (숫자 대입)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-v-iz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 옴의 법칙 \(V = IZ\)와의 연결
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 시뮬레이션엔 전압을, 실험엔 전류를 사용한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conductivitysigma-permittivityvarepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4장. Conductivity(\(\sigma\), 전도도)와 Permittivity(\(\varepsilon\), 유전율)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4장. Conductivity(\(\sigma\), 전도도)와 Permittivity(\(\varepsilon\), 유전율)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-conductivity-sigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Conductivity(전도도, \(\sigma\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 주파수에 따라 전도도가 변하는 이유 — 세포막 커패시터 모델
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-permittivity-varepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Permittivity(유전율, \(\varepsilon\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-jomegavarepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 고주파에서 유전율이 중요한 이유 — \(j\omega\varepsilon\) 항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-laplaces-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5장. 라플라스 방정식 (Laplace's Equation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5장. 라플라스 방정식 (Laplace&#39;s Equation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 방정식 도출의 물리적 배경 — 전하 보존 법칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 수식 레이어별 분해
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 파이프 비유로 전체 방정식 이해
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 유한요소법(FEM)을 통한 컴퓨터 계산 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6장. 전기장의 3차원 벡터 성분과 신경 자극 방향성
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6장. 전기장의 3차원 벡터 성분과 신경 자극 방향성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 전기장의 3차원 벡터 성분
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-tibial-nerve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Tibial Nerve의 해부학적 방향
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 평행 vs 수직 전기장의 신경 자극 효율 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-e_z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 왜 \(E_z\)가 효율적인가 — 시뮬레이션 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7장. TIS 간섭 포락선 전기장 계산
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7장. TIS 간섭 포락선 전기장 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 TIS 두 신호의 시간 도메인 표현
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 삼각함수 합차 공식을 통한 포락선 도출
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 포락선이 신경 자극의 실제 원인인 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 수식 3의 두 가지 표현과 각각의 의미
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 균등/불균등 케이스 숫자 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 왜 "더 약한 쪽 신호가 포락선 세기를 제한하는가"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tens-vs-tisict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8장. TENS vs TIS(ICT) 종합 비교
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8장. TENS vs TIS(ICT) 종합 비교">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 파라미터 비교표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 전기장 침투 효율 비교 (시뮬레이션 결과)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-in-vivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 자극 역치 비교 (in vivo 실험 결과)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-abcf-avv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 방광 수축 빈도(aBCF)와 배뇨량(aVV) 변화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-tis-tens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 왜 TIS가 TENS보다 안전하고 효율적인가 — 종합 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 개념 연결 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수식 모음
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고문헌
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_nphase_multichannel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-source / Multi-channel TIS — 왜 3-phase가 필요한가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_AM_max/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIS Amplitude Modulation과 AM_max — 완전 이해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_electrode_position_AM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전극 위치에 따른 AM 전기장 맵 변화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_stimulation_zones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TI 자극 공간 3구역 분류
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_tibial_TIS_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tibial Nerve TIS — 시뮬레이션부터 Rat 적용까지 완전 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_comprehensive_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tibial Nerve &amp; Tibial Nerve Stimulation — 현존 지식 완전 종합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_charge_conservation_QA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전류-전류밀도-전기장 관계와 전하 보존 (Q&amp;A 정리)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TI 전기장 이론 학습 로그 (세션 간 이어쓰기)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../02_papers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Papers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2016_Choudhary_AfferentNerve_Rat_IJU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2016_Choudhary_AfferentNerve_Rat_IJU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2017_DeWall_EffectivenessPercutaneousTibial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    De Wall 2017 — Effectiveness of percutaneous tibial nerve stimulation in the treatment of overactive bladder syndrome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2017_Grossman_NoninvasiveDeepBrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grossman 2017 — Noninvasive Deep Brain Stimulation via Temporally Interfering Electric Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2020_Bycroft_NetworkMeta_PTNS_SNM_Toxins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020_Bycroft_NetworkMeta_PTNS_SNM_Toxins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2020_Park_PostStimInhibition_Rat_SciRep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020_Park_PostStimInhibition_Rat_SciRep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2021_Lee_EfficientNoninvasiveNeuromodulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lee 2021 — An Efficient Noninvasive Neuromodulation Modality for Overactive Bladder Using Time Interfering Current Method
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2021_Sunshine_Phrenic_TIS_CommBiol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sunshine et al. 2021 — Phrenic Nerve TIS for Respiratory Restoration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2022_AlDanakh_PTNS_Mechanism_Review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2022_AlDanakh_PTNS_Mechanism_Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2022_Botzanowski_Peripheral_TIS_AdvHM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Botzanowski et al. 2022 — Noninvasive Peripheral Nerve TIS (TINS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2023_Budde_TIS_Not_Envelope_JNE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Budde et al. 2023 — TIS in Peripheral Nerves: NOT Envelope Extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2023_Kim_OptimizationFrameworkTemporal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kim 2023 — Optimization Framework for Temporal Interference Current Tibial Nerve Stimulation in Tibial Nerves Based on In-Silico Studies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2023_Li_fNIRS_Brain_Frontiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023_Li_fNIRS_Brain_Frontiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2023_TENS_MultiSite_Rat_INJ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023_TENS_MultiSite_Rat_INJ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2023_Violante_NonInvasiveTemporal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Violante 2023 — Non-invasive temporal interference electrical stimulation of the human hippocampus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2024_PTNS_vs_TTNS_RCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024_PTNS_vs_TTNS_RCT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2024_TTNS_Mirabegron_Combination_SciRep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024_TTNS_Mirabegron_Combination_SciRep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2024_Wollner_fMRI_Brain_NUD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024_Wollner_fMRI_Brain_NUD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2024_eCoin_2yr_iTNS_Urology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024_eCoin_2yr_iTNS_Urology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2025_ClosedLoop_ECAP_TNS_NatComm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025_ClosedLoop_ECAP_TNS_NatComm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2025_Meng_DirectionTisEnvelope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meng 2025 — Direction of TIS envelope electric field: Perpendicular to the longitudinal axis of the hippocampus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2025_Opancar_TIS_kHz_NatComm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opančar et al. 2025 — TIS and kHz Share the Same Biophysical Mechanism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2025_Zanos_i2CS_Vagus_NatComm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zanos et al. 2025 — i²CS: Selective Vagus Nerve Fiber Activation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2026_Karanikolas_TNS_Review_CurrUrolRep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026_Karanikolas_TNS_Review_CurrUrolRep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2026_Munoz_ANS_TTNS_NUD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026_Munoz_ANS_TTNS_NUD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_papers/2026_Shang_TNS_Parameters_Review_TAU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026_Shang_TNS_Parameters_Review_TAU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Gaps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Gaps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_gaps/gap_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Gaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proposal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_proposal/proposal_phrenic_tibial_glymphatic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연구 주제 제안서 — 횡격막신경 · 경골신경 · Glymphatic System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_proposal/research_proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../05_Exp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Exp
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05 Exp
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../06_Meeting/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 Meeting
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    06 Meeting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260609_ResearchDirections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-09 연구 방향 탐색 세션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260610_LiteratureSurvey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-10 말초·자율신경 TIS 문헌 조사 세션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260618_TIS%EC%9D%B4%EB%A1%A0%EA%B5%90%EC%9C%A1_1on1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-18 TIS 이론 교육 (1:1 세션)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260618_%ED%95%98%EC%9D%B4%ED%8D%BC%ED%8B%B1%EC%8A%A4_%ED%98%91%EB%A0%A5%EB%AF%B8%ED%8C%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-18 하이퍼틱스 협력 미팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260621_%EC%84%B8%EC%85%98%EC%9D%B8%EA%B3%84_STEP1-3%EC%99%84%EB%A3%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-21 세션 인계 노트 (STEP 1~3 완료)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_Meeting/20260622_%ED%8C%80%EB%82%B4%EB%B6%80%EB%AF%B8%ED%8C%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026-06-22 팀 내부 미팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Simulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Simulation/AM_vector_variable_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AM_vector COMSOL 변수 체계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07_Simulation/COMSOL_simulation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    COMSOL TIS 시뮬레이션 사용법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 흐름 한눈에 보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-field-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1장. 전기장(Electric Field)과 자기장(Magnetic Field)의 차이
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1장. 전기장(Electric Field)과 자기장(Magnetic Field)의 차이">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-electric-field-mathbfe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 전기장(Electric Field, \(\mathbf{E}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-magnetic-field-mathbfb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 자기장(Magnetic Field, \(\mathbf{B}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 두 장이 서로를 만드는 관계 — 전자기파
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 이 논문에서 자기장을 무시한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-electroquasistatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2장. Electroquasistatic 가정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2장. Electroquasistatic 가정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 맥스웰 방정식의 복잡함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 파장과 실험 공간 크기 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-2khz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 2kHz에서의 파장 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 가정 적용 전후의 방정식 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-mathbfe-nablaphi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 결론: \(\mathbf{E} = -\nabla\phi\)로 단순화
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-phi-mathbfe-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3장. 전압(\(\phi\)), 전기장(\(\mathbf{E}\)), 전류(\(I\))의 관계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3장. 전압(\(\phi\)), 전기장(\(\mathbf{E}\)), 전류(\(I\))의 관계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 전압은 "높이", 전기장은 "경사도"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 전기장 계산 예시 (숫자 대입)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-v-iz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 옴의 법칙 \(V = IZ\)와의 연결
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 시뮬레이션엔 전압을, 실험엔 전류를 사용한 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conductivitysigma-permittivityvarepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4장. Conductivity(\(\sigma\), 전도도)와 Permittivity(\(\varepsilon\), 유전율)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4장. Conductivity(\(\sigma\), 전도도)와 Permittivity(\(\varepsilon\), 유전율)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-conductivity-sigma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Conductivity(전도도, \(\sigma\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 주파수에 따라 전도도가 변하는 이유 — 세포막 커패시터 모델
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-permittivity-varepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Permittivity(유전율, \(\varepsilon\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-jomegavarepsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 고주파에서 유전율이 중요한 이유 — \(j\omega\varepsilon\) 항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-laplaces-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5장. 라플라스 방정식 (Laplace's Equation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5장. 라플라스 방정식 (Laplace&#39;s Equation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 방정식 도출의 물리적 배경 — 전하 보존 법칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 수식 레이어별 분해
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 파이프 비유로 전체 방정식 이해
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 유한요소법(FEM)을 통한 컴퓨터 계산 원리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6장. 전기장의 3차원 벡터 성분과 신경 자극 방향성
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6장. 전기장의 3차원 벡터 성분과 신경 자극 방향성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 전기장의 3차원 벡터 성분
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-tibial-nerve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Tibial Nerve의 해부학적 방향
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 평행 vs 수직 전기장의 신경 자극 효율 차이
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-e_z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 왜 \(E_z\)가 효율적인가 — 시뮬레이션 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7장. TIS 간섭 포락선 전기장 계산
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7장. TIS 간섭 포락선 전기장 계산">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-tis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 TIS 두 신호의 시간 도메인 표현
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 삼각함수 합차 공식을 통한 포락선 도출
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 포락선이 신경 자극의 실제 원인인 이유
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 수식 3의 두 가지 표현과 각각의 의미
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 균등/불균등 케이스 숫자 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 왜 "더 약한 쪽 신호가 포락선 세기를 제한하는가"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tens-vs-tisict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8장. TENS vs TIS(ICT) 종합 비교
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8장. TENS vs TIS(ICT) 종합 비교">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 파라미터 비교표
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 전기장 침투 효율 비교 (시뮬레이션 결과)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-in-vivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 자극 역치 비교 (in vivo 실험 결과)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-abcf-avv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 방광 수축 빈도(aBCF)와 배뇨량(aVV) 변화
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-tis-tens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 왜 TIS가 TENS보다 안전하고 효율적인가 — 종합 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전체 개념 연결 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        수식 모음
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고문헌
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tis">TIS 전기자극 완전 이해 — 전기공학·생체의학공학 입문 학습 가이드</h1>
+<blockquote>
+<p><strong>대상 독자:</strong> 전기공학·생체의학공학을 처음 공부하는 고등학생<br />
+<strong>참고 논문:</strong>
+- Lee et al. (2021) "An Efficient Noninvasive Neuromodulation Modality for OAB Using Time Interfering Current Method" — <em>IEEE Trans. Biomed. Eng.</em>, 68(1):214–224
+- Kim et al. (2023) "Optimization Framework for Temporal Interference Current Tibial Nerve Stimulation Based on In-Silico Studies" — <em>Appl. Sci.</em>, 13, 2430</p>
+</blockquote>
+<hr />
+<h2 id="_1">개념 흐름 한눈에 보기</h2>
+<div class="highlight"><pre><span></span><code>전기장(E) / 자기장(B) 기초
+        ↓
+  Electroquasistatic 가정 → E = -∇φ (단순화)
+        ↓
+  전압(φ) · 전기장(E) · 전류(I) 관계
+        ↓
+  조직 성질: Conductivity(σ) · Permittivity(ε)
+        ↓
+  Laplace 방정식 → FEM 시뮬레이션
+        ↓
+  3차원 E-field 벡터 → 신경 자극 방향성
+        ↓
+  TIS 포락선(Envelope) 원리
+        ↓
+  TENS vs TIS 종합 비교
+</code></pre></div>
+<hr />
+<h2 id="1-electric-field-magnetic-field">1장. 전기장(Electric Field)과 자기장(Magnetic Field)의 차이</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 전기장과 자기장이 무엇이 다른지, 그리고 이 논문이 전기장만 고려해도 되는 이유를 이해한다.</p>
+</blockquote>
+<h3 id="11-electric-field-mathbfe">1.1 전기장(Electric Field, <span class="arithmatex">\(\mathbf{E}\)</span>)</h3>
+<p><strong>비유 — 태양의 중력장</strong></p>
+<p>태양이 주변 행성을 당기는 힘을 생각해봐요.<br />
+태양(질량 <span class="arithmatex">\(M\)</span>)이 있으면, 그 주위 공간에 "중력장"이 생깁니다.<br />
+행성은 태양 자체와 직접 닿지 않아도, <strong>중력장을 통해</strong> 힘을 받아요.</p>
+<p>전기장도 똑같아요. <strong>전하(charge)가 있으면</strong>, 그 주위 공간에 전기장이 생깁니다.<br />
+다른 전하는 직접 닿지 않아도, 전기장을 통해 힘을 받습니다.</p>
+<table>
+<thead>
+<tr>
+<th>물리량</th>
+<th>기호</th>
+<th>단위</th>
+<th>방향</th>
+<th>발생 원인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전기장</td>
+<td><span class="arithmatex">\(\mathbf{E}\)</span></td>
+<td>V/m</td>
+<td>+ 전하 → − 전하</td>
+<td><strong>정지한</strong> 또는 움직이는 전하</td>
+</tr>
+<tr>
+<td>자기장</td>
+<td><span class="arithmatex">\(\mathbf{B}\)</span></td>
+<td>Tesla (T)</td>
+<td>전류 방향에 수직</td>
+<td><strong>움직이는</strong> 전하 (전류)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>전기장의 방향:</strong> 양(+)전하가 있는 곳에서 나와서 음(−)전하로 들어가는 방향.</p>
+<div class="arithmatex">\[\mathbf{E} = \frac{\mathbf{F}}{q} \quad [\text{단위: V/m}]\]</div>
+<blockquote>
+<p>전하 <span class="arithmatex">\(q\)</span>에 힘 <span class="arithmatex">\(\mathbf{F}\)</span>가 작용할 때, 단위전하당 힘이 바로 전기장입니다.</p>
+</blockquote>
+<hr />
+<h3 id="12-magnetic-field-mathbfb">1.2 자기장(Magnetic Field, <span class="arithmatex">\(\mathbf{B}\)</span>)</h3>
+<p><strong>비유 — 물 소용돌이</strong></p>
+<p>전선에 전류가 흐르면, 전선 주위에 자기장이 <strong>소용돌이(loop)</strong> 형태로 생깁니다.<br />
+물이 배수구 주변을 빙빙 도는 것처럼, 자기장도 전류 주위를 원형으로 둘러쌉니다.</p>
+<ul>
+<li>자기장은 전하(전류)가 <strong>움직일 때</strong> 생깁니다</li>
+<li>방향: <strong>오른손 법칙</strong> — 오른손 엄지가 전류 방향이면, 나머지 손가락이 자기장 방향</li>
+</ul>
+<hr />
+<h3 id="13">1.3 두 장이 서로를 만드는 관계 — 전자기파</h3>
+<p>전기장이 <strong>시간에 따라 변하면</strong> 자기장이 생기고,<br />
+자기장이 <strong>시간에 따라 변하면</strong> 전기장이 생깁니다.</p>
+<p>이 상호 생성이 반복되면서 공간을 전파하는 것이 바로 <strong>전자기파(빛)</strong>입니다.</p>
+<div class="arithmatex">\[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}, \qquad \nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0\varepsilon_0\frac{\partial \mathbf{E}}{\partial t}\]</div>
+<hr />
+<h3 id="14">1.4 이 논문에서 자기장을 무시한 이유</h3>
+<p>TIS 자극에서 사용하는 주파수는 <strong>2 kHz</strong> (1초에 2,000번 진동).<br />
+이 주파수에서 <span class="arithmatex">\(\partial \mathbf{B}/\partial t\)</span> (자기장의 시간 변화율)는 매우 작습니다.</p>
+<p>수학적으로: 2kHz에서 전자기파의 파장을 계산하면</p>
+<div class="arithmatex">\[\lambda = \frac{c}{f} = \frac{3 \times 10^8 \, \text{m/s}}{2{,}000 \, \text{Hz}} = 150{,}000 \, \text{m} = 150 \, \text{km}\]</div>
+<p>인체의 크기는 약 0.3–2 m.</p>
+<div class="arithmatex">\[\frac{\text{인체 크기}}{\lambda} = \frac{0.3 \, \text{m}}{150{,}000 \, \text{m}} \approx 2 \times 10^{-6} \ll 1\]</div>
+<p><strong>파장이 인체보다 50만 배 크기 때문에</strong>, 인체 범위 내에서는 자기장이 전기장을 거의 변화시키지 않아요.<br />
+따라서 <span class="arithmatex">\(\partial \mathbf{B}/\partial t \approx 0\)</span>으로 무시할 수 있고, <strong>전기장만 고려</strong>하면 됩니다.</p>
+<div class="highlight"><pre><span></span><code>실제 EM wave 관계:     E ↔ B 서로 생성 (파장 150 km 스케일)
+2kHz 인체 스케일:      E만 존재 (B의 영향 무시)
+        ↓
+  &quot;Electroquasistatic 가정&quot; 성립
+</code></pre></div>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>전기장은 전하에서 발생하고, 자기장은 움직이는 전하(전류)에서 발생한다. 2kHz TIS에서는 파장(150km)이 인체보다 훨씬 크므로 자기장 효과를 무시하고 전기장만 분석한다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="2-electroquasistatic">2장. Electroquasistatic 가정</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 복잡한 맥스웰 방정식이 어떻게 단순한 형태로 줄어드는지, 그 조건을 파장 비교로 이해한다.</p>
+</blockquote>
+<h3 id="21">2.1 맥스웰 방정식의 복잡함</h3>
+<p>물리학자 맥스웰(Maxwell)은 전자기 현상 전체를 4개의 방정식으로 정리했습니다.</p>
+<table>
+<thead>
+<tr>
+<th>방정식</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\nabla \cdot \mathbf{E} = \rho/\varepsilon_0\)</span></td>
+<td>전하가 있으면 전기장이 퍼져나간다</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nabla \cdot \mathbf{B} = 0\)</span></td>
+<td>자기 홀극(monopole)은 존재하지 않는다</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}\)</span></td>
+<td>변하는 자기장이 전기장을 만든다</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\varepsilon_0\dfrac{\partial \mathbf{E}}{\partial t}\)</span></td>
+<td>전류와 변하는 전기장이 자기장을 만든다</td>
+</tr>
+</tbody>
+</table>
+<p>이 4개 방정식을 모두 연립해 풀면 계산이 매우 복잡합니다.</p>
+<hr />
+<h3 id="22">2.2 파장과 실험 공간 크기 비교</h3>
+<p><strong>비유 — 바다 파도 vs 수영장</strong></p>
+<p>해변에서 파장 100m짜리 파도가 밀려오고 있어요.<br />
+당신이 10m짜리 수영장에 있다면, 파도의 "굴곡"을 수영장 안에서 느낄 수 있을까요?<br />
+파장이 수영장보다 10배나 크니까, 수영장 안에서는 그냥 "물이 찰랑찰랑" 할 뿐입니다. 파동 특성이 느껴지지 않죠.</p>
+<p>마찬가지로, 2kHz 전자기파의 파장(150km)이 인체(0.3m)보다 훨씬 크면,<br />
+인체 내에서 전자기파의 "파동 특성"(자기 유도 등)은 느껴지지 않습니다.</p>
+<hr />
+<h3 id="23-2khz">2.3 2kHz에서의 파장 계산</h3>
+<div class="arithmatex">\[\boxed{\lambda = \frac{c}{f} = \frac{3 \times 10^8 \, \text{m/s}}{2{,}000 \, \text{Hz}} = 150{,}000 \, \text{m}}\]</div>
+<table>
+<thead>
+<tr>
+<th>대상</th>
+<th>크기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EM 파장 (<span class="arithmatex">\(\lambda\)</span>)</td>
+<td>150,000 m (150 km)</td>
+</tr>
+<tr>
+<td>인체 발목 횡단면</td>
+<td>~0.1 m</td>
+</tr>
+<tr>
+<td>인체 하지 길이</td>
+<td>~0.5 m</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lambda\)</span> / 인체</td>
+<td><strong>300,000 배</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="24">2.4 가정 적용 전후의 방정식 비교</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>전체 맥스웰</th>
+<th>Electroquasistatic 가정 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>회전 방정식</td>
+<td><span class="arithmatex">\(\nabla \times \mathbf{E} = -\dfrac{\partial \mathbf{B}}{\partial t}\)</span></td>
+<td><span class="arithmatex">\(\nabla \times \mathbf{E} \approx 0\)</span> (<span class="arithmatex">\(\because \partial\mathbf{B}/\partial t \approx 0\)</span>)</td>
+</tr>
+<tr>
+<td>결론</td>
+<td><span class="arithmatex">\(\mathbf{E}\)</span>와 <span class="arithmatex">\(\mathbf{B}\)</span> 서로 연결</td>
+<td><span class="arithmatex">\(\mathbf{E}\)</span>는 독립적으로 계산 가능</td>
+</tr>
+<tr>
+<td>계산 난이도</td>
+<td>매우 복잡</td>
+<td>단순</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="25-mathbfe-nablaphi">2.5 결론: <span class="arithmatex">\(\mathbf{E} = -\nabla\phi\)</span>로 단순화</h3>
+<p>수학에서 <strong>임의의 스칼라 함수 <span class="arithmatex">\(\phi\)</span>의 기울기(gradient)의 회전(curl)은 항상 0</strong>입니다.</p>
+<div class="arithmatex">\[\nabla \times (\nabla\phi) \equiv 0 \quad \text{(항등식)}\]</div>
+<p>따라서 <span class="arithmatex">\(\nabla \times \mathbf{E} = 0\)</span>이 성립하면, 반드시 어떤 스칼라 함수 <span class="arithmatex">\(\phi\)</span>가 존재하여:</p>
+<div class="arithmatex">\[\boxed{\mathbf{E} = -\nabla\phi}\]</div>
+<p>이 <span class="arithmatex">\(\phi\)</span>를 <strong>전압(electric potential)</strong> 또는 <strong>전기 퍼텐셜</strong>이라 합니다.<br />
+이제 3차원 벡터 함수 <span class="arithmatex">\(\mathbf{E}\)</span>를 구하는 대신, 스칼라 함수 <span class="arithmatex">\(\phi\)</span> 하나만 구하면 됩니다.</p>
+<div class="highlight"><pre><span></span><code>복잡한 벡터 3개(Ex, Ey, Ez) → 스칼라 1개(φ)
+           대폭 단순화!
+</code></pre></div>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>2kHz TIS에서 EM 파장(150km)이 인체보다 수십만 배 크므로 Electroquasistatic 가정이 성립하고, 전기장을 <span class="arithmatex">\(\mathbf{E} = -\nabla\phi\)</span>로 단순화하여 스칼라 전압 <span class="arithmatex">\(\phi\)</span>만 풀면 된다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="3-phi-mathbfe-i">3장. 전압(<span class="arithmatex">\(\phi\)</span>), 전기장(<span class="arithmatex">\(\mathbf{E}\)</span>), 전류(<span class="arithmatex">\(I\)</span>)의 관계</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 전압은 "높이", 전기장은 "경사도"라는 직관으로 <span class="arithmatex">\(\mathbf{E} = -\nabla\phi\)</span>의 의미를 이해하고, 이 논문이 시뮬레이션엔 전압을, 실험엔 전류를 쓴 이유를 안다.</p>
+</blockquote>
+<h3 id="31">3.1 전압은 "높이", 전기장은 "경사도"</h3>
+<p><strong>비유 — 산의 등고선</strong></p>
+<p>산을 생각해봐요.</p>
+<ul>
+<li><strong>전압 <span class="arithmatex">\(\phi\)</span></strong> = 산의 <strong>높이(고도)</strong></li>
+<li><strong>전기장 <span class="arithmatex">\(\mathbf{E}\)</span></strong> = 산의 <strong>경사면 기울기</strong></li>
+</ul>
+<p>등고선이 빽빽하게 모여있는 곳 = 경사가 급한 곳 = 전기장이 강한 곳</p>
+<p>공이 산에서 굴러내려 가는 방향 = <strong>경사가 내려가는 방향</strong> = 양전하가 이동하는 방향</p>
+<p>수식으로:</p>
+<div class="arithmatex">\[\mathbf{E} = -\nabla\phi = -\left(\frac{\partial\phi}{\partial x}\hat{x} + \frac{\partial\phi}{\partial y}\hat{y} + \frac{\partial\phi}{\partial z}\hat{z}\right)\]</div>
+<p><strong>음의 부호(−)의 의미:</strong> 전기장은 전압이 <em>높은 곳에서 낮은 곳</em>으로 향합니다.<br />
+마치 물이 높은 곳에서 낮은 곳으로 흐르듯이.</p>
+<hr />
+<h3 id="32">3.2 전기장 계산 예시 (숫자 대입)</h3>
+<p>전극 A에 <span class="arithmatex">\(\phi_A = 1\)</span> V, 전극 B에 <span class="arithmatex">\(\phi_B = 0\)</span> V가 인가되고,<br />
+두 전극 사이의 거리가 <span class="arithmatex">\(d = 5\)</span> mm <span class="arithmatex">\(= 0.005\)</span> m라면:</p>
+<div class="arithmatex">\[|E| = \frac{\Delta\phi}{\Delta z} = \frac{1 - 0}{0.005} = 200 \, \text{V/m}\]</div>
+<p>전기장의 크기는 <strong>전압 차이가 클수록, 거리가 가까울수록</strong> 강해집니다.</p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>전압 차</th>
+<th>거리</th>
+<th>전기장</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>가까운 전극</td>
+<td>1 V</td>
+<td>5 mm</td>
+<td><strong>200 V/m</strong></td>
+</tr>
+<tr>
+<td>먼 전극</td>
+<td>1 V</td>
+<td>50 mm</td>
+<td>20 V/m</td>
+</tr>
+<tr>
+<td>강한 전압</td>
+<td>10 V</td>
+<td>5 mm</td>
+<td><strong>2,000 V/m</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33-v-iz">3.3 옴의 법칙 <span class="arithmatex">\(V = IZ\)</span>와의 연결</h3>
+<p>미시적(점별) Ohm의 법칙:</p>
+<div class="arithmatex">\[\mathbf{J} = (\sigma + j\omega\varepsilon)\mathbf{E}\]</div>
+<ul>
+<li><span class="arithmatex">\(\mathbf{J}\)</span>: 전류 밀도 [A/m²] — 단위 면적을 통과하는 전류</li>
+<li><span class="arithmatex">\(\sigma\)</span>: 전도도 (전류를 흘리는 능력)</li>
+<li><span class="arithmatex">\(j\omega\varepsilon\)</span>: 유전 전류 항 (고주파에서 중요)</li>
+</ul>
+<p>거시적(전체) Ohm의 법칙: <span class="arithmatex">\(V = IZ\)</span></p>
+<ul>
+<li><span class="arithmatex">\(V\)</span>: 전압 [V]</li>
+<li><span class="arithmatex">\(I\)</span>: 전류 [A]</li>
+<li><span class="arithmatex">\(Z\)</span>: 임피던스 [Ω] (저항의 주파수 일반화)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>미시: J = (σ + jωε)E  →  J ∝ E  →  E ∝ ∇φ
+거시: V = IZ           →  V/d = (I/A)·(1/σ)  (같은 내용)
+</code></pre></div>
+<hr />
+<h3 id="34">3.4 시뮬레이션엔 전압을, 실험엔 전류를 사용한 이유</h3>
+<p><strong>시뮬레이션 (Kim et al. 2023):</strong></p>
+<blockquote>
+<p>"In 24 separate simulation settings, <strong>Dirichlet boundary conditions of 1 V</strong> for the active electrode and <strong>0 V</strong> for the reference electrode were imposed."</p>
+</blockquote>
+<p>전압을 경계 조건으로 쓰면 수학적으로 <strong>Laplace 방정식</strong>의 경계값 문제(BVP)가 됩니다.<br />
+컴퓨터 시뮬레이션에서 처리하기가 훨씬 간단합니다.</p>
+<p><strong>실제 실험 (Lee et al. 2021):</strong></p>
+<blockquote>
+<p>"A customized ICT stimulator with a <strong>current driven circuit</strong>. The output current ranged from <strong>0.1 to 4.4 mA</strong>."</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>전압 인가</th>
+<th>전류 인가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>피부 임피던스 변화시</td>
+<td>전류가 예측 불가능하게 급변</td>
+<td>전류 일정 유지</td>
+</tr>
+<tr>
+<td>안전성</td>
+<td>위험 (과전류 가능)</td>
+<td>안전 (전압이 자동 조절)</td>
+</tr>
+<tr>
+<td>자극 재현성</td>
+<td>낮음</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>신경 자극 효과</td>
+<td>가변적</td>
+<td>일관성 있음</td>
+</tr>
+</tbody>
+</table>
+<p><strong>핵심:</strong> 피부는 땀, 건조도에 따라 임피던스가 수십 배 바뀝니다.<br />
+전류를 고정하면 피부 상태가 변해도 <strong>신경에 도달하는 자극 강도가 일정</strong>합니다.</p>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>전압은 높이, 전기장은 그 경사도(<span class="arithmatex">\(\mathbf{E} = -\nabla\phi\)</span>)이다. 시뮬레이션은 계산 편의상 전압 BC를 쓰지만, 실험에서는 피부 임피던스 변화에 무관하게 안정적인 신경 자극을 위해 전류를 인가한다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="4-conductivitysigma-permittivityvarepsilon">4장. Conductivity(<span class="arithmatex">\(\sigma\)</span>, 전도도)와 Permittivity(<span class="arithmatex">\(\varepsilon\)</span>, 유전율)</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 조직의 두 전기적 성질이 주파수에 따라 어떻게 변하는지, 그리고 왜 고주파(2kHz)가 더 잘 침투하는지 이해한다.</p>
+</blockquote>
+<h3 id="41-conductivity-sigma">4.1 Conductivity(전도도, <span class="arithmatex">\(\sigma\)</span>)</h3>
+<p><strong>비유 — 도로의 차선 수</strong></p>
+<p>전류가 흐르는 것을 자동차가 도로를 달리는 것에 비유해봐요.</p>
+<ul>
+<li><strong>전도도(<span class="arithmatex">\(\sigma\)</span>)가 높다</strong> = 차선이 많은 고속도로 = 전류가 잘 흐름</li>
+<li><strong>전도도(<span class="arithmatex">\(\sigma\)</span>)가 낮다</strong> = 좁은 오솔길 = 전류가 거의 못 흐름</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>조직</th>
+<th><span class="arithmatex">\(\sigma\)</span> (S/m) @ 2kHz</th>
+<th>비유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gel (전도체 젤)</td>
+<td>0.6</td>
+<td>8차선 고속도로</td>
+</tr>
+<tr>
+<td>Muscle (근육)</td>
+<td>0.355</td>
+<td>6차선 국도</td>
+</tr>
+<tr>
+<td>Nerve (신경)</td>
+<td>0.265</td>
+<td>4차선 도로</td>
+</tr>
+<tr>
+<td>Skin (피부)</td>
+<td>0.17</td>
+<td>2차선 도로</td>
+</tr>
+<tr>
+<td>Fat (지방)</td>
+<td>0.057</td>
+<td>비포장 산길</td>
+</tr>
+<tr>
+<td>Bone (뼈)</td>
+<td>0.0035</td>
+<td>막힌 길</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>출처: Kim et al. (2023) Table 2 — 2kHz 기준</em></p>
+</blockquote>
+<hr />
+<h3 id="42">4.2 주파수에 따라 전도도가 변하는 이유 — 세포막 커패시터 모델</h3>
+<p><strong>비유 — 막힌 파이프와 물의 진동</strong></p>
+<p>세포막(cell membrane)을 얇은 고무막이 막힌 파이프라고 생각해봐요.</p>
+<ul>
+<li><strong>저주파(10 Hz):</strong> 물이 천천히 밀려와서 고무막에 막혀 통과 못 함 → 전류 차단</li>
+<li><strong>고주파(2,000 Hz):</strong> 물이 빠르게 진동하면 고무막이 앞뒤로 변형되면서 진동 에너지가 전달 → 전류 통과</li>
+</ul>
+<p>세포막은 전기적으로 <strong>커패시터(capacitor)</strong>와 같습니다.<br />
+커패시터의 임피던스 <span class="arithmatex">\(Z_C = 1/(j\omega C)\)</span>는 <strong>주파수가 높을수록 작아집니다</strong>.</p>
+<div class="arithmatex">\[Z_C = \frac{1}{j\omega C} \quad \Rightarrow \quad \omega \uparrow \text{이면} \quad Z_C \downarrow \text{ (더 잘 통과)}\]</div>
+<p>따라서 <strong>고주파에서 유효 전도도가 증가</strong>합니다:</p>
+<table>
+<thead>
+<tr>
+<th>조직</th>
+<th><span class="arithmatex">\(\sigma\)</span> @ 10 Hz</th>
+<th><span class="arithmatex">\(\sigma\)</span> @ 2 kHz</th>
+<th>변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skin</td>
+<td><span class="arithmatex">\(2\times10^{-4}\)</span> S/m</td>
+<td><span class="arithmatex">\(2\times10^{-4}\)</span> S/m</td>
+<td>거의 동일</td>
+</tr>
+<tr>
+<td>Fat</td>
+<td><span class="arithmatex">\(1.22\times10^{-2}\)</span> S/m</td>
+<td><span class="arithmatex">\(2.30\times10^{-2}\)</span> S/m</td>
+<td><strong>1.9배↑</strong></td>
+</tr>
+<tr>
+<td>Muscle</td>
+<td>0.202 S/m</td>
+<td>0.330 S/m</td>
+<td><strong>1.6배↑</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>출처: Lee et al. (2021) Table I</em></p>
+</blockquote>
+<p><strong>피부는 왜 변화가 없나?</strong> 피부 최외층 각질층(stratum corneum)은 죽은 세포로 이루어져 전도도 변화가 거의 없습니다.</p>
+<hr />
+<h3 id="43-permittivity-varepsilon">4.3 Permittivity(유전율, <span class="arithmatex">\(\varepsilon\)</span>)</h3>
+<p><strong>비유 — 스펀지의 물 흡수 능력</strong></p>
+<p>전기장이 걸렸을 때 재료 내부의 <strong>전하가 얼마나 분리(분극)</strong>되는지를 나타냅니다.</p>
+<ul>
+<li><strong>유전율(<span class="arithmatex">\(\varepsilon\)</span>)이 높다</strong> = 스펀지처럼 전기장 에너지를 많이 흡수·저장</li>
+<li><strong>유전율(<span class="arithmatex">\(\varepsilon\)</span>)이 낮다</strong> = 딱딱한 플라스틱처럼 분극이 거의 없음</li>
+</ul>
+<p><strong>분극(Polarization)이란?</strong><br />
+외부 전기장이 걸리면, 분자 내의 + 전하와 − 전하가 반대 방향으로 살짝 이동합니다.<br />
+이 분극이 외부 전기장을 약하게 만들어서 에너지를 저장하는 효과를 냅니다.</p>
+<hr />
+<h3 id="44-jomegavarepsilon">4.4 고주파에서 유전율이 중요한 이유 — <span class="arithmatex">\(j\omega\varepsilon\)</span> 항</h3>
+<p>Laplace 방정식에서 전류 밀도는:</p>
+<div class="arithmatex">\[\mathbf{J} = (\sigma + j\omega\varepsilon)\mathbf{E}\]</div>
+<p>여기서 <span class="arithmatex">\(j\omega\varepsilon\)</span> 항은 주파수 <span class="arithmatex">\(\omega = 2\pi f\)</span>에 비례합니다.</p>
+<div class="arithmatex">\[\omega = 2\pi \times 2{,}000 = 12{,}566 \, \text{rad/s}\]</div>
+<p>저주파(10 Hz)에서:
+$<span class="arithmatex">\(\omega = 2\pi \times 10 = 62.8 \, \text{rad/s} \quad \Rightarrow \quad j\omega\varepsilon \text{는 미미}\)</span>$</p>
+<p>고주파(2 kHz)에서:
+$<span class="arithmatex">\(\omega = 12{,}566 \, \text{rad/s} \quad \Rightarrow \quad j\omega\varepsilon \text{가 유효 전류에 기여}\)</span>$</p>
+<table>
+<thead>
+<tr>
+<th>주파수</th>
+<th><span class="arithmatex">\(\sigma\)</span> 기여</th>
+<th><span class="arithmatex">\(j\omega\varepsilon\)</span> 기여</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 Hz (TENS)</td>
+<td>지배적</td>
+<td>무시 가능</td>
+</tr>
+<tr>
+<td>2 kHz (TIS)</td>
+<td>주요</td>
+<td><strong>무시 불가</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>전도도(σ)는 전류가 흐르는 용이성(차선 수), 유전율(ε)은 전기장 에너지 저장 능력(스펀지)이다. 고주파에서는 세포막 커패시터를 통과하여 전도도가 증가하고, jωε 항이 중요해져 전기장이 더 깊이 침투한다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="5-laplaces-equation">5장. 라플라스 방정식 (Laplace's Equation)</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 전하 보존 법칙으로부터 라플라스 방정식이 유도되는 과정을 이해하고, 컴퓨터가 어떻게 이를 풀어 전기장을 계산하는지 안다.</p>
+</blockquote>
+<h3 id="51">5.1 방정식 도출의 물리적 배경 — 전하 보존 법칙</h3>
+<p><strong>비유 — 파이프 망의 물 흐름</strong></p>
+<p>여러 파이프가 연결된 시스템을 생각해봐요.<br />
+어떤 접합점(node)에서 <strong>들어오는 물의 양 = 나가는 물의 양</strong>이면, 그 점에 물이 쌓이지 않습니다.<br />
+이것이 <strong>"발산 = 0"</strong> 의 의미입니다.</p>
+<p>전류에서도 마찬가지입니다. 준정적(quasi-static) 상태에서 어떤 공간 내부에 전하가 쌓이지 않는다면:</p>
+<div class="arithmatex">\[\nabla \cdot \mathbf{J} = 0 \quad \text{(전하 보존, 전류 연속성)}\]</div>
+<hr />
+<h3 id="52">5.2 수식 레이어별 분해</h3>
+<p><strong>Layer 1: 전압의 기울기</strong> <span class="arithmatex">\(\nabla\phi\)</span></p>
+<p>전압 <span class="arithmatex">\(\phi\)</span>의 공간적 변화율. 방향이 있는 벡터입니다.</p>
+<div class="arithmatex">\[\nabla\phi = \frac{\partial\phi}{\partial x}\hat{x} + \frac{\partial\phi}{\partial y}\hat{y} + \frac{\partial\phi}{\partial z}\hat{z} \quad [\text{V/m}]\]</div>
+<hr />
+<p><strong>Layer 2: 조직 성질 반영</strong> <span class="arithmatex">\((\sigma + j\omega\varepsilon)\nabla\phi\)</span></p>
+<p>전압의 기울기에 조직의 전기적 성질을 곱하면 <strong>전류 밀도</strong>가 됩니다.</p>
+<div class="arithmatex">\[\mathbf{J} = (\sigma + j\omega\varepsilon)\mathbf{E} = -(\sigma + j\omega\varepsilon)\nabla\phi\]</div>
+<p>이 식은 <strong>조직마다 다른 전기적 성질</strong>을 반영합니다.<br />
+근육(<span class="arithmatex">\(\sigma = 0.355\)</span> S/m)과 뼈(<span class="arithmatex">\(\sigma = 0.004\)</span> S/m)는 전류를 흘리는 능력이 100배 차이납니다!</p>
+<hr />
+<p><strong>Layer 3: 발산 = 0</strong> <span class="arithmatex">\(\nabla \cdot [\cdots] = 0\)</span></p>
+<p>전류 연속성 조건을 적용합니다:</p>
+<div class="arithmatex">\[\nabla \cdot \mathbf{J} = 0$$
+$$\nabla \cdot \left[(\sigma + j\omega\varepsilon)\mathbf{E}\right] = 0$$
+$$\boxed{\nabla \cdot \left[(\sigma + j\omega\varepsilon)\nabla\phi\right] = 0}\]</div>
+<p>이것이 바로 <strong>Laplace 방정식</strong> (일반화된 형태) 입니다.<br />
+Lee et al. (2021) Eq. (2)와 Kim et al. (2023) 모두 이 방정식을 사용했습니다.</p>
+<hr />
+<h3 id="53">5.3 파이프 비유로 전체 방정식 이해</h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────┐
+│  전체 파이프 망 (인체 단면)             │
+│                                          │
+│  전극 A (+1V) ──────────┐               │
+│                          ↓               │
+│  피부(얇은 파이프) → 지방(좁은 파이프)  │
+│                          ↓               │
+│  근육(넓은 파이프) → 신경(목표지점)     │
+│                          ↓               │
+│  전극 B (0V)  ───────────┘               │
+│                                          │
+│  각 접합점에서: 들어오는 전류 = 나가는 전류│
+│  ∇·J = 0 (전하 축적 없음)               │
+└─────────────────────────────────────────┘
+</code></pre></div>
+<p><strong>핵심:</strong> 경계 조건(전극 전압)을 설정하면, 이 방정식이 모든 위치에서 <span class="arithmatex">\(\phi\)</span>를 결정합니다.</p>
+<hr />
+<h3 id="54-fem">5.4 유한요소법(FEM)을 통한 컴퓨터 계산 원리</h3>
+<p><strong>비유 — 퍼즐 조각으로 나누기</strong></p>
+<p>복잡한 인체를 컴퓨터가 계산하려면, 큰 문제를 작은 조각으로 나눠야 합니다.<br />
+이것이 <strong>FEM(Finite Element Method, 유한요소법)</strong>입니다.</p>
+<div class="highlight"><pre><span></span><code>실제 인체 단면       FEM 메시 분해
+    ┌───┐              ┌─┬─┬─┐
+    │   │    →         ├─┼─┼─┤
+    │   │              ├─┼─┼─┤
+    └───┘              └─┴─┴─┘
+  복잡한 형태       수천~수만 개의 작은 요소
+</code></pre></div>
+<p>각 요소(element) 내에서:
+1. <span class="arithmatex">\(\phi\)</span>는 단순한 다항식으로 근사
+2. 이웃 요소와 경계에서 <span class="arithmatex">\(\phi\)</span>와 <span class="arithmatex">\(\mathbf{J}\)</span>가 연속
+3. 모든 요소에서 연립방정식을 동시에 풀면 전체 <span class="arithmatex">\(\phi\)</span> 분포 완성</p>
+<p>Kim et al. (2023)은 <strong>Sim4Life</strong> 소프트웨어와 <strong>Ohmic Quasi-Static FEM</strong>을 사용하여 29명 MRI 기반 3D 모델을 계산했습니다.</p>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>전하 보존 법칙(<span class="arithmatex">\(\nabla\cdot\mathbf{J}=0\)</span>)에서 라플라스 방정식 <span class="arithmatex">\(\nabla\cdot[(\sigma+j\omega\varepsilon)\nabla\phi]=0\)</span>이 유도되며, FEM으로 인체를 수만 개 조각으로 나누어 각 위치의 전압·전기장을 계산한다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="6-3">6장. 전기장의 3차원 벡터 성분과 신경 자극 방향성</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 전기장이 3차원 벡터임을 이해하고, tibial nerve의 해부학적 방향과 전기장 방향의 관계가 자극 효율을 어떻게 결정하는지 안다.</p>
+</blockquote>
+<h3 id="61-3">6.1 전기장의 3차원 벡터 성분</h3>
+<p>전기장 <span class="arithmatex">\(\mathbf{E}\)</span>는 공간 내 방향이 있는 벡터입니다:</p>
+<div class="arithmatex">\[\mathbf{E} = E_x\hat{x} + E_y\hat{y} + E_z\hat{z}\]</div>
+<table>
+<thead>
+<tr>
+<th>성분</th>
+<th>방향</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(E_x\)</span></td>
+<td>좌우 (내측-외측)</td>
+<td>발목 가로 방향</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E_y\)</span></td>
+<td>앞뒤 (전방-후방)</td>
+<td>발목 앞뒤 방향</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(E_z\)</span></td>
+<td>위아래 (발→무릎)</td>
+<td><strong>tibial nerve 주행 방향</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="62-tibial-nerve">6.2 Tibial Nerve의 해부학적 방향</h3>
+<p>발목 내과(medial malleolus) 뒤쪽 <strong>tarsal tunnel</strong>을 통과하는 tibial nerve는<br />
+해부학적으로 <strong>발에서 무릎 방향</strong>, 즉 <strong>Z축 방향</strong>으로 주행합니다.</p>
+<div class="highlight"><pre><span></span><code>무릎 방향 (+z) ↑
+               │
+               │  tibial nerve
+               │  (Z축 방향 주행)
+발목 내과 →   │  ← tarsal tunnel
+               │
+발 방향 (-z) ↓
+</code></pre></div>
+<p>Lee et al. (2021):</p>
+<blockquote>
+<p>"the electric field along the z-axis (Ez), which is <strong>parallel to the tibial nerve spreading</strong>, was selected because nerves are more sensitive to <strong>parallel field</strong> than to orthogonal field."</p>
+</blockquote>
+<hr />
+<h3 id="63-vs">6.3 평행 vs 수직 전기장의 신경 자극 효율 차이</h3>
+<p><strong>비유 — 고속도로와 직각 방향의 차이</strong></p>
+<p>자동차(이온)가 고속도로(신경 축삭)를 따라 달린다고 생각해보세요.</p>
+<ul>
+<li><strong>평행 전기장 (<span class="arithmatex">\(E_z\)</span>):</strong> 고속도로 방향으로 미는 힘 → 자동차가 앞으로 잘 달림 ✓</li>
+<li><strong>수직 전기장 (<span class="arithmatex">\(E_x, E_y\)</span>):</strong> 고속도로 옆에서 미는 힘 → 자동차가 옆으로 밀릴 뿐, 앞으로 못 달림 ✗</li>
+</ul>
+<p><strong>활동전위(Action Potential) 발생 메커니즘:</strong></p>
+<p>신경은 여러 개의 <strong>랑비에 결절(Node of Ranvier)</strong>이 일정 간격으로 있는 구조입니다.<br />
+신경 자극의 핵심은 <strong>활성화 함수(Activating Function)</strong>:</p>
+<div class="arithmatex">\[f(z) = \frac{1}{r_i}\frac{\partial^2 V_e}{\partial z^2}\]</div>
+<ul>
+<li><span class="arithmatex">\(V_e\)</span>: 세포 외부 전위 (= 전압 <span class="arithmatex">\(\phi\)</span>)</li>
+<li><span class="arithmatex">\(r_i\)</span>: 축삭 내부 저항</li>
+<li><span class="arithmatex">\(z\)</span>: 신경 주행 방향</li>
+</ul>
+<p>이 함수는 <strong>Z축 방향(<span class="arithmatex">\(E_z\)</span>)의 전기장 변화</strong>에만 반응합니다.<br />
+수직 성분(<span class="arithmatex">\(E_x, E_y\)</span>)은 이 함수에 기여하지 못합니다.</p>
+<hr />
+<h3 id="64-e_z">6.4 왜 <span class="arithmatex">\(E_z\)</span>가 효율적인가 — 시뮬레이션 근거</h3>
+<p>Lee et al. (2021) 시뮬레이션:
+- TENS: <span class="arithmatex">\(E_z\)</span>가 피부 근처에서 강하지만, 신경 깊이(5mm)에서 급격히 감소
+- ICT(TIS): <span class="arithmatex">\(E_z\)</span>가 피부 근처에서 낮지만, 신경 깊이에서 <strong>1.56배</strong> 더 강함</p>
+<div class="highlight"><pre><span></span><code>피부 표면 (x = 0 mm)
+TENS:  E_z = 7.0 V/m  (강함, 하지만 피부에서 소모)
+ICT:   E_z = 1.1 V/m  (약함, 하지만 내부로 침투)
+
+신경 위치 (x = 5 mm)
+TENS:  E_z = 0.62 V/m  ← 급격히 감소 (피부 손상 위험)
+ICT:   E_z = 0.85 V/m  ← 1.56배 더 강함!
+</code></pre></div>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>Tibial nerve는 Z축 방향으로 주행하므로, 평행한 <span class="arithmatex">\(E_z\)</span> 성분이 활성화 함수를 통해 활동전위를 유발한다. TIS는 내부 깊이에서 TENS 대비 1.56배 강한 <span class="arithmatex">\(E_z\)</span>를 만들어낸다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="7-tis">7장. TIS 간섭 포락선 전기장 계산</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> 두 고주파 신호의 간섭으로 저주파 포락선이 어떻게 만들어지는지, 수식으로 유도하고 직관적으로 이해한다.</p>
+</blockquote>
+<h3 id="71-tis">7.1 TIS 두 신호의 시간 도메인 표현</h3>
+<p>TIS는 두 쌍의 전극에서 주파수가 미묘하게 다른 두 신호를 동시에 인가합니다.</p>
+<table>
+<thead>
+<tr>
+<th>신호</th>
+<th>주파수</th>
+<th>수식</th>
+<th>Lee et al. (2021) 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source 1</td>
+<td><span class="arithmatex">\(f_1\)</span></td>
+<td><span class="arithmatex">\(E_{z1}\cos(2\pi f_1 t)\)</span></td>
+<td><span class="arithmatex">\(f_1 = 2{,}000\)</span> Hz</td>
+</tr>
+<tr>
+<td>Source 2</td>
+<td><span class="arithmatex">\(f_2\)</span></td>
+<td><span class="arithmatex">\(E_{z2}\cos(2\pi f_2 t)\)</span></td>
+<td><span class="arithmatex">\(f_2 = 2{,}010\)</span> Hz</td>
+</tr>
+<tr>
+<td>Beat (포락선)</td>
+<td><span class="arithmatex">\(\Delta f = f_1 - f_2\)</span></td>
+<td>—</td>
+<td><span class="arithmatex">\(\Delta f = 10\)</span> Hz</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="72">7.2 삼각함수 합차 공식을 통한 포락선 도출</h3>
+<p><strong>특수한 경우 (<span class="arithmatex">\(E_{z1} = E_{z2} = E_0\)</span>):</strong></p>
+<div class="arithmatex">\[E_z(t) = E_0\cos(2\pi f_1 t) + E_0\cos(2\pi f_2 t)\]</div>
+<p>삼각함수 합차 공식 <span class="arithmatex">\(\cos A + \cos B = 2\cos\!\left(\dfrac{A+B}{2}\right)\!\cos\!\left(\dfrac{A-B}{2}\right)\)</span>을 적용합니다.</p>
+<div class="arithmatex">\[E_z(t) = 2E_0 \underbrace{\cos\!\left(\pi\Delta f \cdot t\right)}_{\text{포락선 (10 Hz)}} \cdot \underbrace{\cos\!\left(2\pi f_c t\right)}_{\text{반송파 (2005 Hz)}}\]</div>
+<p>여기서 <span class="arithmatex">\(f_c = (f_1 + f_2)/2 = 2{,}005\)</span> Hz (반송파, 신경이 반응하지 않는 속도).</p>
+<p><strong>시각화:</strong></p>
+<div class="highlight"><pre><span></span><code>신호 1: ～～～～～～～～～～  (2000 Hz, 빠른 진동)
+신호 2: ～～～～～～～～～～  (2010 Hz, 미묘하게 빠름)
+합산:   ～∧～～∧～～∧～～  ← 포락선(10Hz)이 생겨남!
+        크게   작게   크게  (10Hz 주기로 강약 반복)
+</code></pre></div>
+<p>신경은 2000Hz에 반응하지 않지만 <strong>10Hz 포락선에는 반응</strong>합니다!</p>
+<hr />
+<h3 id="73">7.3 포락선이 신경 자극의 실제 원인인 이유</h3>
+<p>고주파 신호(2kHz)는 신경을 자극하지 못합니다.<br />
+인용: "the frequencies are rather high in the kHz range, <strong>causing no response from the nerves</strong>" (Kim et al. 2023)</p>
+<p>반면 저주파 포락선(10Hz)은 신경을 자극할 수 있는 속도입니다.</p>
+<div class="highlight"><pre><span></span><code>2000 Hz 반송파: 신경 ← &quot;너무 빠름, 무시&quot;
+   10 Hz 포락선: 신경 ← &quot;적당한 속도! 반응함&quot; → 활동전위 발생
+</code></pre></div>
+<hr />
+<h3 id="74-3">7.4 수식 3의 두 가지 표현과 각각의 의미</h3>
+<p>Lee et al. (2021) Eq. (3):</p>
+<div class="arithmatex">\[\boxed{Ez_{env} = 2\min(|Ez_1|, |Ez_2|) = \big||Ez_1 + Ez_2| - |Ez_1 - Ez_2|\big|}\]</div>
+<p><strong>표현 1: <span class="arithmatex">\(2\min(|Ez_1|, |Ez_2|)\)</span> — 물리적 직관</strong></p>
+<p>불균등 간섭 시, 포락선이 0까지 내려가지 않습니다.<br />
+실제로 진동하는 부분의 크기(진폭)는 <strong>더 약한 쪽 신호의 2배</strong>입니다.</p>
+<div class="highlight"><pre><span></span><code>Ez1 = 1.5 V/m, Ez2 = 0.5 V/m:
+포락선 최대 = 1.5 + 0.5 = 2.0 V/m
+포락선 최소 = 1.5 - 0.5 = 1.0 V/m  (0까지 내려가지 않음)
+               ↕
+진동 크기 = 2.0 - 1.0 = 1.0 V/m = 2 × 0.5 = 2·min(Ez1, Ez2) ✓
+</code></pre></div>
+<p><strong>표현 2: <span class="arithmatex">\(||Ez_1+Ez_2| - |Ez_1-Ez_2||\)</span> — 컴퓨터 계산용</strong></p>
+<p>FEM으로 전기장 분포를 구한 뒤, 이 공식으로 바로 포락선 세기를 계산합니다.<br />
+<span class="arithmatex">\(Ez_1 + Ez_2\)</span>는 두 필드의 <strong>위상이 같을 때</strong> 합산, <span class="arithmatex">\(Ez_1 - Ez_2\)</span>는 <strong>위상이 반대일 때</strong> 합산을 나타냅니다.</p>
+<p><strong>수학적 동치 증명:</strong></p>
+<p><span class="arithmatex">\(|Ez_1| \geq |Ez_2| \geq 0\)</span>이라 가정하면 (WLOG):</p>
+<div class="arithmatex">\[\big||Ez_1 + Ez_2| - |Ez_1 - Ez_2|\big| = (Ez_1+Ez_2) - (Ez_1-Ez_2) = 2Ez_2 = 2\min(Ez_1, Ez_2) \checkmark\]</div>
+<hr />
+<h3 id="75">7.5 균등/불균등 케이스 숫자 예시</h3>
+<p><strong>케이스 A — 균등 (Equal fields):</strong> <span class="arithmatex">\(Ez_1 = Ez_2 = 1.0\)</span> V/m</p>
+<div class="arithmatex">\[Ez_{env} = 2\min(1.0, 1.0) = 2.0 \, \text{V/m}\]</div>
+<p>포락선: 0 ↔ 2.0 V/m 사이를 10Hz로 진동 (완전 변조)</p>
+<p><strong>케이스 B — 불균등 (Unequal fields):</strong> <span class="arithmatex">\(Ez_1 = 1.5\)</span> V/m, <span class="arithmatex">\(Ez_2 = 0.5\)</span> V/m</p>
+<div class="arithmatex">\[Ez_{env} = 2\min(1.5, 0.5) = 1.0 \, \text{V/m}\]</div>
+<p>포락선: 1.0 ↔ 2.0 V/m 사이를 10Hz로 진동 (부분 변조)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>케이스 A</th>
+<th>케이스 B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(Ez_1\)</span></td>
+<td>1.0 V/m</td>
+<td>1.5 V/m</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(Ez_2\)</span></td>
+<td>1.0 V/m</td>
+<td>0.5 V/m</td>
+</tr>
+<tr>
+<td>포락선 세기</td>
+<td><strong>2.0 V/m</strong></td>
+<td>1.0 V/m</td>
+</tr>
+<tr>
+<td>자극 효율</td>
+<td>최대</td>
+<td>절반</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="76">7.6 왜 "더 약한 쪽 신호가 포락선 세기를 제한하는가"</h3>
+<p><strong>비유 — 줄다리기의 팽팽함</strong></p>
+<p>두 팀이 줄다리기를 합니다.</p>
+<ul>
+<li>10명 vs 10명: 줄이 양쪽으로 최대한 당겨짐 → <strong>최대 진폭</strong></li>
+<li>10명 vs 5명: 더 강한 팀 쪽으로 이미 치우침 → 5명이 당기는 힘만큼만 진동</li>
+</ul>
+<p>신경 자극에서도, 한 쪽 전기장이 너무 약하면 <strong>그 약한 쪽 신호가 포락선의 "깊이"를 제한</strong>합니다.<br />
+최적 자극을 위해서는 두 소스의 전기장이 신경 위치에서 <strong>동일한 세기</strong>가 되도록 전극 위치와 전류를 최적화해야 합니다.<br />
+이것이 바로 Kim et al. (2023)의 <strong>최적화 프레임워크</strong>의 핵심 목적입니다.</p>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>TIS 포락선 강도 <span class="arithmatex">\(Ez_{env} = 2\min(|Ez_1|, |Ez_2|)\)</span>로 결정되며, 더 약한 신호가 자극 세기를 제한한다. 두 소스의 전기장을 신경 위치에서 동일하게 최적화해야 최대 자극 효율을 얻는다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="8-tens-vs-tisict">8장. TENS vs TIS(ICT) 종합 비교</h2>
+<blockquote>
+<p><strong>이 장에서 배울 것:</strong> TENS와 TIS의 차이를 파라미터·시뮬레이션·실험 결과 수준에서 종합적으로 비교하고, TIS가 더 안전하고 효율적인 이유를 이해한다.</p>
+</blockquote>
+<h3 id="81">8.1 파라미터 비교표</h3>
+<table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>TENS</th>
+<th>TIS (ICT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>자극 주파수</td>
+<td>10 Hz</td>
+<td>10 Hz (포락선)</td>
+</tr>
+<tr>
+<td>반송 주파수</td>
+<td>—</td>
+<td>2,000 Hz + 2,010 Hz</td>
+</tr>
+<tr>
+<td>파형</td>
+<td>200 µs 사각파</td>
+<td>정현파 AM 변조</td>
+</tr>
+<tr>
+<td>전극 쌍 수</td>
+<td><strong>1 쌍</strong> (2개)</td>
+<td><strong>2 쌍</strong> (4개)</td>
+</tr>
+<tr>
+<td>인가 방식</td>
+<td>단일 소스</td>
+<td>2개의 독립 소스</td>
+</tr>
+<tr>
+<td>피부 임피던스 영향</td>
+<td><strong>높음</strong> (저주파에서 큼)</td>
+<td><strong>낮음</strong> (고주파에서 임피던스 감소)</td>
+</tr>
+<tr>
+<td>초점화 능력</td>
+<td>낮음 (넓게 퍼짐)</td>
+<td>높음 (심부에 집중)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="82">8.2 전기장 침투 효율 비교 (시뮬레이션 결과)</h3>
+<p>Lee et al. (2021), Rat 모델 시뮬레이션 결과:</p>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>TENS <span class="arithmatex">\(E_z\)</span></th>
+<th>ICT <span class="arithmatex">\(E_z\)</span></th>
+<th>ICT/TENS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>피부 근처</td>
+<td>높음 (낭비)</td>
+<td>낮음 (효율적)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tibial nerve (5mm 깊이)</td>
+<td>낮음</td>
+<td>높음</td>
+<td><strong>1.56배</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Lee et al. (2021), 인체 모델 결과:</p>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>TENS <span class="arithmatex">\(E_z\)</span></th>
+<th>ICT <span class="arithmatex">\(E_z\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>피부 근처</td>
+<td><strong>7.0 V/m</strong></td>
+<td>1.1 V/m</td>
+</tr>
+<tr>
+<td>Tibial nerve 위치</td>
+<td>0.62 V/m</td>
+<td><strong>0.85 V/m</strong></td>
+</tr>
+</tbody>
+</table>
+<p>피부 근처 대비 신경 위치의 비율:</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>피부 → 신경 감쇠</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TENS</td>
+<td>100% → <strong>20%</strong> (80% 소실)</td>
+</tr>
+<tr>
+<td>ICT</td>
+<td>100% → <strong>&gt;80%</strong> (20% 미만 소실)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="83-in-vivo">8.3 자극 역치 비교 (in vivo 실험 결과)</h3>
+<p>Lee et al. (2021), Rat in vivo (n=18 per group):</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>자극 역치 (V)</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TENS</td>
+<td><span class="arithmatex">\(10.7 \pm 3.80\)</span> V</td>
+<td>신경을 자극하려면 이만큼 전압 필요</td>
+</tr>
+<tr>
+<td>ICT</td>
+<td><span class="arithmatex">\(6.4 \pm 1.5\)</span> V</td>
+<td>더 적은 전압으로 자극 가능</td>
+</tr>
+<tr>
+<td><strong>비율</strong></td>
+<td>—</td>
+<td><strong>ICT가 1.67배 낮음</strong> (p &lt; 0.001)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>해석:</strong> ICT는 TENS보다 낮은 전압으로 신경을 자극할 수 있습니다.<br />
+즉, 피부에 가하는 에너지가 적어도 동일한 신경 자극 효과를 냅니다.</p>
+<hr />
+<h3 id="84-abcf-avv">8.4 방광 수축 빈도(aBCF)와 배뇨량(aVV) 변화</h3>
+<p>Lee et al. (2021), ICT-TNS in vivo 결과 (Rat, n=19 for aBCF, n=15 for aVV):</p>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>자극 전</th>
+<th>자극 후</th>
+<th>변화율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aBCF (방광 수축 빈도)</td>
+<td><span class="arithmatex">\(13.2 \pm 6.3\)</span> mC/s</td>
+<td><span class="arithmatex">\(11.1 \pm 5.7\)</span> mC/s</td>
+<td><strong>−16.8%</strong> (p&lt;0.001)</td>
+</tr>
+<tr>
+<td>aVV (배뇨량)</td>
+<td><span class="arithmatex">\(135 \pm 94\)</span> mg</td>
+<td><span class="arithmatex">\(178 \pm 14\)</span> mg</td>
+<td><strong>+7.38%</strong> (p&lt;0.01)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>임상적 의미:</strong>
+- <strong>aBCF 감소</strong> = 방광이 더 천천히 수축 → 빈뇨 증상 개선
+- <strong>aVV 증가</strong> = 한 번 배뇨 시 더 많이 배뇨 → 방광 용량 증가</p>
+<p>TENS와의 비교에서 ICT는 유사하거나 더 나은 생리적 효과를 보였습니다<br />
+(aBCF: ICT −12.7% vs TENS −11.0%, aVV: ICT +22% vs TENS +7.1%).</p>
+<hr />
+<h3 id="85-tis-tens">8.5 왜 TIS가 TENS보다 안전하고 효율적인가 — 종합 정리</h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────┐
+│                  왜 TIS가 더 우수한가?               │
+│                                                      │
+│  1. 고주파 반송파(2kHz)                              │
+│     → 피부 임피던스 감소                             │
+│     → 전기장이 피부에서 덜 소모됨                    │
+│     → 신경까지 더 강한 전기장 도달                  │
+│                                                      │
+│  2. 간섭(Interference) 기전                          │
+│     → 원하는 깊이에서만 포락선 생성                 │
+│     → 표면 자극 최소화 (피부 자극 부작용 감소)       │
+│                                                      │
+│  3. 전기장 초점화                                    │
+│     → tibial nerve 주변에 에너지 집중               │
+│     → 비표적 조직 자극 감소 (선택적 자극)            │
+│                                                      │
+│  결과: 더 적은 피부 에너지로 더 강한 신경 자극       │
+│  = 안전 + 효율                                       │
+└─────────────────────────────────────────────────────┘
+</code></pre></div>
+<p><strong>안전성 측면:</strong></p>
+<table>
+<thead>
+<tr>
+<th>위험 요인</th>
+<th>TENS</th>
+<th>TIS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>피부 발적(redness)</td>
+<td>높음</td>
+<td>낮음</td>
+</tr>
+<tr>
+<td>피부 화상 위험</td>
+<td>있음</td>
+<td>감소</td>
+</tr>
+<tr>
+<td>통증/불쾌감</td>
+<td>있음</td>
+<td>감소</td>
+</tr>
+<tr>
+<td>원인</td>
+<td>피부에 에너지 집중</td>
+<td>에너지가 심부로 분산</td>
+</tr>
+</tbody>
+</table>
+<p><strong>효율성 측면:</strong></p>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>TENS</th>
+<th>TIS</th>
+<th>우위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>신경 위치 E-field</td>
+<td>기준</td>
+<td><strong>1.56배 강함</strong></td>
+<td>TIS</td>
+</tr>
+<tr>
+<td>자극 역치</td>
+<td>10.7 V</td>
+<td><strong>6.4 V</strong></td>
+<td>TIS</td>
+</tr>
+<tr>
+<td>피부 근처 E-field</td>
+<td>높음</td>
+<td>낮음</td>
+<td>TIS (안전)</td>
+</tr>
+<tr>
+<td>신경/피부 비율</td>
+<td>20%</td>
+<td><strong>&gt;80%</strong></td>
+<td>TIS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><code>핵심 한 줄 요약</code>
+<strong>TIS(ICT)는 2kHz 고주파 반송파가 조직 임피던스를 낮추어 심부 침투를 가능하게 하고, 두 신호의 간섭으로 원하는 깊이에서만 10Hz 포락선을 생성한다. 그 결과 TENS 대비 E-field 1.56배, 역치 1.67배 효율적이며 피부 부작용은 훨씬 적다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="_2">전체 개념 연결 정리</h2>
+<div class="highlight"><pre><span></span><code>[전하] → [전기장 E = F/q] → [전압 φ] → [E = -∇φ]
+                                              ↓
+                              [Electroquasistatic 가정]
+                              (λ = 150km &gt;&gt; 인체 0.3m)
+                                              ↓
+                              [Laplace 방정식]
+                              ∇·[(σ+jωε)∇φ] = 0
+                                              ↓
+                    ┌─────────────────────────┤
+                    ↓                         ↓
+            [FEM 시뮬레이션]          [조직별 σ, ε]
+            (Kim et al. 2023)        (주파수 의존)
+                    ↓                         ↓
+            [E-field 분포]          [2kHz에서 σ↑]
+                    ↓                         ↓
+            [Ez: tibial nerve      [TIS 침투 효율↑]
+             방향 성분]                       ↓
+                    ↓              [포락선: 2min(Ez1,Ez2)]
+            [활동전위 자극]                   ↓
+                    └────────── [TENS vs TIS 비교] ──┘
+                                  E-field: 1.56배
+                                  역치: 1.67배 낮음
+                                  aBCF: -17%, aVV: +7%
+</code></pre></div>
+<hr />
+<h2 id="_3">수식 모음</h2>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>수식</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(\lambda = c/f = 3\times10^8 / 2000 = 150{,}000\,\text{m}\)</span></td>
+<td>2kHz EM 파장</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="arithmatex">\(\mathbf{E} = -\nabla\phi\)</span></td>
+<td>Electroquasistatic 전기장</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="arithmatex">\(\nabla\cdot[(\sigma+j\omega\varepsilon)\nabla\phi]=0\)</span></td>
+<td>Laplace 방정식</td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="arithmatex">\(\mathbf{J}=(\sigma+j\omega\varepsilon)\mathbf{E}\)</span></td>
+<td>전류 밀도</td>
+</tr>
+<tr>
+<td>5</td>
+<td><span class="arithmatex">\(Ez_{env}=2\min(\|Ez_1\|,\|Ez_2\|)\)</span></td>
+<td>TIS 포락선 (직관)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><span class="arithmatex">\(Ez_{env}=\|\|Ez_1+Ez_2\|-\|Ez_1-Ez_2\|\|\)</span></td>
+<td>TIS 포락선 (계산용)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><span class="arithmatex">\(f(z)=\frac{1}{r_i}\frac{\partial^2 V_e}{\partial z^2}\)</span></td>
+<td>활성화 함수</td>
+</tr>
+<tr>
+<td>8</td>
+<td><span class="arithmatex">\(\text{PR}=E_{target}/E_{total}\)</span></td>
+<td>최적화 지표 (Kim 2023)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">참고문헌</h2>
+<ol>
+<li>
+<p>Lee, J., Park, E., Kang, W., Kim, Y., Lee, K.-S., &amp; Park, S.-M. (2021). An efficient noninvasive neuromodulation modality for overactive bladder using time interfering current method. <em>IEEE Transactions on Biomedical Engineering</em>, 68(1), 214–224. https://doi.org/10.1109/TBME.2020.2995841</p>
+</li>
+<li>
+<p>Kim, E., Ye, E., Lee, J., Kim, T., Choi, D., Lee, K., &amp; Park, S. (2023). Optimization framework for temporal interference current tibial nerve stimulation in tibial nerves based on in-silico studies. <em>Applied Sciences</em>, 13, 2430. https://doi.org/10.3390/app13042430</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.sections", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
