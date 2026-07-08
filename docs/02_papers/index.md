@@ -4,7 +4,7 @@
 
 ## 파일 명명 규칙
 
-`YYYY_FirstAuthor_KeyWord.md` — 예: `2017_Grossman_TI_Cell.md`
+`YYYY_FirstAuthor_KeyWord.md` — 예: `2017_Grossman_NoninvasiveDeepBrain.md`
 
 ---
 
@@ -14,7 +14,7 @@
 
 | 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
 |------|------|------|----------|----------|
-| 2017 | Grossman et al. | *Cell* | **TI stimulation 최초 제안.** 두 고주파 전류(f₁, f₂=f₁+Δf) 간섭으로 심부 조직에 Δf envelope 생성. 생쥐 해마·소뇌를 비침습적으로 선택 자극 실증. | [DOI](https://doi.org/10.1016/j.cell.2017.05.024) · [요약](2017_Grossman_TI_Cell.md) |
+| 2017 | Grossman et al. | *Cell* | **TI stimulation 최초 제안.** 두 고주파 전류(f₁, f₂=f₁+Δf) 간섭으로 심부 조직에 Δf envelope 생성. 생쥐 해마·소뇌를 비침습적으로 선택 자극 실증. | [DOI](https://doi.org/10.1016/j.cell.2017.05.024) · [요약](2017_Grossman_NoninvasiveDeepBrain.md) |
 
 ---
 
@@ -22,8 +22,8 @@
 
 | 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
 |------|------|------|----------|----------|
-| 2019 | Rampersad et al. | *NeuroImage* | **인간 두부 FEM 시뮬레이션.** 해마·담창구·운동피질 타겟 전극 배치 최적화. tACS 대비 초점성 우수하나 전기장 강도 약함을 정량화. | [DOI](https://doi.org/10.1016/j.neuroimage.2019.116124) · [요약](2019_Rampersad_Computational_NeuroImage.md) |
-| 2020 | Mirzakhalili et al. | *Cell Systems* | **TI 생물물리학 분석.** 신경세포 모델로 phasic·tonic 반응 및 conduction block 등 다양한 신경 반응 클래스 체계적 분류. envelope 주파수와 자극 강도 상호작용 규명. | [DOI](https://doi.org/10.1016/j.cels.2020.10.004) · [요약](2020_Mirzakhalili_Biophysics_CellSystems.md) |
+| 2019 | Rampersad et al. | *NeuroImage* | **인간 두부 FEM 시뮬레이션.** 해마·담창구·운동피질 타겟 전극 배치 최적화. tACS 대비 초점성 우수하나 전기장 강도 약함을 정량화. | [DOI](https://doi.org/10.1016/j.neuroimage.2019.116124) |
+| 2020 | Mirzakhalili et al. | *Cell Systems* | **TI 생물물리학 분석.** 신경세포 모델로 phasic·tonic 반응 및 conduction block 등 다양한 신경 반응 클래스 체계적 분류. envelope 주파수와 자극 강도 상호작용 규명. | [DOI](https://doi.org/10.1016/j.cels.2020.10.004) |
 
 ---
 
@@ -31,12 +31,12 @@
 
 | 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
 |------|------|------|----------|----------|
-| 2022 | Zhang et al. | *Frontiers in Human Neuroscience* | **작업 기억 향상.** 우측 전두-두정 네트워크 TI 자극 → 2-back 과제 정확도 향상, 세타 oscillation 증가. 건강인 대상. | [DOI](https://doi.org/10.3389/fnhum.2022.918470) · [요약](2022_Zhang_WorkingMemory_Frontiers.md) |
-| 2023 | Violante et al. | *Nature Neuroscience* | **인간 해마 TI 자극 최초 실증.** 비침습적으로 해마 선택 자극, 기억·인지 기능 변조 확인. 인간 뇌 임상 적용 가능성을 연 landmark study. | [DOI](https://doi.org/10.1038/s41593-023-01456-8) · [요약](2023_Violante_Hippocampus_NatureNeuro.md) |
-| 2025 | Yang et al. | *Movement Disorders* | **파킨슨병 GPi 자극.** 우측 GPi 타겟 TI 자극 → UPDRS-III 감소, 서동증·진전 완화. 경증 PD 환자 12명, 단일 세션. | [DOI](https://doi.org/10.1002/mds.29967) · [요약](2025_Yang_GlobusPallidus_MovDisord.md) |
-| 2025 | Lamoš et al. | *Movement Disorders* | **파킨슨병 STN 베타 억제.** TI 자극으로 STN LFP 고베타 파워 감소 — 침습적 DBS와 유사 효과. DBS 이식 환자 sEEG 직접 검증. | [DOI](https://doi.org/10.1002/mds.30134) · [요약](2025_Lamos_STN_MovDisord.md) |
-| 2025 | (저자 확인 중) | *Brain Stimulation* | **뇌전증 해마 IED·HFO 억제.** MTLE 환자 13명, sEEG 기록. TI 자극 후 간질 바이오마커 유의미한 감소 + carry-over effect 확인. | [DOI](https://doi.org/10.1016/j.brs.2025.11.008) · [요약](2025_Epilepsy_Hippocampus_BrainStim.md) |
-| 2026 | Vassiliadis et al. | *Nature Biomedical Engineering* | **인간 심부 뇌 조절 Perspective.** 해마·선조체 등 심부 구조 tTIS 적용 현황 종합. 전산모델→동물→인간 번역 경로 논의. | [DOI](https://doi.org/10.1038/s41551-026-01665-z) · [요약](2026_Vassiliadis_Perspective_NatureBME.md) |
+| 2022 | Zhang et al. | *Frontiers in Human Neuroscience* | **작업 기억 향상.** 우측 전두-두정 네트워크 TI 자극 → 2-back 과제 정확도 향상, 세타 oscillation 증가. 건강인 대상. | [DOI](https://doi.org/10.3389/fnhum.2022.918470) |
+| 2023 | Violante et al. | *Nature Neuroscience* | **인간 해마 TI 자극 최초 실증.** 비침습적으로 해마 선택 자극, 기억·인지 기능 변조 확인. 인간 뇌 임상 적용 가능성을 연 landmark study. | [DOI](https://doi.org/10.1038/s41593-023-01456-8) · [요약](2023_Violante_NonInvasiveTemporal.md) |
+| 2025 | Yang et al. | *Movement Disorders* | **파킨슨병 GPi 자극.** 우측 GPi 타겟 TI 자극 → UPDRS-III 감소, 서동증·진전 완화. 경증 PD 환자 12명, 단일 세션. | [DOI](https://doi.org/10.1002/mds.29967) |
+| 2025 | Lamoš et al. | *Movement Disorders* | **파킨슨병 STN 베타 억제.** TI 자극으로 STN LFP 고베타 파워 감소 — 침습적 DBS와 유사 효과. DBS 이식 환자 sEEG 직접 검증. | [DOI](https://doi.org/10.1002/mds.30134) |
+| 2025 | (저자 확인 중) | *Brain Stimulation* | **뇌전증 해마 IED·HFO 억제.** MTLE 환자 13명, sEEG 기록. TI 자극 후 간질 바이오마커 유의미한 감소 + carry-over effect 확인. | [DOI](https://doi.org/10.1016/j.brs.2025.11.008) |
+| 2026 | Vassiliadis et al. | *Nature Biomedical Engineering* | **인간 심부 뇌 조절 Perspective.** 해마·선조체 등 심부 구조 tTIS 적용 현황 종합. 전산모델→동물→인간 번역 경로 논의. | [DOI](https://doi.org/10.1038/s41551-026-01665-z) |
 
 ---
 
@@ -44,8 +44,8 @@
 
 | 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
 |------|------|------|------|----------|----------|
-| 2022 | Sieu et al. | *Frontiers in Neuroscience* | 뇌전증 생쥐 | **해마 IED·FR 억제.** 카이닌산 간질 모델. TI(130 Hz) → FR·IED 감소, 생리적 리플 보존. 인간 시신 스케일링 검증. | [DOI](https://doi.org/10.3389/fnins.2022.945221) · [요약](2022_Sieu_Epilepsy_Mouse_FrontiersNeuro.md) |
-| 2025 | (확인 중) | *Scientific Reports* | 쥐 (운동피질) | **Envelope 주파수별 피질 흥분성 비교.** α/β/γ TI 자극 → β(20 Hz) 최대 MEP 증가. c-Fos·GAD-65 면역조직화학으로 타겟 특이성 확인. | [DOI](https://doi.org/10.1038/s41598-025-01008-z) · [요약](2025_Rat_MotorCortex_SciRep.md) |
+| 2022 | Sieu et al. | *Frontiers in Neuroscience* | 뇌전증 생쥐 | **해마 IED·FR 억제.** 카이닌산 간질 모델. TI(130 Hz) → FR·IED 감소, 생리적 리플 보존. 인간 시신 스케일링 검증. | [DOI](https://doi.org/10.3389/fnins.2022.945221) |
+| 2025 | (확인 중) | *Scientific Reports* | 쥐 (운동피질) | **Envelope 주파수별 피질 흥분성 비교.** α/β/γ TI 자극 → β(20 Hz) 최대 MEP 증가. c-Fos·GAD-65 면역조직화학으로 타겟 특이성 확인. | [DOI](https://doi.org/10.1038/s41598-025-01008-z) |
 
 ---
 
@@ -53,8 +53,8 @@
 
 | 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
 |------|------|------|------|----------|----------|
-| 2024 | Liu et al. | *NeuroImage* | 히말라야원숭이 (마취) | **심부 전기장 직접 계측.** SEEG로 TI 전기장 실측 → FEM 시뮬레이션 검증(r>0.85). 안전 전류 내 신경 조절 역치 도달 확인. | [DOI](https://doi.org/10.1016/j.neuroimage.2024.120581) · [요약](2024_Liu_NHP_NeuroImage.md) |
-| 2024 | Vieira et al. | *Nature Communications* | 히말라야원숭이 (각성) | **스파이크 타이밍 변조.** 각성 원숭이 피질 단일 신경세포 기록. Firing rate 아닌 spike timing이 Δf에 phase-lock → TI 작용 메커니즘 규명. | [DOI](https://doi.org/10.1038/s41467-024-48962-2) · [요약](2024_Vieira_NHP_NatComm.md) |
+| 2024 | Liu et al. | *NeuroImage* | 히말라야원숭이 (마취) | **심부 전기장 직접 계측.** SEEG로 TI 전기장 실측 → FEM 시뮬레이션 검증(r>0.85). 안전 전류 내 신경 조절 역치 도달 확인. | [DOI](https://doi.org/10.1016/j.neuroimage.2024.120581) |
+| 2024 | Vieira et al. | *Nature Communications* | 히말라야원숭이 (각성) | **스파이크 타이밍 변조.** 각성 원숭이 피질 단일 신경세포 기록. Firing rate 아닌 spike timing이 Δf에 phase-lock → TI 작용 메커니즘 규명. | [DOI](https://doi.org/10.1038/s41467-024-48962-2) |
 
 ---
 
@@ -73,10 +73,10 @@
 
 | 연도 | 저자 | 저널 | 키워드 | 핵심 내용 | 바로가기 |
 |------|------|------|--------|----------|----------|
-| 2019 | Zhu et al. | *IEEE Access* | MTI, multi-point, multi-frequency | **다중 지점 동시 자극 최초 제안.** 각 전극에 서로 다른 주파수 할당 → n개 간섭 지점 독립 제어. FEM·팬텀 검증. | [DOI](https://doi.org/10.1109/ACCESS.2019.2947857) · [요약](2019_Zhu_MultiPoint_IEEEAccess.md) |
-| 2023 | Xu et al. | *bioRxiv → Cell Systems(2026)* | multipair, antiphase, phase-modulation, fMRI | **Antiphase 전극으로 초점성 향상 + fMRI 동시.** 3쌍 전극 중 1쌍 180° 위상 → off-target 상쇄. PFC 신경·혈역학 반응 동시 검증. | [preprint](https://doi.org/10.1101/2023.12.21.571679) · [게재본](https://doi.org/10.1016/j.cels.2026.101610) · [요약](2026_Xu_Multipair_CellSystems.md) |
-| 2024 | Acerbo et al. | *bioRxiv (preprint)* | single-pulse, temporal focality, multipolar, epilepsy | **단일펄스 다극 TI — 시간·공간 초점성 동시 향상.** 연속파 대신 단일펄스 carrier → 자극 시점 정밀 제어. 뇌전증 마우스 IED·HFO 억제. | [DOI](https://doi.org/10.1101/2024.01.11.575301) · [요약](2024_Acerbo_SinglePulse_bioRxiv.md) |
-| 2025 | Botzanowski et al. | *Bioelectronic Medicine* | mTI, multipolar, focality-intensity decoupling, NHP, rodent | **초점성-강도 독립 제어 최초 실증.** mTI(다중 carrier)로 자극 영역 크기와 강도 분리 제어. NHP·설치류 생체 검증. | [DOI](https://doi.org/10.1186/s42234-025-00169-6) · [요약](2025_Botzanowski_Multipolar_BioelectronicMed.md) |
+| 2019 | Zhu et al. | *IEEE Access* | MTI, multi-point, multi-frequency | **다중 지점 동시 자극 최초 제안.** 각 전극에 서로 다른 주파수 할당 → n개 간섭 지점 독립 제어. FEM·팬텀 검증. | [DOI](https://doi.org/10.1109/ACCESS.2019.2947857) |
+| 2023 | Xu et al. | *bioRxiv → Cell Systems(2026)* | multipair, antiphase, phase-modulation, fMRI | **Antiphase 전극으로 초점성 향상 + fMRI 동시.** 3쌍 전극 중 1쌍 180° 위상 → off-target 상쇄. PFC 신경·혈역학 반응 동시 검증. | [preprint](https://doi.org/10.1101/2023.12.21.571679) · [게재본](https://doi.org/10.1016/j.cels.2026.101610) |
+| 2024 | Acerbo et al. | *bioRxiv (preprint)* | single-pulse, temporal focality, multipolar, epilepsy | **단일펄스 다극 TI — 시간·공간 초점성 동시 향상.** 연속파 대신 단일펄스 carrier → 자극 시점 정밀 제어. 뇌전증 마우스 IED·HFO 억제. | [DOI](https://doi.org/10.1101/2024.01.11.575301) |
+| 2025 | Botzanowski et al. | *Bioelectronic Medicine* | mTI, multipolar, focality-intensity decoupling, NHP, rodent | **초점성-강도 독립 제어 최초 실증.** mTI(다중 carrier)로 자극 영역 크기와 강도 분리 제어. NHP·설치류 생체 검증. | [DOI](https://doi.org/10.1186/s42234-025-00169-6) |
 
 ---
 
@@ -104,6 +104,7 @@
 
 | 연도 | 저자 | 저널 | 대상 | 핵심 내용 | 바로가기 |
 |------|------|------|------|----------|----------|
+| 2017 | De Wall et al. | *Res Rep Urol* | OAB 환자 | **PTNS OAB 효과·내구성 종합.** 경피 경골신경 자극의 유효성·안전성·장기 유지 근거 정리. TIS 대조 기준. | [DOI](https://doi.org/10.2147/RRU.S124981) · [요약](2017_DeWall_EffectivenessPercutaneousTibial.md) |
 | 2020 | Bycroft et al. | *Toxins* (MDPI) | OAB 환자 (RCT NMA) | **3차 치료 네트워크 메타분석.** BoNT-A > SNM > PTNS 효능 순위. PTNS 안전 프로파일 최우수. TIS 임상 목표치 제공. | [DOI](https://doi.org/10.3390/toxins12020128) · [요약](2020_Bycroft_NetworkMeta_PTNS_SNM_Toxins.md) |
 | 2023 | (저자 확인 중) | *Frontiers in Neuroscience* | OAB 반응군 18명 | **fNIRS 뇌 활동 측정.** TTNS 중 전전두피질 활성화 확인 → 중추 조절 메커니즘 직접 증거. | [DOI](https://doi.org/10.3389/fnins.2023.1115433) · [요약](2023_Li_fNIRS_Brain_Frontiers.md) |
 | 2024 | Wöllner et al. | *Neurourology and Urodynamics* | 건강인 자원자 | **fMRI 뇌 연결성.** TTNS 급성 자극 → 감각운동피질·도엽·대상회 활성화. 중추 작용 기전 공간 정밀 규명. | [DOI](https://doi.org/10.1002/nau.25293) · [요약](2024_Wollner_fMRI_Brain_NUD.md) |
@@ -120,6 +121,23 @@
 
 ---
 
+### Category 9: 말초신경·경골신경 TIS 적용 *(nTIS 직접 선행연구)*
+
+> TI stimulation을 뇌가 아닌 **말초·경골신경**에 적용한 연구 흐름. 본 연구(경골신경 nTIS)의 가장 가까운 선행 영역이며, 기전 논쟁(envelope vs. 순간 진폭)이 핵심 쟁점이다.
+
+| 연도 | 저자 | 저널 | 핵심 내용 | 바로가기 |
+|------|------|------|----------|----------|
+| 2021 | Lee et al. | *IEEE TBME* | **경골신경 TIS(ICT)로 OAB 조절 최초.** Rat in vivo — TENS 대비 자극 역치 1.67배 낮음, 방광 수축 빈도 감소. 인체·Rat FEM 병행. | [DOI](https://doi.org/10.1109/TBME.2020.2995841) · [요약](2021_Lee_EfficientNoninvasiveNeuromodulation.md) |
+| 2021 | Sunshine et al. | *Communications Biology* | **횡격막신경 TIS로 호흡 회복.** 오피오이드 과용·척수손상 모델에서 TI 자극 → 횡격막 활성·호흡 복원. 말초 운동신경 TIS 실증. | [DOI](https://doi.org/10.1038/s42003-020-01604-x) · [요약](2021_Sunshine_Phrenic_TIS_CommBiol.md) |
+| 2022 | Botzanowski et al. | *Adv. Healthcare Materials* | **말초신경(좌골) 비침습 TIS 최초 실증.** 유연 다전극 배열, 낮은 전류로 심부 신경 활성화(활성화 역치 350 µA). | [DOI](https://doi.org/10.1002/adhm.202200075) · [요약](2022_Botzanowski_Peripheral_TIS_AdvHM.md) |
+| 2023 | Kim et al. | *Applied Sciences* | **경골신경 TIS FEM 최적화 프레임워크.** 인체 MRI 기반 in-silico 전극 배치 최적화, 심부/표면 전기장 비 향상. in vivo 미검증. | [DOI](https://doi.org/10.3390/app13042430) · [요약](2023_Kim_OptimizationFrameworkTemporal.md) |
+| 2023 | Budde et al. | *J. Neural Engineering* | **말초신경 TIS ≠ envelope extraction.** 막 시간상수가 짧아 캐리어(kHz) 자체에 직접 반응 → 설계 원칙 재정의(peak amplitude 제어). | [DOI](https://doi.org/10.1088/1741-2552/acbf8f) · [요약](2023_Budde_TIS_Not_Envelope_JNE.md) |
+| 2025 | Opančar et al. | *Nature Communications* | **Budde 2023 재확인.** 말초신경 TIS와 직접 kHz 자극이 동일 생물물리 기전임을 규명 → 말초 TIS 공간 선택성 재검토. | [DOI](https://doi.org/10.1038/s41467-025-64059-w) · [요약](2025_Opancar_TIS_kHz_NatComm.md) |
+| 2025 | Meng et al. | *J. Neuroscience Methods* | **TIS envelope 전기장 방향성.** envelope E-field가 해마 장축에 수직 → 자극 효율이 신경 주행 방향과의 각도에 의존. | [DOI](https://doi.org/10.1016/j.jneumeth.2025.110416) · [요약](2025_Meng_DirectionTisEnvelope.md) |
+| 2025 | Zanos et al. | *Nature Communications* | **i²CS 미주신경 장기특이 섬유 제어.** 침습 interferential(간섭) 전류로 돼지 미주신경의 장기별 섬유를 시공간 선택 활성화. 간섭 자극의 섬유 선택성 근거. | [DOI](https://doi.org/10.1038/s41467-025-59595-4) · [요약](2025_Zanos_i2CS_Vagus_NatComm.md) |
+
+---
+
 ## 논문 추가 방법
 
 새 논문 추가 시:
@@ -128,4 +146,5 @@
 
 ---
 
-*Last updated: 2026-06-17 | 총 29편 (Foundational 1 · Computational 2 · Human 6 · Rodent 2 · NHP 2 · Reviews 2 · n-phase 4 · **TN-OAB 10**)*
+*Last updated: 2026-07-09 | 상세 요약 노트 보유 논문은 각 행의 [요약] 링크 참조 (좌측 사이드바에서도 전체 목록 자동 노출). [요약] 링크가 없는 항목은 표 내 요약만 제공되며 상세 노트는 추후 작성 예정.*
+*카테고리: Foundational · Computational · Human · Rodent · NHP · Reviews · n-phase · TN-OAB · **말초/경골 TIS 적용(Cat 9)***
