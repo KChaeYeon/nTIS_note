@@ -2641,27 +2641,36 @@
 
 
 <h1 id="meng-2025-direction-of-tis-envelope-electric-field-perpendicular-to-the-longitudinal-axis-of-the-hippocampus">Meng 2025 — Direction of TIS envelope electric field: Perpendicular to the longitudinal axis of the hippocampus</h1>
-<p><strong>Citation:</strong> Meng et al. (2025). <em>Direction of TIS envelope electric field: Perpendicular to the longitudinal axis of the hippocampus</em>. Journal of Neuroscience Methods. DOI: <a href="https://doi.org/10.1016/j.jneumeth.2025.110416">10.1016/j.jneumeth.2025.110416</a></p>
+<p><strong>Citation:</strong> Meng et al. Direction of TIS envelope electric field: Perpendicular to the longitudinal axis of the hippocampus. <em>Journal of Neuroscience Methods</em> 2025;423:110416. DOI: <a href="https://doi.org/10.1016/j.jneumeth.2025.110416">10.1016/j.jneumeth.2025.110416</a></p>
 <blockquote>
-<p>⚙️ <em>이 노트는 Zotero <code>Stimulation</code> 컬렉션에서 자동 생성된 스텁이다 (<code>scripts/sync_zotero_papers.py</code>). 아래 분석 항목은 초록 기반 초안이므로 정독 후 보강할 것.</em></p>
+<p>TIS 연구에서 소홀했던 <strong>전기장의 방향성</strong>(세기 아닌)을 정량 분석한 방법론 논문. 자극장 축 정렬이 효율을 좌우한다는 nTIS 설계 근거.</p>
 </blockquote>
 <hr />
 <h2 id="abstract">초록 (Abstract)</h2>
-<p>Background: Temporal Interference Stimulation (TIS) is a non-invasive approach to deep brain stimulation. However, most research has focused on the intensity of modulation, with limited attention given to the directional properties of the induced electric fields, despite their potential importance for precise stimulation. New methods: A novel analytical framework was developed to analyze TIS-induced electric field directions using individual imaging data. For each voxel, the direction corresponding to the maximal modulation depth was calculated. The consistency of these directions within regions of interest (ROIs) and their alignment with the ROI principal axes, derived from principal component analysis (PCA), were assessed.
-Results: Simulations revealed complex spatial and temporal trajectories of the electric field at the voxel level. In the left putamen, the maximal modulation depth reached 0.241 ± 0.041 V/m, whereas in the target region, the left hippocampus, it was lower (0.15 ± 0.032 V/m). Notably, in the left hippocampus, the directions of maximal modulation depth were predominantly perpendicular to its longitudinal axis (84.547 ± 8.776◦), reflecting structural specificity across its anterior, middle, and posterior regions.
-Comparison with existing methods: Unlike previous approaches, this study integrates directional analysis into TIS modeling, providing a foundation for precise stimulation by exploring structural alignment.
-Conclusion: Our analysis revealed that the orientations of maximal modulation depth in the left hippocampus were perpendicular to its longitudinal axis under the current electrode configuration, but they shifted to parallel alignment when the electrode pairs were swapped. This directional specificity offers insights for optimizing TIS by aligning with structural features, presenting a potential strategy to enhance stimulation precision and broaden its clinical and research applications.</p>
+<p>Background: Temporal Interference Stimulation (TIS) is a non-invasive approach to deep brain stimulation. However, most research has focused on the intensity of modulation, with limited attention given to the directional properties of the induced electric fields, despite their potential importance for precise stimulation. New methods: A novel analytical framework was developed to analyze TIS-induced electric field directions using individual imaging data. For each voxel, the direction corresponding to the maximal modulation depth was calculated. The consistency of these directions within regions of interest (ROIs) and their alignment with the ROI principal axes, derived from principal component analysis (PCA), were assessed. Results: Simulations revealed complex spatial and temporal trajectories of the electric field at the voxel level. In the left putamen, the maximal modulation depth reached 0.241 ± 0.041 V/m, whereas in the target region, the left hippocampus, it was lower (0.15 ± 0.032 V/m). Notably, in the left hippocampus, the directions of maximal modulation depth were predominantly perpendicular to its longitudinal axis (84.547 ± 8.776°). Conclusion: The orientations of maximal modulation depth in the left hippocampus were perpendicular to its longitudinal axis under the current electrode configuration, but shifted to parallel alignment when the electrode pairs were swapped.</p>
 <hr />
 <h2 id="_1">연구 질문</h2>
-<p>(보강 필요)</p>
+<p>TIS 유도 전기장의 <strong>방향</strong>(단순 세기가 아닌)이 표적 구조의 형태(주축)와 어떻게 정렬되며, 전극 구성으로 이를 제어할 수 있는가?</p>
 <h2 id="_2">방법</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>개인 영상 기반 분석 프레임워크: voxel마다 <strong>최대 변조깊이(maximal modulation depth) 방향</strong> 계산</li>
+<li>ROI 내 방향 일관성 + <strong>PCA 주축과의 정렬각</strong> 평가</li>
+<li>전극쌍 구성(기본 vs swap) 비교</li>
+</ul>
 <h2 id="_3">주요 결과</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>좌 피각(putamen) 최대 변조깊이 <strong>0.241 ± 0.041 V/m</strong>, 표적인 좌 해마는 더 낮음 <strong>0.15 ± 0.032 V/m</strong></li>
+<li>좌 해마에서 최대 변조 방향이 <strong>장축에 대체로 수직(84.5 ± 8.8°)</strong> — 전-중-후 구역별 구조 특이성</li>
+<li><strong>전극쌍을 교환하면 방향이 평행으로 전환</strong> → 전극 구성으로 자극장 방향 제어 가능(상관적)</li>
+</ul>
 <h2 id="_4">한계점</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>시뮬레이션(in-silico)만 — 방향과 실제 신경 발화 효율의 인과 관계 미검증</li>
+<li>특정 전극 구성·해마 표적에 한정</li>
+<li>뉴런 배향(축삭 방향)과 전기장 방향의 상호작용 모델 부재</li>
+</ul>
 <h2 id="ntis">관련 연구 갭 (nTIS)</h2>
-<p>(보강 필요 — <code>docs/03_gaps/gap_analysis.md</code> 연결)</p>
+<p>경골신경은 축(z) 방향으로 주행하고 신경은 <strong>주행축 평행 전기장(<span class="arithmatex">\(E_z\)</span>)에 민감</strong>하다(<a href="../../01_theory/05_EM_physics_FEM/">전자기 물리·FEM</a>). 본 논문의 방향성 분석은 nTIS에서 <strong>자극장 방향을 경골신경 축에 정렬</strong>시키는 전극·위상 설계의 정량 근거를 제공한다(n-phase의 방향 제어 이점과 직접 연결).</p>
 
 
 

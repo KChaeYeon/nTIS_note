@@ -2641,24 +2641,36 @@
 
 
 <h1 id="grossman-2017-noninvasive-deep-brain-stimulation-via-temporally-interfering-electric-fields">Grossman 2017 — Noninvasive Deep Brain Stimulation via Temporally Interfering Electric Fields</h1>
-<p><strong>Citation:</strong> Grossman et al. (2017). <em>Noninvasive Deep Brain Stimulation via Temporally Interfering Electric Fields</em>. Cell. DOI: <a href="https://doi.org/10.1016/j.cell.2017.05.024">10.1016/j.cell.2017.05.024</a></p>
+<p><strong>Citation:</strong> Grossman N, Bono D, Dedic N, et al. Noninvasive Deep Brain Stimulation via Temporally Interfering Electric Fields. <em>Cell</em> 2017;169(6):1029–1041. DOI: <a href="https://doi.org/10.1016/j.cell.2017.05.024">10.1016/j.cell.2017.05.024</a></p>
 <blockquote>
-<p>⚙️ <em>이 노트는 Zotero <code>Stimulation</code> 컬렉션에서 자동 생성된 스텁이다 (<code>scripts/sync_zotero_papers.py</code>). 아래 분석 항목은 초록 기반 초안이므로 정독 후 보강할 것.</em></p>
+<p>TI stimulation 개념을 최초로 제안·실증한 landmark 논문. nTIS 연구의 원리적 출발점.</p>
 </blockquote>
 <hr />
 <h2 id="abstract">초록 (Abstract)</h2>
-<p>We report a noninvasive strategy for electrically stimulating neurons at depth. By delivering to the brain multiple electric ﬁelds at frequencies too high to recruit neural ﬁring, but which differ by a frequency within the dynamic range of neural ﬁring, we can electrically stimulate neurons throughout a region where interference between the multiple ﬁelds results in a prominent electric ﬁeld envelope modulated at the difference frequency. We validated this temporal interference (TI) concept via modeling and physics experiments, and veriﬁed that neurons in the living mouse brain could follow the electric ﬁeld envelope. We demonstrate the utility of TI stimulation by stimulating neurons in the hippocampus of living mice without recruiting neurons of the overlying cortex. Finally, we show that by altering the currents delivered to a set of immobile electrodes, we can steerably evoke different motor patterns in living mice.</p>
+<p>We report a noninvasive strategy for electrically stimulating neurons at depth. By delivering to the brain multiple electric fields at frequencies too high to recruit neural firing, but which differ by a frequency within the dynamic range of neural firing, we can electrically stimulate neurons throughout a region where interference between the multiple fields results in a prominent electric field envelope modulated at the difference frequency. We validated this temporal interference (TI) concept via modeling and physics experiments, and verified that neurons in the living mouse brain could follow the electric field envelope. We demonstrate the utility of TI stimulation by stimulating neurons in the hippocampus of living mice without recruiting neurons of the overlying cortex. Finally, we show that by altering the currents delivered to a set of immobile electrodes, we can steerably evoke different motor patterns in living mice.</p>
 <hr />
 <h2 id="_1">연구 질문</h2>
-<p>(보강 필요)</p>
+<p>수술·이식 없이(비침습) 두피 전극만으로, 표면 조직을 자극하지 않으면서 <strong>심부 뉴런을 선택적으로</strong> 활성화할 수 있는가?</p>
 <h2 id="_2">방법</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>주파수가 근소하게 다른 두 kHz 전기장(<span class="arithmatex">\(f_1\)</span>, <span class="arithmatex">\(f_2\)</span>, <span class="arithmatex">\(\Delta f = |f_1-f_2|\)</span>이 신경 발화 대역) 동시 인가</li>
+<li>검증 3단계: (1) 전기장 모델링, (2) 물리(팬텀) 실험, (3) 마취 생쥐 in vivo — 전기생리 기록 + c-Fos 면역염색으로 활성 뉴런 위치 확인</li>
+<li>steering: 고정된 전극 세트의 전류 비율만 바꿔 자극 초점 이동</li>
+</ul>
 <h2 id="_3">주요 결과</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>두 kHz 장의 간섭 영역에서 <span class="arithmatex">\(\Delta f\)</span>로 변조된 <strong>envelope</strong>이 생성되고, 생쥐 뉴런이 이 envelope을 따라 발화함(상관적 관찰)</li>
+<li><strong>해마 뉴런을 선택적으로 활성화하면서 상부 피질 뉴런은 동원하지 않음</strong> — 심부 선택성 실증</li>
+<li>전류 비율 조절만으로 서로 다른 운동 패턴을 유발(전극 이동 없는 소프트웨어 steering)</li>
+</ul>
 <h2 id="_4">한계점</h2>
-<p>(보강 필요)</p>
+<ul>
+<li>마취 생쥐 모델 — 각성·행동 상태 미검증</li>
+<li>소동물 스케일: 인체는 두개골·조직 두께·전기장 감쇠가 크게 달라 그대로 외삽 불가</li>
+<li>"신경이 envelope을 추출한다"는 전제는 이후 <strong>말초신경에서 반박됨</strong>(<a href="../2023_Budde_TIS_Not_Envelope_JNE/">2023_Budde_TIS_Not_Envelope_JNE</a>, <a href="../2025_Opancar_TIS_kHz_NatComm/">2025_Opancar_TIS_kHz_NatComm</a>) — 뇌(긴 막 시간상수)와 말초(짧은 막 시간상수)의 기전 차이 주의</li>
+</ul>
 <h2 id="ntis">관련 연구 갭 (nTIS)</h2>
-<p>(보강 필요 — <code>docs/03_gaps/gap_analysis.md</code> 연결)</p>
+<p>nTIS의 이론적 토대. 다만 (1) <strong>인체 스케일</strong> 검증, (2) <strong>말초·경골신경</strong> 적용, (3) 말초에서의 실제 활성화 기전(envelope vs. 순간 진폭)은 별도 갭으로 남으며, 이는 <a href="../2021_Lee_EfficientNoninvasiveNeuromodulation/">2021_Lee_EfficientNoninvasiveNeuromodulation</a>·<a href="../2023_Kim_OptimizationFrameworkTemporal/">2023_Kim_OptimizationFrameworkTemporal</a> 및 <code>03_gaps/gap_analysis.md</code>의 G-TN1~G-TN3로 이어진다.</p>
 
 
 
