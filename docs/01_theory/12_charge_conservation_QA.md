@@ -79,7 +79,38 @@ $r$이 커질수록 $E(r)$는 $1/r$로 줄어든다 — "저항이 커져서 전
 
 **결론**: "전극을 기준으로 폐곡선을 그리면, 폐곡선에서 전류밀도($=\sigma \times$ 전기장)의 크기와 방향을 적분했을 때 인가전류(예: 1 mA)가 된다. 전기장($E$)만 적분하면 인가전류를 $\sigma$로 나눈 값이 나온다." COMSOL CSV(Ex, Ey)만으로는 "이 지점에 전류가 얼마나 세게 흐르는지"를 바로 말할 수 없고, 반드시 조직 $\sigma$를 곱해야 실제 전류밀도($J$)가 나온다는 뜻이다.
 
+## Q7. 폐곡선을 유한개 점으로 나눠 적분할 때, "균일 각도분할 + Riemann sum"은 뭔가?
+
+적분은 원래 무한히 잘게 쪼갠 극한값이지만, 수치적으로는 유한개 조각으로 근사할 수밖에 없다:
+
+$$\oint_C f(\theta)\, d\theta \;\approx\; \sum_i f(\theta_i)\,\Delta\theta_i$$
+
+`efield_map_viewer_ver2.m`의 `compute_circle_current`는 $\theta_i = -\pi + i\cdot\Delta\theta$, $\Delta\theta = 2\pi/n_\theta$로 **폭이 전부 같은** 조각을 쓴다(균일 각도분할). 각 조각에서
+
+$$\Delta I_{\text{line}}(\theta_i) = \big(\vec{J}(\theta_i)\cdot\hat n(\theta_i)\big)\cdot (R\,\Delta\theta)$$
+
+를 계산해 다 더한 게 Riemann sum이다.
+
+**왜 이 방식이 특히 잘 맞는가**: 피적분함수 $J\cdot\hat n$은 $\theta$에 대해 주기함수($\theta=-\pi$와 $\pi$가 같은 점)다. 주기함수를 등간격으로 나눠 사다리꼴합(trapezoidal rule)을 적용하면 — 일반적인(비주기) 함수보다 훨씬 빠르게, 매끄러운 구간에서는 오차가 지수적으로 줄어든다(Euler–Maclaurin 공식에서 경계항이 정확히 상쇄되기 때문). $n_\theta = 720$(0.5° 간격) 정도면 이 적분 자체의 오차는 사실상 무시할 수준이며, 실제 오차원은 Q8의 보간 오차 쪽이다.
+
+## Q8. Mesh 노드값이 아니라 보간(scatteredInterpolant)한 값으로 적분해도 괜찮은가?
+
+**괜찮고, 오히려 그래야만 한다.**
+
+1. **폐곡선(원)이 mesh 노드를 지나지 않는다.** 원 둘레의 표본점 좌표가 COMSOL mesh 노드와 정확히 일치할 확률은 사실상 0이다. "노드값만 쓰는" 선택지는 반지름 $R$을 자유롭게 통제할 수 없게 만들어(mesh 삼각형 변을 따라가는 울퉁불퉁한 경로가 됨) Q2의 "전극 하나만 감싸는 임의의 곡선" 요구조건과 충돌한다.
+2. **FEM 해 자체가 이미 보간(연속함수)이다.** COMSOL은 $V(x,y) = \sum_k N_k(x,y)\,V_k$($N_k$: shape function) 형태로 요소 내부 전체에 정의된 연속장을 계산하고, 노드값은 그 저장 형태일 뿐이다. `scatteredInterpolant('linear')`는 노드값으로 Delaunay 삼각분할을 만들어 이 FEM 선형보간과 사실상 같은 방식으로 임의 위치의 값을 재구성한다 — 없는 값을 지어내는 게 아니라, FEM이 정의한 연속장을 노드가 아닌 곳에서 평가하는 것이다. COMSOL 자체도 "Cut Point"·boundary probe로 값을 뽑을 때 내부적으로 동일한 작업을 한다.
+
+**오차의 두 원천 구분:**
+
+| 오차 종류 | 원인 | 특징 |
+|---|---|---|
+| ① FEM 이산화 오차 | 유한 mesh로 연속 PDE를 근사(원래부터 존재) | mesh 촘촘히 하면 감소, 후처리로 제거 불가 |
+| ② 재구성 보간 오차 | COMSOL이 실제 쓴 shape function 차수(1차/2차)와 `scatteredInterpolant('linear')`가 다를 수 있음 | COMSOL이 2차 요소를 썼다면 선형 재보간은 한 단계 낮은 차수 근사 — 다만 $\vec E=-\nabla V$는 $V$가 2차여도 요소 내부에서 이미 선형이라 실전 오차는 대개 작음 |
+
+**"객관적으로 문제없다"의 실증적 근거**: $R$을 바꿔도 $I_{\text{total}}$이 1 mA 근처에서 거의 안 움직인다는 것 자체가, ①+② 오차가 요구 정밀도(연구용으로 보통 수 % 이내) 안에 들어와 있다는 증거다. 이론적으로 "보간해도 되는가"를 따지기보다, 코드에 이미 있는 $R$-스윕 불변성 체크(Q1의 전하보존 검증)가 이 두 오차의 실제 크기를 실시간으로 드러내는 도구다 — 전극 근처에서 mesh가 성기거나 요소 차수 불일치가 크면, $R$을 줄일 때 $I_{\text{total}}$이 1 mA에서 벗어나는 형태로 반드시 나타난다.
+
 ## 관련 갭/다음 단계
 
 - 실제 뇌/신경 조직처럼 $\sigma$가 위치마다 다른(비등방성) 매질에서는 $J$와 $E$의 방향이 어긋날 수 있음 — 다음 학습 단계로 연결
-- `docs/05_Code/Simulation/efield_map_viewer.m`의 `compute_AM` 스텁 구현 시, 이 노트의 $J=\sigma E$ 관계가 Grossman 2017 AM 공식의 전제와 일치하는지 확인 필요
+- `docs/05_Code/Simulation/efield_map_viewer_ver2.m`의 `compute_AM` 스텁 구현 시, 이 노트의 $J=\sigma E$ 관계가 Grossman 2017 AM 공식의 전제와 일치하는지 확인 필요
+- $R$을 아주 작은 값부터 스윕하며 $I_{\text{total}}(R)$이 안정되는 구간(plateau)을 찾아, mesh refine이 필요한 $R$ 임계값을 실험적으로 확인 — COMSOL에서 전극 근처 mesh를 refine했을 때 그 plateau가 더 작은 $R$까지 넓어지는지 검증하는 후속 실험으로 연결
