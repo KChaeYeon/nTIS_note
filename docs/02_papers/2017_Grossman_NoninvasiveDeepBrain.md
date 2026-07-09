@@ -36,4 +36,4 @@ We report a noninvasive strategy for electrically stimulating neurons at depth. 
 
 ## 관련 연구 갭 (nTIS)
 
-nTIS의 이론적 토대. 다만 (1) **인체 스케일** 검증, (2) **말초·경골신경** 적용, (3) 말초에서의 실제 활성화 기전(envelope vs. 순간 진폭)은 별도 갭으로 남으며, 이는 [2021_Lee_EfficientNoninvasiveNeuromodulation](2021_Lee_EfficientNoninvasiveNeuromodulation.md)·[2023_Kim_OptimizationFrameworkTemporal](2023_Kim_OptimizationFrameworkTemporal.md) 및 `03_gaps/gap_analysis.md`의 G-TN1~G-TN3로 이어진다.
+nTIS의 이론적 토대. 다만 (1) **인체 스케일** 검증, (2) **말초·경골신경** 적용, (3) 말초에서의 실제 활성화 기전(envelope vs. 순간 진폭)은 별도 갭으로 남으며, 이는 [2021_Lee_EfficientNoninvasiveNeuromodulation](2021_Lee_EfficientNoninvasiveNeuromodulation.md)·[2023_Kim_OptimizationFrameworkTemporal](2023_Kim_OptimizationFrameworkTemporal.md) 및 `01_theory/13_research_gaps.md`의 G-TN1~G-TN3로 이어진다.

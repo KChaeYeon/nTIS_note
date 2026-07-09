@@ -11,27 +11,34 @@
 A → B → C → D 순서로 진행:
 - **A. Theory**: 원리, 수식, 전기장 모델 정리 ✅
 - **B. Research Gaps**: 선행연구 체계적 정리 → 미해결 문제 목록 ✅
-- **C. Proposal**: 연구 주제 선정 → 연구 질문·방법론 확정 (진행 중)
-- **D. Execution**: 실험 설계·수행·논문 작성
+- **C. Proposal**: 연구 주제 선정 → 경골신경 TIS in vivo Rat OAB 확정 ✅ (2026-06-16)
+- **D. Execution**: 실험 설계·수행·논문 작성 (진행 중)
+
+> A~C 산출물(이론·갭·제안)은 **Background 탭(`01_theory/`)의 STEP 1~4**로 통합되어 하나의 연속된 연구 배경으로 관리한다.
 
 ## Site & Repo
 
 - GitHub: https://github.com/KChaeYeon/nTIS_note
 - Pages: https://kchaeyeon.github.io/nTIS_note/
-- 로컬: `/mnt/d/00_Project/nTIS_note/`
+- 로컬: `/mnt/d/00_Project/nTIS/`
 
 ## Folder Structure
 
+사이트는 5개 탭으로 구성된다 (탭 순서: Background · Simulation · Experiment · Meeting · Reference).
+탭명·순서는 각 폴더의 `.pages`(title)와 최상위 `docs/.pages`(nav)로 제어한다.
+
 ```
 docs/
-├── index.md           ← 홈 (진행 현황 업데이트)
-├── 01_theory/         ← 이론 정리
-├── 02_papers/         ← 논문별 요약 (YYYY_Author_Keyword.md)
-├── 03_gaps/           ← 연구 갭 분석
-├── 04_proposal/       ← 연구 제안서
-├── 05_Exp/            ← 실험 데이터·분석 결과
-└── 06_Meeting/        ← 회의록·발표 자료
+├── index.md           ← 홈 (5개 탭 구성 개요)
+├── 01_theory/         ← [Background] 연구 배경 = 이론 + 연구 갭(13) + 제안(14~16)
+├── 02_papers/         ← [Reference]  논문별 요약 (YYYY_Author_Keyword.md)
+├── 05_Code/           ← 분석 코드 (사이트 nav 미노출)
+├── 06_Exp/            ← [Experiment] 실험 데이터·분석 결과
+├── 07_Meeting/        ← [Meeting]    회의록·발표 자료
+└── 07_Simulation/     ← [Simulation] COMSOL FEM 시뮬레이션 (사용법·변수체계·데이터)
 ```
+
+> 구 `03_gaps/`·`04_proposal/`는 Background(`01_theory/13~16_*.md`)로 통합·이동되었다.
 
 ## Workflow
 
@@ -53,7 +60,8 @@ docs/
 - 노트 추가 시 해당 섹션 폴더의 파일 명명 규칙을 따를 것
 - 논문 요약 작성 시: 연구 질문, 방법, 주요 결과, 한계점, 관련 갭 순서로 정리
 - 새 이론 내용 추가 시 MathJax 문법으로 수식 작성
-- `index.md` Progress Tracker는 단계 변경 시 업데이트
+- 홈 `index.md`는 5개 탭 구성 개요를 유지 (Progress Tracker 방식 폐지)
+- 탭 추가·이름·순서 변경 시 해당 폴더의 `.pages`(title)와 `docs/.pages`(nav)를 함께 수정
 - git push 전 확인 요청
 
 ## 응답 워크플로우 (모든 세션 적용)
@@ -66,14 +74,6 @@ docs/
 
 > 단순 조작(파일 작성, git 명령, 포맷 변환 등)은 검증 생략 가능.
 
-## MCP 서버
-
-| 서버 | 상태 | 용도 |
-|------|------|------|
-| `notebooklm` | ✅ 등록됨 (인증 필요) | Google NotebookLM 연동 — 노트북에 질문, 소스 추가, 오디오 개요 생성 |
-
-> **최초 인증 필요:** 터미널에서 `! npx notebooklm-mcp@latest setup_auth` 실행 → Chrome이 열리면 Google 계정 로그인 → 이후 자동 유지
-
 ---
 
 ## 하네스: nTIS Research
@@ -82,12 +82,14 @@ docs/
 
 **트리거:** nTIS 연구 관련 작업(주제 선정, 문헌조사, 실험 설계, 논문 작성) 요청 시 `.claude/skills/nTIS-research/SKILL.md` (오케스트레이터) 스킬을 사용하라. 단순 질문은 직접 응답 가능.
 
-**에이전트:** `.claude/agents/` — literature-scout, research-designer, paper-writer
+**에이전트:** `.claude/agents/` — literature-scout, research-designer, paper-writer, theory-mentor
 
 **변경 이력:**
 | 날짜 | 변경 내용 | 대상 | 사유 |
 |------|----------|------|------|
 | 2026-06-10 | 초기 하네스 구성 | 전체 | nTIS 연구 주제 선정 세션 시작 |
+| 2026-07-07 | theory-mentor 에이전트 + ti-efield-theory 스킬 추가 | agents/theory-mentor.md, skills/ti-efield-theory/ | TI 전기장 이론 학습(연구교수 페르소나) 요청 |
+| 2026-07-07 | 세션 간 이어쓰기 로그(study_log.md) + 터미널 수식 표기 원칙 추가 (신규 스킬 생성 없이 기존 스킬 보강) | docs/01_theory/study_log.md, skills/ti-efield-theory/SKILL.md | 여러 세션에 걸친 TI 전기장 이론 공부 지속성 확보 |
 
 ---
 
@@ -103,6 +105,7 @@ docs/
 | `literature-scout` | 선행 논문 검색·요약, 특정 논문 내용 파악, 연구 동향 파악, 논문 PDF 정리가 필요할 때 |
 | `research-designer` | 실험 프로토콜 설계, FEM 모델링, FINES 평가, 연구 주제·방법론 선정이 필요할 때 |
 | `paper-writer` | 논문 초안·섹션(Introduction~Discussion) 작성, 저널 포맷 적용이 필요할 때 |
+| `theory-mentor` | TI 전기장 이론 심층 수식 유도·표기법 교차검증·오류 진단이 필요할 때 (`ti-efield-theory` 스킬에서 위임) |
 
 ### nTIS 전용 스킬 (`.claude/skills/` — 이 프로젝트 로컬)
 
@@ -112,6 +115,7 @@ docs/
 | `literature-search` | TIS/nTIS 논문 검색, PubMed/Semantic Scholar 조회, 갭 분석 |
 | `research-design` | 실험 프로토콜·FEM 모델링·FINES 평가·타임라인 설계 |
 | `paper-draft` | nTIS 논문 섹션 초안 작성, 저널 포맷(TBME/JNE) 적용 |
+| `ti-efield-theory` | TI 전기장 이론 학습, 연구교수 페르소나 소크라테스식 문답, envelope/n-phase 수식 이해 |
 
 ### 상위 프로젝트 스킬 (`/mnt/d/00_Project/.claude/skills/academic-research-skills/`)
 

@@ -1,4 +1,24 @@
-title: Theory — 연구 배경
+title: Background
 nav:
   - index.md
-  - ...
+  # 1부. 연구 동기
+  - 01_clinical_OAB.md
+  - 02_tibial_nerve.md
+  - 03_existing_neuromodulation.md
+  # 2부. 원리 & 설계 (5-8-4-7-9-6 순서)
+  - 05_EM_physics_FEM.md
+  - 08_electrode_position_AM.md
+  - 04_TIS_principle.md
+  - 07_AM_max.md
+  - 09_stimulation_zones.md
+  - 06_nphase_multichannel.md
+  # 3부. 적용 & 레퍼런스
+  - 10_tibial_TIS_simulation.md
+  - 11_comprehensive_reference.md
+  - 12_charge_conservation_QA.md
+  # 4부. 연구 갭 & 제안
+  - 13_research_gaps.md
+  - 14_research_proposal.md
+  - 15_proposal_alternatives.md
+  - 16_comsol_proposal.md
+  - study_log.md

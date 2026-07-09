@@ -36,4 +36,4 @@ Compared to the existing noninvasive methods, temporal interference (TI) current
 
 ## 관련 연구 갭 (nTIS)
 
-경골신경 TIS의 **유일한 직접 FEM 최적화 선행**([2021_Lee_EfficientNoninvasiveNeuromodulation](2021_Lee_EfficientNoninvasiveNeuromodulation.md)의 시뮬레이션 축을 정교화). 그러나 in vivo 검증·뉴런 반응 모델·PTNS 비교가 비어 있어, 본 nTIS 연구의 실험 설계(G-TN1·G-TN2, `03_gaps/gap_analysis.md`)가 이를 메운다. n-phase 확장으로 선택성 추가 개선 여지.
+경골신경 TIS의 **유일한 직접 FEM 최적화 선행**([2021_Lee_EfficientNoninvasiveNeuromodulation](2021_Lee_EfficientNoninvasiveNeuromodulation.md)의 시뮬레이션 축을 정교화). 그러나 in vivo 검증·뉴런 반응 모델·PTNS 비교가 비어 있어, 본 nTIS 연구의 실험 설계(G-TN1·G-TN2, `01_theory/13_research_gaps.md`)가 이를 메운다. n-phase 확장으로 선택성 추가 개선 여지.

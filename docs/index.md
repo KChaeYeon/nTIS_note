@@ -16,26 +16,72 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 
 ---
 
-## Progress Tracker
+## 탭 구성 (한눈에)
 
-| Stage | Status | Notes |
-|-------|--------|-------|
-| A. Theory | ✅ Done | 기본 원리·전기장 모델·n-phase 수식 정리 완료 |
-| B. Research Gaps | ✅ Done | 5분류 갭 분석 완료 (Knowledge/Methodological/Evidence/Contradictory/Application) |
-| C. Proposal | 🔄 In progress | FINES 평가 완료, 10개 후보 도출 — 지도교수 확인 후 최종 1~2개 선택 |
-| D. Execution | ⏳ Pending | 주제 확정 + IACUC/IRB 후 착수 |
+이 노트북은 아래 5개 탭으로 구성된다. 각 탭이 무엇을 담는지 한눈에 확인하고 필요한 곳으로 바로 이동한다.
 
-> **다음 할 일:** 지도교수와 최우선 후보 확인 → ① Phrenic TIS→Glymphatic (FINES 4.85, Student A ICG 시너지) vs. ② 경골신경 OAB (안정적 임팩트) → ICG 프로토콜 공유 및 cystometry 장비 여부 확인 → IACUC 신청
+<div class="grid cards" markdown>
+
+-   :material-book-open-variant:{ .lg .middle } &nbsp;**Background**
+
+    ---
+
+    연구의 이론적 배경 전체 흐름. **4 STEP**으로 정리:
+
+    - STEP 1 — 연구 동기 (OAB·경골신경·기존 기술 한계)
+    - STEP 2 — 원리 & 설계 (물리·FEM·TIS·AM_max·n-phase)
+    - STEP 3 — 적용 & 레퍼런스 (Rat 실험·종합 참고)
+    - STEP 4 — 연구 갭 & 제안 (갭 분석 + 제안서)
+
+    [:octicons-arrow-right-24: Background 열기](01_theory/index.md)
+
+-   :material-cube-scan:{ .lg .middle } &nbsp;**Simulation**
+
+    ---
+
+    COMSOL FEM 전기장 시뮬레이션.
+
+    - COMSOL TIS 시뮬레이션 사용법
+    - AM_vector COMSOL 변수 체계
+    - 데이터·결과물(`Result/`)
+
+    [:octicons-arrow-right-24: Simulation 열기](07_Simulation/index.md)
+
+-   :material-flask-outline:{ .lg .middle } &nbsp;**Experiment**
+
+    ---
+
+    실험 데이터 및 분석 결과 기록.
+
+    - 파일 규칙 `YYYYMMDD_ExperimentName.md`
+    - Rat OAB in vivo 실험 착수 후 축적 예정
+
+    [:octicons-arrow-right-24: Experiment 열기](06_Exp/index.md)
+
+-   :material-account-group-outline:{ .lg .middle } &nbsp;**Meeting**
+
+    ---
+
+    연구 회의록·발표 자료.
+
+    - 연구 방향·문헌 서베이·세션 인계 기록
+    - 협력 미팅·팀 내부 미팅·발표 스크립트
+
+    [:octicons-arrow-right-24: Meeting 열기](07_Meeting/index.md)
+
+-   :material-file-document-multiple-outline:{ .lg .middle } &nbsp;**Reference**
+
+    ---
+
+    선행 논문 요약 라이브러리 (9개 카테고리).
+
+    - Foundational · Computational · Human · Rodent · NHP
+    - Reviews · n-phase 확장 · TN-OAB · 말초/경골 TIS
+
+    [:octicons-arrow-right-24: Reference 열기](02_papers/index.md)
+
+</div>
 
 ---
 
-## Quick Links
-
-- [Basic Principles](01_theory/01_basic_principles.md)
-- [TIS 완전 설명서](01_theory/04_tis_complete_guide.md)
-- [경골신경 TIS 가이드 (FEM·Rat)](01_theory/05_tibial_nerve_TIS.md)
-- [**경골신경 현존 지식 완전 종합**](01_theory/06_tibial_nerve_complete_knowledge.md) ← 최신
-- [Paper List](02_papers/index.md)
-- [Research Gaps](03_gaps/gap_analysis.md)
-- [Proposal (Round 1)](04_proposal/research_proposal.md)
-- [Proposal (Round 2 — Phrenic/Tibial/Glymphatic)](04_proposal/proposal_phrenic_tibial_glymphatic.md)
+*단계 A(Theory) → B(Gaps) → C(Proposal)는 완료되어 **Background** 탭의 STEP 4로 통합되었고, 현재는 D(Execution) — 경골신경 TIS in vivo Rat OAB 실험 착수 단계다. 상세 제안은 [연구 제안서](01_theory/14_research_proposal.md) 참조.*

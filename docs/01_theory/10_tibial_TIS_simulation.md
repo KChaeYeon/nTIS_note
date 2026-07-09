@@ -2,7 +2,7 @@
 
 > 작성: 2026-06-11 | 대상: 비전공자 포함 — 단계별 설명 구조
 >
-> 관련 파일: [TIS 원리 기초](04_TIS_principle.md) | [연구 갭 분석](../03_gaps/gap_analysis.md) | [연구 제안서](../04_proposal/proposal_phrenic_tibial_glymphatic.md)
+> 관련 파일: [TIS 원리 기초](04_TIS_principle.md) | [연구 갭 분석](13_research_gaps.md) | [연구 제안서](15_proposal_alternatives.md)
 
 ---
 

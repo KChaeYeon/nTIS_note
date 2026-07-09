@@ -13,3 +13,18 @@ docs/07_Simulation/260626_*.txt
 
 # OMC 로컬 세션 상태
 .omc/
+Thumbs.db
+
+# 대용량 바이너리 — GitHub 100MB 초과/사이트 미렌더, 로컬 원본만 유지
+*.pptx
+*.mp4
+*.mov
+*.zip
+*.nii
+*.nii.gz
+*.stl
+# 발표자료·회의 원본·참조 데이터셋 디렉터리 (텍스트 노트만 추적)
+docs/07_Meeting/nTIS_프리젠테이션/
+docs/07_Meeting/ppt/
+docs/07_Meeting/Recording/
+docs/05_Code/Simulation/Refer dataset/

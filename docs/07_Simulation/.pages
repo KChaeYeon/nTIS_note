@@ -1,1 +1,5 @@
 title: Simulation
+nav:
+  - index.md
+  - COMSOL_simulation_guide.md
+  - AM_vector_variable_system.md
