@@ -454,5 +454,127 @@ rank(F) = 3: 선형독립 (3D 완전 제어) ← 목표
 
 ---
 
-*Last updated: 2026-06-23*
-*다음 단계: STEP 6 — 3-phase TIS 수식 심화 및 COMSOL 구현*
+## 9. STEP 6 — 3-phase TIS 수식 심화 (송솔웅 박사학위논문 기반)
+
+> 추가: 2026-07-09
+> 출처: 송솔웅, *Development of a non-invasive deep tissue electrical stimulation: n-phase temporal interference stimulation*, 한양대 박사학위논문(2026.02), `docs/07_Meeting/nTIS_프리젠테이션/송솔웅/Manuscript/Thesis_SolwoongSong_Uploaded.pdf` Chapter 2–4
+> 위 STEP 5(1~8절)가 "왜 3-phase가 필요한가"를 다뤘다면, 이 절은 3-phase(N=3인 nTIS)가 실제로 **어떻게 타원 궤적·최대 envelope·조향을 수식으로 구현하는지**를 논문 원문 그대로 정리한다.
+
+### 9-1. 채널 전류 정의와 zero-sum 조건
+
+각 채널 k(=1..N, 3-phase면 N=3)의 전류:
+
+```
+I_k(t) = A_k · cos(ωt + φ_k)
+```
+
+물리적 안전조건(전극에 DC가 안 쌓이게):
+
+```
+Σ I_k(t) = 0   (모든 t에서)
+
+⟺  Σ A_k·cos(φ_k) = 0,   Σ A_k·sin(φ_k) = 0
+```
+
+이 조건을 만족하면 총 전기장은 두 개의 quadrature 벡터로 압축된다:
+
+```
+E(t) = C·cos(ωt) + S·sin(ωt)
+   C = Σ A_k·cos(φ_k)·E_k(r),   S = Σ A_k·sin(φ_k)·E_k(r)
+```
+
+N=2(기존 TIS)에서는 C, S가 항상 평행 → E(t)가 직선. **N≥3부터 C, S가 일반적으로 평행하지 않게 되고, 이때 E(t)의 끝점이 타원을 그린다.** 이것이 3-phase가 "회전"을 만드는 최소 조건인 이유다.
+
+### 9-2. 타원의 닫힌 형태(closed-form)
+
+한 공간점에서 두 직교 성분:
+
+```
+Ex(t) = Ax·cos(τ),   Ey(t) = Ay·cos(τ+δ)     (τ = ωt+φx, δ = 위상차)
+```
+
+행렬로 쓰면:
+
+```
+[x]   [Ax        0      ] [cosτ]
+[y] = [Ay·cosδ  -Ay·sinδ] [sinτ]
+```
+
+[cosτ, sinτ]가 원을 그리므로 이 선형변환 결과는 **타원**(δ=0이면 직선으로 퇴화). 장축 a, 단축 b, 방향 φ는 다음 행렬의 고유값/고유벡터:
+
+```
+S = [ Ax²         Ax·Ay·cosδ ]
+    [ Ax·Ay·cosδ     Ay²     ]
+
+a², b² = (Ax²+Ay²)/2 ± (1/2)·√[(Ax²-Ay²)² + 4·Ax²·Ay²·cos²δ]
+φ = (1/2)·atan2(2·Ax·Ay·cosδ,  Ax²-Ay²)
+```
+
+임의 방향 θ로의 투영(project) 길이:
+
+```
+ρ(θ) = √[ a²cos²(θ-φ) + b²sin²(θ-φ) ]
+```
+
+### 9-3. Envelope 최대값 — 3가지 케이스
+
+3-phase TIS는 서로 다른 두 반송주파수(f1, f2)를 쓰므로, 한 공간점에 **타원이 2개**(각 주파수당 1개) 존재한다. envelope은 두 타원의 투영 비교로 결정된다:
+
+```
+E_AM(θ)     = 2·min(ρ1(θ), ρ2(θ))
+E_AM_max    = max_θ [ E_AM(θ) ]
+```
+
+| 케이스 | 조건 | 결과 |
+|---|---|---|
+| **1. 일치** | a1=a2, b1=b2, φ1=φ2 | E_AM_max = 2a (장축에서 최대) |
+| **2. 한쪽 압도** | 큰 타원이 작은 타원의 장축 방향에서도 2·a_small 이상 | E_AM_max = 2·a_small (작은 타원의 장축이 병목) |
+| **3. 교차** | 두 타원의 투영곡선이 서로 역전되는 방향 존재 | 두 투영이 같아지는 방향(교차점)에서 E_AM_max 결정 |
+
+기존 TIS(직선) 공식 `E_AM_max = 2‖E2‖` 또는 `2‖E1×E2‖/‖E1-E2‖`의 **타원 버전 일반화**다 — Case 2가 기존 TIS의 "포화" 케이스, Case 3이 "사선 균형" 케이스에 대응한다.
+
+### 9-4. FEM 시뮬레이션 검증 (COMSOL 6.3, AC/DC 모듈)
+
+- 2D 원형 도메인(반지름 25mm, water), 전극을 30° 간격 배치, 접지전극 1개
+- 각 채널의 (A_k, φ_k)를 조합해 실제로 확인한 것: **전극 위치는 고정한 채 위상만 바꿔서** envelope 최대 지점을 수평/수직/대각선/회전으로 자유롭게 이동
+
+![3-phase 조향 결과: 위상만 바꿔서 envelope 최대 지점을 이동시킨 FEM 결과](assets/06_3phase/steering_montage.png)
+
+*(baseline → horizontal steering → rotational steering. 전극은 그대로, 전류의 진폭·위상 조합만 바뀜 — 원 논문 Figure 17~19에 해당)*
+
+**해석해(analytic) vs brute-force 검증**: 위 9-3의 닫힌 형태 수식으로 계산한 E_AM_max와, 실제 시간영역에서 여러 주기 동안 필드를 직접 계산해 최대/최소를 잡아낸 brute-force 값을 비교:
+
+![해석해 vs brute-force 비교 및 잔차 맵](assets/06_3phase/analytic_vs_bruteforce.png)
+
+*(residual Δ_AM = |E_AM_analytic − E_AM_brute|는 envelope 진폭이 0에 가까운 영역에서만 미세하게 남고, 자극에 실제 의미 있는 고진폭 영역에서는 체계적 오차 없음 — 원 논문 Figure 20)*
+
+### 9-5. 실험 검증 — LED phantom
+
+- 위상 동기화 다채널 신호 발생기(공통 clock, sub-degree 위상 안정성 확인) + 증폭 + **LED phantom**
+- LED phantom: 저주파 envelope 성분만 선택적으로 뽑아 밝기로 시각화 (생체조직 없이 물리적으로 확인)
+- 위상을 돌리면 LED 밝기 패턴도 같이 회전 → FEM 예측과 정성적으로 일치
+
+### 9-6. 논문이 명시한 한계
+
+- 이론·시뮬레이션 모두 **2D 평면**에 한정 (3D 일반화는 future work)
+- LED phantom은 생체조직 유전특성 미반영 → "공학적 실현 가능성"까지만 증명, 신경 자극 효과 자체는 미검증
+- in vivo/ex vivo 실험 없음 → 신경 활성화·행동 효과에 대한 인과적 주장은 아직 불가
+
+### 9-7. 후속 진행 상황 — 3D 확장 (2026.03.31~, 진행 중)
+
+학위논문(2D) 이후 실제로 3D 일반화 작업이 시작됐다 (`20260331_송솔웅_nTIS_전기장계산.pptx`):
+
+- COMSOL에서 두 주파수(f1, f2) 각각의 Ex/Ey/Ez phasor를 export → MATLAB(`nTIS_3D_260331.m`)에서 재구성
+- 문제를 **"두 개의 non-coplanar(같은 평면에 있지 않은) 타원의 3D 투영"**으로 일반화
+- 제약조건 2개를 건 **Lagrange multiplier 방법**으로 constrained optimization을 풀어 3D E_AM_max를 구하는 단계까지 진행
+
+![3D 확장 FEM 셋업 예시](assets/06_3phase/3d_extension_setup.png)
+
+*(회색 판 = COMSOL에서 export한 Ex/Ey/Ez 슬라이스, 빨간 영역 = 타겟 구조물, 검은 원기둥 = 전극 — 2D 원형 도메인 검증을 3D 해부학적 구조로 확장하는 중간 단계)*
+
+이 3D 수식(Lagrangian, stationarity 조건 등)은 슬라이드 텍스트만으로는 최종 형태가 다 드러나지 않아, 필요하면 해당 pptx의 수식 슬라이드나 `nTIS_3D_260331.m` 코드를 직접 열어 확인해야 한다.
+
+---
+
+*Last updated: 2026-07-09*
+*다음 단계: STEP 6 3D 확장 — Lagrange multiplier 기반 3D envelope 최적화 (진행 중)*
