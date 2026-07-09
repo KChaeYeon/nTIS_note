@@ -49,6 +49,8 @@
       
     
     
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1770,10 +1772,11 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 <hr />
 <h2 id="_1">탭 구성 (한눈에)</h2>
 <p>이 노트북은 아래 5개 탭으로 구성된다. 각 탭이 무엇을 담는지 한눈에 확인하고 필요한 곳으로 바로 이동한다.</p>
+<div class="tab-grid">
 <div class="grid cards">
 <ul>
 <li>
-<p>:material-book-open-variant:{ .lg .middle } &nbsp;<strong>Background</strong></p>
+<p><strong>Background</strong></p>
 <hr />
 <p>연구의 이론적 배경 전체 흐름. <strong>4 STEP</strong>으로 정리:</p>
 <ul>
@@ -1782,10 +1785,10 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 <li>STEP 3 — 적용 &amp; 레퍼런스 (Rat 실험·종합 참고)</li>
 <li>STEP 4 — 연구 갭 &amp; 제안 (갭 분석 + 제안서)</li>
 </ul>
-<p><a href="01_theory/">:octicons-arrow-right-24: Background 열기</a></p>
+<p><a href="01_theory/">Background 열기</a></p>
 </li>
 <li>
-<p>:material-cube-scan:{ .lg .middle } &nbsp;<strong>Simulation</strong></p>
+<p><strong>Simulation</strong></p>
 <hr />
 <p>COMSOL FEM 전기장 시뮬레이션.</p>
 <ul>
@@ -1793,39 +1796,40 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 <li>AM_vector COMSOL 변수 체계</li>
 <li>데이터·결과물(<code>Result/</code>)</li>
 </ul>
-<p><a href="07_Simulation/">:octicons-arrow-right-24: Simulation 열기</a></p>
+<p><a href="07_Simulation/">Simulation 열기</a></p>
 </li>
 <li>
-<p>:material-flask-outline:{ .lg .middle } &nbsp;<strong>Experiment</strong></p>
+<p><strong>Experiment</strong></p>
 <hr />
 <p>실험 데이터 및 분석 결과 기록.</p>
 <ul>
 <li>파일 규칙 <code>YYYYMMDD_ExperimentName.md</code></li>
 <li>Rat OAB in vivo 실험 착수 후 축적 예정</li>
 </ul>
-<p><a href="06_Exp/">:octicons-arrow-right-24: Experiment 열기</a></p>
+<p><a href="06_Exp/">Experiment 열기</a></p>
 </li>
 <li>
-<p>:material-account-group-outline:{ .lg .middle } &nbsp;<strong>Meeting</strong></p>
+<p><strong>Meeting</strong></p>
 <hr />
 <p>연구 회의록·발표 자료.</p>
 <ul>
 <li>연구 방향·문헌 서베이·세션 인계 기록</li>
 <li>협력 미팅·팀 내부 미팅·발표 스크립트</li>
 </ul>
-<p><a href="07_Meeting/">:octicons-arrow-right-24: Meeting 열기</a></p>
+<p><a href="07_Meeting/">Meeting 열기</a></p>
 </li>
 <li>
-<p>:material-file-document-multiple-outline:{ .lg .middle } &nbsp;<strong>Reference</strong></p>
+<p><strong>Reference</strong></p>
 <hr />
 <p>선행 논문 요약 라이브러리 (9개 카테고리).</p>
 <ul>
 <li>Foundational · Computational · Human · Rodent · NHP</li>
 <li>Reviews · n-phase 확장 · TN-OAB · 말초/경골 TIS</li>
 </ul>
-<p><a href="02_papers/">:octicons-arrow-right-24: Reference 열기</a></p>
+<p><a href="02_papers/">Reference 열기</a></p>
 </li>
 </ul>
+</div>
 </div>
 <hr />
 <p><em>단계 A(Theory) → B(Gaps) → C(Proposal)는 완료되어 </em><em>Background</em><em> 탭의 STEP 4로 통합되었고, 현재는 D(Execution) — 경골신경 TIS in vivo Rat OAB 실험 착수 단계다. 상세 제안은 <a href="01_theory/14_research_proposal/">연구 제안서</a> 참조.</em></p>

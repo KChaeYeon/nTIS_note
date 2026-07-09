@@ -1,0 +1,41 @@
+/* 홈 화면 탭 카드 — 3열 배치 + 카드별 채움 색 (라이트/다크 자동 대응) */
+
+/* 3열 (태블릿 2열, 모바일 1열) */
+.md-typeset .tab-grid .grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width: 59.9375em) {
+  .md-typeset .tab-grid .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .tab-grid .grid { grid-template-columns: 1fr; }
+}
+
+/* 카드 공통 — 채움 색은 var(--card) 를 배경/테두리/제목에 사용 */
+.md-typeset .tab-grid .grid.cards > ul > li {
+  background: color-mix(in srgb, var(--card) 14%, var(--md-default-bg-color));
+  border: .05rem solid color-mix(in srgb, var(--card) 35%, transparent);
+  border-top: .2rem solid var(--card);
+  border-radius: .3rem;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.md-typeset .tab-grid .grid.cards > ul > li:hover {
+  transform: translateY(-.15rem);
+  box-shadow: 0 .25rem .7rem rgba(0, 0, 0, .22);
+  border-color: var(--card);
+  border-top-width: .2rem;
+}
+.md-typeset .tab-grid .grid.cards > ul > li > p:first-child strong {
+  color: var(--card);
+  font-size: 1.05rem;
+}
+.md-typeset .tab-grid .grid.cards > ul > li hr {
+  border-bottom-color: color-mix(in srgb, var(--card) 30%, transparent);
+}
+
+/* 카드별 색 (Background · Simulation · Experiment · Meeting · Reference) */
+.md-typeset .tab-grid .grid.cards > ul > li:nth-child(1) { --card: #5c6bc0; } /* indigo */
+.md-typeset .tab-grid .grid.cards > ul > li:nth-child(2) { --card: #00897b; } /* teal   */
+.md-typeset .tab-grid .grid.cards > ul > li:nth-child(3) { --card: #ef6c00; } /* orange */
+.md-typeset .tab-grid .grid.cards > ul > li:nth-child(4) { --card: #d81b60; } /* pink   */
+.md-typeset .tab-grid .grid.cards > ul > li:nth-child(5) { --card: #43a047; } /* green  */
