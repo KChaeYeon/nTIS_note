@@ -226,7 +226,7 @@ function efield_map_viewer()
 
     condLabelUi = uilabel(fig, 'Position', [780 690 220 22], 'Text', '전도도 σ [S/m] (등방성):');
     condEdit = uieditfield(fig, 'numeric', 'Position', [1010 690 100 22], ...
-        'Value', 0.33, 'Limits', [0, Inf]);
+        'Value', 1.5, 'Limits', [0, Inf]);
 
     curResultLbl = uilabel(fig, 'Position', [780 628 500 50], 'FontSize', 13, 'FontWeight', 'bold', ...
         'WordWrap', 'on');
@@ -673,7 +673,7 @@ function [I, tbl, circXY, coverageDeg, detailTbl] = compute_circle_current(coord
         nSectors = 3600;
     end
     if nargin < 7 || isempty(tolFrac)
-        tolFrac = 0.1;
+        tolFrac = 0.05;
     end
 
     rel = coords - center;
