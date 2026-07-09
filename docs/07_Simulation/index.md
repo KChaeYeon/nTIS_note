@@ -9,21 +9,21 @@
 
 <div class="grid cards" markdown>
 
--   :material-cube-outline:{ .lg .middle } &nbsp;**1. COMSOL TIS 시뮬레이션 사용법**
+-   **1. COMSOL TIS 시뮬레이션 사용법**
 
     ---
 
     모델 설정부터 후처리까지 — 지오메트리·물성·경계조건·메시·솔버·결과 추출의 단계별 워크플로우.
 
-    [:octicons-arrow-right-24: 사용법 열기](COMSOL_simulation_guide.md)
+    [사용법 열기](COMSOL_simulation_guide.md)
 
--   :material-function-variant:{ .lg .middle } &nbsp;**2. AM_vector COMSOL 변수 체계**
+-   **2. AM_vector COMSOL 변수 체계**
 
     ---
 
     `2D_2phase_max.txt` 기반 — COMSOL Variables로 등록하는 AM_max·벡터 변수 정의 체계.
 
-    [:octicons-arrow-right-24: 변수 체계 열기](AM_vector_variable_system.md)
+    [변수 체계 열기](AM_vector_variable_system.md)
 
 </div>
 

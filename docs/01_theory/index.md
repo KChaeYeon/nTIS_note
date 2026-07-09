@@ -11,7 +11,7 @@
 
 <div class="grid cards" markdown>
 
--   :material-stethoscope:{ .lg .middle } &nbsp;**STEP 1 — 연구 동기**
+-   **STEP 1 — 연구 동기**
 
     ---
 
@@ -21,9 +21,9 @@
 
     → **"비침습 + 심부 선택성"** 필요
 
-    [:octicons-arrow-right-24: 아래 STEP 1](#step-1)
+    [아래 STEP 1](#step-1)
 
--   :material-sine-wave:{ .lg .middle } &nbsp;**STEP 2 — 원리 & 설계**
+-   **STEP 2 — 원리 & 설계**
 
     ---
 
@@ -31,9 +31,9 @@
 
     전자기 물리·FEM → 전극 위치별 AM 전기장 → TIS 원리(맥놀이) → AM_max 축 → 자극 3구역 → n-phase 확장
 
-    [:octicons-arrow-right-24: 아래 STEP 2](#step-2)
+    [아래 STEP 2](#step-2)
 
--   :material-flask:{ .lg .middle } &nbsp;**STEP 3 — 적용 & 레퍼런스**
+-   **STEP 3 — 적용 & 레퍼런스**
 
     ---
 
@@ -41,9 +41,9 @@
 
     경골신경 TIS 시뮬레이션 → Rat 실험 프로토콜 → 종합 레퍼런스 → 전하 보존 Q&A
 
-    [:octicons-arrow-right-24: 아래 STEP 3](#step-3)
+    [아래 STEP 3](#step-3)
 
--   :material-target:{ .lg .middle } &nbsp;**STEP 4 — 연구 갭 & 제안**
+-   **STEP 4 — 연구 갭 & 제안**
 
     ---
 
@@ -51,7 +51,7 @@
 
     5분류 갭 분석 → 최종 연구 주제 결정(경골신경 TIS in vivo) → 대안 후보 → COMSOL 제안서
 
-    [:octicons-arrow-right-24: 아래 STEP 4](#step-4)
+    [아래 STEP 4](#step-4)
 
 </div>
 

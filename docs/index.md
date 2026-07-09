@@ -20,9 +20,10 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
 
 이 노트북은 아래 5개 탭으로 구성된다. 각 탭이 무엇을 담는지 한눈에 확인하고 필요한 곳으로 바로 이동한다.
 
+<div class="tab-grid" markdown>
 <div class="grid cards" markdown>
 
--   :material-book-open-variant:{ .lg .middle } &nbsp;**Background**
+-   **Background**
 
     ---
 
@@ -33,9 +34,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
     - STEP 3 — 적용 & 레퍼런스 (Rat 실험·종합 참고)
     - STEP 4 — 연구 갭 & 제안 (갭 분석 + 제안서)
 
-    [:octicons-arrow-right-24: Background 열기](01_theory/index.md)
+    [Background 열기](01_theory/index.md)
 
--   :material-cube-scan:{ .lg .middle } &nbsp;**Simulation**
+-   **Simulation**
 
     ---
 
@@ -45,9 +46,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
     - AM_vector COMSOL 변수 체계
     - 데이터·결과물(`Result/`)
 
-    [:octicons-arrow-right-24: Simulation 열기](07_Simulation/index.md)
+    [Simulation 열기](07_Simulation/index.md)
 
--   :material-flask-outline:{ .lg .middle } &nbsp;**Experiment**
+-   **Experiment**
 
     ---
 
@@ -56,9 +57,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
     - 파일 규칙 `YYYYMMDD_ExperimentName.md`
     - Rat OAB in vivo 실험 착수 후 축적 예정
 
-    [:octicons-arrow-right-24: Experiment 열기](06_Exp/index.md)
+    [Experiment 열기](06_Exp/index.md)
 
--   :material-account-group-outline:{ .lg .middle } &nbsp;**Meeting**
+-   **Meeting**
 
     ---
 
@@ -67,9 +68,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
     - 연구 방향·문헌 서베이·세션 인계 기록
     - 협력 미팅·팀 내부 미팅·발표 스크립트
 
-    [:octicons-arrow-right-24: Meeting 열기](07_Meeting/index.md)
+    [Meeting 열기](07_Meeting/index.md)
 
--   :material-file-document-multiple-outline:{ .lg .middle } &nbsp;**Reference**
+-   **Reference**
 
     ---
 
@@ -78,8 +79,9 @@ phase-shifted carrier signals, enabling improved spatial focality and directiona
     - Foundational · Computational · Human · Rodent · NHP
     - Reviews · n-phase 확장 · TN-OAB · 말초/경골 TIS
 
-    [:octicons-arrow-right-24: Reference 열기](02_papers/index.md)
+    [Reference 열기](02_papers/index.md)
 
+</div>
 </div>
 
 ---
