@@ -1806,11 +1806,11 @@
 </tr>
 <tr>
 <td>참조 노트</td>
-<td><code>05_EM_physics_FEM.md</code> (기존 노트는 TIS 중첩부터 시작 — 단일 전극 기초는 신규 보강 대상)</td>
+<td><code>05_EM_physics_FEM.md</code>, <code>12_charge_conservation_QA.md</code>(Q7~Q8: 균일각도분할/Riemann sum, FEM 보간 적분 타당성)</td>
 </tr>
 <tr>
 <td>마지막 체크포인트</td>
-<td>(진행 중)</td>
+<td><code>efield_map_viewer_ver2.m</code>의 <code>compute_circle_current</code> 물리·수치 검증 완료 (2026-07-09)</td>
 </tr>
 <tr>
 <td>막힌 지점</td>
@@ -1818,7 +1818,7 @@
 </tr>
 <tr>
 <td>다음 시작점</td>
-<td>(A) 이론: 3D(반구) flux 적분로 확장 — 반구 표면적 공식부터 시작해 2D(1/r) vs 3D(1/r²) 스케일링 비교. (B) 코드: <code>efield_flux_slider_tool.m</code>을 MATLAB에서 실제 실행해서 GUI(반지름 슬라이더/배율 슬라이더/클릭 조회/우측 테이블/상단 검증 라벨)가 정상 동작하는지, 레이아웃 겹침·잘림이 완전히 해결됐는지 확인부터. 그 다음 <code>efield_analysis.ipynb</code>의 <code>flux_at_radius</code>도 electrode geometry 반영 버전으로 실행해 실제 데이터 검증</td>
+<td>(A) <code>compute_AM</code> 스텁 구현 — Grossman 2017 envelope 공식을 <code>E_pair1</code>/<code>E_pair2_on1</code> 벡터로 벡터화. (B) <span class="arithmatex">\(R\)</span> 스윕으로 <span class="arithmatex">\(I_{\text{total}}(R)\)</span> plateau 실측(전극 근처 mesh 해상도 한계 확인). (C) 이론: 3D(반구) flux 적분로 확장 — 반구 표면적 공식부터 시작해 2D(1/r) vs 3D(1/r²) 스케일링 비교</td>
 </tr>
 </tbody>
 </table>
@@ -1835,6 +1835,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-07-09</td>
+<td><code>efield_map_viewer_ver2.m</code> 코드 리뷰 — 폐곡선 전류 적분(<code>compute_circle_current</code>) 물리적 타당성 확인 + 수치적분(균일 각도분할/Riemann sum) + FEM 보간(scatteredInterpolant)으로 적분해도 되는 이유</td>
+<td>ver2 코드 물리·수치 검증 완료, <code>12_charge_conservation_QA.md</code>에 Q7~Q8로 기록 반영</td>
+<td>사용자 이해("전극 주위 폐곡선에서 J 적분 = 인가전류") 정확함을 확인. 코드 강점(화면 격자와 전류계산용 원본 mesh 보간자 분리, <code>inside</code> 마스크로 경계 밖 처리, R-불변성 자체검증 내장) + 주의점(전극 근처 R 너무 작으면 mesh 해상도 한계 노출, R 너무 크면 옆 전극/return 경로까지 감싸 값 붕괴, <code>depth_m=1.0</code>이 COMSOL 설정과 수동 일치 필요, <code>str2num</code> 사용은 속도/안전성 개선 여지) 정리. <code>compute_AM</code>은 여전히 TODO — 다음 세션 대상</td>
+</tr>
 <tr>
 <td>2026-07-07</td>
 <td>(이어서) MATLAB GUI 실전 검증 도구 완성 — Arrow.csv(실제 COMSOL J 데이터)로 flux 계산 전환, 우측 테이블(</td>
